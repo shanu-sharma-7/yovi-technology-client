@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { motion } from "framer-motion";
 import {
@@ -53,18 +54,10 @@ function Contact() {
     });
 
     try {
-      /*
-       * Vercel Production:
-       * VITE_API_URL should be:
-       *
-       * https://yovi-technology-backend-1.onrender.com/api
-       *
-       * The fallback below is also production-safe.
-       * No localhost URL is used here.
-       */
-
+      // =========================================
+      // PRODUCTION BACKEND URL
+      // =========================================
       const API_URL =
-        import.meta.env.VITE_API_URL ||
         "https://yovi-technology-backend-1.onrender.com/api";
 
       const response = await fetch(`${API_URL}/contact`, {
@@ -169,7 +162,6 @@ function Contact() {
 
       </div>
 
-
       {/* =====================================================
           HERO
       ===================================================== */}
@@ -190,8 +182,6 @@ function Contact() {
           }}
           className="max-w-3xl"
         >
-
-          {/* Eyebrow */}
 
           <div className="mb-7 flex items-center gap-3">
 
@@ -229,9 +219,6 @@ function Contact() {
 
           </div>
 
-
-          {/* Heading */}
-
           <h1
             className="
               text-5xl
@@ -260,7 +247,6 @@ function Contact() {
 
           </h1>
 
-
           <p
             className="
               mt-7
@@ -276,7 +262,6 @@ function Contact() {
           </p>
 
         </motion.div>
-
 
         {/* =====================================================
             CONTACT GRID
@@ -310,8 +295,6 @@ function Contact() {
             }}
             className="space-y-4"
           >
-
-            {/* Contact Card */}
 
             <div
               className="
@@ -358,10 +341,7 @@ function Contact() {
                 CONTACT
               </span>
 
-
               <div className="relative mt-8 space-y-7">
-
-                {/* EMAIL */}
 
                 <div className="group/item flex gap-4">
 
@@ -403,9 +383,6 @@ function Contact() {
 
                 </div>
 
-
-                {/* PHONE */}
-
                 <div className="group/item flex gap-4">
 
                   <div
@@ -445,9 +422,6 @@ function Contact() {
                   </div>
 
                 </div>
-
-
-                {/* LOCATION */}
 
                 <div className="group/item flex gap-4">
 
@@ -492,9 +466,6 @@ function Contact() {
               </div>
 
             </div>
-
-
-            {/* WHAT WE DO */}
 
             <div
               className="
@@ -566,7 +537,6 @@ function Contact() {
 
           </motion.div>
 
-
           {/* =====================================================
               FORM
           ===================================================== */}
@@ -598,8 +568,6 @@ function Contact() {
             "
           >
 
-            {/* Form glow */}
-
             <div
               className="
                 pointer-events-none
@@ -613,7 +581,6 @@ function Contact() {
                 blur-[100px]
               "
             />
-
 
             <div className="relative mb-8">
 
@@ -639,11 +606,6 @@ function Contact() {
               </h2>
 
             </div>
-
-
-            {/* =====================================================
-                STATUS
-            ===================================================== */}
 
             {status.message && (
               <motion.div
@@ -691,17 +653,10 @@ function Contact() {
               </motion.div>
             )}
 
-
-            {/* =====================================================
-                FORM
-            ===================================================== */}
-
             <form
               onSubmit={handleSubmit}
               className="relative space-y-5"
             >
-
-              {/* NAME + EMAIL */}
 
               <div className="grid gap-5 sm:grid-cols-2">
 
@@ -748,7 +703,6 @@ function Contact() {
 
                 </div>
 
-
                 <div>
 
                   <label
@@ -794,9 +748,6 @@ function Contact() {
 
               </div>
 
-
-              {/* PHONE + COMPANY */}
-
               <div className="grid gap-5 sm:grid-cols-2">
 
                 <div>
@@ -841,7 +792,6 @@ function Contact() {
 
                 </div>
 
-
                 <div>
 
                   <label
@@ -885,11 +835,6 @@ function Contact() {
                 </div>
 
               </div>
-
-
-              {/* =====================================================
-                  SERVICE SELECT
-              ===================================================== */}
 
               <div>
 
@@ -990,11 +935,6 @@ function Contact() {
 
               </div>
 
-
-              {/* =====================================================
-                  CUSTOM SERVICE
-              ===================================================== */}
-
               {formData.service === "Other / Custom Requirement" && (
                 <motion.div
                   initial={{
@@ -1054,9 +994,6 @@ function Contact() {
                 </motion.div>
               )}
 
-
-              {/* MESSAGE */}
-
               <div>
 
                 <label
@@ -1101,11 +1038,6 @@ function Contact() {
                 />
 
               </div>
-
-
-              {/* =====================================================
-                  SUBMIT BUTTON
-              ===================================================== */}
 
               <button
                 type="submit"
@@ -1184,3 +1116,4 @@ function Contact() {
 }
 
 export default Contact;
+

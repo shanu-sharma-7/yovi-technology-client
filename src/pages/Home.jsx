@@ -75,7 +75,7 @@ function Home() {
           HERO
       ===================================================== */}
 
-      <section className="relative min-h-screen">
+      <section className="relative min-h-0 lg:min-h-screen">
 
         <AnimatedBackground />
 
@@ -87,12 +87,17 @@ function Home() {
             absolute
             left-1/2
             top-[15%]
-            h-[600px]
-            w-[600px]
+            h-[450px]
+            w-[450px]
             -translate-x-1/2
             rounded-full
             bg-violet-600/[0.07]
-            blur-[170px]
+            blur-[150px]
+            sm:h-[550px]
+            sm:w-[550px]
+            lg:h-[600px]
+            lg:w-[600px]
+            lg:blur-[170px]
           "
         />
 
@@ -104,11 +109,13 @@ function Home() {
             absolute
             right-[5%]
             top-[25%]
+            hidden
             h-[300px]
             w-[300px]
             rounded-full
             bg-blue-500/[0.035]
             blur-[120px]
+            lg:block
           "
         />
 
@@ -118,14 +125,18 @@ function Home() {
             relative
             mx-auto
             flex
-            min-h-screen
             max-w-7xl
             items-center
             px-6
-            pb-20
-            pt-32
+            pb-10
+            pt-28
             sm:px-8
+            sm:pb-14
+            sm:pt-32
+            lg:min-h-screen
             lg:px-12
+            lg:pb-20
+            lg:pt-32
           "
         >
 
@@ -134,8 +145,9 @@ function Home() {
               grid
               w-full
               items-center
-              gap-16
+              gap-8
               lg:grid-cols-[1.15fr_0.85fr]
+              lg:gap-16
             "
           >
 
@@ -151,7 +163,7 @@ function Home() {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7 }}
-                className="mb-7 flex items-center gap-3"
+                className="mb-6 flex items-center gap-3 sm:mb-7"
               >
 
                 <span
@@ -159,6 +171,7 @@ function Home() {
                     flex
                     h-8
                     w-8
+                    shrink-0
                     items-center
                     justify-center
                     rounded-full
@@ -178,10 +191,12 @@ function Home() {
 
                 <span
                   className="
-                    text-[11px]
+                    text-[9px]
                     font-semibold
-                    tracking-[0.22em]
+                    tracking-[0.18em]
                     text-violet-200/65
+                    sm:text-[11px]
+                    sm:tracking-[0.22em]
                   "
                 >
                   DIGITAL PRODUCTS • AI • ENGINEERING
@@ -212,7 +227,7 @@ function Home() {
                 "
               >
 
-                We build digital
+                We build digital{" "}
 
                 <span
                   className="
@@ -225,7 +240,7 @@ function Home() {
                     text-transparent
                   "
                 >
-                  experiences that
+                  experiences that{" "}
                 </span>
 
                 <span
@@ -255,11 +270,12 @@ function Home() {
                   delay: 0.25,
                 }}
                 className="
-                  mt-8
+                  mt-6
                   max-w-xl
                   text-base
                   leading-7
                   text-white/45
+                  sm:mt-8
                   sm:text-lg
                 "
               >
@@ -279,11 +295,12 @@ function Home() {
                   delay: 0.4,
                 }}
                 className="
-                  mt-9
+                  mt-7
                   flex
                   flex-wrap
                   items-center
                   gap-3
+                  sm:mt-9
                 "
               >
 
@@ -300,7 +317,7 @@ function Home() {
                     bg-gradient-to-r
                     from-violet-500
                     to-indigo-500
-                    px-6
+                    px-5
                     py-3.5
                     text-sm
                     font-semibold
@@ -310,6 +327,7 @@ function Home() {
                     duration-300
                     hover:scale-[1.03]
                     hover:shadow-[0_18px_60px_rgba(124,58,237,0.32)]
+                    sm:px-6
                   "
                 >
 
@@ -348,7 +366,7 @@ function Home() {
                     border
                     border-white/[0.10]
                     bg-white/[0.025]
-                    px-6
+                    px-5
                     py-3.5
                     text-sm
                     font-medium
@@ -359,6 +377,7 @@ function Home() {
                     hover:border-violet-300/30
                     hover:bg-violet-400/[0.07]
                     hover:text-white
+                    sm:px-6
                   "
                 >
                   Explore Services
@@ -377,16 +396,21 @@ function Home() {
                   delay: 0.7,
                 }}
                 className="
-                  mt-14
+                  mt-7
                   flex
                   flex-wrap
                   items-center
-                  gap-x-6
-                  gap-y-3
+                  gap-x-5
+                  gap-y-2
                   text-[10px]
                   font-medium
-                  tracking-[0.2em]
+                  tracking-[0.18em]
                   text-white/25
+                  sm:mt-10
+                  sm:gap-x-6
+                  sm:gap-y-3
+                  sm:tracking-[0.2em]
+                  lg:mt-14
                 "
               >
 
@@ -420,11 +444,12 @@ function Home() {
               }}
               className="
                 relative
-                hidden
-                h-[520px]
+                flex
+                h-[300px]
                 items-center
                 justify-center
-                lg:flex
+                sm:h-[380px]
+                lg:h-[520px]
               "
             >
 
@@ -433,22 +458,34 @@ function Home() {
               <div
                 className="
                   absolute
-                  h-[370px]
-                  w-[370px]
+                  h-[240px]
+                  w-[240px]
                   rounded-full
                   bg-violet-500/[0.10]
-                  blur-[120px]
+                  blur-[90px]
+                  sm:h-[300px]
+                  sm:w-[300px]
+                  sm:blur-[110px]
+                  lg:h-[370px]
+                  lg:w-[370px]
+                  lg:blur-[120px]
                 "
               />
 
               <div
                 className="
                   absolute
-                  h-[220px]
-                  w-[220px]
+                  h-[150px]
+                  w-[150px]
                   rounded-full
                   bg-blue-500/[0.07]
-                  blur-[80px]
+                  blur-[60px]
+                  sm:h-[190px]
+                  sm:w-[190px]
+                  sm:blur-[70px]
+                  lg:h-[220px]
+                  lg:w-[220px]
+                  lg:blur-[80px]
                 "
               />
 
@@ -464,12 +501,17 @@ function Home() {
                 }}
                 className="
                   absolute
-                  h-[390px]
-                  w-[390px]
+                  h-[230px]
+                  w-[230px]
                   rounded-full
                   border
                   border-violet-300/[0.10]
-                  shadow-[0_0_80px_rgba(139,92,246,0.05)]
+                  shadow-[0_0_60px_rgba(139,92,246,0.05)]
+                  sm:h-[300px]
+                  sm:w-[300px]
+                  lg:h-[390px]
+                  lg:w-[390px]
+                  lg:shadow-[0_0_80px_rgba(139,92,246,0.05)]
                 "
               >
 
@@ -500,24 +542,32 @@ function Home() {
                 }}
                 className="
                   absolute
-                  h-[280px]
-                  w-[280px]
+                  h-[165px]
+                  w-[165px]
                   rounded-full
                   border
                   border-blue-300/[0.12]
+                  sm:h-[220px]
+                  sm:w-[220px]
+                  lg:h-[280px]
+                  lg:w-[280px]
                 "
               >
 
                 <div
                   className="
                     absolute
-                    right-5
-                    top-8
+                    right-3
+                    top-5
                     h-1.5
                     w-1.5
                     rounded-full
                     bg-blue-300
                     shadow-[0_0_20px_rgba(147,197,253,0.8)]
+                    sm:right-4
+                    sm:top-6
+                    lg:right-5
+                    lg:top-8
                   "
                 />
 
@@ -538,8 +588,8 @@ function Home() {
                 className="
                   relative
                   flex
-                  h-40
-                  w-40
+                  h-28
+                  w-28
                   items-center
                   justify-center
                   rounded-full
@@ -549,18 +599,25 @@ function Home() {
                   from-white/[0.07]
                   via-violet-500/[0.05]
                   to-blue-500/[0.04]
-                  shadow-[0_0_100px_rgba(124,58,237,0.18)]
+                  shadow-[0_0_70px_rgba(124,58,237,0.18)]
                   backdrop-blur-xl
+                  sm:h-36
+                  sm:w-36
+                  sm:shadow-[0_0_85px_rgba(124,58,237,0.18)]
+                  lg:h-40
+                  lg:w-40
+                  lg:shadow-[0_0_100px_rgba(124,58,237,0.18)]
                 "
               >
 
                 <div
                   className="
                     absolute
-                    inset-5
+                    inset-4
                     rounded-full
                     border
                     border-white/[0.07]
+                    sm:inset-5
                   "
                 />
 
@@ -574,10 +631,11 @@ function Home() {
                       via-violet-200
                       to-violet-400
                       bg-clip-text
-                      text-4xl
+                      text-3xl
                       font-bold
                       tracking-[-0.05em]
                       text-transparent
+                      sm:text-4xl
                     "
                   >
                     Y
@@ -587,9 +645,10 @@ function Home() {
                     className="
                       mt-1
                       block
-                      text-[8px]
+                      text-[7px]
                       tracking-[0.3em]
                       text-white/35
+                      sm:text-[8px]
                     "
                   >
                     YOVI
@@ -603,7 +662,7 @@ function Home() {
               {/* BUILD */}
 
               <motion.div
-                animate={{ y: [0, -10, 0] }}
+                animate={{ y: [0, -8, 0] }}
                 transition={{
                   duration: 4,
                   repeat: Infinity,
@@ -611,25 +670,32 @@ function Home() {
                 }}
                 className="
                   absolute
-                  left-2
-                  top-28
+                  left-1
+                  top-12
                   rounded-2xl
                   border
                   border-violet-300/[0.12]
                   bg-violet-400/[0.035]
-                  px-4
-                  py-3
+                  px-3
+                  py-2.5
                   shadow-[0_10px_45px_rgba(124,58,237,0.10)]
                   backdrop-blur-xl
+                  sm:left-4
+                  sm:top-16
+                  sm:px-4
+                  sm:py-3
+                  lg:left-2
+                  lg:top-28
                 "
               >
 
                 <span
                   className="
-                    text-[9px]
+                    text-[8px]
                     font-medium
                     tracking-[0.2em]
                     text-violet-200/55
+                    sm:text-[9px]
                   "
                 >
                   BUILD
@@ -641,7 +707,7 @@ function Home() {
               {/* SCALE */}
 
               <motion.div
-                animate={{ y: [0, 10, 0] }}
+                animate={{ y: [0, 8, 0] }}
                 transition={{
                   duration: 5,
                   repeat: Infinity,
@@ -649,25 +715,32 @@ function Home() {
                 }}
                 className="
                   absolute
-                  bottom-24
-                  right-4
+                  bottom-10
+                  right-1
                   rounded-2xl
                   border
                   border-blue-300/[0.12]
                   bg-blue-400/[0.035]
-                  px-4
-                  py-3
+                  px-3
+                  py-2.5
                   shadow-[0_10px_45px_rgba(59,130,246,0.10)]
                   backdrop-blur-xl
+                  sm:bottom-16
+                  sm:right-4
+                  sm:px-4
+                  sm:py-3
+                  lg:bottom-24
+                  lg:right-4
                 "
               >
 
                 <span
                   className="
-                    text-[9px]
+                    text-[8px]
                     font-medium
                     tracking-[0.2em]
                     text-blue-200/55
+                    sm:text-[9px]
                   "
                 >
                   SCALE
@@ -726,9 +799,11 @@ function Home() {
           border-white/[0.07]
           bg-[#020204]
           px-6
-          py-28
+          py-20
           sm:px-8
+          sm:py-24
           lg:px-12
+          lg:py-28
         "
       >
 
@@ -751,11 +826,12 @@ function Home() {
               duration: 0.7,
             }}
             className="
-              mb-14
+              mb-10
               flex
               flex-col
               justify-between
-              gap-7
+              gap-6
+              md:mb-14
               md:flex-row
               md:items-end
             "
@@ -786,7 +862,7 @@ function Home() {
                   md:text-6xl
                 "
               >
-                Technology that turns
+                Technology that turns{" "}
 
                 <span
                   className="
@@ -798,7 +874,7 @@ function Home() {
                     text-transparent
                   "
                 >
-                  {" "}ideas into impact.
+                  ideas into impact.
                 </span>
 
               </h2>
@@ -922,13 +998,15 @@ function Home() {
 
           <div
             className="
-              mt-12
+              mt-10
               flex
               flex-col
               gap-3
               border-t
               border-white/[0.07]
-              pt-7
+              pt-6
+              sm:mt-12
+              sm:pt-7
               sm:flex-row
               sm:items-center
               sm:justify-between
@@ -974,9 +1052,11 @@ function Home() {
           border-white/[0.07]
           bg-[#020204]
           px-6
-          py-32
+          py-24
           sm:px-8
+          sm:py-28
           lg:px-12
+          lg:py-32
         "
       >
 
@@ -1017,9 +1097,10 @@ function Home() {
             mx-auto
             grid
             max-w-7xl
-            gap-14
+            gap-10
             lg:grid-cols-2
             lg:items-center
+            lg:gap-14
           "
         >
 
@@ -1086,11 +1167,12 @@ function Home() {
 
             <p
               className="
-                mt-7
+                mt-6
                 max-w-xl
                 text-base
                 leading-7
                 text-white/40
+                sm:mt-7
               "
             >
               YoVi Technologies combines engineering,
@@ -1104,7 +1186,7 @@ function Home() {
               href="/about"
               className="
                 group
-                mt-9
+                mt-8
                 inline-flex
                 items-center
                 gap-3
@@ -1174,7 +1256,7 @@ function Home() {
                 from-white/[0.045]
                 via-violet-500/[0.025]
                 to-blue-500/[0.015]
-                p-8
+                p-7
                 shadow-[0_30px_120px_rgba(0,0,0,0.3)]
                 backdrop-blur-xl
                 sm:p-10
@@ -1238,7 +1320,7 @@ function Home() {
                 </span>
 
 
-                <div className="mt-12 space-y-6">
+                <div className="mt-10 space-y-5 sm:mt-12 sm:space-y-6">
 
                   {/* 01 */}
 
@@ -1440,9 +1522,11 @@ function Home() {
           border-white/[0.07]
           bg-[#020204]
           px-6
-          py-32
+          py-24
           sm:px-8
+          sm:py-28
           lg:px-12
+          lg:py-32
         "
       >
 
@@ -1454,13 +1538,16 @@ function Home() {
             absolute
             left-1/2
             top-1/2
-            h-[550px]
-            w-[550px]
+            h-[450px]
+            w-[450px]
             -translate-x-1/2
             -translate-y-1/2
             rounded-full
             bg-violet-600/[0.075]
-            blur-[160px]
+            blur-[140px]
+            sm:h-[550px]
+            sm:w-[550px]
+            sm:blur-[160px]
           "
         />
 
@@ -1472,13 +1559,16 @@ function Home() {
             absolute
             left-1/2
             top-1/2
-            h-[280px]
-            w-[280px]
+            h-[220px]
+            w-[220px]
             -translate-x-1/2
             -translate-y-1/2
             rounded-full
             bg-blue-500/[0.055]
-            blur-[100px]
+            blur-[90px]
+            sm:h-[280px]
+            sm:w-[280px]
+            sm:blur-[100px]
           "
         />
 
@@ -1553,11 +1643,12 @@ function Home() {
           <p
             className="
               mx-auto
-              mt-6
+              mt-5
               max-w-xl
               text-sm
               leading-6
               text-white/40
+              sm:mt-6
             "
           >
             Tell us what you're building, what you're trying
@@ -1569,7 +1660,7 @@ function Home() {
             href="/contact"
             className="
               group
-              mt-9
+              mt-8
               inline-flex
               items-center
               gap-3
