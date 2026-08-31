@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 
 import {
@@ -117,7 +118,22 @@ const principles = [
 
 function Technologies() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#050505] text-white">
+    <main className="relative min-h-screen overflow-hidden bg-[#030308] text-white">
+
+      {/* =====================================================
+          GLOBAL BACKGROUND
+      ===================================================== */}
+
+      <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+
+        <div className="absolute left-[10%] top-[5%] h-[500px] w-[500px] rounded-full bg-violet-600/[0.08] blur-[150px]" />
+
+        <div className="absolute right-[5%] top-[20%] h-[450px] w-[450px] rounded-full bg-blue-600/[0.07] blur-[150px]" />
+
+        <div className="absolute left-[35%] top-[55%] h-[500px] w-[500px] rounded-full bg-cyan-500/[0.035] blur-[160px]" />
+
+      </div>
+
 
       {/* =====================================================
           HERO
@@ -125,33 +141,12 @@ function Technologies() {
 
       <section className="relative px-6 pb-24 pt-40 sm:px-8 lg:px-12">
 
-        <div
-          className="
-            pointer-events-none
-            absolute
-            left-1/3
-            top-0
-            h-[500px]
-            w-[500px]
-            rounded-full
-            bg-blue-600/[0.06]
-            blur-[140px]
-          "
-        />
+        {/* Hero Glow */}
 
-        <div
-          className="
-            pointer-events-none
-            absolute
-            right-10
-            top-40
-            h-[350px]
-            w-[350px]
-            rounded-full
-            bg-violet-600/[0.06]
-            blur-[120px]
-          "
-        />
+        <div className="pointer-events-none absolute left-1/3 top-0 h-[550px] w-[550px] rounded-full bg-violet-600/[0.08] blur-[150px]" />
+
+        <div className="pointer-events-none absolute right-10 top-32 h-[400px] w-[400px] rounded-full bg-blue-500/[0.06] blur-[140px]" />
+
 
         <div className="relative mx-auto max-w-7xl">
 
@@ -176,16 +171,19 @@ function Technologies() {
 
               <span
                 className="
-                  flex h-7 w-7
+                  flex h-8 w-8
                   items-center justify-center
                   rounded-full
                   border border-violet-400/20
-                  bg-violet-400/10
+                  bg-gradient-to-br
+                  from-violet-400/15
+                  to-blue-400/10
+                  shadow-[0_0_30px_rgba(139,92,246,0.12)]
                 "
               >
                 <Sparkles
                   size={13}
-                  className="text-violet-300"
+                  className="text-violet-200"
                 />
               </span>
 
@@ -194,7 +192,7 @@ function Technologies() {
                   text-[10px]
                   font-medium
                   tracking-[0.25em]
-                  text-violet-300/70
+                  text-violet-200/70
                 "
               >
                 TECHNOLOGY STACK
@@ -216,11 +214,23 @@ function Technologies() {
                 lg:text-[86px]
               "
             >
+
               Technology that
 
-              <span className="block text-white/30">
+              <span
+                className="
+                  block
+                  bg-gradient-to-r
+                  from-white
+                  via-violet-200
+                  to-blue-300
+                  bg-clip-text
+                  text-transparent
+                "
+              >
                 moves ideas forward.
               </span>
+
             </h1>
 
 
@@ -242,15 +252,17 @@ function Technologies() {
           </motion.div>
 
 
-          {/* Stack marquee-style line */}
+          {/* Technology Strip */}
 
           <div
             className="
               mt-20
               overflow-hidden
-              border-y
-              border-white/[0.06]
-              py-5
+              rounded-2xl
+              border
+              border-white/[0.07]
+              bg-white/[0.018]
+              shadow-[0_0_80px_rgba(99,102,241,0.04)]
             "
           >
 
@@ -259,23 +271,59 @@ function Technologies() {
                 flex
                 min-w-max
                 gap-10
+                px-6
+                py-5
                 text-[10px]
                 font-medium
                 tracking-[0.22em]
-                text-white/20
+                text-white/25
               "
             >
-              <span>REACT</span>
-              <span>NEXT.JS</span>
-              <span>NODE.JS</span>
-              <span>EXPRESS</span>
-              <span>MONGODB</span>
-              <span>MYSQL</span>
-              <span>POSTGRESQL</span>
-              <span>PYTHON</span>
-              <span>AI</span>
-              <span>CLOUD</span>
-              <span>GITHUB</span>
+
+              <span className="transition-colors hover:text-violet-300">
+                REACT
+              </span>
+
+              <span className="transition-colors hover:text-blue-300">
+                NEXT.JS
+              </span>
+
+              <span className="transition-colors hover:text-cyan-300">
+                NODE.JS
+              </span>
+
+              <span className="transition-colors hover:text-violet-300">
+                EXPRESS
+              </span>
+
+              <span className="transition-colors hover:text-emerald-300">
+                MONGODB
+              </span>
+
+              <span className="transition-colors hover:text-blue-300">
+                MYSQL
+              </span>
+
+              <span className="transition-colors hover:text-indigo-300">
+                POSTGRESQL
+              </span>
+
+              <span className="transition-colors hover:text-yellow-200">
+                PYTHON
+              </span>
+
+              <span className="transition-colors hover:text-violet-300">
+                AI
+              </span>
+
+              <span className="transition-colors hover:text-cyan-300">
+                CLOUD
+              </span>
+
+              <span className="transition-colors hover:text-white/70">
+                GITHUB
+              </span>
+
             </div>
 
           </div>
@@ -325,10 +373,21 @@ function Technologies() {
                 md:text-6xl
               "
             >
+
               The right tools
-              <span className="text-white/30">
+
+              <span
+                className="
+                  bg-gradient-to-r
+                  from-violet-200
+                  to-blue-300
+                  bg-clip-text
+                  text-transparent
+                "
+              >
                 {" "}for the right problem.
               </span>
+
             </h2>
 
             <p
@@ -353,7 +412,7 @@ function Technologies() {
           <div
             className="
               grid
-              gap-4
+              gap-5
               md:grid-cols-2
             "
           >
@@ -382,7 +441,7 @@ function Technologies() {
                     delay: index * 0.05,
                   }}
                   whileHover={{
-                    y: -5,
+                    y: -6,
                   }}
                   className="
                     group
@@ -391,17 +450,21 @@ function Technologies() {
                     rounded-[30px]
                     border
                     border-white/[0.07]
-                    bg-white/[0.025]
+                    bg-gradient-to-br
+                    from-white/[0.035]
+                    via-white/[0.018]
+                    to-violet-500/[0.015]
                     p-8
+                    shadow-[0_10px_60px_rgba(0,0,0,0.2)]
                     transition-all
                     duration-500
-                    hover:border-violet-300/15
-                    hover:bg-white/[0.035]
+                    hover:border-violet-300/20
+                    hover:shadow-[0_20px_80px_rgba(124,58,237,0.10)]
                     sm:p-10
                   "
                 >
 
-                  {/* Glow */}
+                  {/* Card Glow */}
 
                   <div
                     className="
@@ -412,11 +475,28 @@ function Technologies() {
                       h-64
                       w-64
                       rounded-full
-                      bg-violet-500/[0.05]
+                      bg-violet-500/[0.055]
                       blur-[90px]
                       transition-all
                       duration-700
-                      group-hover:bg-violet-500/[0.10]
+                      group-hover:bg-violet-500/[0.14]
+                    "
+                  />
+
+                  <div
+                    className="
+                      pointer-events-none
+                      absolute
+                      -bottom-32
+                      -left-32
+                      h-56
+                      w-56
+                      rounded-full
+                      bg-blue-500/[0.025]
+                      blur-[90px]
+                      transition-all
+                      duration-700
+                      group-hover:bg-blue-500/[0.08]
                     "
                   />
 
@@ -437,21 +517,44 @@ function Technologies() {
                         text-[10px]
                         tracking-[0.2em]
                         text-white/20
+                        transition-colors
+                        duration-300
+                        group-hover:text-violet-300/50
                       "
                     >
                       {group.number}
                     </span>
 
-                    <Icon
-                      size={20}
-                      strokeWidth={1.5}
+                    <div
                       className="
-                        text-white/30
-                        transition-colors
+                        flex
+                        h-10
+                        w-10
+                        items-center
+                        justify-center
+                        rounded-xl
+                        border
+                        border-white/[0.08]
+                        bg-white/[0.025]
+                        transition-all
                         duration-300
-                        group-hover:text-violet-200
+                        group-hover:border-violet-300/20
+                        group-hover:bg-violet-400/10
                       "
-                    />
+                    >
+
+                      <Icon
+                        size={19}
+                        strokeWidth={1.5}
+                        className="
+                          text-white/30
+                          transition-colors
+                          duration-300
+                          group-hover:text-violet-200
+                        "
+                      />
+
+                    </div>
 
                   </div>
 
@@ -465,6 +568,9 @@ function Technologies() {
                         text-2xl
                         font-medium
                         tracking-[-0.03em]
+                        transition-colors
+                        duration-300
+                        group-hover:text-white
                       "
                     >
                       {group.title}
@@ -477,6 +583,9 @@ function Technologies() {
                         text-sm
                         leading-6
                         text-white/30
+                        transition-colors
+                        duration-300
+                        group-hover:text-white/40
                       "
                     >
                       {group.description}
@@ -485,7 +594,7 @@ function Technologies() {
                   </div>
 
 
-                  {/* Technology pills */}
+                  {/* Technology Pills */}
 
                   <div
                     className="
@@ -497,25 +606,27 @@ function Technologies() {
                     "
                   >
 
-                    {group.technologies.map((technology) => (
+                    {group.technologies.map((technology, techIndex) => (
 
                       <span
                         key={technology}
-                        className="
+                        className={`
                           rounded-full
                           border
-                          border-white/[0.08]
-                          bg-white/[0.03]
                           px-3
                           py-1.5
                           text-[10px]
                           tracking-[0.05em]
-                          text-white/40
                           transition-all
                           duration-300
-                          group-hover:border-white/[0.12]
-                          group-hover:text-white/60
-                        "
+                          ${
+                            techIndex % 3 === 0
+                              ? "border-violet-400/[0.12] bg-violet-400/[0.045] text-violet-200/55 group-hover:border-violet-300/20 group-hover:text-violet-100/70"
+                              : techIndex % 3 === 1
+                              ? "border-blue-400/[0.10] bg-blue-400/[0.035] text-blue-200/50 group-hover:border-blue-300/20 group-hover:text-blue-100/70"
+                              : "border-white/[0.08] bg-white/[0.025] text-white/40 group-hover:border-white/[0.14] group-hover:text-white/60"
+                          }
+                        `}
                       >
                         {technology}
                       </span>
@@ -542,6 +653,7 @@ function Technologies() {
 
       <section
         className="
+          relative
           border-t
           border-white/[0.06]
           px-6
@@ -551,7 +663,23 @@ function Technologies() {
         "
       >
 
-        <div className="mx-auto max-w-7xl">
+        <div
+          className="
+            pointer-events-none
+            absolute
+            left-1/2
+            top-1/2
+            h-[450px]
+            w-[450px]
+            -translate-x-1/2
+            -translate-y-1/2
+            rounded-full
+            bg-violet-500/[0.035]
+            blur-[140px]
+          "
+        />
+
+        <div className="relative mx-auto max-w-7xl">
 
           <div className="max-w-3xl">
 
@@ -575,10 +703,22 @@ function Technologies() {
                 sm:text-5xl
               "
             >
+
               Technology is only
-              <span className="block text-white/30">
+
+              <span
+                className="
+                  block
+                  bg-gradient-to-r
+                  from-white/30
+                  to-violet-300/40
+                  bg-clip-text
+                  text-transparent
+                "
+              >
                 part of the solution.
               </span>
+
             </h2>
 
           </div>
@@ -588,7 +728,7 @@ function Technologies() {
             className="
               mt-16
               grid
-              gap-10
+              gap-5
               md:grid-cols-3
             "
           >
@@ -615,24 +755,81 @@ function Technologies() {
                     duration: 0.5,
                     delay: index * 0.08,
                   }}
+                  whileHover={{
+                    y: -5,
+                  }}
                   className="
-                    border-t
-                    border-white/[0.08]
-                    pt-7
+                    group
+                    relative
+                    overflow-hidden
+                    rounded-[26px]
+                    border
+                    border-white/[0.07]
+                    bg-white/[0.018]
+                    p-7
+                    transition-all
+                    duration-500
+                    hover:border-violet-300/15
+                    hover:bg-violet-400/[0.025]
                   "
                 >
 
-                  <Icon
-                    size={20}
-                    strokeWidth={1.5}
-                    className="text-white/40"
+                  <div
+                    className="
+                      pointer-events-none
+                      absolute
+                      -right-16
+                      -top-16
+                      h-40
+                      w-40
+                      rounded-full
+                      bg-violet-500/[0.04]
+                      blur-[70px]
+                      transition-all
+                      duration-500
+                      group-hover:bg-violet-500/[0.10]
+                    "
                   />
+
+                  <div
+                    className="
+                      relative
+                      flex
+                      h-11
+                      w-11
+                      items-center
+                      justify-center
+                      rounded-xl
+                      border
+                      border-white/[0.08]
+                      bg-white/[0.025]
+                      transition-all
+                      duration-300
+                      group-hover:border-violet-300/20
+                      group-hover:bg-violet-400/10
+                    "
+                  >
+
+                    <Icon
+                      size={19}
+                      strokeWidth={1.5}
+                      className="
+                        text-white/40
+                        transition-colors
+                        duration-300
+                        group-hover:text-violet-200
+                      "
+                    />
+
+                  </div>
 
                   <h3
                     className="
+                      relative
                       mt-6
                       text-sm
                       font-medium
+                      text-white/80
                     "
                   >
                     {item.title}
@@ -640,6 +837,7 @@ function Technologies() {
 
                   <p
                     className="
+                      relative
                       mt-3
                       text-xs
                       leading-6
@@ -676,26 +874,28 @@ function Technologies() {
         "
       >
 
-        <div
-          className="
-            mx-auto
-            max-w-7xl
-          "
-        >
+        <div className="mx-auto max-w-7xl">
 
           <div
             className="
+              group
               relative
               overflow-hidden
-              rounded-[32px]
+              rounded-[34px]
               border
-              border-white/[0.07]
-              bg-white/[0.025]
+              border-violet-300/[0.10]
+              bg-gradient-to-br
+              from-violet-500/[0.07]
+              via-white/[0.018]
+              to-blue-500/[0.05]
               p-8
+              shadow-[0_20px_100px_rgba(124,58,237,0.06)]
               sm:p-12
               lg:p-16
             "
           >
+
+            {/* Violet Glow */}
 
             <div
               className="
@@ -706,10 +906,12 @@ function Technologies() {
                 h-[400px]
                 w-[400px]
                 rounded-full
-                bg-violet-500/[0.07]
+                bg-violet-500/[0.10]
                 blur-[120px]
               "
             />
+
+            {/* Blue Glow */}
 
             <div
               className="
@@ -720,7 +922,7 @@ function Technologies() {
                 h-[300px]
                 w-[300px]
                 rounded-full
-                bg-blue-500/[0.05]
+                bg-blue-500/[0.07]
                 blur-[110px]
               "
             />
@@ -732,7 +934,7 @@ function Technologies() {
                   text-[10px]
                   font-medium
                   tracking-[0.25em]
-                  text-violet-300/70
+                  text-violet-200/70
                 "
               >
                 NEED SOMETHING CUSTOM?
@@ -747,10 +949,21 @@ function Technologies() {
                   sm:text-5xl
                 "
               >
+
                 Your business doesn't
-                <span className="text-white/30">
+
+                <span
+                  className="
+                    bg-gradient-to-r
+                    from-violet-200
+                    to-blue-300
+                    bg-clip-text
+                    text-transparent
+                  "
+                >
                   {" "}need generic technology.
                 </span>
+
               </h2>
 
               <p
@@ -770,7 +983,7 @@ function Technologies() {
               <a
                 href="/contact"
                 className="
-                  group
+                  group/button
                   mt-9
                   inline-flex
                   items-center
@@ -782,16 +995,21 @@ function Technologies() {
                   text-sm
                   font-semibold
                   text-black
+                  shadow-[0_10px_40px_rgba(255,255,255,0.08)]
                   transition-all
                   duration-300
                   hover:scale-[1.03]
+                  hover:shadow-[0_15px_50px_rgba(139,92,246,0.18)]
                 "
               >
+
                 Discuss Your Project
 
                 <span
                   className="
-                    flex h-6 w-6
+                    flex
+                    h-6
+                    w-6
                     items-center
                     justify-center
                     rounded-full
@@ -799,7 +1017,7 @@ function Technologies() {
                     text-white
                     transition-transform
                     duration-300
-                    group-hover:rotate-45
+                    group-hover/button:rotate-45
                   "
                 >
                   <ArrowUpRight size={13} />
@@ -817,7 +1035,7 @@ function Technologies() {
 
 
       {/* =====================================================
-          CTA
+          FINAL CTA
       ===================================================== */}
 
       <section
@@ -839,15 +1057,30 @@ function Technologies() {
             absolute
             left-1/2
             top-1/2
-            h-[400px]
-            w-[400px]
+            h-[450px]
+            w-[450px]
             -translate-x-1/2
             -translate-y-1/2
             rounded-full
-            bg-violet-500/[0.07]
-            blur-[130px]
+            bg-violet-500/[0.08]
+            blur-[140px]
           "
         />
+
+        <div
+          className="
+            pointer-events-none
+            absolute
+            left-[25%]
+            top-[40%]
+            h-[250px]
+            w-[250px]
+            rounded-full
+            bg-blue-500/[0.05]
+            blur-[100px]
+          "
+        />
+
 
         <motion.div
           initial={{
@@ -893,12 +1126,38 @@ function Technologies() {
               md:text-6xl
             "
           >
+
             Have an idea?
 
-            <span className="block text-white/30">
+            <span
+              className="
+                block
+                bg-gradient-to-r
+                from-white/30
+                via-violet-300/50
+                to-blue-300/50
+                bg-clip-text
+                text-transparent
+              "
+            >
               Let's engineer it.
             </span>
+
           </h2>
+
+          <p
+            className="
+              mx-auto
+              mt-6
+              max-w-xl
+              text-sm
+              leading-6
+              text-white/35
+            "
+          >
+            Tell us about your idea and let's build the
+            technology behind your next digital product.
+          </p>
 
           <a
             href="/contact"
@@ -915,16 +1174,21 @@ function Technologies() {
               text-sm
               font-semibold
               text-black
+              shadow-[0_15px_50px_rgba(255,255,255,0.06)]
               transition-all
               duration-300
               hover:scale-[1.03]
+              hover:shadow-[0_20px_60px_rgba(124,58,237,0.20)]
             "
           >
+
             Start a Project
 
             <span
               className="
-                flex h-6 w-6
+                flex
+                h-6
+                w-6
                 items-center
                 justify-center
                 rounded-full
@@ -949,3 +1213,4 @@ function Technologies() {
 }
 
 export default Technologies;
+

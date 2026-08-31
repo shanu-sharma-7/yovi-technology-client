@@ -14,30 +14,151 @@ import {
 } from "lucide-react";
 
 function About() {
+  const features = [
+    {
+      icon: Layers3,
+      title: "Customized Solutions",
+      text: "Technology designed around your specific business requirements.",
+      accent: "violet",
+    },
+    {
+      icon: Zap,
+      title: "Modern Technology",
+      text: "Current tools and scalable architectures built for long-term growth.",
+      accent: "blue",
+    },
+    {
+      icon: ShieldCheck,
+      title: "Secure Development",
+      text: "Security-conscious development practices across the product lifecycle.",
+      accent: "cyan",
+    },
+    {
+      icon: Users,
+      title: "Business Focused",
+      text: "Every technical decision is connected to a meaningful business outcome.",
+      accent: "violet",
+    },
+    {
+      icon: Globe2,
+      title: "Digital First",
+      text: "Responsive and accessible experiences built for today's users.",
+      accent: "blue",
+    },
+    {
+      icon: Check,
+      title: "Post-Launch Support",
+      text: "We stay connected after launch to help your digital product evolve.",
+      accent: "cyan",
+    },
+  ];
+
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#050505] text-white">
+
+      {/* =====================================================
+          GLOBAL AMBIENT BACKGROUND
+      ===================================================== */}
+
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+
+        {/* Violet */}
+        <motion.div
+          animate={{
+            x: [0, 50, 0],
+            y: [0, 25, 0],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="
+            absolute
+            left-[18%]
+            top-[5%]
+            h-[500px]
+            w-[500px]
+            rounded-full
+            bg-violet-500/[0.07]
+            blur-[150px]
+          "
+        />
+
+        {/* Blue */}
+        <motion.div
+          animate={{
+            x: [0, -50, 0],
+            y: [0, 35, 0],
+          }}
+          transition={{
+            duration: 14,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="
+            absolute
+            right-[-10%]
+            top-[30%]
+            h-[420px]
+            w-[420px]
+            rounded-full
+            bg-blue-500/[0.06]
+            blur-[140px]
+          "
+        />
+
+        {/* Cyan */}
+        <motion.div
+          animate={{
+            x: [0, 35, 0],
+          }}
+          transition={{
+            duration: 16,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="
+            absolute
+            bottom-[10%]
+            left-[5%]
+            h-[300px]
+            w-[300px]
+            rounded-full
+            bg-cyan-400/[0.035]
+            blur-[130px]
+          "
+        />
+
+        {/* Grid */}
+        <div
+          className="
+            absolute
+            inset-0
+            opacity-[0.035]
+            [background-image:linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)]
+            [background-size:80px_80px]
+          "
+        />
+
+        {/* Vignette */}
+        <div
+          className="
+            absolute
+            inset-0
+            bg-[radial-gradient(circle_at_center,transparent_10%,#050505_82%)]
+          "
+        />
+
+      </div>
+
 
       {/* =====================================================
           HERO
       ===================================================== */}
 
       <section className="relative px-6 pb-28 pt-40 sm:px-8 lg:px-12">
-
-        {/* Glow */}
-
-        <div
-          className="
-            pointer-events-none
-            absolute
-            left-1/3
-            top-10
-            h-[500px]
-            w-[500px]
-            rounded-full
-            bg-violet-600/[0.07]
-            blur-[140px]
-          "
-        />
 
         <div className="relative mx-auto max-w-7xl">
 
@@ -65,13 +186,17 @@ function About() {
                   flex h-7 w-7
                   items-center justify-center
                   rounded-full
-                  border border-violet-400/20
-                  bg-violet-400/10
+                  border border-violet-300/20
+                  bg-gradient-to-br
+                  from-violet-400/15
+                  to-blue-400/10
+                  shadow-lg
+                  shadow-violet-500/10
                 "
               >
                 <Sparkles
                   size={13}
-                  className="text-violet-300"
+                  className="text-violet-200"
                 />
               </span>
 
@@ -80,7 +205,7 @@ function About() {
                   text-[10px]
                   font-medium
                   tracking-[0.25em]
-                  text-violet-300/70
+                  text-violet-200/70
                 "
               >
                 ABOUT YOVI TECHNOLOGIES
@@ -128,18 +253,15 @@ function About() {
           </motion.div>
 
 
-          {/* Stats / positioning */}
+          {/* =================================================
+              POSITIONING CARDS
+          ================================================= */}
 
           <div
             className="
               mt-20
               grid
-              gap-px
-              overflow-hidden
-              rounded-3xl
-              border
-              border-white/[0.07]
-              bg-white/[0.07]
+              gap-3
               sm:grid-cols-3
             "
           >
@@ -148,71 +270,131 @@ function About() {
               {
                 title: "Technology",
                 text: "Modern engineering",
+                icon: Globe2,
+                glow: "bg-violet-500/[0.08]",
+                iconColor: "text-violet-200",
               },
               {
                 title: "Innovation",
                 text: "AI & automation",
+                icon: Zap,
+                glow: "bg-blue-500/[0.08]",
+                iconColor: "text-blue-200",
               },
               {
                 title: "Growth",
                 text: "Business focused",
+                icon: Target,
+                glow: "bg-cyan-500/[0.06]",
+                iconColor: "text-cyan-200",
               },
-            ].map((item, index) => (
+            ].map((item, index) => {
 
-              <motion.div
-                key={item.title}
-                initial={{
-                  opacity: 0,
-                  y: 20,
-                }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                transition={{
-                  duration: 0.6,
-                  delay: 0.2 + index * 0.1,
-                }}
-                className="
-                  bg-[#080808]
-                  p-7
-                  sm:p-8
-                "
-              >
+              const Icon = item.icon;
 
-                <span
+              return (
+                <motion.div
+                  key={item.title}
+                  initial={{
+                    opacity: 0,
+                    y: 20,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.2 + index * 0.1,
+                  }}
+                  whileHover={{
+                    y: -5,
+                  }}
                   className="
-                    text-[10px]
-                    tracking-[0.2em]
-                    text-white/20
+                    group
+                    relative
+                    overflow-hidden
+                    rounded-3xl
+                    border
+                    border-white/[0.07]
+                    bg-white/[0.025]
+                    p-7
+                    backdrop-blur-xl
+                    transition-all
+                    duration-500
+                    hover:border-white/[0.14]
+                    hover:bg-white/[0.04]
                   "
                 >
-                  0{index + 1}
-                </span>
 
-                <h3
-                  className="
-                    mt-5
-                    text-lg
-                    font-medium
-                  "
-                >
-                  {item.title}
-                </h3>
+                  <div
+                    className={`
+                      absolute
+                      -right-20
+                      -top-20
+                      h-44
+                      w-44
+                      rounded-full
+                      ${item.glow}
+                      blur-[70px]
+                      transition-all
+                      duration-500
+                      group-hover:scale-125
+                    `}
+                  />
 
-                <p
-                  className="
-                    mt-2
-                    text-xs
-                    text-white/30
-                  "
-                >
-                  {item.text}
-                </p>
+                  <div className="relative">
 
-              </motion.div>
+                    <div
+                      className={`
+                        flex h-10 w-10
+                        items-center justify-center
+                        rounded-xl
+                        border border-white/10
+                        bg-white/[0.04]
+                        ${item.iconColor}
+                      `}
+                    >
+                      <Icon size={18} strokeWidth={1.5} />
+                    </div>
 
-            ))}
+                    <span
+                      className="
+                        mt-6
+                        block
+                        text-[9px]
+                        tracking-[0.2em]
+                        text-white/20
+                      "
+                    >
+                      0{index + 1}
+                    </span>
+
+                    <h3
+                      className="
+                        mt-3
+                        text-lg
+                        font-medium
+                      "
+                    >
+                      {item.title}
+                    </h3>
+
+                    <p
+                      className="
+                        mt-2
+                        text-xs
+                        text-white/30
+                      "
+                    >
+                      {item.text}
+                    </p>
+
+                  </div>
+
+                </motion.div>
+              );
+            })}
 
           </div>
 
@@ -222,7 +404,7 @@ function About() {
 
 
       {/* =====================================================
-          ABOUT
+          WHO WE ARE
       ===================================================== */}
 
       <section
@@ -245,8 +427,6 @@ function About() {
             lg:grid-cols-[0.8fr_1.2fr]
           "
         >
-
-          {/* Left */}
 
           <div>
 
@@ -271,6 +451,7 @@ function About() {
               "
             >
               More than a
+
               <span className="block text-white/30">
                 technology company.
               </span>
@@ -278,8 +459,6 @@ function About() {
 
           </div>
 
-
-          {/* Right */}
 
           <div className="space-y-6">
 
@@ -357,10 +536,7 @@ function About() {
 
             <motion.div
               whileHover={{
-                y: -5,
-              }}
-              transition={{
-                duration: 0.3,
+                y: -6,
               }}
               className="
                 group
@@ -368,10 +544,13 @@ function About() {
                 overflow-hidden
                 rounded-[30px]
                 border
-                border-white/[0.07]
+                border-violet-300/[0.08]
                 bg-white/[0.025]
                 p-8
-                sm:p-10
+                backdrop-blur-xl
+                transition-all
+                duration-500
+                hover:border-violet-300/[0.18]
               "
             >
 
@@ -380,11 +559,14 @@ function About() {
                   absolute
                   -right-24
                   -top-24
-                  h-64
-                  w-64
+                  h-72
+                  w-72
                   rounded-full
-                  bg-violet-500/[0.07]
-                  blur-[90px]
+                  bg-violet-500/[0.08]
+                  blur-[100px]
+                  transition-all
+                  duration-700
+                  group-hover:scale-125
                 "
               />
 
@@ -394,9 +576,11 @@ function About() {
                   flex h-12 w-12
                   items-center justify-center
                   rounded-2xl
-                  border border-white/10
-                  bg-white/[0.04]
+                  border border-violet-300/15
+                  bg-violet-400/[0.08]
                   text-violet-200
+                  shadow-lg
+                  shadow-violet-500/10
                 "
               >
                 <Target size={21} />
@@ -409,7 +593,7 @@ function About() {
                   block
                   text-[10px]
                   tracking-[0.25em]
-                  text-white/25
+                  text-violet-300/50
                 "
               >
                 OUR MISSION
@@ -425,6 +609,7 @@ function About() {
                 "
               >
                 Simplify technology.
+
                 <span className="block text-white/30">
                   Accelerate growth.
                 </span>
@@ -452,10 +637,7 @@ function About() {
 
             <motion.div
               whileHover={{
-                y: -5,
-              }}
-              transition={{
-                duration: 0.3,
+                y: -6,
               }}
               className="
                 group
@@ -463,10 +645,13 @@ function About() {
                 overflow-hidden
                 rounded-[30px]
                 border
-                border-white/[0.07]
+                border-blue-300/[0.08]
                 bg-white/[0.025]
                 p-8
-                sm:p-10
+                backdrop-blur-xl
+                transition-all
+                duration-500
+                hover:border-blue-300/[0.18]
               "
             >
 
@@ -475,11 +660,14 @@ function About() {
                   absolute
                   -right-24
                   -top-24
-                  h-64
-                  w-64
+                  h-72
+                  w-72
                   rounded-full
-                  bg-blue-500/[0.06]
-                  blur-[90px]
+                  bg-blue-500/[0.08]
+                  blur-[100px]
+                  transition-all
+                  duration-700
+                  group-hover:scale-125
                 "
               />
 
@@ -489,9 +677,11 @@ function About() {
                   flex h-12 w-12
                   items-center justify-center
                   rounded-2xl
-                  border border-white/10
-                  bg-white/[0.04]
+                  border border-blue-300/15
+                  bg-blue-400/[0.08]
                   text-blue-200
+                  shadow-lg
+                  shadow-blue-500/10
                 "
               >
                 <Eye size={21} />
@@ -504,7 +694,7 @@ function About() {
                   block
                   text-[10px]
                   tracking-[0.25em]
-                  text-white/25
+                  text-blue-300/50
                 "
               >
                 OUR VISION
@@ -520,6 +710,7 @@ function About() {
                 "
               >
                 Build what's next.
+
                 <span className="block text-white/30">
                   Together.
                 </span>
@@ -589,7 +780,17 @@ function About() {
               "
             >
               Built around your
-              <span className="text-white/30">
+
+              <span
+                className="
+                  bg-gradient-to-r
+                  from-white
+                  via-violet-200
+                  to-blue-300
+                  bg-clip-text
+                  text-transparent
+                "
+              >
                 {" "}business.
               </span>
             </h2>
@@ -617,47 +818,22 @@ function About() {
             className="
               mt-16
               grid
-              gap-x-10
-              gap-y-10
+              gap-5
               sm:grid-cols-2
               lg:grid-cols-3
             "
           >
 
-            {[
-              {
-                icon: Layers3,
-                title: "Customized Solutions",
-                text: "Technology designed around your specific business requirements.",
-              },
-              {
-                icon: Zap,
-                title: "Modern Technology",
-                text: "Current tools and scalable architectures built for long-term growth.",
-              },
-              {
-                icon: ShieldCheck,
-                title: "Secure Development",
-                text: "Security-conscious development practices across the product lifecycle.",
-              },
-              {
-                icon: Users,
-                title: "Business Focused",
-                text: "Every technical decision is connected to a meaningful business outcome.",
-              },
-              {
-                icon: Globe2,
-                title: "Digital First",
-                text: "Responsive and accessible experiences built for today's users.",
-              },
-              {
-                icon: Check,
-                title: "Post-Launch Support",
-                text: "We stay connected after launch to help your digital product evolve.",
-              },
-            ].map((item, index) => {
+            {features.map((item, index) => {
 
               const Icon = item.icon;
+
+              const accent =
+                item.accent === "violet"
+                  ? "text-violet-200 bg-violet-400/[0.08] border-violet-300/10 group-hover:border-violet-300/20"
+                  : item.accent === "blue"
+                  ? "text-blue-200 bg-blue-400/[0.08] border-blue-300/10 group-hover:border-blue-300/20"
+                  : "text-cyan-200 bg-cyan-400/[0.06] border-cyan-300/10 group-hover:border-cyan-300/20";
 
               return (
                 <motion.div
@@ -678,21 +854,60 @@ function About() {
                     duration: 0.5,
                     delay: index * 0.05,
                   }}
+                  whileHover={{
+                    y: -5,
+                  }}
                   className="
-                    border-t
-                    border-white/[0.08]
-                    pt-6
+                    group
+                    relative
+                    overflow-hidden
+                    rounded-2xl
+                    border
+                    border-white/[0.07]
+                    bg-white/[0.02]
+                    p-6
+                    transition-all
+                    duration-500
+                    hover:border-white/[0.14]
+                    hover:bg-white/[0.035]
                   "
                 >
 
-                  <Icon
-                    size={19}
-                    strokeWidth={1.5}
-                    className="text-white/40"
+                  <div
+                    className="
+                      absolute
+                      -right-16
+                      -top-16
+                      h-32
+                      w-32
+                      rounded-full
+                      bg-violet-500/[0.04]
+                      blur-[60px]
+                      transition-all
+                      duration-500
+                      group-hover:scale-150
+                    "
                   />
+
+                  <div
+                    className={`
+                      relative
+                      flex h-10 w-10
+                      items-center justify-center
+                      rounded-xl
+                      border
+                      ${accent}
+                    `}
+                  >
+                    <Icon
+                      size={18}
+                      strokeWidth={1.5}
+                    />
+                  </div>
 
                   <h3
                     className="
+                      relative
                       mt-5
                       text-sm
                       font-medium
@@ -703,6 +918,7 @@ function About() {
 
                   <p
                     className="
+                      relative
                       mt-2
                       text-xs
                       leading-6
@@ -773,6 +989,7 @@ function About() {
               "
             >
               Technology should
+
               <span className="block text-white/30">
                 solve real problems.
               </span>
@@ -798,63 +1015,105 @@ function About() {
 
           {/* Principles */}
 
-          <div
+          <motion.div
+            whileHover={{
+              y: -4,
+            }}
             className="
+              group
+              relative
+              overflow-hidden
               rounded-[30px]
               border
-              border-white/[0.07]
+              border-violet-300/[0.08]
               bg-white/[0.025]
               p-7
-              sm:p-9
+              backdrop-blur-xl
+              transition-all
+              duration-500
+              hover:border-violet-300/[0.16]
             "
           >
 
-            {[
-              "Understand the business",
-              "Define the right strategy",
-              "Design meaningful experiences",
-              "Build scalable technology",
-              "Test and refine",
-              "Launch and support",
-            ].map((item, index) => (
+            <div
+              className="
+                absolute
+                -right-20
+                -top-20
+                h-60
+                w-60
+                rounded-full
+                bg-violet-500/[0.06]
+                blur-[90px]
+                transition-all
+                duration-700
+                group-hover:scale-125
+              "
+            />
 
-              <div
-                key={item}
-                className="
-                  flex
-                  items-center
-                  gap-4
-                  border-b
-                  border-white/[0.06]
-                  py-5
-                  last:border-0
-                "
-              >
+            <div className="relative">
 
-                <span
+              {[
+                "Understand the business",
+                "Define the right strategy",
+                "Design meaningful experiences",
+                "Build scalable technology",
+                "Test and refine",
+                "Launch and support",
+              ].map((item, index) => (
+
+                <div
+                  key={item}
                   className="
-                    text-[10px]
-                    tracking-[0.15em]
-                    text-white/20
+                    flex
+                    items-center
+                    gap-4
+                    border-b
+                    border-white/[0.06]
+                    py-5
+                    last:border-0
                   "
                 >
-                  0{index + 1}
-                </span>
 
-                <span
-                  className="
-                    text-sm
-                    text-white/55
-                  "
-                >
-                  {item}
-                </span>
+                  <span
+                    className="
+                      flex
+                      h-7
+                      w-7
+                      shrink-0
+                      items-center
+                      justify-center
+                      rounded-lg
+                      border
+                      border-violet-300/10
+                      bg-violet-400/[0.05]
+                      text-[9px]
+                      tracking-[0.1em]
+                      text-violet-200/50
+                    "
+                  >
+                    0{index + 1}
+                  </span>
 
-              </div>
+                  <span
+                    className="
+                      text-sm
+                      text-white/55
+                      transition-colors
+                      duration-300
+                      group-hover:text-white/70
+                    "
+                  >
+                    {item}
+                  </span>
 
-            ))}
+                </div>
 
-          </div>
+              ))}
+
+            </div>
+
+          </motion.div>
 
         </div>
 
@@ -884,13 +1143,16 @@ function About() {
             absolute
             left-1/2
             top-1/2
-            h-[400px]
-            w-[400px]
+            h-[450px]
+            w-[450px]
             -translate-x-1/2
             -translate-y-1/2
             rounded-full
-            bg-violet-500/[0.07]
-            blur-[130px]
+            bg-gradient-to-r
+            from-violet-500/[0.07]
+            via-blue-500/[0.06]
+            to-cyan-400/[0.04]
+            blur-[140px]
           "
         />
 
@@ -940,10 +1202,34 @@ function About() {
           >
             Your next digital idea
 
-            <span className="block text-white/30">
+            <span
+              className="
+                block
+                bg-gradient-to-r
+                from-white/30
+                via-violet-200/40
+                to-blue-300/40
+                bg-clip-text
+                text-transparent
+              "
+            >
               starts here.
             </span>
           </h2>
+
+          <p
+            className="
+              mx-auto
+              mt-6
+              max-w-xl
+              text-sm
+              leading-6
+              text-white/35
+            "
+          >
+            Let's turn your ideas into meaningful digital
+            experiences that are built to grow.
+          </p>
 
           <a
             href="/contact"
@@ -960,9 +1246,12 @@ function About() {
               text-sm
               font-semibold
               text-black
+              shadow-xl
+              shadow-white/5
               transition-all
               duration-300
               hover:scale-[1.03]
+              hover:shadow-violet-500/20
             "
           >
             Start a Project
@@ -970,8 +1259,7 @@ function About() {
             <span
               className="
                 flex h-6 w-6
-                items-center
-                justify-center
+                items-center justify-center
                 rounded-full
                 bg-black
                 text-white

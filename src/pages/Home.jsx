@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 
 import {
@@ -9,7 +10,6 @@ import {
   Smartphone,
   Boxes,
   Megaphone,
-  Palette,
 } from "lucide-react";
 
 import SpotlightCard from "../components/SpotlightCard";
@@ -17,7 +17,59 @@ import AnimatedBackground from "../components/AnimatedBackground";
 
 function Home() {
   return (
-    <main className="relative overflow-hidden bg-[#050505] text-white">
+    <main className="relative overflow-hidden bg-[#020204] text-white">
+
+      {/* =====================================================
+          GLOBAL AMBIENT BACKGROUND
+      ===================================================== */}
+
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+
+        {/* Violet atmosphere */}
+        <div
+          className="
+            absolute
+            left-[-180px]
+            top-[600px]
+            h-[600px]
+            w-[600px]
+            rounded-full
+            bg-violet-600/[0.055]
+            blur-[160px]
+          "
+        />
+
+        {/* Blue atmosphere */}
+        <div
+          className="
+            absolute
+            right-[-220px]
+            top-[1400px]
+            h-[600px]
+            w-[600px]
+            rounded-full
+            bg-blue-600/[0.045]
+            blur-[160px]
+          "
+        />
+
+        {/* Indigo bottom glow */}
+        <div
+          className="
+            absolute
+            bottom-[-250px]
+            left-1/2
+            h-[550px]
+            w-[550px]
+            -translate-x-1/2
+            rounded-full
+            bg-indigo-600/[0.035]
+            blur-[160px]
+          "
+        />
+
+      </div>
+
 
       {/* =====================================================
           HERO
@@ -27,11 +79,51 @@ function Home() {
 
         <AnimatedBackground />
 
+        {/* Main hero aura */}
+
         <div
           className="
-            relative mx-auto flex min-h-screen max-w-7xl
+            pointer-events-none
+            absolute
+            left-1/2
+            top-[15%]
+            h-[600px]
+            w-[600px]
+            -translate-x-1/2
+            rounded-full
+            bg-violet-600/[0.07]
+            blur-[170px]
+          "
+        />
+
+        {/* Secondary blue aura */}
+
+        <div
+          className="
+            pointer-events-none
+            absolute
+            right-[5%]
+            top-[25%]
+            h-[300px]
+            w-[300px]
+            rounded-full
+            bg-blue-500/[0.035]
+            blur-[120px]
+          "
+        />
+
+
+        <div
+          className="
+            relative
+            mx-auto
+            flex
+            min-h-screen
+            max-w-7xl
             items-center
-            px-6 pb-20 pt-32
+            px-6
+            pb-20
+            pt-32
             sm:px-8
             lg:px-12
           "
@@ -39,16 +131,21 @@ function Home() {
 
           <div
             className="
-              grid w-full
+              grid
+              w-full
               items-center
               gap-16
               lg:grid-cols-[1.15fr_0.85fr]
             "
           >
 
-            {/* LEFT */}
+            {/* =================================================
+                LEFT CONTENT
+            ================================================= */}
 
             <div>
+
+              {/* EYEBROW */}
 
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
@@ -59,25 +156,32 @@ function Home() {
 
                 <span
                   className="
-                    flex h-7 w-7
-                    items-center justify-center
+                    flex
+                    h-8
+                    w-8
+                    items-center
+                    justify-center
                     rounded-full
-                    border border-violet-400/20
-                    bg-violet-400/10
+                    border
+                    border-violet-300/25
+                    bg-gradient-to-br
+                    from-violet-500/20
+                    to-blue-500/10
+                    shadow-[0_0_35px_rgba(139,92,246,0.18)]
                   "
                 >
                   <Sparkles
                     size={13}
-                    className="text-violet-300"
+                    className="text-violet-200"
                   />
                 </span>
 
                 <span
                   className="
                     text-[11px]
-                    font-medium
+                    font-semibold
                     tracking-[0.22em]
-                    text-white/45
+                    text-violet-200/65
                   "
                 >
                   DIGITAL PRODUCTS • AI • ENGINEERING
@@ -107,9 +211,20 @@ function Home() {
                   xl:text-[88px]
                 "
               >
+
                 We build digital
 
-                <span className="block text-white/35">
+                <span
+                  className="
+                    block
+                    bg-gradient-to-r
+                    from-white
+                    via-white/65
+                    to-white/25
+                    bg-clip-text
+                    text-transparent
+                  "
+                >
                   experiences that
                 </span>
 
@@ -117,9 +232,9 @@ function Home() {
                   className="
                     block
                     bg-gradient-to-r
-                    from-white
-                    via-violet-200
-                    to-blue-300
+                    from-violet-200
+                    via-violet-400
+                    to-blue-400
                     bg-clip-text
                     text-transparent
                   "
@@ -172,6 +287,8 @@ function Home() {
                 "
               >
 
+                {/* Primary */}
+
                 <a
                   href="/contact"
                   className="
@@ -180,28 +297,35 @@ function Home() {
                     items-center
                     gap-3
                     rounded-full
-                    bg-white
+                    bg-gradient-to-r
+                    from-violet-500
+                    to-indigo-500
                     px-6
                     py-3.5
                     text-sm
                     font-semibold
-                    text-black
+                    text-white
+                    shadow-[0_12px_45px_rgba(124,58,237,0.22)]
                     transition-all
                     duration-300
                     hover:scale-[1.03]
-                    hover:bg-white/90
+                    hover:shadow-[0_18px_60px_rgba(124,58,237,0.32)]
                   "
                 >
+
                   Start a Project
 
                   <span
                     className="
-                      flex h-6 w-6
-                      items-center justify-center
+                      flex
+                      h-6
+                      w-6
+                      items-center
+                      justify-center
                       rounded-full
-                      bg-black
-                      text-white
-                      transition-transform
+                      bg-white
+                      text-violet-600
+                      transition-all
                       duration-300
                       group-hover:rotate-45
                     "
@@ -212,6 +336,8 @@ function Home() {
                 </a>
 
 
+                {/* Secondary */}
+
                 <a
                   href="/services"
                   className="
@@ -220,18 +346,18 @@ function Home() {
                     gap-2
                     rounded-full
                     border
-                    border-white/10
-                    bg-white/[0.03]
+                    border-white/[0.10]
+                    bg-white/[0.025]
                     px-6
                     py-3.5
                     text-sm
                     font-medium
-                    text-white/70
+                    text-white/65
                     backdrop-blur-xl
                     transition-all
                     duration-300
-                    hover:border-white/20
-                    hover:bg-white/[0.06]
+                    hover:border-violet-300/30
+                    hover:bg-violet-400/[0.07]
                     hover:text-white
                   "
                 >
@@ -263,17 +389,21 @@ function Home() {
                   text-white/25
                 "
               >
+
                 <span>WEB</span>
                 <span>AI</span>
                 <span>MOBILE</span>
                 <span>ERP</span>
                 <span>CRM</span>
+
               </motion.div>
 
             </div>
 
 
-            {/* RIGHT VISUAL */}
+            {/* =================================================
+                RIGHT VISUAL
+            ================================================= */}
 
             <motion.div
               initial={{
@@ -298,14 +428,27 @@ function Home() {
               "
             >
 
+              {/* Core glow */}
+
               <div
                 className="
                   absolute
-                  h-[350px]
-                  w-[350px]
+                  h-[370px]
+                  w-[370px]
                   rounded-full
-                  bg-violet-500/10
-                  blur-[100px]
+                  bg-violet-500/[0.10]
+                  blur-[120px]
+                "
+              />
+
+              <div
+                className="
+                  absolute
+                  h-[220px]
+                  w-[220px]
+                  rounded-full
+                  bg-blue-500/[0.07]
+                  blur-[80px]
                 "
               />
 
@@ -325,7 +468,8 @@ function Home() {
                   w-[390px]
                   rounded-full
                   border
-                  border-white/[0.07]
+                  border-violet-300/[0.10]
+                  shadow-[0_0_80px_rgba(139,92,246,0.05)]
                 "
               >
 
@@ -338,8 +482,7 @@ function Home() {
                     w-2
                     rounded-full
                     bg-violet-300
-                    shadow-lg
-                    shadow-violet-400/50
+                    shadow-[0_0_25px_rgba(196,181,253,0.9)]
                   "
                 />
 
@@ -361,7 +504,7 @@ function Home() {
                   w-[280px]
                   rounded-full
                   border
-                  border-violet-300/10
+                  border-blue-300/[0.12]
                 "
               >
 
@@ -374,6 +517,7 @@ function Home() {
                     w-1.5
                     rounded-full
                     bg-blue-300
+                    shadow-[0_0_20px_rgba(147,197,253,0.8)]
                   "
                 />
 
@@ -400,10 +544,12 @@ function Home() {
                   justify-center
                   rounded-full
                   border
-                  border-white/10
-                  bg-white/[0.035]
-                  shadow-2xl
-                  shadow-violet-500/10
+                  border-violet-200/[0.18]
+                  bg-gradient-to-br
+                  from-white/[0.07]
+                  via-violet-500/[0.05]
+                  to-blue-500/[0.04]
+                  shadow-[0_0_100px_rgba(124,58,237,0.18)]
                   backdrop-blur-xl
                 "
               >
@@ -414,7 +560,7 @@ function Home() {
                     inset-5
                     rounded-full
                     border
-                    border-white/[0.06]
+                    border-white/[0.07]
                   "
                 />
 
@@ -423,9 +569,15 @@ function Home() {
                   <span
                     className="
                       block
+                      bg-gradient-to-b
+                      from-white
+                      via-violet-200
+                      to-violet-400
+                      bg-clip-text
                       text-4xl
                       font-bold
                       tracking-[-0.05em]
+                      text-transparent
                     "
                   >
                     Y
@@ -463,22 +615,26 @@ function Home() {
                   top-28
                   rounded-2xl
                   border
-                  border-white/10
-                  bg-white/[0.04]
+                  border-violet-300/[0.12]
+                  bg-violet-400/[0.035]
                   px-4
                   py-3
+                  shadow-[0_10px_45px_rgba(124,58,237,0.10)]
                   backdrop-blur-xl
                 "
               >
+
                 <span
                   className="
                     text-[9px]
+                    font-medium
                     tracking-[0.2em]
-                    text-white/35
+                    text-violet-200/55
                   "
                 >
                   BUILD
                 </span>
+
               </motion.div>
 
 
@@ -497,22 +653,26 @@ function Home() {
                   right-4
                   rounded-2xl
                   border
-                  border-white/10
-                  bg-white/[0.04]
+                  border-blue-300/[0.12]
+                  bg-blue-400/[0.035]
                   px-4
                   py-3
+                  shadow-[0_10px_45px_rgba(59,130,246,0.10)]
                   backdrop-blur-xl
                 "
               >
+
                 <span
                   className="
                     text-[9px]
+                    font-medium
                     tracking-[0.2em]
-                    text-white/35
+                    text-blue-200/55
                   "
                 >
                   SCALE
                 </span>
+
               </motion.div>
 
             </motion.div>
@@ -539,7 +699,7 @@ function Home() {
             flex-col
             items-center
             gap-2
-            text-white/25
+            text-violet-200/30
             md:flex
           "
         >
@@ -556,15 +716,15 @@ function Home() {
 
 
       {/* =====================================================
-          SERVICES PREVIEW
+          SERVICES
       ===================================================== */}
 
       <section
         className="
           relative
           border-t
-          border-white/[0.06]
-          bg-[#050505]
+          border-white/[0.07]
+          bg-[#020204]
           px-6
           py-28
           sm:px-8
@@ -573,9 +733,6 @@ function Home() {
       >
 
         <div className="mx-auto max-w-7xl">
-
-
-          {/* HEADER */}
 
           <motion.div
             initial={{
@@ -609,9 +766,9 @@ function Home() {
               <span
                 className="
                   text-[10px]
-                  font-medium
+                  font-semibold
                   tracking-[0.25em]
-                  text-violet-300/70
+                  text-violet-300/80
                 "
               >
                 WHAT WE BUILD
@@ -630,9 +787,20 @@ function Home() {
                 "
               >
                 Technology that turns
-                <span className="text-white/30">
+
+                <span
+                  className="
+                    bg-gradient-to-r
+                    from-violet-300/60
+                    via-white/35
+                    to-blue-300/40
+                    bg-clip-text
+                    text-transparent
+                  "
+                >
                   {" "}ideas into impact.
                 </span>
+
               </h2>
 
             </div>
@@ -648,11 +816,12 @@ function Home() {
                 gap-3
                 text-sm
                 font-medium
-                text-white/50
+                text-white/45
                 transition-colors
-                hover:text-white
+                hover:text-violet-200
               "
             >
+
               View all services
 
               <span
@@ -670,7 +839,7 @@ function Home() {
           </motion.div>
 
 
-          {/* CARDS */}
+          {/* SERVICE CARDS */}
 
           <div
             className="
@@ -749,7 +918,7 @@ function Home() {
           </div>
 
 
-          {/* SMALL BRAND LINE */}
+          {/* BRAND LINE */}
 
           <div
             className="
@@ -758,7 +927,7 @@ function Home() {
               flex-col
               gap-3
               border-t
-              border-white/[0.06]
+              border-white/[0.07]
               pt-7
               sm:flex-row
               sm:items-center
@@ -769,8 +938,9 @@ function Home() {
             <span
               className="
                 text-[10px]
+                font-medium
                 tracking-[0.25em]
-                text-white/20
+                text-violet-200/25
               "
             >
               TECHNOLOGY • DESIGN • AI
@@ -793,21 +963,54 @@ function Home() {
 
 
       {/* =====================================================
-          ABOUT PREVIEW
+          WHY YOVI
       ===================================================== */}
 
       <section
         className="
           relative
+          overflow-hidden
           border-t
-          border-white/[0.06]
-          bg-[#050505]
+          border-white/[0.07]
+          bg-[#020204]
           px-6
           py-32
           sm:px-8
           lg:px-12
         "
       >
+
+        {/* Ambient glow */}
+
+        <div
+          className="
+            pointer-events-none
+            absolute
+            right-[-180px]
+            top-1/2
+            h-[600px]
+            w-[600px]
+            -translate-y-1/2
+            rounded-full
+            bg-violet-600/[0.055]
+            blur-[160px]
+          "
+        />
+
+        <div
+          className="
+            pointer-events-none
+            absolute
+            left-[-180px]
+            bottom-[-100px]
+            h-[350px]
+            w-[350px]
+            rounded-full
+            bg-blue-500/[0.035]
+            blur-[120px]
+          "
+        />
+
 
         <div
           className="
@@ -842,9 +1045,9 @@ function Home() {
             <span
               className="
                 text-[10px]
-                font-medium
+                font-semibold
                 tracking-[0.25em]
-                text-violet-300/70
+                text-violet-300/80
               "
             >
               WHY YOVI
@@ -862,11 +1065,23 @@ function Home() {
                 md:text-6xl
               "
             >
+
               Not just developers.
 
-              <span className="block text-white/30">
+              <span
+                className="
+                  block
+                  bg-gradient-to-r
+                  from-violet-200/75
+                  via-white/35
+                  to-blue-300/50
+                  bg-clip-text
+                  text-transparent
+                "
+              >
                 Your technology partner.
               </span>
+
             </h2>
 
             <p
@@ -895,20 +1110,22 @@ function Home() {
                 gap-3
                 rounded-full
                 border
-                border-white/10
-                bg-white/[0.03]
+                border-violet-300/[0.15]
+                bg-violet-400/[0.035]
                 px-5
                 py-3
                 text-sm
                 font-medium
-                text-white/70
+                text-white/65
                 transition-all
                 duration-300
-                hover:border-white/20
-                hover:bg-white/[0.06]
+                hover:border-violet-300/30
+                hover:bg-violet-400/[0.08]
                 hover:text-white
+                hover:shadow-[0_10px_40px_rgba(124,58,237,0.12)]
               "
             >
+
               Discover YoVi
 
               <ArrowUpRight
@@ -952,22 +1169,57 @@ function Home() {
                 overflow-hidden
                 rounded-[32px]
                 border
-                border-white/[0.08]
-                bg-white/[0.025]
+                border-violet-300/[0.10]
+                bg-gradient-to-br
+                from-white/[0.045]
+                via-violet-500/[0.025]
+                to-blue-500/[0.015]
                 p-8
+                shadow-[0_30px_120px_rgba(0,0,0,0.3)]
+                backdrop-blur-xl
                 sm:p-10
               "
             >
 
-              {/* Grid background */}
+              {/* Grid */}
 
               <div
                 className="
                   absolute
                   inset-0
-                  opacity-[0.05]
+                  opacity-[0.045]
                   [background-image:linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)]
                   [background-size:40px_40px]
+                "
+              />
+
+              {/* Violet glow */}
+
+              <div
+                className="
+                  absolute
+                  right-[-80px]
+                  top-[-80px]
+                  h-60
+                  w-60
+                  rounded-full
+                  bg-violet-500/[0.10]
+                  blur-[90px]
+                "
+              />
+
+              {/* Blue glow */}
+
+              <div
+                className="
+                  absolute
+                  bottom-[-100px]
+                  left-[-80px]
+                  h-52
+                  w-52
+                  rounded-full
+                  bg-blue-500/[0.06]
+                  blur-[80px]
                 "
               />
 
@@ -977,8 +1229,9 @@ function Home() {
                 <span
                   className="
                     text-[10px]
+                    font-semibold
                     tracking-[0.25em]
-                    text-white/25
+                    text-violet-200/35
                   "
                 >
                   THE YOVI APPROACH
@@ -987,53 +1240,80 @@ function Home() {
 
                 <div className="mt-12 space-y-6">
 
+                  {/* 01 */}
+
                   <div className="flex items-center gap-4">
 
                     <span
                       className="
-                        flex h-10 w-10
-                        items-center justify-center
+                        flex
+                        h-10
+                        w-10
+                        items-center
+                        justify-center
                         rounded-xl
-                        border border-white/10
-                        bg-white/[0.04]
+                        border
+                        border-violet-300/20
+                        bg-violet-400/[0.08]
                         text-sm
+                        text-violet-200
+                        shadow-[0_0_25px_rgba(124,58,237,0.12)]
                       "
                     >
                       01
                     </span>
 
                     <div>
+
                       <p className="text-sm font-medium text-white">
                         Technology
                       </p>
 
-                      <p className="mt-1 text-xs text-white/25">
+                      <p className="mt-1 text-xs text-violet-100/30">
                         Modern engineering
                       </p>
+
                     </div>
 
                   </div>
 
 
-                  <div className="ml-5 h-8 w-px bg-white/10" />
+                  <div
+                    className="
+                      ml-5
+                      h-8
+                      w-px
+                      bg-gradient-to-b
+                      from-violet-400/25
+                      to-blue-400/10
+                    "
+                  />
 
+
+                  {/* 02 */}
 
                   <div className="flex items-center gap-4">
 
                     <span
                       className="
-                        flex h-10 w-10
-                        items-center justify-center
+                        flex
+                        h-10
+                        w-10
+                        items-center
+                        justify-center
                         rounded-xl
-                        border border-white/10
+                        border
+                        border-white/10
                         bg-white/[0.04]
                         text-sm
+                        text-white/55
                       "
                     >
                       02
                     </span>
 
                     <div>
+
                       <p className="text-sm font-medium text-white">
                         Design
                       </p>
@@ -1041,6 +1321,7 @@ function Home() {
                       <p className="mt-1 text-xs text-white/25">
                         Premium experiences
                       </p>
+
                     </div>
 
                   </div>
@@ -1049,22 +1330,30 @@ function Home() {
                   <div className="ml-5 h-8 w-px bg-white/10" />
 
 
+                  {/* 03 */}
+
                   <div className="flex items-center gap-4">
 
                     <span
                       className="
-                        flex h-10 w-10
-                        items-center justify-center
+                        flex
+                        h-10
+                        w-10
+                        items-center
+                        justify-center
                         rounded-xl
-                        border border-white/10
-                        bg-white/[0.04]
+                        border
+                        border-blue-300/15
+                        bg-blue-400/[0.05]
                         text-sm
+                        text-blue-200/65
                       "
                     >
                       03
                     </span>
 
                     <div>
+
                       <p className="text-sm font-medium text-white">
                         Intelligence
                       </p>
@@ -1072,30 +1361,48 @@ function Home() {
                       <p className="mt-1 text-xs text-white/25">
                         AI & automation
                       </p>
+
                     </div>
 
                   </div>
 
 
-                  <div className="ml-5 h-8 w-px bg-white/10" />
+                  <div
+                    className="
+                      ml-5
+                      h-8
+                      w-px
+                      bg-gradient-to-b
+                      from-blue-300/15
+                      to-white/5
+                    "
+                  />
 
+
+                  {/* 04 */}
 
                   <div className="flex items-center gap-4">
 
                     <span
                       className="
-                        flex h-10 w-10
-                        items-center justify-center
+                        flex
+                        h-10
+                        w-10
+                        items-center
+                        justify-center
                         rounded-xl
-                        border border-white/10
+                        border
+                        border-white/10
                         bg-white/[0.04]
                         text-sm
+                        text-white/55
                       "
                     >
                       04
                     </span>
 
                     <div>
+
                       <p className="text-sm font-medium text-white">
                         Growth
                       </p>
@@ -1103,6 +1410,7 @@ function Home() {
                       <p className="mt-1 text-xs text-white/25">
                         Business outcomes
                       </p>
+
                     </div>
 
                   </div>
@@ -1129,8 +1437,8 @@ function Home() {
           relative
           overflow-hidden
           border-t
-          border-white/[0.06]
-          bg-[#050505]
+          border-white/[0.07]
+          bg-[#020204]
           px-6
           py-32
           sm:px-8
@@ -1138,18 +1446,39 @@ function Home() {
         "
       >
 
+        {/* Main violet aura */}
+
         <div
           className="
+            pointer-events-none
             absolute
             left-1/2
             top-1/2
-            h-[350px]
-            w-[350px]
+            h-[550px]
+            w-[550px]
             -translate-x-1/2
             -translate-y-1/2
             rounded-full
-            bg-violet-500/[0.08]
-            blur-[120px]
+            bg-violet-600/[0.075]
+            blur-[160px]
+          "
+        />
+
+        {/* Blue aura */}
+
+        <div
+          className="
+            pointer-events-none
+            absolute
+            left-1/2
+            top-1/2
+            h-[280px]
+            w-[280px]
+            -translate-x-1/2
+            -translate-y-1/2
+            rounded-full
+            bg-blue-500/[0.055]
+            blur-[100px]
           "
         />
 
@@ -1180,13 +1509,14 @@ function Home() {
           <span
             className="
               text-[10px]
-              font-medium
-              tracking-[0.25em]
-              text-violet-300/70
+              font-semibold
+              tracking-[0.28em]
+              text-violet-300/80
             "
           >
             LET'S BUILD SOMETHING
           </span>
+
 
           <h2
             className="
@@ -1200,12 +1530,25 @@ function Home() {
               lg:text-7xl
             "
           >
+
             Have an idea?
 
-            <span className="block text-white/30">
+            <span
+              className="
+                block
+                bg-gradient-to-r
+                from-violet-200/80
+                via-white/40
+                to-blue-300/55
+                bg-clip-text
+                text-transparent
+              "
+            >
               Let's turn it into reality.
             </span>
+
           </h2>
+
 
           <p
             className="
@@ -1214,7 +1557,7 @@ function Home() {
               max-w-xl
               text-sm
               leading-6
-              text-white/35
+              text-white/40
             "
           >
             Tell us what you're building, what you're trying
@@ -1231,27 +1574,35 @@ function Home() {
               items-center
               gap-3
               rounded-full
-              bg-white
+              bg-gradient-to-r
+              from-violet-500
+              to-indigo-500
               px-7
               py-4
               text-sm
               font-semibold
-              text-black
+              text-white
+              shadow-[0_15px_60px_rgba(124,58,237,0.22)]
               transition-all
               duration-300
-              hover:scale-[1.03]
+              hover:scale-[1.04]
+              hover:shadow-[0_20px_80px_rgba(124,58,237,0.32)]
             "
           >
+
             Start a Conversation
 
             <span
               className="
-                flex h-6 w-6
-                items-center justify-center
+                flex
+                h-6
+                w-6
+                items-center
+                justify-center
                 rounded-full
-                bg-black
-                text-white
-                transition-transform
+                bg-white
+                text-violet-600
+                transition-all
                 duration-300
                 group-hover:rotate-45
               "
@@ -1270,3 +1621,4 @@ function Home() {
 }
 
 export default Home;
+

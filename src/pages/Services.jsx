@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 
 import {
@@ -115,30 +116,49 @@ const services = [
 
 function Services() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#050505] text-white">
+    <main className="relative min-h-screen overflow-hidden bg-[#030305] text-white">
+
+      {/* =====================================================
+          GLOBAL BACKGROUND
+      ===================================================== */}
+
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+
+        <div
+          className="
+            absolute
+            left-1/2
+            top-[-180px]
+            h-[650px]
+            w-[650px]
+            -translate-x-1/2
+            rounded-full
+            bg-violet-600/[0.09]
+            blur-[150px]
+          "
+        />
+
+        <div
+          className="
+            absolute
+            right-[-200px]
+            top-[900px]
+            h-[500px]
+            w-[500px]
+            rounded-full
+            bg-indigo-500/[0.05]
+            blur-[140px]
+          "
+        />
+
+      </div>
+
 
       {/* =====================================================
           HERO
       ===================================================== */}
 
       <section className="relative px-6 pb-24 pt-40 sm:px-8 lg:px-12">
-
-        {/* Background glow */}
-
-        <div
-          className="
-            pointer-events-none
-            absolute
-            left-1/2
-            top-20
-            h-[500px]
-            w-[500px]
-            -translate-x-1/2
-            rounded-full
-            bg-violet-600/[0.07]
-            blur-[140px]
-          "
-        />
 
         <div className="relative mx-auto max-w-7xl">
 
@@ -163,11 +183,14 @@ function Services() {
 
               <span
                 className="
-                  flex h-7 w-7
+                  flex h-8 w-8
                   items-center justify-center
                   rounded-full
                   border border-violet-400/20
-                  bg-violet-400/10
+                  bg-gradient-to-br
+                  from-violet-500/15
+                  to-indigo-500/10
+                  shadow-[0_0_30px_rgba(139,92,246,0.12)]
                 "
               >
                 <Sparkles
@@ -179,9 +202,9 @@ function Services() {
               <span
                 className="
                   text-[10px]
-                  font-medium
-                  tracking-[0.25em]
-                  text-violet-300/70
+                  font-semibold
+                  tracking-[0.28em]
+                  text-violet-300/80
                 "
               >
                 OUR SERVICES
@@ -205,7 +228,17 @@ function Services() {
             >
               Everything you need
 
-              <span className="block text-white/30">
+              <span
+                className="
+                  block
+                  bg-gradient-to-r
+                  from-white/40
+                  via-white/25
+                  to-white/10
+                  bg-clip-text
+                  text-transparent
+                "
+              >
                 to build what matters.
               </span>
             </h1>
@@ -219,7 +252,7 @@ function Services() {
                 max-w-2xl
                 text-base
                 leading-7
-                text-white/40
+                text-white/45
                 sm:text-lg
               "
             >
@@ -251,20 +284,38 @@ function Services() {
               gap-x-10
               gap-y-4
               border-t
-              border-white/[0.07]
+              border-white/[0.08]
               pt-7
               text-[10px]
+              font-medium
               tracking-[0.22em]
-              text-white/25
+              text-white/30
             "
           >
 
-            <span>WEB</span>
-            <span>MOBILE</span>
-            <span>AI</span>
-            <span>ERP</span>
-            <span>CRM</span>
-            <span>GROWTH</span>
+            <span className="transition-colors hover:text-violet-300">
+              WEB
+            </span>
+
+            <span className="transition-colors hover:text-violet-300">
+              MOBILE
+            </span>
+
+            <span className="transition-colors hover:text-violet-300">
+              AI
+            </span>
+
+            <span className="transition-colors hover:text-violet-300">
+              ERP
+            </span>
+
+            <span className="transition-colors hover:text-violet-300">
+              CRM
+            </span>
+
+            <span className="transition-colors hover:text-violet-300">
+              GROWTH
+            </span>
 
           </motion.div>
 
@@ -281,7 +332,7 @@ function Services() {
         className="
           relative
           border-t
-          border-white/[0.06]
+          border-white/[0.07]
           px-6
           py-28
           sm:px-8
@@ -322,16 +373,21 @@ function Services() {
                     overflow-hidden
                     rounded-[30px]
                     border
-                    border-white/[0.07]
-                    bg-white/[0.025]
+                    border-white/[0.08]
+                    bg-gradient-to-br
+                    from-white/[0.045]
+                    via-white/[0.02]
+                    to-transparent
+                    shadow-[0_20px_80px_rgba(0,0,0,0.2)]
                     transition-all
                     duration-500
-                    hover:border-white/[0.14]
-                    hover:bg-white/[0.035]
+                    hover:-translate-y-[2px]
+                    hover:border-violet-300/[0.18]
+                    hover:shadow-[0_25px_100px_rgba(124,58,237,0.08)]
                   "
                 >
 
-                  {/* Hover glow */}
+                  {/* Card inner glow */}
 
                   <div
                     className="
@@ -339,14 +395,31 @@ function Services() {
                       absolute
                       -right-32
                       -top-32
+                      h-80
+                      w-80
+                      rounded-full
+                      bg-violet-500/[0.045]
+                      blur-[100px]
+                      transition-all
+                      duration-700
+                      group-hover:bg-violet-500/[0.11]
+                    "
+                  />
+
+                  <div
+                    className="
+                      pointer-events-none
+                      absolute
+                      bottom-[-180px]
+                      left-[-100px]
                       h-72
                       w-72
                       rounded-full
-                      bg-violet-500/[0.06]
-                      blur-[90px]
+                      bg-indigo-500/[0.035]
+                      blur-[100px]
                       transition-all
                       duration-700
-                      group-hover:bg-violet-500/[0.1]
+                      group-hover:bg-indigo-500/[0.07]
                     "
                   />
 
@@ -371,9 +444,12 @@ function Services() {
                       <span
                         className="
                           text-[10px]
-                          font-medium
+                          font-semibold
                           tracking-[0.2em]
-                          text-white/25
+                          text-violet-300/35
+                          transition-colors
+                          duration-300
+                          group-hover:text-violet-300/70
                         "
                       >
                         {service.number}
@@ -387,17 +463,22 @@ function Services() {
                           justify-center
                           rounded-xl
                           border
-                          border-white/10
-                          bg-white/[0.04]
-                          text-white/50
+                          border-white/[0.10]
+                          bg-white/[0.035]
+                          text-white/45
+                          shadow-inner
                           transition-all
                           duration-300
-                          group-hover:border-violet-300/20
-                          group-hover:bg-violet-400/10
+                          group-hover:border-violet-300/25
+                          group-hover:bg-violet-400/[0.12]
                           group-hover:text-violet-200
+                          group-hover:shadow-[0_0_30px_rgba(139,92,246,0.12)]
                         "
                       >
-                        <Icon size={19} strokeWidth={1.5} />
+                        <Icon
+                          size={19}
+                          strokeWidth={1.5}
+                        />
                       </div>
 
                     </div>
@@ -412,6 +493,10 @@ function Services() {
                           text-3xl
                           font-semibold
                           tracking-[-0.04em]
+                          text-white
+                          transition-colors
+                          duration-300
+                          group-hover:text-violet-50
                           sm:text-4xl
                         "
                       >
@@ -424,7 +509,10 @@ function Services() {
                           max-w-xl
                           text-sm
                           leading-6
-                          text-white/35
+                          text-white/40
+                          transition-colors
+                          duration-300
+                          group-hover:text-white/50
                         "
                       >
                         {service.description}
@@ -443,21 +531,29 @@ function Services() {
                       >
 
                         {service.technologies.map((technology) => (
+
                           <span
                             key={technology}
                             className="
                               rounded-full
                               border
-                              border-white/[0.08]
+                              border-white/[0.09]
                               bg-white/[0.025]
                               px-3
                               py-1.5
                               text-[10px]
-                              text-white/35
+                              font-medium
+                              text-white/40
+                              transition-all
+                              duration-300
+                              group-hover:border-violet-300/[0.12]
+                              group-hover:bg-violet-400/[0.04]
+                              group-hover:text-violet-200/60
                             "
                           >
                             {technology}
                           </span>
+
                         ))}
 
                       </div>
@@ -473,9 +569,9 @@ function Services() {
                         className="
                           mb-5
                           text-[10px]
-                          font-medium
+                          font-semibold
                           tracking-[0.2em]
-                          text-white/20
+                          text-white/25
                         "
                       >
                         WHAT WE OFFER
@@ -489,11 +585,15 @@ function Services() {
                           <div
                             key={item}
                             className="
+                              group/item
                               flex
                               items-center
                               gap-3
                               text-sm
                               text-white/45
+                              transition-colors
+                              duration-200
+                              hover:text-white/75
                             "
                           >
 
@@ -505,8 +605,14 @@ function Services() {
                                 justify-center
                                 rounded-full
                                 border
-                                border-white/10
+                                border-white/[0.10]
+                                bg-white/[0.02]
                                 text-white/30
+                                transition-all
+                                duration-200
+                                group-hover/item:border-violet-300/25
+                                group-hover/item:bg-violet-400/10
+                                group-hover/item:text-violet-200
                               "
                             >
                               <Check size={11} />
@@ -537,12 +643,15 @@ function Services() {
                       justify-center
                       rounded-full
                       border
-                      border-white/10
+                      border-white/[0.10]
+                      bg-white/[0.02]
                       text-white/25
                       transition-all
                       duration-300
-                      group-hover:border-white/20
-                      group-hover:text-white
+                      group-hover:border-violet-300/25
+                      group-hover:bg-violet-400/[0.08]
+                      group-hover:text-violet-100
+                      group-hover:shadow-[0_0_25px_rgba(139,92,246,0.12)]
                     "
                   >
                     <ArrowUpRight
@@ -576,7 +685,7 @@ function Services() {
           relative
           overflow-hidden
           border-t
-          border-white/[0.06]
+          border-white/[0.07]
           px-6
           py-32
           sm:px-8
@@ -584,18 +693,37 @@ function Services() {
         "
       >
 
+        {/* CTA glow */}
+
         <div
           className="
+            pointer-events-none
             absolute
             left-1/2
             top-1/2
-            h-[400px]
-            w-[400px]
+            h-[500px]
+            w-[500px]
             -translate-x-1/2
             -translate-y-1/2
             rounded-full
-            bg-violet-500/[0.07]
-            blur-[130px]
+            bg-violet-600/[0.09]
+            blur-[140px]
+          "
+        />
+
+        <div
+          className="
+            pointer-events-none
+            absolute
+            left-1/2
+            top-1/2
+            h-[260px]
+            w-[260px]
+            -translate-x-1/2
+            -translate-y-1/2
+            rounded-full
+            bg-indigo-500/[0.08]
+            blur-[100px]
           "
         />
 
@@ -625,10 +753,10 @@ function Services() {
 
           <span
             className="
+              font-semibold
               text-[10px]
-              font-medium
-              tracking-[0.25em]
-              text-violet-300/70
+              tracking-[0.28em]
+              text-violet-300/80
             "
           >
             READY TO BUILD?
@@ -647,7 +775,17 @@ function Services() {
           >
             Let's create something
 
-            <span className="block text-white/30">
+            <span
+              className="
+                block
+                bg-gradient-to-r
+                from-white/45
+                via-white/25
+                to-white/10
+                bg-clip-text
+                text-transparent
+              "
+            >
               worth building.
             </span>
           </h2>
@@ -660,7 +798,7 @@ function Services() {
               max-w-xl
               text-sm
               leading-6
-              text-white/35
+              text-white/40
             "
           >
             Have a project, idea or business challenge?
@@ -683,9 +821,11 @@ function Services() {
               text-sm
               font-semibold
               text-black
+              shadow-[0_10px_50px_rgba(255,255,255,0.08)]
               transition-all
               duration-300
-              hover:scale-[1.03]
+              hover:scale-[1.04]
+              hover:shadow-[0_15px_60px_rgba(139,92,246,0.20)]
             "
           >
             Start a Project
@@ -698,9 +838,10 @@ function Services() {
                 rounded-full
                 bg-black
                 text-white
-                transition-transform
+                transition-all
                 duration-300
                 group-hover:rotate-45
+                group-hover:bg-violet-600
               "
             >
               <ArrowUpRight size={13} />
@@ -717,3 +858,4 @@ function Services() {
 }
 
 export default Services;
+
