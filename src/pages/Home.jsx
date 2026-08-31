@@ -77,10 +77,10 @@ function Home() {
 
       <section className="relative min-h-0 lg:min-h-screen">
 
+        {/* Background animation remains available */}
         <AnimatedBackground />
 
         {/* Main hero aura */}
-
         <div
           className="
             pointer-events-none
@@ -102,7 +102,6 @@ function Home() {
         />
 
         {/* Secondary blue aura */}
-
         <div
           className="
             pointer-events-none
@@ -129,10 +128,10 @@ function Home() {
             items-center
             px-6
             pb-10
-            pt-28
+            pt-36
             sm:px-8
             sm:pb-14
-            sm:pt-32
+            sm:pt-40
             lg:min-h-screen
             lg:px-12
             lg:pb-20
@@ -427,6 +426,7 @@ function Home() {
 
             {/* =================================================
                 RIGHT VISUAL
+                MOBILE PAR HIDDEN
             ================================================= */}
 
             <motion.div
@@ -444,12 +444,11 @@ function Home() {
               }}
               className="
                 relative
-                flex
-                h-[300px]
+                hidden
+                h-[520px]
                 items-center
                 justify-center
-                sm:h-[380px]
-                lg:h-[520px]
+                lg:flex
               "
             >
 
@@ -458,34 +457,22 @@ function Home() {
               <div
                 className="
                   absolute
-                  h-[240px]
-                  w-[240px]
+                  h-[370px]
+                  w-[370px]
                   rounded-full
                   bg-violet-500/[0.10]
-                  blur-[90px]
-                  sm:h-[300px]
-                  sm:w-[300px]
-                  sm:blur-[110px]
-                  lg:h-[370px]
-                  lg:w-[370px]
-                  lg:blur-[120px]
+                  blur-[120px]
                 "
               />
 
               <div
                 className="
                   absolute
-                  h-[150px]
-                  w-[150px]
+                  h-[220px]
+                  w-[220px]
                   rounded-full
                   bg-blue-500/[0.07]
-                  blur-[60px]
-                  sm:h-[190px]
-                  sm:w-[190px]
-                  sm:blur-[70px]
-                  lg:h-[220px]
-                  lg:w-[220px]
-                  lg:blur-[80px]
+                  blur-[80px]
                 "
               />
 
@@ -501,17 +488,12 @@ function Home() {
                 }}
                 className="
                   absolute
-                  h-[230px]
-                  w-[230px]
+                  h-[390px]
+                  w-[390px]
                   rounded-full
                   border
                   border-violet-300/[0.10]
-                  shadow-[0_0_60px_rgba(139,92,246,0.05)]
-                  sm:h-[300px]
-                  sm:w-[300px]
-                  lg:h-[390px]
-                  lg:w-[390px]
-                  lg:shadow-[0_0_80px_rgba(139,92,246,0.05)]
+                  shadow-[0_0_80px_rgba(139,92,246,0.05)]
                 "
               >
 
@@ -542,32 +524,24 @@ function Home() {
                 }}
                 className="
                   absolute
-                  h-[165px]
-                  w-[165px]
+                  h-[280px]
+                  w-[280px]
                   rounded-full
                   border
                   border-blue-300/[0.12]
-                  sm:h-[220px]
-                  sm:w-[220px]
-                  lg:h-[280px]
-                  lg:w-[280px]
                 "
               >
 
                 <div
                   className="
                     absolute
-                    right-3
-                    top-5
+                    right-5
+                    top-8
                     h-1.5
                     w-1.5
                     rounded-full
                     bg-blue-300
                     shadow-[0_0_20px_rgba(147,197,253,0.8)]
-                    sm:right-4
-                    sm:top-6
-                    lg:right-5
-                    lg:top-8
                   "
                 />
 
@@ -588,8 +562,8 @@ function Home() {
                 className="
                   relative
                   flex
-                  h-28
-                  w-28
+                  h-40
+                  w-40
                   items-center
                   justify-center
                   rounded-full
@@ -599,25 +573,18 @@ function Home() {
                   from-white/[0.07]
                   via-violet-500/[0.05]
                   to-blue-500/[0.04]
-                  shadow-[0_0_70px_rgba(124,58,237,0.18)]
+                  shadow-[0_0_100px_rgba(124,58,237,0.18)]
                   backdrop-blur-xl
-                  sm:h-36
-                  sm:w-36
-                  sm:shadow-[0_0_85px_rgba(124,58,237,0.18)]
-                  lg:h-40
-                  lg:w-40
-                  lg:shadow-[0_0_100px_rgba(124,58,237,0.18)]
                 "
               >
 
                 <div
                   className="
                     absolute
-                    inset-4
+                    inset-5
                     rounded-full
                     border
                     border-white/[0.07]
-                    sm:inset-5
                   "
                 />
 
@@ -631,11 +598,10 @@ function Home() {
                       via-violet-200
                       to-violet-400
                       bg-clip-text
-                      text-3xl
+                      text-4xl
                       font-bold
                       tracking-[-0.05em]
                       text-transparent
-                      sm:text-4xl
                     "
                   >
                     Y
@@ -645,10 +611,9 @@ function Home() {
                     className="
                       mt-1
                       block
-                      text-[7px]
+                      text-[8px]
                       tracking-[0.3em]
                       text-white/35
-                      sm:text-[8px]
                     "
                   >
                     YOVI
@@ -670,32 +635,25 @@ function Home() {
                 }}
                 className="
                   absolute
-                  left-1
-                  top-12
+                  left-2
+                  top-28
                   rounded-2xl
                   border
                   border-violet-300/[0.12]
                   bg-violet-400/[0.035]
-                  px-3
-                  py-2.5
+                  px-4
+                  py-3
                   shadow-[0_10px_45px_rgba(124,58,237,0.10)]
                   backdrop-blur-xl
-                  sm:left-4
-                  sm:top-16
-                  sm:px-4
-                  sm:py-3
-                  lg:left-2
-                  lg:top-28
                 "
               >
 
                 <span
                   className="
-                    text-[8px]
+                    text-[9px]
                     font-medium
                     tracking-[0.2em]
                     text-violet-200/55
-                    sm:text-[9px]
                   "
                 >
                   BUILD
@@ -715,32 +673,25 @@ function Home() {
                 }}
                 className="
                   absolute
-                  bottom-10
-                  right-1
+                  bottom-24
+                  right-4
                   rounded-2xl
                   border
                   border-blue-300/[0.12]
                   bg-blue-400/[0.035]
-                  px-3
-                  py-2.5
+                  px-4
+                  py-3
                   shadow-[0_10px_45px_rgba(59,130,246,0.10)]
                   backdrop-blur-xl
-                  sm:bottom-16
-                  sm:right-4
-                  sm:px-4
-                  sm:py-3
-                  lg:bottom-24
-                  lg:right-4
                 "
               >
 
                 <span
                   className="
-                    text-[8px]
+                    text-[9px]
                     font-medium
                     tracking-[0.2em]
                     text-blue-200/55
-                    sm:text-[9px]
                   "
                 >
                   SCALE
@@ -939,7 +890,6 @@ function Home() {
               className="min-h-[360px] lg:col-span-2"
             />
 
-
             <SpotlightCard
               number="02"
               title="AI Solutions"
@@ -951,7 +901,6 @@ function Home() {
               icon={BrainCircuit}
               className="min-h-[360px]"
             />
-
 
             <SpotlightCard
               number="03"
@@ -965,7 +914,6 @@ function Home() {
               className="min-h-[330px]"
             />
 
-
             <SpotlightCard
               number="04"
               title="ERP & CRM"
@@ -977,7 +925,6 @@ function Home() {
               icon={Boxes}
               className="min-h-[330px]"
             />
-
 
             <SpotlightCard
               number="05"
@@ -1059,8 +1006,6 @@ function Home() {
           lg:py-32
         "
       >
-
-        {/* Ambient glow */}
 
         <div
           className="
@@ -1263,8 +1208,6 @@ function Home() {
               "
             >
 
-              {/* Grid */}
-
               <div
                 className="
                   absolute
@@ -1274,8 +1217,6 @@ function Home() {
                   [background-size:40px_40px]
                 "
               />
-
-              {/* Violet glow */}
 
               <div
                 className="
@@ -1289,8 +1230,6 @@ function Home() {
                   blur-[90px]
                 "
               />
-
-              {/* Blue glow */}
 
               <div
                 className="
@@ -1346,7 +1285,6 @@ function Home() {
                     </span>
 
                     <div>
-
                       <p className="text-sm font-medium text-white">
                         Technology
                       </p>
@@ -1354,7 +1292,6 @@ function Home() {
                       <p className="mt-1 text-xs text-violet-100/30">
                         Modern engineering
                       </p>
-
                     </div>
 
                   </div>
@@ -1395,7 +1332,6 @@ function Home() {
                     </span>
 
                     <div>
-
                       <p className="text-sm font-medium text-white">
                         Design
                       </p>
@@ -1403,7 +1339,6 @@ function Home() {
                       <p className="mt-1 text-xs text-white/25">
                         Premium experiences
                       </p>
-
                     </div>
 
                   </div>
@@ -1435,7 +1370,6 @@ function Home() {
                     </span>
 
                     <div>
-
                       <p className="text-sm font-medium text-white">
                         Intelligence
                       </p>
@@ -1443,7 +1377,6 @@ function Home() {
                       <p className="mt-1 text-xs text-white/25">
                         AI & automation
                       </p>
-
                     </div>
 
                   </div>
@@ -1484,7 +1417,6 @@ function Home() {
                     </span>
 
                     <div>
-
                       <p className="text-sm font-medium text-white">
                         Growth
                       </p>
@@ -1492,7 +1424,6 @@ function Home() {
                       <p className="mt-1 text-xs text-white/25">
                         Business outcomes
                       </p>
-
                     </div>
 
                   </div>
@@ -1530,8 +1461,6 @@ function Home() {
         "
       >
 
-        {/* Main violet aura */}
-
         <div
           className="
             pointer-events-none
@@ -1550,8 +1479,6 @@ function Home() {
             sm:blur-[160px]
           "
         />
-
-        {/* Blue aura */}
 
         <div
           className="
