@@ -38,6 +38,10 @@ function Contact() {
     }));
   };
 
+  // =========================================
+  // SUBMIT CONTACT FORM
+  // =========================================
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -49,21 +53,36 @@ function Contact() {
     });
 
     try {
-      const API_URL =
-        import.meta.env.VITE_API_URL || "http://localhost:5000";
+      /*
+       * Vercel Production:
+       * VITE_API_URL should be:
+       *
+       * https://yovi-technology-backend-1.onrender.com/api
+       *
+       * The fallback below is also production-safe.
+       * No localhost URL is used here.
+       */
 
-      const response = await fetch(`${API_URL}/api/contact`, {
+      const API_URL =
+        import.meta.env.VITE_API_URL ||
+        "https://yovi-technology-backend-1.onrender.com/api";
+
+      const response = await fetch(`${API_URL}/contact`, {
         method: "POST",
+
         headers: {
           "Content-Type": "application/json",
         },
+
         body: JSON.stringify(formData),
       });
 
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.message || "Something went wrong.");
+        throw new Error(
+          data.message || "Something went wrong."
+        );
       }
 
       setStatus({
