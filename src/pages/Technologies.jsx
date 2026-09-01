@@ -22,6 +22,8 @@ const technologyGroups = [
     description:
       "Modern interfaces engineered for performance, responsiveness and exceptional user experiences.",
     icon: Code2,
+    image:
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=85",
     technologies: [
       "React",
       "Next.js",
@@ -37,6 +39,8 @@ const technologyGroups = [
     description:
       "Reliable server-side systems, APIs and business logic designed to scale with your product.",
     icon: Server,
+    image:
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=85",
     technologies: [
       "Node.js",
       "Express.js",
@@ -51,6 +55,8 @@ const technologyGroups = [
     description:
       "Structured and flexible data architectures built around your application's requirements.",
     icon: Database,
+    image:
+      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=85",
     technologies: [
       "MongoDB",
       "MySQL",
@@ -63,6 +69,8 @@ const technologyGroups = [
     description:
       "Cloud-ready applications and deployment workflows designed for reliability and scalability.",
     icon: Cloud,
+    image:
+      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=85",
     technologies: [
       "Cloud Services",
       "Firebase",
@@ -76,6 +84,8 @@ const technologyGroups = [
     description:
       "Intelligent integrations that automate workflows and create smarter digital experiences.",
     icon: BrainCircuit,
+    image:
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=85",
     technologies: [
       "AI APIs",
       "AI Chatbots",
@@ -89,6 +99,8 @@ const technologyGroups = [
     description:
       "Modern engineering tools that help teams collaborate, maintain and continuously improve products.",
     icon: GitBranch,
+    image:
+      "https://images.unsplash.com/photo-1556075798-4825dfaaf498?auto=format&fit=crop&w=1200&q=85",
     technologies: [
       "Git",
       "GitHub",
@@ -126,7 +138,6 @@ function Technologies() {
 
       <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
 
-        {/* Emerald atmosphere */}
         <div
           className="
             absolute
@@ -140,7 +151,6 @@ function Technologies() {
           "
         />
 
-        {/* Cyan atmosphere */}
         <div
           className="
             absolute
@@ -154,7 +164,6 @@ function Technologies() {
           "
         />
 
-        {/* Teal bottom atmosphere */}
         <div
           className="
             absolute
@@ -169,6 +178,18 @@ function Technologies() {
           "
         />
 
+        {/* Subtle grid */}
+
+        <div
+          className="
+            absolute
+            inset-0
+            opacity-[0.025]
+            [background-image:linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)]
+            [background-size:80px_80px]
+          "
+        />
+
       </div>
 
 
@@ -176,15 +197,28 @@ function Technologies() {
           HERO
       ===================================================== */}
 
-      <section className="relative px-6 pb-20 pt-36 sm:px-8 sm:pb-24 sm:pt-40 lg:px-12">
+      <section
+        className="
+          relative
+          overflow-hidden
+          px-6
+          pb-20
+          pt-36
+          sm:px-8
+          sm:pb-24
+          sm:pt-40
+          lg:px-12
+          lg:pb-28
+        "
+      >
 
-        {/* Hero Glow */}
+        {/* Hero Glows */}
 
         <div
           className="
             pointer-events-none
             absolute
-            left-1/3
+            left-1/4
             top-0
             h-[550px]
             w-[550px]
@@ -209,7 +243,20 @@ function Technologies() {
         />
 
 
-        <div className="relative mx-auto max-w-7xl">
+        <div
+          className="
+            relative
+            mx-auto
+            grid
+            max-w-7xl
+            items-center
+            gap-14
+            lg:grid-cols-[1.05fr_0.95fr]
+            lg:gap-20
+          "
+        >
+
+          {/* LEFT */}
 
           <motion.div
             initial={{
@@ -223,14 +270,22 @@ function Technologies() {
             transition={{
               duration: 0.8,
             }}
-            className="max-w-5xl"
+            className="relative z-10 max-w-5xl"
           >
 
             {/* Eyebrow */}
 
             <div className="mb-7 flex items-center gap-3">
 
-              <span
+              <motion.span
+                animate={{
+                  rotate: [0, 10, -10, 0],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
                 className="
                   flex
                   h-8
@@ -250,7 +305,7 @@ function Technologies() {
                   size={13}
                   className="text-emerald-200"
                 />
-              </span>
+              </motion.span>
 
               <span
                 className="
@@ -276,7 +331,7 @@ function Technologies() {
                 tracking-[-0.055em]
                 sm:text-6xl
                 md:text-7xl
-                lg:text-[86px]
+                lg:text-[82px]
               "
             >
 
@@ -317,11 +372,146 @@ function Technologies() {
           </motion.div>
 
 
-          {/* Technology Strip */}
+          {/* HERO IMAGE */}
+
+          <motion.div
+            initial={{
+              opacity: 0,
+              x: 35,
+              scale: 0.97,
+            }}
+            animate={{
+              opacity: 1,
+              x: 0,
+              scale: 1,
+            }}
+            transition={{
+              duration: 0.9,
+              delay: 0.15,
+            }}
+            className="
+              group
+              relative
+              min-h-[340px]
+              overflow-hidden
+              rounded-[34px]
+              border
+              border-white/[0.08]
+              bg-white/[0.02]
+              shadow-[0_30px_100px_rgba(0,0,0,0.45)]
+              sm:min-h-[410px]
+            "
+          >
+
+            <img
+              src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=90"
+              alt="Technology team working on digital products"
+              className="
+                absolute
+                inset-0
+                h-full
+                w-full
+                object-cover
+                opacity-55
+                grayscale-[20%]
+                transition-transform
+                duration-1000
+                group-hover:scale-105
+              "
+            />
+
+            {/* Dark image overlay */}
+
+            <div
+              className="
+                absolute
+                inset-0
+                bg-gradient-to-br
+                from-[#020403]/85
+                via-[#020403]/40
+                to-emerald-950/45
+              "
+            />
+
+            {/* Emerald glow */}
+
+            <div
+              className="
+                pointer-events-none
+                absolute
+                -right-20
+                -top-20
+                h-72
+                w-72
+                rounded-full
+                bg-emerald-400/[0.14]
+                blur-[90px]
+              "
+            />
+
+            {/* Floating visual */}
+
+            <div
+              className="
+                absolute
+                bottom-6
+                left-6
+                right-6
+                rounded-2xl
+                border
+                border-white/[0.10]
+                bg-black/35
+                p-5
+                backdrop-blur-xl
+              "
+            >
+
+              <div className="flex items-center justify-between">
+
+                <div>
+                  <p className="text-[9px] tracking-[0.22em] text-emerald-300/70">
+                    DIGITAL ENGINEERING
+                  </p>
+
+                  <p className="mt-2 text-sm font-medium text-white/85">
+                    Built for scale. Designed for people.
+                  </p>
+                </div>
+
+                <div
+                  className="
+                    flex
+                    h-10
+                    w-10
+                    items-center
+                    justify-center
+                    rounded-full
+                    border
+                    border-emerald-300/20
+                    bg-emerald-400/10
+                  "
+                >
+                  <ArrowUpRight
+                    size={17}
+                    className="text-emerald-200"
+                  />
+                </div>
+
+              </div>
+
+            </div>
+
+          </motion.div>
+
+        </div>
+
+
+        {/* Technology Strip */}
+
+        <div className="relative mx-auto mt-20 max-w-7xl">
 
           <div
             className="
-              mt-20
               overflow-hidden
               rounded-2xl
               border
@@ -440,7 +630,6 @@ function Technologies() {
                 md:text-6xl
               "
             >
-
               The right tools{" "}
 
               <span
@@ -514,14 +703,12 @@ function Technologies() {
                   className="
                     group
                     relative
+                    min-h-[430px]
                     overflow-hidden
                     rounded-[30px]
                     border
                     border-white/[0.07]
-                    bg-gradient-to-br
-                    from-white/[0.035]
-                    via-white/[0.018]
-                    to-emerald-500/[0.012]
+                    bg-[#050807]
                     p-8
                     shadow-[0_10px_60px_rgba(0,0,0,0.2)]
                     transition-all
@@ -532,7 +719,58 @@ function Technologies() {
                   "
                 >
 
-                  {/* Card Glow */}
+                  {/* =====================================================
+                      CARD IMAGE
+                  ===================================================== */}
+
+                  <img
+                    src={group.image}
+                    alt={group.title}
+                    className="
+                      pointer-events-none
+                      absolute
+                      inset-0
+                      h-full
+                      w-full
+                      object-cover
+                      opacity-[0.30]
+                      grayscale-[15%]
+                      transition-all
+                      duration-700
+                      group-hover:scale-105
+                      group-hover:opacity-[0.40]
+                    "
+                  />
+
+                  {/* Image overlay */}
+
+                  <div
+                    className="
+                      pointer-events-none
+                      absolute
+                      inset-0
+                      bg-gradient-to-b
+                      from-[#020403]/45
+                      via-[#020403]/65
+                      to-[#020403]/90
+                    "
+                  />
+
+                  {/* Bottom readability overlay */}
+
+                  <div
+                    className="
+                      pointer-events-none
+                      absolute
+                      inset-0
+                      bg-gradient-to-t
+                      from-[#020403]/80
+                      via-transparent
+                      to-transparent
+                    "
+                  />
+
+                  {/* Emerald Card Glow */}
 
                   <div
                     className="
@@ -543,13 +781,15 @@ function Technologies() {
                       h-64
                       w-64
                       rounded-full
-                      bg-emerald-500/[0.045]
+                      bg-emerald-500/[0.06]
                       blur-[90px]
                       transition-all
                       duration-700
-                      group-hover:bg-emerald-500/[0.13]
+                      group-hover:bg-emerald-500/[0.15]
                     "
                   />
+
+                  {/* Cyan Card Glow */}
 
                   <div
                     className="
@@ -560,11 +800,11 @@ function Technologies() {
                       h-56
                       w-56
                       rounded-full
-                      bg-cyan-500/[0.025]
+                      bg-cyan-500/[0.035]
                       blur-[90px]
                       transition-all
                       duration-700
-                      group-hover:bg-cyan-500/[0.07]
+                      group-hover:bg-cyan-500/[0.08]
                     "
                   />
 
@@ -574,6 +814,7 @@ function Technologies() {
                   <div
                     className="
                       relative
+                      z-10
                       flex
                       items-center
                       justify-between
@@ -584,10 +825,10 @@ function Technologies() {
                       className="
                         text-[10px]
                         tracking-[0.2em]
-                        text-white/20
+                        text-white/40
                         transition-colors
                         duration-300
-                        group-hover:text-emerald-300/60
+                        group-hover:text-emerald-300/80
                       "
                     >
                       {group.number}
@@ -602,11 +843,12 @@ function Technologies() {
                         justify-center
                         rounded-xl
                         border
-                        border-white/[0.08]
-                        bg-white/[0.025]
+                        border-white/[0.12]
+                        bg-black/30
+                        backdrop-blur-md
                         transition-all
                         duration-300
-                        group-hover:border-emerald-300/20
+                        group-hover:border-emerald-300/25
                         group-hover:bg-emerald-400/10
                       "
                     >
@@ -615,7 +857,7 @@ function Technologies() {
                         size={19}
                         strokeWidth={1.5}
                         className="
-                          text-white/30
+                          text-white/55
                           transition-colors
                           duration-300
                           group-hover:text-emerald-200
@@ -629,13 +871,14 @@ function Technologies() {
 
                   {/* Title */}
 
-                  <div className="relative mt-12">
+                  <div className="relative z-10 mt-16">
 
                     <h3
                       className="
                         text-2xl
                         font-medium
                         tracking-[-0.03em]
+                        text-white/95
                         transition-colors
                         duration-300
                         group-hover:text-white
@@ -650,10 +893,10 @@ function Technologies() {
                         max-w-lg
                         text-sm
                         leading-6
-                        text-white/30
+                        text-white/45
                         transition-colors
                         duration-300
-                        group-hover:text-white/40
+                        group-hover:text-white/60
                       "
                     >
                       {group.description}
@@ -667,6 +910,7 @@ function Technologies() {
                   <div
                     className="
                       relative
+                      z-10
                       mt-8
                       flex
                       flex-wrap
@@ -685,14 +929,15 @@ function Technologies() {
                           py-1.5
                           text-[10px]
                           tracking-[0.05em]
+                          backdrop-blur-sm
                           transition-all
                           duration-300
                           ${
                             techIndex % 3 === 0
-                              ? "border-emerald-400/[0.13] bg-emerald-400/[0.045] text-emerald-200/60 group-hover:border-emerald-300/25 group-hover:text-emerald-100/75"
+                              ? "border-emerald-400/[0.20] bg-emerald-400/[0.08] text-emerald-100/75 group-hover:border-emerald-300/30 group-hover:bg-emerald-400/[0.12] group-hover:text-emerald-100"
                               : techIndex % 3 === 1
-                              ? "border-cyan-400/[0.11] bg-cyan-400/[0.035] text-cyan-200/55 group-hover:border-cyan-300/20 group-hover:text-cyan-100/70"
-                              : "border-white/[0.08] bg-white/[0.025] text-white/40 group-hover:border-white/[0.14] group-hover:text-white/60"
+                              ? "border-cyan-400/[0.18] bg-cyan-400/[0.07] text-cyan-100/70 group-hover:border-cyan-300/25 group-hover:bg-cyan-400/[0.10] group-hover:text-cyan-100"
+                              : "border-white/[0.12] bg-black/25 text-white/55 group-hover:border-white/[0.18] group-hover:bg-white/[0.05] group-hover:text-white/75"
                           }
                         `}
                       >
@@ -722,6 +967,7 @@ function Technologies() {
       <section
         className="
           relative
+          overflow-hidden
           border-t
           border-white/[0.07]
           px-6
@@ -748,6 +994,7 @@ function Technologies() {
           "
         />
 
+
         <div className="relative mx-auto max-w-7xl">
 
           <div className="max-w-3xl">
@@ -772,7 +1019,6 @@ function Technologies() {
                 sm:text-5xl
               "
             >
-
               Technology is only
 
               <span
@@ -794,9 +1040,108 @@ function Technologies() {
           </div>
 
 
+          {/* Engineering Visual */}
+
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: 25,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            viewport={{
+              once: true,
+            }}
+            transition={{
+              duration: 0.7,
+            }}
+            className="
+              group
+              relative
+              mt-14
+              h-[260px]
+              overflow-hidden
+              rounded-[30px]
+              border
+              border-white/[0.07]
+            "
+          >
+
+            <img
+              src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1800&q=85"
+              alt="Software engineering workspace"
+              className="
+                h-full
+                w-full
+                object-cover
+                opacity-30
+                grayscale
+                transition-transform
+                duration-1000
+                group-hover:scale-105
+              "
+            />
+
+            <div
+              className="
+                absolute
+                inset-0
+                bg-gradient-to-r
+                from-[#020403]/95
+                via-[#020403]/60
+                to-emerald-950/40
+              "
+            />
+
+            <div
+              className="
+                absolute
+                inset-0
+                bg-[radial-gradient(circle_at_70%_50%,rgba(16,185,129,0.12),transparent_45%)]
+              "
+            />
+
+            <div className="absolute inset-0 flex items-center px-7 sm:px-10">
+
+              <div className="max-w-xl">
+
+                <p
+                  className="
+                    text-[9px]
+                    font-semibold
+                    tracking-[0.25em]
+                    text-emerald-300/70
+                  "
+                >
+                  ENGINEERED WITH INTENTION
+                </p>
+
+                <p
+                  className="
+                    mt-3
+                    text-xl
+                    font-medium
+                    tracking-[-0.025em]
+                    text-white/80
+                    sm:text-2xl
+                  "
+                >
+                  Clean architecture. Reliable systems.
+                  Better digital experiences.
+                </p>
+
+              </div>
+
+            </div>
+
+          </motion.div>
+
+
           <div
             className="
-              mt-16
+              mt-5
               grid
               gap-4
               md:grid-cols-3
@@ -952,20 +1297,57 @@ function Technologies() {
             className="
               group
               relative
+              min-h-[500px]
               overflow-hidden
               rounded-[34px]
               border
               border-emerald-300/[0.10]
-              bg-gradient-to-br
-              from-emerald-500/[0.065]
-              via-white/[0.018]
-              to-cyan-500/[0.04]
-              p-8
               shadow-[0_20px_100px_rgba(16,185,129,0.05)]
-              sm:p-12
-              lg:p-16
             "
           >
+
+            {/* Main Image */}
+
+            <img
+              src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1800&q=90"
+              alt="Team building custom digital technology"
+              className="
+                absolute
+                inset-0
+                h-full
+                w-full
+                object-cover
+                opacity-35
+                grayscale-[15%]
+                transition-transform
+                duration-1000
+                group-hover:scale-105
+              "
+            />
+
+            {/* Image overlays */}
+
+            <div
+              className="
+                absolute
+                inset-0
+                bg-gradient-to-r
+                from-[#020403]/95
+                via-[#020403]/75
+                to-[#020403]/35
+              "
+            />
+
+            <div
+              className="
+                absolute
+                inset-0
+                bg-gradient-to-t
+                from-[#020403]/90
+                via-transparent
+                to-emerald-950/20
+              "
+            />
 
             {/* Emerald Glow */}
 
@@ -978,7 +1360,7 @@ function Technologies() {
                 h-[400px]
                 w-[400px]
                 rounded-full
-                bg-emerald-500/[0.09]
+                bg-emerald-500/[0.10]
                 blur-[120px]
               "
             />
@@ -999,106 +1381,124 @@ function Technologies() {
               "
             />
 
-            <div className="relative max-w-3xl">
 
-              <span
-                className="
-                  text-[10px]
-                  font-semibold
-                  tracking-[0.25em]
-                  text-emerald-200/70
-                "
-              >
-                NEED SOMETHING CUSTOM?
-              </span>
+            <div
+              className="
+                relative
+                z-10
+                flex
+                min-h-[500px]
+                items-center
+                p-8
+                sm:p-12
+                lg:p-16
+              "
+            >
 
-              <h2
-                className="
-                  mt-5
-                  text-4xl
-                  font-semibold
-                  tracking-[-0.05em]
-                  sm:text-5xl
-                "
-              >
-
-                Your business doesn't
+              <div className="max-w-3xl">
 
                 <span
                   className="
-                    bg-gradient-to-r
-                    from-emerald-300
-                    via-teal-200
-                    to-cyan-300
-                    bg-clip-text
-                    text-transparent
+                    text-[10px]
+                    font-semibold
+                    tracking-[0.25em]
+                    text-emerald-200/75
                   "
                 >
-                  {" "}need generic technology.
+                  NEED SOMETHING CUSTOM?
                 </span>
 
-              </h2>
-
-              <p
-                className="
-                  mt-6
-                  max-w-xl
-                  text-sm
-                  leading-7
-                  text-white/35
-                "
-              >
-                From custom APIs and business systems to AI
-                integrations and automation, we can design a
-                technology stack around your exact requirements.
-              </p>
-
-              <a
-                href="/contact"
-                className="
-                  group/button
-                  mt-9
-                  inline-flex
-                  items-center
-                  gap-3
-                  rounded-full
-                  bg-gradient-to-r
-                  from-emerald-500
-                  to-teal-500
-                  px-7
-                  py-4
-                  text-sm
-                  font-semibold
-                  text-white
-                  shadow-[0_12px_45px_rgba(16,185,129,0.20)]
-                  transition-all
-                  duration-300
-                  hover:scale-[1.03]
-                  hover:shadow-[0_18px_60px_rgba(16,185,129,0.30)]
-                "
-              >
-
-                Discuss Your Project
-
-                <span
+                <h2
                   className="
-                    flex
-                    h-6
-                    w-6
+                    mt-5
+                    text-4xl
+                    font-semibold
+                    tracking-[-0.05em]
+                    sm:text-5xl
+                    md:text-6xl
+                  "
+                >
+
+                  Your business doesn't
+
+                  <span
+                    className="
+                      block
+                      bg-gradient-to-r
+                      from-emerald-300
+                      via-teal-200
+                      to-cyan-300
+                      bg-clip-text
+                      text-transparent
+                    "
+                  >
+                    need generic technology.
+                  </span>
+
+                </h2>
+
+                <p
+                  className="
+                    mt-6
+                    max-w-xl
+                    text-sm
+                    leading-7
+                    text-white/45
+                  "
+                >
+                  From custom APIs and business systems to AI
+                  integrations and automation, we can design a
+                  technology stack around your exact requirements.
+                </p>
+
+                <a
+                  href="/contact"
+                  className="
+                    group/button
+                    mt-9
+                    inline-flex
                     items-center
-                    justify-center
+                    gap-3
                     rounded-full
-                    bg-white
-                    text-emerald-600
-                    transition-transform
+                    bg-gradient-to-r
+                    from-emerald-500
+                    to-teal-500
+                    px-7
+                    py-4
+                    text-sm
+                    font-semibold
+                    text-white
+                    shadow-[0_12px_45px_rgba(16,185,129,0.20)]
+                    transition-all
                     duration-300
-                    group-hover/button:rotate-45
+                    hover:scale-[1.03]
+                    hover:shadow-[0_18px_60px_rgba(16,185,129,0.30)]
                   "
                 >
-                  <ArrowUpRight size={13} />
-                </span>
 
-              </a>
+                  Discuss Your Project
+
+                  <span
+                    className="
+                      flex
+                      h-6
+                      w-6
+                      items-center
+                      justify-center
+                      rounded-full
+                      bg-white
+                      text-emerald-600
+                      transition-transform
+                      duration-300
+                      group-hover/button:rotate-45
+                    "
+                  >
+                    <ArrowUpRight size={13} />
+                  </span>
+
+                </a>
+
+              </div>
 
             </div>
 
@@ -1127,6 +1527,26 @@ function Technologies() {
         "
       >
 
+        {/* Background visual */}
+
+        <div
+          className="
+            pointer-events-none
+            absolute
+            inset-0
+            opacity-[0.08]
+          "
+        >
+
+          <img
+            src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1800&q=80"
+            alt=""
+            className="h-full w-full object-cover grayscale"
+          />
+
+        </div>
+
+
         {/* Emerald Glow */}
 
         <div
@@ -1140,7 +1560,7 @@ function Technologies() {
             -translate-x-1/2
             -translate-y-1/2
             rounded-full
-            bg-emerald-500/[0.06]
+            bg-emerald-500/[0.08]
             blur-[140px]
             sm:h-[550px]
             sm:w-[550px]
@@ -1148,19 +1568,14 @@ function Technologies() {
           "
         />
 
-        {/* Cyan Glow */}
+        {/* Dark overlay */}
 
         <div
           className="
             pointer-events-none
             absolute
-            left-[25%]
-            top-[40%]
-            h-[250px]
-            w-[250px]
-            rounded-full
-            bg-cyan-500/[0.035]
-            blur-[100px]
+            inset-0
+            bg-[#020403]/75
           "
         />
 
@@ -1182,6 +1597,7 @@ function Technologies() {
           }}
           className="
             relative
+            z-10
             mx-auto
             max-w-4xl
             text-center
@@ -1217,7 +1633,7 @@ function Technologies() {
                 block
                 bg-gradient-to-r
                 from-emerald-200/80
-                via-white/40
+                via-white/50
                 to-cyan-300/55
                 bg-clip-text
                 text-transparent
@@ -1235,7 +1651,7 @@ function Technologies() {
               max-w-xl
               text-sm
               leading-6
-              text-white/35
+              text-white/40
             "
           >
             Tell us about your idea and let's build the

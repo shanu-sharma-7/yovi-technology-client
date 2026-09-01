@@ -23,6 +23,8 @@ const processSteps = [
       "We start by understanding your business, users, challenges and objectives. The goal is to understand the problem before building the solution.",
     icon: Search,
     accent: "emerald",
+    image:
+      "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1400&q=90",
     points: ["Business requirements", "User needs", "Goals & objectives"],
   },
   {
@@ -33,6 +35,8 @@ const processSteps = [
       "We turn requirements into a clear product and technology strategy with the right features, architecture and roadmap.",
     icon: Target,
     accent: "teal",
+    image:
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=90",
     points: ["Product roadmap", "Technology planning", "Project milestones"],
   },
   {
@@ -43,6 +47,8 @@ const processSteps = [
       "We create modern interfaces and intuitive user experiences that balance aesthetics, usability and business goals.",
     icon: Lightbulb,
     accent: "cyan",
+    image:
+      "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1400&q=90",
     points: ["UI/UX design", "Design systems", "Responsive experiences"],
   },
   {
@@ -53,6 +59,8 @@ const processSteps = [
       "Our engineers transform the approved design into a scalable digital product using modern technologies and clean development practices.",
     icon: Code2,
     accent: "emerald",
+    image:
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=90",
     points: ["Frontend development", "Backend & APIs", "Database integration"],
   },
   {
@@ -63,6 +71,8 @@ const processSteps = [
       "Before launch, we test the product across functionality, responsiveness, performance and reliability to ensure everything works as expected.",
     icon: ShieldCheck,
     accent: "teal",
+    image:
+      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=90",
     points: ["Functional testing", "Performance checks", "Responsive testing"],
   },
   {
@@ -73,6 +83,8 @@ const processSteps = [
       "Once everything is ready, we deploy the solution and make it available to your customers with a smooth and reliable launch.",
     icon: Rocket,
     accent: "cyan",
+    image:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=90",
     points: ["Production deployment", "Configuration", "Launch monitoring"],
   },
   {
@@ -83,6 +95,8 @@ const processSteps = [
       "Our relationship doesn't end after launch. We help maintain, improve and evolve your digital solution as your business grows.",
     icon: CheckCircle2,
     accent: "emerald",
+    image:
+      "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1400&q=90",
     points: ["Maintenance", "Improvements", "Ongoing support"],
   },
 ];
@@ -138,7 +152,6 @@ function Process() {
 
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
 
-        {/* Emerald atmosphere */}
         <div
           className="
             absolute
@@ -152,7 +165,6 @@ function Process() {
           "
         />
 
-        {/* Cyan atmosphere */}
         <div
           className="
             absolute
@@ -166,7 +178,6 @@ function Process() {
           "
         />
 
-        {/* Teal bottom atmosphere */}
         <div
           className="
             absolute
@@ -178,6 +189,18 @@ function Process() {
             rounded-full
             bg-teal-500/[0.03]
             blur-[160px]
+          "
+        />
+
+        {/* Subtle grid */}
+
+        <div
+          className="
+            absolute
+            inset-0
+            opacity-[0.025]
+            [background-image:linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)]
+            [background-size:80px_80px]
           "
         />
 
@@ -207,11 +230,17 @@ function Process() {
             className="max-w-5xl"
           >
 
-            {/* EYEBROW */}
-
             <div className="mb-7 flex items-center gap-3">
 
-              <span
+              <motion.span
+                animate={{
+                  rotate: [0, 10, -10, 0],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
                 className="
                   flex
                   h-8
@@ -231,7 +260,7 @@ function Process() {
                   size={14}
                   className="text-emerald-200"
                 />
-              </span>
+              </motion.span>
 
               <span
                 className="
@@ -246,8 +275,6 @@ function Process() {
 
             </div>
 
-
-            {/* HEADING */}
 
             <h1
               className="
@@ -278,8 +305,6 @@ function Process() {
 
             </h1>
 
-
-            {/* DESCRIPTION */}
 
             <p
               className="
@@ -383,8 +408,6 @@ function Process() {
       >
 
         <div className="mx-auto max-w-6xl">
-
-          {/* SECTION HEADING */}
 
           <motion.div
             initial={{
@@ -504,7 +527,7 @@ function Process() {
                         absolute
                         left-0
                         top-8
-                        z-10
+                        z-20
                         hidden
                         h-[47px]
                         w-[47px]
@@ -542,23 +565,74 @@ function Process() {
                       className={`
                         relative
                         ml-0
+                        min-h-[380px]
                         overflow-hidden
                         rounded-[28px]
                         border
                         border-white/[0.07]
-                        bg-gradient-to-br
-                        from-white/[0.04]
-                        to-white/[0.015]
+                        bg-[#050706]
                         p-7
                         backdrop-blur-xl
                         transition-all
                         duration-500
                         ${theme.border}
-                        group-hover:shadow-[0_20px_70px_rgba(0,0,0,0.25)]
+                        group-hover:shadow-[0_20px_70px_rgba(0,0,0,0.35)]
                         sm:ml-[90px]
+                        sm:min-h-[400px]
                         sm:p-10
                       `}
                     >
+
+                      {/* =================================================
+                          CARD IMAGE
+                      ================================================= */}
+
+                      <img
+                        src={step.image}
+                        alt={`${step.title} process`}
+                        className="
+                          pointer-events-none
+                          absolute
+                          inset-0
+                          h-full
+                          w-full
+                          object-cover
+                          opacity-[0.30]
+                          grayscale-[15%]
+                          transition-all
+                          duration-1000
+                          group-hover:scale-105
+                          group-hover:opacity-[0.42]
+                        "
+                      />
+
+
+                      {/* IMAGE DARK OVERLAY */}
+
+                      <div
+                        className="
+                          pointer-events-none
+                          absolute
+                          inset-0
+                          bg-gradient-to-r
+                          from-[#020403]/95
+                          via-[#020403]/70
+                          to-[#020403]/35
+                        "
+                      />
+
+                      <div
+                        className="
+                          pointer-events-none
+                          absolute
+                          inset-0
+                          bg-gradient-to-t
+                          from-[#020403]/95
+                          via-transparent
+                          to-[#020403]/45
+                        "
+                      />
+
 
                       {/* CARD GLOW */}
 
@@ -591,164 +665,172 @@ function Process() {
                           h-[200px]
                           w-[200px]
                           rounded-full
-                          bg-cyan-500/[0.02]
+                          bg-cyan-500/[0.03]
                           blur-[90px]
                         "
                       />
 
 
-                      {/* TOP ROW */}
+                      {/* CONTENT */}
 
-                      <div
-                        className="
-                          relative
-                          flex
-                          items-start
-                          justify-between
-                          gap-6
-                        "
-                      >
+                      <div className="relative z-10">
 
-                        <div>
+                        {/* TOP ROW */}
+
+                        <div
+                          className="
+                            flex
+                            items-start
+                            justify-between
+                            gap-6
+                          "
+                        >
+
+                          <div>
+
+                            <span
+                              className={`
+                                text-[9px]
+                                font-medium
+                                tracking-[0.22em]
+                                ${theme.label}
+                              `}
+                            >
+                              {step.label}
+                            </span>
+
+                            <h3
+                              className="
+                                mt-3
+                                text-3xl
+                                font-medium
+                                tracking-[-0.04em]
+                                sm:text-4xl
+                              "
+                            >
+                              {step.title}
+                            </h3>
+
+                          </div>
+
+
+                          {/* NUMBER */}
 
                           <span
                             className={`
-                              text-[9px]
-                              font-medium
-                              tracking-[0.22em]
-                              ${theme.label}
+                              text-4xl
+                              font-semibold
+                              tracking-[-0.05em]
+                              text-white/[0.13]
+                              transition-colors
+                              duration-300
+                              ${theme.number}
+                              sm:text-5xl
                             `}
                           >
-                            {step.label}
+                            {step.number}
                           </span>
-
-                          <h3
-                            className="
-                              mt-3
-                              text-3xl
-                              font-medium
-                              tracking-[-0.04em]
-                              sm:text-4xl
-                            "
-                          >
-                            {step.title}
-                          </h3>
 
                         </div>
 
 
-                        {/* NUMBER */}
-
-                        <span
-                          className={`
-                            text-4xl
-                            font-semibold
-                            tracking-[-0.05em]
-                            text-white/[0.08]
-                            transition-colors
-                            duration-300
-                            ${theme.number}
-                            sm:text-5xl
-                          `}
-                        >
-                          {step.number}
-                        </span>
-
-                      </div>
-
-
-                      {/* CONTENT */}
-
-                      <div
-                        className="
-                          relative
-                          mt-7
-                          grid
-                          gap-8
-                          md:grid-cols-[1fr_auto]
-                          md:items-end
-                        "
-                      >
-
-                        <p
-                          className="
-                            max-w-2xl
-                            text-sm
-                            leading-7
-                            text-white/35
-                          "
-                        >
-                          {step.description}
-                        </p>
-
-
-                        {/* ICON */}
+                        {/* CONTENT */}
 
                         <div
-                          className={`
-                            hidden
-                            h-14
-                            w-14
-                            items-center
-                            justify-center
-                            rounded-2xl
-                            border
-                            border-white/[0.08]
-                            bg-white/[0.025]
-                            text-white/35
-                            transition-all
-                            duration-500
-                            ${theme.iconBorder}
-                            ${theme.iconBg}
-                            ${theme.icon}
-                            md:flex
-                          `}
+                          className="
+                            mt-8
+                            grid
+                            gap-8
+                            md:grid-cols-[1fr_auto]
+                            md:items-end
+                          "
                         >
-                          <Icon
-                            size={22}
-                            strokeWidth={1.5}
-                          />
-                        </div>
 
-                      </div>
-
-
-                      {/* POINTS */}
-
-                      <div
-                        className="
-                          relative
-                          mt-8
-                          flex
-                          flex-wrap
-                          gap-2
-                        "
-                      >
-
-                        {step.points.map((point) => (
-
-                          <span
-                            key={point}
+                          <p
                             className="
-                              rounded-full
-                              border
-                              border-white/[0.07]
-                              bg-white/[0.025]
-                              px-3
-                              py-1.5
-                              text-[10px]
-                              text-white/35
-                              transition-all
-                              duration-300
-                              group-hover:border-white/[0.13]
-                              group-hover:bg-white/[0.04]
-                              group-hover:text-white/55
+                              max-w-2xl
+                              text-sm
+                              leading-7
+                              text-white/55
+                              sm:text-[15px]
                             "
                           >
-                            {point}
-                          </span>
+                            {step.description}
+                          </p>
 
-                        ))}
+
+                          {/* ICON */}
+
+                          <div
+                            className={`
+                              hidden
+                              h-14
+                              w-14
+                              items-center
+                              justify-center
+                              rounded-2xl
+                              border
+                              border-white/[0.10]
+                              bg-black/30
+                              text-white/45
+                              backdrop-blur-md
+                              transition-all
+                              duration-500
+                              ${theme.iconBorder}
+                              ${theme.iconBg}
+                              ${theme.icon}
+                              md:flex
+                            `}
+                          >
+
+                            <Icon
+                              size={22}
+                              strokeWidth={1.5}
+                            />
+
+                          </div>
+
+                        </div>
+
+
+                        {/* POINTS */}
+
+                        <div
+                          className="
+                            mt-9
+                            flex
+                            flex-wrap
+                            gap-2
+                          "
+                        >
+
+                          {step.points.map((point) => (
+
+                            <span
+                              key={point}
+                              className="
+                                rounded-full
+                                border
+                                border-white/[0.10]
+                                bg-black/30
+                                px-3
+                                py-1.5
+                                text-[10px]
+                                text-white/50
+                                backdrop-blur-md
+                                transition-all
+                                duration-300
+                                group-hover:border-white/[0.16]
+                                group-hover:bg-black/40
+                                group-hover:text-white/70
+                              "
+                            >
+                              {point}
+                            </span>
+
+                          ))}
+
+                        </div>
 
                       </div>
 
@@ -784,8 +866,6 @@ function Process() {
           lg:px-12
         "
       >
-
-        {/* Ambient glows */}
 
         <div
           className="
@@ -899,8 +979,6 @@ function Process() {
               "
             >
 
-              {/* Glow */}
-
               <div
                 className="
                   pointer-events-none
@@ -919,8 +997,6 @@ function Process() {
               />
 
               <div className="relative">
-
-                {/* ICON */}
 
                 <div
                   className="
@@ -942,8 +1018,6 @@ function Process() {
                   />
                 </div>
 
-
-                {/* TEXT */}
 
                 <p
                   className="
@@ -1002,7 +1076,40 @@ function Process() {
         "
       >
 
-        {/* MAIN GLOW */}
+        {/* CTA IMAGE */}
+
+        <div
+          className="
+            pointer-events-none
+            absolute
+            inset-0
+          "
+        >
+
+          <img
+            src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1800&q=90"
+            alt=""
+            className="
+              h-full
+              w-full
+              object-cover
+              opacity-[0.18]
+              grayscale-[20%]
+            "
+          />
+
+        </div>
+
+
+        <div
+          className="
+            pointer-events-none
+            absolute
+            inset-0
+            bg-[#020403]/80
+          "
+        />
+
 
         <div
           className="
@@ -1017,23 +1124,6 @@ function Process() {
             rounded-full
             bg-emerald-500/[0.055]
             blur-[150px]
-          "
-        />
-
-        {/* SECONDARY GLOW */}
-
-        <div
-          className="
-            pointer-events-none
-            absolute
-            left-[20%]
-            top-1/2
-            h-[250px]
-            w-[250px]
-            -translate-y-1/2
-            rounded-full
-            bg-cyan-500/[0.035]
-            blur-[120px]
           "
         />
 
@@ -1055,6 +1145,7 @@ function Process() {
           }}
           className="
             relative
+            z-10
             mx-auto
             max-w-4xl
             text-center
@@ -1111,15 +1202,13 @@ function Process() {
               max-w-xl
               text-sm
               leading-7
-              text-white/35
+              text-white/40
             "
           >
             Tell us what you're building, what you're trying
             to improve, or where you want to go next.
           </p>
 
-
-          {/* CTA */}
 
           <a
             href="/contact"

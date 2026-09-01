@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import {
@@ -54,10 +53,6 @@ function Contact() {
     });
 
     try {
-      // =========================================
-      // PRODUCTION BACKEND URL
-      // =========================================
-
       const API_URL =
         "https://yovi-technology-backend-1.onrender.com/api";
 
@@ -74,9 +69,7 @@ function Contact() {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(
-          data.message || "Something went wrong."
-        );
+        throw new Error(data.message || "Something went wrong.");
       }
 
       setStatus({
@@ -329,7 +322,136 @@ function Contact() {
             className="space-y-5"
           >
 
-            {/* CONTACT CARD */}
+            {/* =====================================================
+                LARGE IMAGE CARD
+            ===================================================== */}
+
+            <div
+              className="
+                group
+                relative
+                h-[270px]
+                overflow-hidden
+                rounded-[30px]
+                border
+                border-emerald-300/[0.12]
+                bg-[#07100d]
+                shadow-[0_20px_80px_rgba(0,0,0,0.35)]
+              "
+            >
+
+              {/* IMAGE */}
+
+              <img
+                src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=85"
+                alt="Modern technology and digital innovation"
+                className="
+                  absolute
+                  inset-0
+                  h-full
+                  w-full
+                  object-cover
+                  opacity-65
+                  transition-all
+                  duration-700
+                  group-hover:scale-105
+                  group-hover:opacity-75
+                "
+              />
+
+              {/* DARK OVERLAY */}
+
+              <div
+                className="
+                  absolute
+                  inset-0
+                  bg-gradient-to-t
+                  from-[#020403]
+                  via-[#020403]/45
+                  to-emerald-950/10
+                "
+              />
+
+              {/* GREEN GLOW */}
+
+              <div
+                className="
+                  pointer-events-none
+                  absolute
+                  right-[-80px]
+                  top-[-80px]
+                  h-56
+                  w-56
+                  rounded-full
+                  bg-emerald-400/[0.18]
+                  blur-[90px]
+                  transition-all
+                  duration-700
+                  group-hover:bg-emerald-400/[0.25]
+                "
+              />
+
+              {/* IMAGE CONTENT */}
+
+              <div className="absolute inset-x-0 bottom-0 p-7">
+
+                <div className="mb-3 flex items-center gap-2">
+
+                  <span
+                    className="
+                      h-1.5
+                      w-1.5
+                      rounded-full
+                      bg-emerald-300
+                      shadow-[0_0_14px_rgba(110,231,183,0.9)]
+                    "
+                  />
+
+                  <span
+                    className="
+                      text-[9px]
+                      font-semibold
+                      tracking-[0.25em]
+                      text-emerald-200/70
+                    "
+                  >
+                    DIGITAL INNOVATION
+                  </span>
+
+                </div>
+
+                <h3
+                  className="
+                    text-2xl
+                    font-semibold
+                    tracking-[-0.04em]
+                    text-white
+                  "
+                >
+                  Ideas into digital reality.
+                </h3>
+
+                <p
+                  className="
+                    mt-2
+                    max-w-sm
+                    text-xs
+                    leading-5
+                    text-white/45
+                  "
+                >
+                  Strategy, design, technology and AI working
+                  together to build something meaningful.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            {/* =====================================================
+                CONTACT CARD
+            ===================================================== */}
 
             <div
               className="
@@ -529,7 +651,9 @@ function Contact() {
             </div>
 
 
-            {/* WHAT WE DO CARD */}
+            {/* =====================================================
+                WHAT WE DO CARD
+            ===================================================== */}
 
             <div
               className="
@@ -1442,4 +1566,3 @@ function Contact() {
 }
 
 export default Contact;
-

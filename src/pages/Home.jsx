@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 
 import {
@@ -25,7 +24,6 @@ function Home() {
 
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
 
-        {/* Violet atmosphere */}
         <div
           className="
             absolute
@@ -39,7 +37,6 @@ function Home() {
           "
         />
 
-        {/* Blue atmosphere */}
         <div
           className="
             absolute
@@ -53,7 +50,6 @@ function Home() {
           "
         />
 
-        {/* Indigo bottom glow */}
         <div
           className="
             absolute
@@ -77,10 +73,12 @@ function Home() {
 
       <section className="relative min-h-0 lg:min-h-screen">
 
-        {/* Background animation remains available */}
-        <div className="hidden lg:block"><AnimatedBackground /></div>
+        <div className="hidden lg:block">
+          <AnimatedBackground />
+        </div>
 
-        {/* Main hero aura */}
+        {/* Hero ambient glow */}
+
         <div
           className="
             pointer-events-none
@@ -101,7 +99,6 @@ function Home() {
           "
         />
 
-        {/* Secondary blue aura */}
         <div
           className="
             pointer-events-none
@@ -239,7 +236,7 @@ function Home() {
                     text-transparent
                   "
                 >
-                  experiences that{" "}
+                  experiences that
                 </span>
 
                 <span
@@ -303,7 +300,7 @@ function Home() {
                 "
               >
 
-                {/* Primary */}
+                {/* Primary CTA */}
 
                 <a
                   href="/contact"
@@ -353,7 +350,7 @@ function Home() {
                 </a>
 
 
-                {/* Secondary */}
+                {/* Secondary CTA */}
 
                 <a
                   href="/services"
@@ -425,8 +422,7 @@ function Home() {
 
 
             {/* =================================================
-                RIGHT VISUAL
-                MOBILE PAR HIDDEN
+                RIGHT HERO VISUAL
             ================================================= */}
 
             <motion.div
@@ -451,6 +447,81 @@ function Home() {
                 lg:flex
               "
             >
+
+              {/* HERO IMAGE */}
+
+              <div
+                className="
+                  absolute
+                  inset-8
+                  overflow-hidden
+                  rounded-[42px]
+                  border
+                  border-emerald-300/[0.10]
+                  bg-[#020403]
+                  shadow-[0_30px_100px_rgba(0,0,0,0.35)]
+                "
+              >
+
+                <img
+                  src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=85"
+                  alt=""
+                  className="
+                    absolute
+                    inset-0
+                    h-full
+                    w-full
+                    object-cover
+                    object-center
+                    scale-[1.08]
+                    opacity-25
+                  "
+                />
+
+                {/* Image darkening */}
+
+                <div
+                  className="
+                    absolute
+                    inset-0
+                    bg-[#020403]/80
+                  "
+                />
+
+                {/* Center emerald atmosphere */}
+
+                <div
+                  className="
+                    absolute
+                    inset-0
+                    bg-[radial-gradient(circle_at_50%_50%,rgba(16,185,129,0.24),transparent_48%)]
+                  "
+                />
+
+                {/* Edge vignette */}
+
+                <div
+                  className="
+                    absolute
+                    inset-0
+                    bg-[radial-gradient(circle_at_center,transparent_25%,rgba(2,4,3,0.85)_90%)]
+                  "
+                />
+
+                {/* Grid */}
+
+                <div
+                  className="
+                    absolute
+                    inset-0
+                    opacity-25
+                    [background-image:linear-gradient(rgba(52,211,153,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(52,211,153,0.12)_1px,transparent_1px)]
+                    [background-size:45px_45px]
+                  "
+                />
+
+              </div>
+
 
               {/* Core glow */}
 
@@ -561,6 +632,7 @@ function Home() {
                 }}
                 className="
                   relative
+                  z-10
                   flex
                   h-40
                   w-40
@@ -637,6 +709,7 @@ function Home() {
                   absolute
                   left-2
                   top-28
+                  z-20
                   rounded-2xl
                   border
                   border-emerald-300/[0.12]
@@ -675,6 +748,7 @@ function Home() {
                   absolute
                   bottom-24
                   right-4
+                  z-20
                   rounded-2xl
                   border
                   border-cyan-300/[0.12]
@@ -759,6 +833,8 @@ function Home() {
       >
 
         <div className="mx-auto max-w-7xl">
+
+          {/* Section Heading */}
 
           <motion.div
             initial={{
@@ -848,7 +924,6 @@ function Home() {
                 hover:text-emerald-200
               "
             >
-
               View all services
 
               <span
@@ -887,8 +962,11 @@ function Home() {
                 "Node.js",
               ]}
               icon={Globe2}
+              accent="emerald"
+              image="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85"
               className="min-h-[360px] lg:col-span-2"
             />
+
 
             <SpotlightCard
               number="02"
@@ -899,8 +977,11 @@ function Home() {
                 "Automation",
               ]}
               icon={BrainCircuit}
+              accent="cyan"
+              image="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=85"
               className="min-h-[360px]"
             />
+
 
             <SpotlightCard
               number="03"
@@ -911,8 +992,11 @@ function Home() {
                 "iOS",
               ]}
               icon={Smartphone}
+              accent="violet"
+              image="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=85"
               className="min-h-[330px]"
             />
+
 
             <SpotlightCard
               number="04"
@@ -923,8 +1007,11 @@ function Home() {
                 "CRM",
               ]}
               icon={Boxes}
+              accent="blue"
+              image="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=85"
               className="min-h-[330px]"
             />
+
 
             <SpotlightCard
               number="05"
@@ -935,6 +1022,8 @@ function Home() {
                 "Google Ads",
               ]}
               icon={Megaphone}
+              accent="orange"
+              image="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=85"
               className="min-h-[330px]"
             />
 
@@ -1006,6 +1095,8 @@ function Home() {
           lg:py-32
         "
       >
+
+        {/* Ambient Glow */}
 
         <div
           className="
@@ -1079,6 +1170,7 @@ function Home() {
               WHY YOVI
             </span>
 
+
             <h2
               className="
                 mt-5
@@ -1109,6 +1201,7 @@ function Home() {
               </span>
 
             </h2>
+
 
             <p
               className="
@@ -1170,7 +1263,9 @@ function Home() {
           </motion.div>
 
 
-          {/* VISUAL */}
+          {/* =================================================
+              WHY YOVI VISUAL
+          ================================================= */}
 
           <motion.div
             initial={{
@@ -1193,57 +1288,133 @@ function Home() {
             <div
               className="
                 relative
+                min-h-[520px]
                 overflow-hidden
                 rounded-[32px]
                 border
                 border-emerald-300/[0.10]
-                bg-gradient-to-br
-                from-white/[0.045]
-                via-violet-500/[0.025]
-                to-cyan-500/[0.015]
+                bg-[#020403]
                 p-7
                 shadow-[0_30px_120px_rgba(0,0,0,0.3)]
-                backdrop-blur-xl
                 sm:p-10
               "
             >
 
+              {/* ACTUAL IMAGE */}
+
               <div
                 className="
+                  pointer-events-none
                   absolute
                   inset-0
-                  opacity-[0.045]
+                  overflow-hidden
+                "
+              >
+
+                <img
+                  src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1400&q=85"
+                  alt=""
+                  className="
+                    absolute
+                    inset-0
+                    h-full
+                    w-full
+                    object-cover
+                    object-center
+                    scale-[1.04]
+                    opacity-[0.20]
+                  "
+                />
+
+                {/* Dark overlay */}
+
+                <div
+                  className="
+                    absolute
+                    inset-0
+                    bg-[#020403]/80
+                  "
+                />
+
+                {/* Emerald light */}
+
+                <div
+                  className="
+                    absolute
+                    inset-0
+                    bg-[radial-gradient(circle_at_70%_30%,rgba(16,185,129,0.20),transparent_38%)]
+                  "
+                />
+
+                {/* Cyan light */}
+
+                <div
+                  className="
+                    absolute
+                    inset-0
+                    bg-[radial-gradient(circle_at_20%_80%,rgba(34,211,238,0.08),transparent_35%)]
+                  "
+                />
+
+                {/* Vignette */}
+
+                <div
+                  className="
+                    absolute
+                    inset-0
+                    bg-[radial-gradient(circle_at_center,transparent_25%,rgba(2,4,3,0.85)_100%)]
+                  "
+                />
+
+              </div>
+
+
+              {/* GRID */}
+
+              <div
+                className="
+                  pointer-events-none
+                  absolute
+                  inset-0
+                  opacity-[0.055]
                   [background-image:linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)]
                   [background-size:40px_40px]
                 "
               />
 
+
+              {/* DECORATIVE GLOW */}
+
               <div
                 className="
+                  pointer-events-none
                   absolute
                   right-[-80px]
                   top-[-80px]
                   h-60
                   w-60
                   rounded-full
-                  bg-emerald-500/[0.075]
+                  bg-emerald-500/[0.10]
                   blur-[90px]
                 "
               />
 
               <div
                 className="
+                  pointer-events-none
                   absolute
                   bottom-[-100px]
                   left-[-80px]
                   h-52
                   w-52
                   rounded-full
-                  bg-cyan-500/[0.06]
+                  bg-cyan-500/[0.08]
                   blur-[80px]
                 "
               />
 
+
+              {/* CONTENT */}
 
               <div className="relative z-10">
 
@@ -1252,7 +1423,7 @@ function Home() {
                     text-[10px]
                     font-semibold
                     tracking-[0.25em]
-                    text-emerald-200/35
+                    text-emerald-200/50
                   "
                 >
                   THE YOVI APPROACH
@@ -1275,7 +1446,7 @@ function Home() {
                         rounded-xl
                         border
                         border-emerald-300/20
-                        bg-emerald-400/[0.06]
+                        bg-emerald-400/[0.08]
                         text-sm
                         text-emerald-200
                         shadow-[0_0_25px_rgba(16,185,129,0.12)]
@@ -1285,17 +1456,21 @@ function Home() {
                     </span>
 
                     <div>
+
                       <p className="text-sm font-medium text-white">
                         Technology
                       </p>
 
-                      <p className="mt-1 text-xs text-emerald-100/30">
+                      <p className="mt-1 text-xs text-emerald-100/35">
                         Modern engineering
                       </p>
+
                     </div>
 
                   </div>
 
+
+                  {/* Connector */}
 
                   <div
                     className="
@@ -1303,7 +1478,7 @@ function Home() {
                       h-8
                       w-px
                       bg-gradient-to-b
-                      from-violet-400/25
+                      from-emerald-400/30
                       to-cyan-400/10
                     "
                   />
@@ -1332,6 +1507,7 @@ function Home() {
                     </span>
 
                     <div>
+
                       <p className="text-sm font-medium text-white">
                         Design
                       </p>
@@ -1339,10 +1515,13 @@ function Home() {
                       <p className="mt-1 text-xs text-white/25">
                         Premium experiences
                       </p>
+
                     </div>
 
                   </div>
 
+
+                  {/* Connector */}
 
                   <div className="ml-5 h-8 w-px bg-white/10" />
 
@@ -1360,8 +1539,8 @@ function Home() {
                         justify-center
                         rounded-xl
                         border
-                        border-blue-300/15
-                        bg-blue-400/[0.05]
+                        border-cyan-300/15
+                        bg-cyan-400/[0.05]
                         text-sm
                         text-cyan-200/65
                       "
@@ -1370,6 +1549,7 @@ function Home() {
                     </span>
 
                     <div>
+
                       <p className="text-sm font-medium text-white">
                         Intelligence
                       </p>
@@ -1377,10 +1557,13 @@ function Home() {
                       <p className="mt-1 text-xs text-white/25">
                         AI & automation
                       </p>
+
                     </div>
 
                   </div>
 
+
+                  {/* Connector */}
 
                   <div
                     className="
@@ -1388,7 +1571,7 @@ function Home() {
                       h-8
                       w-px
                       bg-gradient-to-b
-                      from-blue-300/15
+                      from-cyan-300/15
                       to-white/5
                     "
                   />
@@ -1417,6 +1600,7 @@ function Home() {
                     </span>
 
                     <div>
+
                       <p className="text-sm font-medium text-white">
                         Growth
                       </p>
@@ -1424,6 +1608,7 @@ function Home() {
                       <p className="mt-1 text-xs text-white/25">
                         Business outcomes
                       </p>
+
                     </div>
 
                   </div>
@@ -1460,6 +1645,8 @@ function Home() {
           lg:py-32
         "
       >
+
+        {/* Main CTA Glow */}
 
         <div
           className="
@@ -1639,4 +1826,3 @@ function Home() {
 }
 
 export default Home;
-

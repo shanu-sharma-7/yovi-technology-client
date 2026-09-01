@@ -63,7 +63,6 @@ function About() {
 
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
 
-        {/* Emerald atmosphere */}
         <motion.div
           animate={{
             x: [0, 50, 0],
@@ -87,7 +86,6 @@ function About() {
           "
         />
 
-        {/* Teal atmosphere */}
         <motion.div
           animate={{
             x: [0, -50, 0],
@@ -110,7 +108,6 @@ function About() {
           "
         />
 
-        {/* Cyan atmosphere */}
         <motion.div
           animate={{
             x: [0, 35, 0],
@@ -132,7 +129,6 @@ function About() {
           "
         />
 
-        {/* Grid */}
         <div
           className="
             absolute
@@ -143,7 +139,6 @@ function About() {
           "
         />
 
-        {/* Vignette */}
         <div
           className="
             absolute
@@ -159,7 +154,48 @@ function About() {
           HERO
       ===================================================== */}
 
-      <section className="relative px-6 pb-28 pt-40 sm:px-8 lg:px-12">
+      <section className="relative overflow-hidden px-6 pb-28 pt-40 sm:px-8 lg:px-12">
+
+        {/* Hero Image */}
+
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-[620px] overflow-hidden">
+
+          <img
+            src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=85"
+            alt=""
+            className="
+              absolute
+              inset-0
+              h-full
+              w-full
+              object-cover
+              object-center
+              opacity-[0.12]
+              grayscale
+            "
+          />
+
+          <div
+            className="
+              absolute
+              inset-0
+              bg-gradient-to-b
+              from-[#020403]/45
+              via-[#020403]/75
+              to-[#020403]
+            "
+          />
+
+          <div
+            className="
+              absolute
+              inset-0
+              bg-[radial-gradient(circle_at_65%_35%,rgba(16,185,129,0.16),transparent_38%)]
+            "
+          />
+
+        </div>
+
 
         <div className="relative mx-auto max-w-7xl">
 
@@ -267,9 +303,7 @@ function About() {
           </motion.div>
 
 
-          {/* =================================================
-              POSITIONING CARDS
-          ================================================= */}
+          {/* POSITIONING CARDS */}
 
           <div
             className="
@@ -425,7 +459,7 @@ function About() {
 
 
       {/* =====================================================
-          WHO WE ARE
+          WHO WE ARE — UPDATED VISUAL SECTION
       ===================================================== */}
 
       <section
@@ -433,9 +467,10 @@ function About() {
           border-t
           border-white/[0.06]
           px-6
-          py-32
+          py-28
           sm:px-8
           lg:px-12
+          lg:py-36
         "
       >
 
@@ -444,12 +479,258 @@ function About() {
             mx-auto
             grid
             max-w-7xl
-            gap-16
-            lg:grid-cols-[0.8fr_1.2fr]
+            gap-14
+            lg:grid-cols-[1.05fr_0.95fr]
+            lg:items-center
+            lg:gap-20
           "
         >
 
-          <div>
+          {/* =================================================
+              IMAGE
+          ================================================= */}
+
+          <motion.div
+            initial={{
+              opacity: 0,
+              x: -30,
+            }}
+            whileInView={{
+              opacity: 1,
+              x: 0,
+            }}
+            viewport={{
+              once: true,
+              amount: 0.2,
+            }}
+            transition={{
+              duration: 0.8,
+            }}
+            whileHover={{
+              y: -5,
+            }}
+            className="
+              group
+              relative
+            "
+          >
+
+            {/* Outer glow */}
+
+            <div
+              className="
+                pointer-events-none
+                absolute
+                -inset-8
+                rounded-[45px]
+                bg-emerald-500/[0.055]
+                blur-[65px]
+                transition-all
+                duration-700
+                group-hover:bg-emerald-500/[0.09]
+              "
+            />
+
+            {/* Image frame */}
+
+            <div
+              className="
+                relative
+                aspect-[4/4.2]
+                overflow-hidden
+                rounded-[32px]
+                border
+                border-emerald-300/[0.12]
+                bg-white/[0.02]
+                shadow-[0_30px_100px_rgba(0,0,0,0.4)]
+              "
+            >
+
+              <img
+                src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1600&q=90"
+                alt="Technology team collaborating"
+                className="
+                  h-full
+                  w-full
+                  object-cover
+                  object-center
+                  grayscale-[20%]
+                  opacity-80
+                  transition-all
+                  duration-700
+                  group-hover:scale-105
+                  group-hover:opacity-90
+                "
+              />
+
+              {/* Image overlay */}
+
+              <div
+                className="
+                  pointer-events-none
+                  absolute
+                  inset-0
+                  bg-gradient-to-t
+                  from-[#020403]/80
+                  via-[#020403]/15
+                  to-emerald-950/10
+                "
+              />
+
+              <div
+                className="
+                  pointer-events-none
+                  absolute
+                  inset-0
+                  bg-[radial-gradient(circle_at_75%_20%,rgba(16,185,129,0.18),transparent_32%)]
+                "
+              />
+
+              {/* Image border highlight */}
+
+              <div
+                className="
+                  pointer-events-none
+                  absolute
+                  inset-0
+                  rounded-[32px]
+                  ring-1
+                  ring-inset
+                  ring-white/[0.08]
+                "
+              />
+
+
+              {/* Floating top badge */}
+
+              <div
+                className="
+                  absolute
+                  left-5
+                  top-5
+                  flex
+                  items-center
+                  gap-2
+                  rounded-full
+                  border
+                  border-white/[0.10]
+                  bg-[#020403]/65
+                  px-3
+                  py-2
+                  backdrop-blur-xl
+                "
+              >
+
+                <span
+                  className="
+                    h-1.5
+                    w-1.5
+                    rounded-full
+                    bg-emerald-300
+                    shadow-[0_0_12px_rgba(110,231,183,0.8)]
+                  "
+                />
+
+                <span
+                  className="
+                    text-[8px]
+                    font-medium
+                    tracking-[0.18em]
+                    text-white/60
+                  "
+                >
+                  DIGITAL PARTNERSHIP
+                </span>
+
+              </div>
+
+
+              {/* Floating bottom badge */}
+
+              <div
+                className="
+                  absolute
+                  bottom-5
+                  left-5
+                  right-5
+                  flex
+                  items-end
+                  justify-between
+                "
+              >
+
+                <div>
+
+                  <p
+                    className="
+                      text-[9px]
+                      tracking-[0.22em]
+                      text-emerald-200/60
+                    "
+                  >
+                    YOVI TECHNOLOGIES
+                  </p>
+
+                  <p
+                    className="
+                      mt-1
+                      text-xs
+                      text-white/50
+                    "
+                  >
+                    Engineering meaningful digital experiences
+                  </p>
+
+                </div>
+
+                <div
+                  className="
+                    flex
+                    h-10
+                    w-10
+                    shrink-0
+                    items-center
+                    justify-center
+                    rounded-xl
+                    border
+                    border-white/[0.10]
+                    bg-black/35
+                    text-emerald-200/70
+                    backdrop-blur-xl
+                  "
+                >
+                  <Globe2 size={16} />
+                </div>
+
+              </div>
+
+            </div>
+
+          </motion.div>
+
+
+          {/* =================================================
+              CONTENT
+          ================================================= */}
+
+          <motion.div
+            initial={{
+              opacity: 0,
+              x: 30,
+            }}
+            whileInView={{
+              opacity: 1,
+              x: 0,
+            }}
+            viewport={{
+              once: true,
+              amount: 0.2,
+            }}
+            transition={{
+              duration: 0.8,
+              delay: 0.1,
+            }}
+          >
 
             <span
               className="
@@ -467,6 +748,7 @@ function About() {
                 mt-5
                 text-4xl
                 font-semibold
+                leading-[1.05]
                 tracking-[-0.05em]
                 sm:text-5xl
               "
@@ -477,7 +759,7 @@ function About() {
                 className="
                   block
                   bg-gradient-to-r
-                  from-white/40
+                  from-white/45
                   via-white/25
                   to-emerald-200/30
                   bg-clip-text
@@ -488,50 +770,169 @@ function About() {
               </span>
             </h2>
 
-          </div>
 
-
-          <div className="space-y-6">
-
-            <p
+            <div
               className="
-                text-lg
-                leading-8
-                text-white/60
+                mt-8
+                h-px
+                w-16
+                bg-gradient-to-r
+                from-emerald-300/60
+                to-transparent
+              "
+            />
+
+
+            <div className="mt-8 space-y-6">
+
+              <p
+                className="
+                  text-lg
+                  leading-8
+                  text-white/65
+                "
+              >
+                YoVi Technologies helps businesses turn ideas,
+                challenges and opportunities into practical
+                digital solutions.
+              </p>
+
+              <p
+                className="
+                  text-sm
+                  leading-7
+                  text-white/35
+                "
+              >
+                We specialize in modern websites, custom web
+                applications, mobile applications, AI-powered
+                solutions, ERP and CRM systems, UI/UX design and
+                digital marketing.
+              </p>
+
+              <p
+                className="
+                  text-sm
+                  leading-7
+                  text-white/35
+                "
+              >
+                Our approach combines technology, design,
+                automation and digital growth to create solutions
+                that are visually impressive, scalable, secure
+                and focused on real business outcomes.
+              </p>
+
+            </div>
+
+
+            {/* Expertise tags */}
+
+            <div
+              className="
+                mt-9
+                flex
+                flex-wrap
+                gap-2
               "
             >
-              YoVi Technologies helps businesses turn ideas,
-              challenges and opportunities into practical
-              digital solutions.
-            </p>
 
-            <p
+              {[
+                "ENGINEERING",
+                "DESIGN",
+                "AI",
+                "GROWTH",
+              ].map((item) => (
+                <span
+                  key={item}
+                  className="
+                    rounded-full
+                    border
+                    border-white/[0.07]
+                    bg-white/[0.025]
+                    px-3
+                    py-1.5
+                    text-[8px]
+                    tracking-[0.18em]
+                    text-white/30
+                    transition-all
+                    duration-300
+                    hover:border-emerald-300/15
+                    hover:text-emerald-200/60
+                  "
+                >
+                  {item}
+                </span>
+              ))}
+
+            </div>
+
+
+            {/* Small stats */}
+
+            <div
               className="
-                text-sm
-                leading-7
-                text-white/35
+                mt-10
+                grid
+                grid-cols-2
+                gap-3
+                sm:max-w-md
               "
             >
-              We specialize in modern websites, custom web
-              applications, mobile applications, AI-powered
-              solutions, ERP and CRM systems, UI/UX design and
-              digital marketing.
-            </p>
 
-            <p
-              className="
-                text-sm
-                leading-7
-                text-white/35
-              "
-            >
-              Our approach combines technology, design,
-              automation and digital growth to create solutions
-              that are visually impressive, scalable, secure
-              and focused on real business outcomes.
-            </p>
+              <div
+                className="
+                  rounded-2xl
+                  border
+                  border-white/[0.06]
+                  bg-white/[0.02]
+                  p-4
+                "
+              >
+                <p className="text-xl font-semibold text-white/80">
+                  01
+                </p>
 
-          </div>
+                <p
+                  className="
+                    mt-1
+                    text-[9px]
+                    tracking-[0.18em]
+                    text-white/25
+                  "
+                >
+                  BUSINESS FIRST
+                </p>
+              </div>
+
+              <div
+                className="
+                  rounded-2xl
+                  border
+                  border-white/[0.06]
+                  bg-white/[0.02]
+                  p-4
+                "
+              >
+                <p className="text-xl font-semibold text-white/80">
+                  02
+                </p>
+
+                <p
+                  className="
+                    mt-1
+                    text-[9px]
+                    tracking-[0.18em]
+                    text-white/25
+                  "
+                >
+                  DIGITAL FIRST
+                </p>
+              </div>
+
+            </div>
+
+          </motion.div>
 
         </div>
 
@@ -563,7 +964,7 @@ function About() {
             "
           >
 
-            {/* Mission */}
+            {/* MISSION */}
 
             <motion.div
               whileHover={{
@@ -585,6 +986,36 @@ function About() {
               "
             >
 
+              <img
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=85"
+                alt=""
+                className="
+                  pointer-events-none
+                  absolute
+                  inset-0
+                  h-full
+                  w-full
+                  object-cover
+                  opacity-[0.055]
+                  grayscale
+                  transition-all
+                  duration-700
+                  group-hover:scale-105
+                  group-hover:opacity-[0.08]
+                "
+              />
+
+              <div
+                className="
+                  absolute
+                  inset-0
+                  bg-gradient-to-br
+                  from-[#020403]/75
+                  via-[#020403]/90
+                  to-emerald-950/40
+                "
+              />
+
               <div
                 className="
                   absolute
@@ -601,82 +1032,82 @@ function About() {
                 "
               />
 
-              <div
-                className="
-                  relative
-                  flex
-                  h-12
-                  w-12
-                  items-center
-                  justify-center
-                  rounded-2xl
-                  border
-                  border-emerald-300/15
-                  bg-emerald-400/[0.07]
-                  text-emerald-200
-                  shadow-[0_0_30px_rgba(16,185,129,0.10)]
-                "
-              >
-                <Target size={21} />
-              </div>
+              <div className="relative z-10">
 
-              <span
-                className="
-                  relative
-                  mt-8
-                  block
-                  text-[10px]
-                  tracking-[0.25em]
-                  text-emerald-300/50
-                "
-              >
-                OUR MISSION
-              </span>
-
-              <h3
-                className="
-                  relative
-                  mt-4
-                  text-3xl
-                  font-semibold
-                  tracking-[-0.04em]
-                "
-              >
-                Simplify technology.
+                <div
+                  className="
+                    flex
+                    h-12
+                    w-12
+                    items-center
+                    justify-center
+                    rounded-2xl
+                    border
+                    border-emerald-300/15
+                    bg-emerald-400/[0.07]
+                    text-emerald-200
+                    shadow-[0_0_30px_rgba(16,185,129,0.10)]
+                  "
+                >
+                  <Target size={21} />
+                </div>
 
                 <span
                   className="
+                    mt-8
                     block
-                    bg-gradient-to-r
-                    from-emerald-200/60
-                    to-white/25
-                    bg-clip-text
-                    text-transparent
+                    text-[10px]
+                    tracking-[0.25em]
+                    text-emerald-300/50
                   "
                 >
-                  Accelerate growth.
+                  OUR MISSION
                 </span>
-              </h3>
 
-              <p
-                className="
-                  relative
-                  mt-6
-                  text-sm
-                  leading-7
-                  text-white/35
-                "
-              >
-                To help businesses use technology to simplify
-                operations, strengthen their digital presence,
-                reach more customers and achieve sustainable
-                growth.
-              </p>
+                <h3
+                  className="
+                    mt-4
+                    text-3xl
+                    font-semibold
+                    tracking-[-0.04em]
+                  "
+                >
+                  Simplify technology.
+
+                  <span
+                    className="
+                      block
+                      bg-gradient-to-r
+                      from-emerald-200/60
+                      to-white/25
+                      bg-clip-text
+                      text-transparent
+                    "
+                  >
+                    Accelerate growth.
+                  </span>
+                </h3>
+
+                <p
+                  className="
+                    mt-6
+                    text-sm
+                    leading-7
+                    text-white/35
+                  "
+                >
+                  To help businesses use technology to simplify
+                  operations, strengthen their digital presence,
+                  reach more customers and achieve sustainable
+                  growth.
+                </p>
+
+              </div>
 
             </motion.div>
 
 
-            {/* Vision */}
+            {/* VISION */}
 
             <motion.div
               whileHover={{
@@ -698,6 +1129,36 @@ function About() {
               "
             >
 
+              <img
+                src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=85"
+                alt=""
+                className="
+                  pointer-events-none
+                  absolute
+                  inset-0
+                  h-full
+                  w-full
+                  object-cover
+                  opacity-[0.06]
+                  grayscale
+                  transition-all
+                  duration-700
+                  group-hover:scale-105
+                  group-hover:opacity-[0.09]
+                "
+              />
+
+              <div
+                className="
+                  absolute
+                  inset-0
+                  bg-gradient-to-br
+                  from-[#020403]/75
+                  via-[#020403]/90
+                  to-cyan-950/40
+                "
+              />
+
               <div
                 className="
                   absolute
@@ -714,76 +1175,76 @@ function About() {
                 "
               />
 
-              <div
-                className="
-                  relative
-                  flex
-                  h-12
-                  w-12
-                  items-center
-                  justify-center
-                  rounded-2xl
-                  border
-                  border-cyan-300/15
-                  bg-cyan-400/[0.06]
-                  text-cyan-200
-                  shadow-[0_0_30px_rgba(34,211,238,0.08)]
-                "
-              >
-                <Eye size={21} />
-              </div>
+              <div className="relative z-10">
 
-              <span
-                className="
-                  relative
-                  mt-8
-                  block
-                  text-[10px]
-                  tracking-[0.25em]
-                  text-cyan-300/50
-                "
-              >
-                OUR VISION
-              </span>
-
-              <h3
-                className="
-                  relative
-                  mt-4
-                  text-3xl
-                  font-semibold
-                  tracking-[-0.04em]
-                "
-              >
-                Build what's next.
+                <div
+                  className="
+                    flex
+                    h-12
+                    w-12
+                    items-center
+                    justify-center
+                    rounded-2xl
+                    border
+                    border-cyan-300/15
+                    bg-cyan-400/[0.06]
+                    text-cyan-200
+                    shadow-[0_0_30px_rgba(34,211,238,0.08)]
+                  "
+                >
+                  <Eye size={21} />
+                </div>
 
                 <span
                   className="
+                    mt-8
                     block
-                    bg-gradient-to-r
-                    from-cyan-200/60
-                    to-white/25
-                    bg-clip-text
-                    text-transparent
+                    text-[10px]
+                    tracking-[0.25em]
+                    text-cyan-300/50
                   "
                 >
-                  Together.
+                  OUR VISION
                 </span>
-              </h3>
 
-              <p
-                className="
-                  relative
-                  mt-6
-                  text-sm
-                  leading-7
-                  text-white/35
-                "
-              >
-                To become a trusted technology partner for
-                businesses by delivering innovative, reliable,
-                scalable and results-driven digital solutions.
-              </p>
+                <h3
+                  className="
+                    mt-4
+                    text-3xl
+                    font-semibold
+                    tracking-[-0.04em]
+                  "
+                >
+                  Build what's next.
+
+                  <span
+                    className="
+                      block
+                      bg-gradient-to-r
+                      from-cyan-200/60
+                      to-white/25
+                      bg-clip-text
+                      text-transparent
+                    "
+                  >
+                    Together.
+                  </span>
+                </h3>
+
+                <p
+                  className="
+                    mt-6
+                    text-sm
+                    leading-7
+                    text-white/35
+                  "
+                >
+                  To become a trusted technology partner for
+                  businesses by delivering innovative, reliable,
+                  scalable and results-driven digital solutions.
+                </p>
+
+              </div>
 
             </motion.div>
 
@@ -1007,9 +1468,10 @@ function About() {
           border-t
           border-white/[0.06]
           px-6
-          py-32
+          py-28
           sm:px-8
           lg:px-12
+          lg:py-32
         "
       >
 
@@ -1023,6 +1485,8 @@ function About() {
             lg:items-center
           "
         >
+
+          {/* TEXT */}
 
           <div>
 
@@ -1081,9 +1545,23 @@ function About() {
           </div>
 
 
-          {/* Principles */}
+          {/* APPROACH VISUAL */}
 
           <motion.div
+            initial={{
+              opacity: 0,
+              x: 25,
+            }}
+            whileInView={{
+              opacity: 1,
+              x: 0,
+            }}
+            viewport={{
+              once: true,
+            }}
+            transition={{
+              duration: 0.8,
+            }}
             whileHover={{
               y: -4,
             }}
@@ -1095,13 +1573,40 @@ function About() {
               border
               border-emerald-300/[0.08]
               bg-white/[0.025]
-              p-7
               backdrop-blur-xl
               transition-all
               duration-500
               hover:border-emerald-300/[0.16]
             "
           >
+
+            <img
+              src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1400&q=85"
+              alt=""
+              className="
+                absolute
+                inset-0
+                h-full
+                w-full
+                object-cover
+                opacity-[0.12]
+                grayscale
+                transition-transform
+                duration-700
+                group-hover:scale-105
+              "
+            />
+
+            <div
+              className="
+                absolute
+                inset-0
+                bg-gradient-to-br
+                from-[#020403]/90
+                via-[#020403]/85
+                to-emerald-950/45
+              "
+            />
 
             <div
               className="
@@ -1119,7 +1624,7 @@ function About() {
               "
             />
 
-            <div className="relative">
+            <div className="relative z-10 p-7">
 
               {[
                 "Understand the business",
@@ -1204,6 +1709,41 @@ function About() {
           lg:px-12
         "
       >
+
+        {/* CTA background image */}
+
+        <div className="pointer-events-none absolute inset-0">
+
+          <img
+            src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1800&q=85"
+            alt=""
+            className="
+              h-full
+              w-full
+              object-cover
+              opacity-[0.07]
+              grayscale
+            "
+          />
+
+          <div
+            className="
+              absolute
+              inset-0
+              bg-[#020403]/85
+            "
+          />
+
+          <div
+            className="
+              absolute
+              inset-0
+              bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.12),transparent_48%)]
+            "
+          />
+
+        </div>
+
 
         {/* Main CTA glow */}
 
@@ -1341,6 +1881,7 @@ function About() {
               hover:shadow-[0_20px_80px_rgba(16,185,129,0.32)]
             "
           >
+
             Start a Project
 
             <span

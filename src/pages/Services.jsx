@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 
 import {
@@ -20,6 +19,8 @@ const services = [
     title: "Web Development",
     description:
       "Modern, high-performance websites and web applications designed around your business goals.",
+    image:
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=85",
     items: [
       "Business Websites",
       "Corporate Websites",
@@ -39,6 +40,8 @@ const services = [
     title: "Mobile App Development",
     description:
       "Scalable mobile experiences that help businesses connect with customers wherever they are.",
+    image:
+      "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1200&q=85",
     items: [
       "Android Applications",
       "iOS Applications",
@@ -55,6 +58,8 @@ const services = [
     title: "AI Solutions",
     description:
       "Intelligent systems that automate repetitive work, improve customer experiences and unlock new possibilities.",
+    image:
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=85",
     items: [
       "AI Chatbots",
       "AI-Powered Business Solutions",
@@ -72,6 +77,8 @@ const services = [
     title: "ERP & CRM Development",
     description:
       "Connected business platforms that bring operations, customers and workflows together.",
+    image:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=85",
     items: [
       "Custom ERP Systems",
       "CRM Development",
@@ -90,6 +97,8 @@ const services = [
     title: "Digital Marketing",
     description:
       "Data-driven digital growth strategies designed to increase visibility, generate leads and reach the right audience.",
+    image:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=85",
     items: [
       "Search Engine Optimization",
       "Google Ads",
@@ -108,6 +117,8 @@ const services = [
     title: "UI/UX & Branding",
     description:
       "Thoughtful visual experiences and brand systems that make businesses memorable.",
+    image:
+      "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1200&q=85",
     items: [
       "UI/UX Design",
       "Website Design",
@@ -193,7 +204,6 @@ function Services() {
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
 
         {/* Emerald atmosphere */}
-
         <motion.div
           animate={{
             x: [0, 35, 0],
@@ -218,7 +228,6 @@ function Services() {
         />
 
         {/* Cyan atmosphere */}
-
         <motion.div
           animate={{
             x: [0, -40, 0],
@@ -243,7 +252,6 @@ function Services() {
         />
 
         {/* Teal bottom atmosphere */}
-
         <motion.div
           animate={{
             x: [0, 30, 0],
@@ -267,7 +275,6 @@ function Services() {
         />
 
         {/* Grid */}
-
         <div
           className="
             absolute
@@ -279,7 +286,6 @@ function Services() {
         />
 
         {/* Vignette */}
-
         <div
           className="
             absolute
@@ -311,12 +317,65 @@ function Services() {
             transition={{
               duration: 0.8,
             }}
-            className="max-w-5xl"
+            className="relative max-w-5xl"
           >
+
+            {/* Hero decorative image */}
+
+            <div
+              className="
+                pointer-events-none
+                absolute
+                -right-20
+                -top-32
+                hidden
+                h-[500px]
+                w-[650px]
+                overflow-hidden
+                rounded-[50%]
+                opacity-30
+                lg:block
+              "
+            >
+              <img
+                src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=85"
+                alt=""
+                className="
+                  h-full
+                  w-full
+                  object-cover
+                  opacity-50
+                  mix-blend-screen
+                "
+              />
+
+              <div
+                className="
+                  absolute
+                  inset-0
+                  bg-gradient-to-l
+                  from-transparent
+                  via-[#020403]/50
+                  to-[#020403]
+                "
+              />
+
+              <div
+                className="
+                  absolute
+                  inset-0
+                  bg-gradient-to-b
+                  from-transparent
+                  via-transparent
+                  to-[#020403]
+                "
+              />
+            </div>
+
 
             {/* Eyebrow */}
 
-            <div className="mb-7 flex items-center gap-3">
+            <div className="relative mb-7 flex items-center gap-3">
 
               <span
                 className="
@@ -358,6 +417,7 @@ function Services() {
 
             <h1
               className="
+                relative
                 text-5xl
                 font-semibold
                 leading-[0.98]
@@ -391,6 +451,7 @@ function Services() {
 
             <p
               className="
+                relative
                 mt-8
                 max-w-2xl
                 text-base
@@ -444,6 +505,7 @@ function Services() {
               "CRM",
               "GROWTH",
             ].map((item) => (
+
               <span
                 key={item}
                 className="
@@ -455,6 +517,7 @@ function Services() {
               >
                 {item}
               </span>
+
             ))}
 
           </motion.div>
@@ -490,6 +553,7 @@ function Services() {
               const accent = accentStyles[service.accent];
 
               return (
+
                 <motion.article
                   key={service.number}
                   initial={{
@@ -564,68 +628,204 @@ function Services() {
                   />
 
 
-                  {/* Content */}
+                  {/* =================================================
+                      CONTENT
+                  ================================================= */}
 
                   <div
                     className="
                       relative
                       grid
-                      gap-10
-                      p-7
-                      sm:p-9
-                      lg:grid-cols-[90px_1fr_0.8fr]
-                      lg:gap-12
-                      lg:p-12
+                      gap-8
+                      p-5
+                      sm:p-7
+                      lg:grid-cols-[300px_1fr_0.8fr]
+                      lg:gap-10
+                      lg:p-10
                     "
                   >
 
-                    {/* Number + Icon */}
+                    {/* =================================================
+                        SERVICE IMAGE
+                    ================================================= */}
 
-                    <div>
+                    <div
+                      className="
+                        relative
+                        min-h-[220px]
+                        overflow-hidden
+                        rounded-[22px]
+                        border
+                        border-white/[0.08]
+                        bg-black/30
+                      "
+                    >
 
-                      <span
-                        className={`
-                          text-[10px]
-                          font-semibold
-                          tracking-[0.2em]
-                          transition-colors
-                          duration-300
-                          ${accent.number}
-                        `}
-                      >
-                        {service.number}
-                      </span>
+                      <motion.img
+                        src={service.image}
+                        alt={service.title}
+                        loading="lazy"
+                        whileHover={{
+                          scale: 1.06,
+                        }}
+                        transition={{
+                          duration: 0.7,
+                        }}
+                        className="
+                          absolute
+                          inset-0
+                          h-full
+                          w-full
+                          object-cover
+                          opacity-70
+                          grayscale-[15%]
+                          transition-opacity
+                          duration-500
+                          group-hover:opacity-90
+                        "
+                      />
+
+                      {/* Dark image overlay */}
 
                       <div
-                        className={`
-                          mt-5
-                          flex
-                          h-11
-                          w-11
-                          items-center
-                          justify-center
-                          rounded-xl
-                          border
+                        className="
+                          absolute
+                          inset-0
+                          bg-gradient-to-r
+                          from-[#020403]/70
+                          via-[#020403]/25
+                          to-transparent
+                        "
+                      />
+
+                      <div
+                        className="
+                          absolute
+                          inset-0
+                          bg-gradient-to-t
+                          from-[#020403]/90
+                          via-transparent
+                          to-transparent
+                        "
+                      />
+
+                      {/* Image glow */}
+
+                      <div
+                        className="
+                          absolute
+                          -bottom-16
+                          -left-10
+                          h-40
+                          w-40
+                          rounded-full
+                          bg-emerald-400/[0.12]
+                          blur-[60px]
                           transition-all
-                          duration-300
-                          ${accent.icon}
-                        `}
+                          duration-500
+                          group-hover:scale-150
+                        "
+                      />
+
+                      {/* Number over image */}
+
+                      <div
+                        className="
+                          absolute
+                          bottom-5
+                          left-5
+                          flex
+                          items-center
+                          gap-3
+                        "
                       >
-                        <Icon
-                          size={19}
-                          strokeWidth={1.5}
+
+                        <span
+                          className={`
+                            text-[11px]
+                            font-semibold
+                            tracking-[0.2em]
+                            ${accent.number}
+                          `}
+                        >
+                          {service.number}
+                        </span>
+
+                        <span
+                          className="
+                            h-px
+                            w-8
+                            bg-white/20
+                          "
                         />
+
+                        <span
+                          className="
+                            text-[9px]
+                            font-medium
+                            tracking-[0.18em]
+                            text-white/40
+                          "
+                        >
+                          YOVI TECHNOLOGIES
+                        </span>
+
                       </div>
 
                     </div>
 
 
-                    {/* Main Content */}
+                    {/* =================================================
+                        MAIN CONTENT
+                    ================================================= */}
 
                     <div>
 
+                      {/* Number + Icon */}
+
+                      <div className="flex items-center gap-4">
+
+                        <span
+                          className={`
+                            text-[10px]
+                            font-semibold
+                            tracking-[0.2em]
+                            transition-colors
+                            duration-300
+                            ${accent.number}
+                          `}
+                        >
+                          {service.number}
+                        </span>
+
+                        <div
+                          className={`
+                            flex
+                            h-11
+                            w-11
+                            items-center
+                            justify-center
+                            rounded-xl
+                            border
+                            transition-all
+                            duration-300
+                            ${accent.icon}
+                          `}
+                        >
+                          <Icon
+                            size={19}
+                            strokeWidth={1.5}
+                          />
+                        </div>
+
+                      </div>
+
+
+                      {/* Title */}
+
                       <h2
                         className="
+                          mt-6
                           text-3xl
                           font-semibold
                           tracking-[-0.04em]
@@ -635,6 +835,9 @@ function Services() {
                       >
                         {service.title}
                       </h2>
+
+
+                      {/* Description */}
 
                       <p
                         className="
@@ -685,7 +888,9 @@ function Services() {
                     </div>
 
 
-                    {/* Features */}
+                    {/* =================================================
+                        FEATURES
+                    ================================================= */}
 
                     <div>
 
@@ -789,7 +994,9 @@ function Services() {
                   </div>
 
                 </motion.article>
+
               );
+
             })}
 
           </div>
@@ -815,6 +1022,53 @@ function Services() {
           lg:px-12
         "
       >
+
+        {/* CTA Background Image */}
+
+        <div
+          className="
+            pointer-events-none
+            absolute
+            inset-0
+            overflow-hidden
+          "
+        >
+
+          <img
+            src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1800&q=85"
+            alt=""
+            className="
+              h-full
+              w-full
+              object-cover
+              opacity-[0.13]
+            "
+          />
+
+          <div
+            className="
+              absolute
+              inset-0
+              bg-gradient-to-r
+              from-[#020403]
+              via-[#020403]/80
+              to-[#020403]
+            "
+          />
+
+          <div
+            className="
+              absolute
+              inset-0
+              bg-gradient-to-t
+              from-[#020403]
+              via-transparent
+              to-[#020403]
+            "
+          />
+
+        </div>
+
 
         {/* Emerald */}
 
@@ -887,6 +1141,8 @@ function Services() {
           "
         />
 
+
+        {/* CTA Content */}
 
         <motion.div
           initial={{
@@ -1025,4 +1281,3 @@ function Services() {
 }
 
 export default Services;
-

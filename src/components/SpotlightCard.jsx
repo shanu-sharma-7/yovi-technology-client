@@ -9,6 +9,7 @@ function SpotlightCard({
   icon: Icon,
   className = "",
   accent = "violet",
+  image = "",
 }) {
   const cardRef = useRef(null);
 
@@ -106,12 +107,83 @@ function SpotlightCard({
       `}
     >
 
-      {/* Cursor spotlight */}
+      {/* =====================================================
+          CARD IMAGE
+      ===================================================== */}
+
+      {image && (
+        <div className="pointer-events-none absolute inset-0">
+
+          {/* Image */}
+          <img
+            src={image}
+            alt=""
+            className="
+              absolute
+              inset-0
+              h-full
+              w-full
+              object-cover
+              object-center
+              opacity-45
+              transition-all
+              duration-700
+              group-hover:scale-105
+              group-hover:opacity-55
+            "
+          />
+
+          {/* Dark overlay */}
+          <div
+            className="
+              absolute
+              inset-0
+              bg-gradient-to-r
+              from-[#020403]/95
+              via-[#020403]/70
+              to-[#020403]/45
+            "
+          />
+
+          {/* Bottom dark fade */}
+          <div
+            className="
+              absolute
+              inset-0
+              bg-gradient-to-t
+              from-[#020403]/95
+              via-transparent
+              to-[#020403]/35
+            "
+          />
+
+          {/* Emerald ambient glow */}
+          <div
+            className="
+              absolute
+              inset-0
+              opacity-40
+              transition-opacity
+              duration-500
+              group-hover:opacity-70
+              bg-[radial-gradient(circle_at_80%_20%,rgba(16,185,129,0.22),transparent_45%)]
+            "
+          />
+
+        </div>
+      )}
+
+
+      {/* =====================================================
+          CURSOR SPOTLIGHT
+      ===================================================== */}
+
       <div
         className="
           pointer-events-none
           absolute
           -inset-px
+          z-[1]
           opacity-0
           transition-opacity
           duration-500
@@ -126,17 +198,41 @@ function SpotlightCard({
         }}
       />
 
-      {/* Top gradient glow */}
+
+      {/* =====================================================
+          TOP GRADIENT GLOW
+      ===================================================== */}
+
       <div
-        className="pointer-events-none absolute -right-20 -top-20 h-44 w-44 rounded-full blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+        className="
+          pointer-events-none
+          absolute
+          -right-20
+          -top-20
+          z-[1]
+          h-44
+          w-44
+          rounded-full
+          blur-3xl
+          opacity-0
+          transition-opacity
+          duration-500
+          group-hover:opacity-100
+        "
         style={{
           background: theme.glow,
         }}
       />
 
+
+      {/* =====================================================
+          CONTENT
+      ===================================================== */}
+
       <div className="relative z-10 flex h-full flex-col">
 
         {/* Top */}
+
         <div className="flex items-start justify-between">
 
           <span
@@ -152,16 +248,23 @@ function SpotlightCard({
             {number}
           </span>
 
+
           {Icon && (
             <div
               className={`
-                flex h-11 w-11
-                items-center justify-center
+                flex
+                h-11
+                w-11
+                items-center
+                justify-center
                 rounded-2xl
-                border border-white/10
+                border
+                border-white/10
                 bg-white/[0.045]
                 text-white/60
-                transition-all duration-300
+                backdrop-blur-md
+                transition-all
+                duration-300
 
                 ${theme.iconBg}
                 ${theme.iconText}
@@ -169,7 +272,10 @@ function SpotlightCard({
                 group-hover:scale-110
               `}
             >
-              <Icon size={19} strokeWidth={1.5} />
+              <Icon
+                size={19}
+                strokeWidth={1.5}
+              />
             </div>
           )}
 
@@ -177,6 +283,7 @@ function SpotlightCard({
 
 
         {/* Content */}
+
         <div className="mt-auto pt-20">
 
           <h3
@@ -192,6 +299,7 @@ function SpotlightCard({
           >
             {title}
           </h3>
+
 
           <p
             className="
@@ -210,6 +318,7 @@ function SpotlightCard({
 
 
           {/* Technologies */}
+
           {technologies && (
             <div className="mt-6 flex flex-wrap gap-2">
 
@@ -218,12 +327,14 @@ function SpotlightCard({
                   key={tech}
                   className="
                     rounded-full
-                    border border-white/[0.08]
+                    border
+                    border-white/[0.08]
                     bg-white/[0.035]
                     px-3
                     py-1.5
                     text-[10px]
                     text-white/40
+                    backdrop-blur-md
                     transition-all
                     duration-300
                     group-hover:border-white/[0.13]
@@ -242,18 +353,25 @@ function SpotlightCard({
 
 
         {/* Arrow */}
+
         <div
           className="
             absolute
             bottom-7
             right-7
-            flex h-9 w-9
-            items-center justify-center
+            flex
+            h-9
+            w-9
+            items-center
+            justify-center
             rounded-full
-            border border-white/10
+            border
+            border-white/10
             bg-white/[0.025]
             text-white/40
-            transition-all duration-300
+            backdrop-blur-md
+            transition-all
+            duration-300
 
             group-hover:rotate-45
             group-hover:bg-white/[0.08]
