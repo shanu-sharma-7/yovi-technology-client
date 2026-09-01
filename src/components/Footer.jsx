@@ -37,52 +37,53 @@ function Footer() {
   ];
 
   return (
-    <footer className="relative overflow-hidden border-t border-white/[0.08] bg-[#030305] text-white">
+    <footer className="relative overflow-hidden border-t border-white/[0.07] bg-[#020403] text-white">
 
-      {/* =========================================
-          BACKGROUND
-      ========================================= */}
+      {/* =====================================================
+          AMBIENT BACKGROUND
+      ===================================================== */}
 
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
 
-        {/* Main violet glow */}
+        {/* Emerald atmosphere */}
         <div
           className="
             absolute
-            left-[8%]
-            top-[-220px]
+            left-[-180px]
+            top-[-180px]
             h-[520px]
             w-[520px]
             rounded-full
-            bg-violet-600/[0.08]
-            blur-[150px]
+            bg-emerald-500/[0.045]
+            blur-[160px]
           "
         />
 
-        {/* Blue glow */}
+        {/* Cyan atmosphere */}
         <div
           className="
             absolute
-            right-[-120px]
+            right-[-180px]
             top-[25%]
-            h-[480px]
-            w-[480px]
+            h-[520px]
+            w-[520px]
             rounded-full
-            bg-blue-600/[0.06]
-            blur-[150px]
+            bg-cyan-500/[0.035]
+            blur-[160px]
           "
         />
 
-        {/* Bottom violet glow */}
+        {/* Bottom emerald glow */}
         <div
           className="
             absolute
-            bottom-[-250px]
-            left-1/3
-            h-[500px]
-            w-[500px]
+            bottom-[-260px]
+            left-1/2
+            h-[550px]
+            w-[550px]
+            -translate-x-1/2
             rounded-full
-            bg-fuchsia-500/[0.04]
+            bg-emerald-500/[0.035]
             blur-[160px]
           "
         />
@@ -93,28 +94,27 @@ function Footer() {
             absolute
             left-1/2
             top-[35%]
-            h-[300px]
-            w-[300px]
+            h-[320px]
+            w-[320px]
             -translate-x-1/2
             rounded-full
-            bg-violet-400/[0.025]
-            blur-[120px]
+            bg-teal-500/[0.025]
+            blur-[130px]
           "
         />
 
       </div>
 
 
-      {/* =========================================
+      {/* =====================================================
           MAIN FOOTER
-      ========================================= */}
+      ===================================================== */}
 
       <div className="relative mx-auto max-w-7xl px-6 pb-10 pt-20 sm:px-8 lg:px-12">
 
-
-        {/* =====================================
-            TOP CTA
-        ===================================== */}
+        {/* ===================================================
+            CTA
+        =================================================== */}
 
         <div
           className="
@@ -123,7 +123,7 @@ function Footer() {
             gap-10
             overflow-hidden
             border-b
-            border-white/[0.08]
+            border-white/[0.07]
             pb-16
             lg:grid-cols-[1.2fr_0.8fr]
             lg:items-end
@@ -131,17 +131,18 @@ function Footer() {
         >
 
           {/* CTA glow */}
+
           <div
             className="
               pointer-events-none
               absolute
               -left-32
               -top-32
-              h-[300px]
-              w-[300px]
+              h-[320px]
+              w-[320px]
               rounded-full
-              bg-violet-500/[0.06]
-              blur-[100px]
+              bg-emerald-500/[0.05]
+              blur-[110px]
             "
           />
 
@@ -153,15 +154,24 @@ function Footer() {
                 items-center
                 gap-2
                 text-[10px]
-                font-medium
+                font-semibold
                 tracking-[0.25em]
-                text-violet-300/70
+                text-emerald-300/70
               "
             >
-              <span className="h-1.5 w-1.5 rounded-full bg-violet-300 shadow-lg shadow-violet-400/50" />
+              <span
+                className="
+                  h-1.5
+                  w-1.5
+                  rounded-full
+                  bg-emerald-300
+                  shadow-[0_0_18px_rgba(110,231,183,0.8)]
+                "
+              />
 
               HAVE A PROJECT IN MIND?
             </span>
+
 
             <h2
               className="
@@ -177,13 +187,26 @@ function Footer() {
             >
               Let's build something
 
-              <span className="block bg-gradient-to-r from-white/40 via-white/25 to-transparent bg-clip-text text-transparent">
+              <span
+                className="
+                  block
+                  bg-gradient-to-r
+                  from-emerald-200/75
+                  via-white/40
+                  to-cyan-300/45
+                  bg-clip-text
+                  text-transparent
+                "
+              >
                 meaningful.
               </span>
+
             </h2>
 
           </div>
 
+
+          {/* CTA BUTTON */}
 
           <div className="relative lg:flex lg:justify-end">
 
@@ -195,19 +218,19 @@ function Footer() {
                 items-center
                 gap-3
                 rounded-full
-                border
-                border-white/10
-                bg-white
+                bg-gradient-to-r
+                from-emerald-500
+                to-teal-500
                 px-6
                 py-3.5
                 text-sm
                 font-semibold
-                text-black
-                shadow-[0_0_35px_rgba(139,92,246,0.12)]
+                text-white
+                shadow-[0_12px_45px_rgba(16,185,129,0.18)]
                 transition-all
                 duration-300
                 hover:scale-[1.04]
-                hover:shadow-[0_0_45px_rgba(139,92,246,0.22)]
+                hover:shadow-[0_18px_60px_rgba(16,185,129,0.30)]
               "
             >
               Start a Project
@@ -220,12 +243,11 @@ function Footer() {
                   items-center
                   justify-center
                   rounded-full
-                  bg-[#080808]
-                  text-white
+                  bg-white
+                  text-emerald-600
                   transition-all
                   duration-300
                   group-hover:rotate-45
-                  group-hover:bg-violet-600
                 "
               >
                 <ArrowUpRight size={13} />
@@ -238,9 +260,9 @@ function Footer() {
         </div>
 
 
-        {/* =====================================
+        {/* ===================================================
             FOOTER GRID
-        ===================================== */}
+        =================================================== */}
 
         <div
           className="
@@ -252,10 +274,9 @@ function Footer() {
           "
         >
 
-
-          {/* =================================
+          {/* =================================================
               BRAND
-          ================================= */}
+          ================================================= */}
 
           <div>
 
@@ -264,7 +285,6 @@ function Footer() {
               className="group inline-flex items-center gap-3"
             >
 
-              {/* Logo */}
               <div
                 className="
                   relative
@@ -276,14 +296,14 @@ function Footer() {
                   overflow-hidden
                   rounded-2xl
                   border
-                  border-white/10
+                  border-emerald-300/[0.12]
                   bg-white
-                  shadow-[0_0_30px_rgba(139,92,246,0.12)]
+                  shadow-[0_0_30px_rgba(16,185,129,0.08)]
                   transition-all
                   duration-300
                   group-hover:scale-105
-                  group-hover:border-violet-300/30
-                  group-hover:shadow-[0_0_35px_rgba(139,92,246,0.22)]
+                  group-hover:border-emerald-300/30
+                  group-hover:shadow-[0_0_40px_rgba(16,185,129,0.18)]
                 "
               >
 
@@ -293,7 +313,8 @@ function Footer() {
                   className="h-full w-full object-contain p-1.5"
                 />
 
-                {/* Shine */}
+                {/* Logo shine */}
+
                 <span
                   className="
                     pointer-events-none
@@ -332,7 +353,7 @@ function Footer() {
                     block
                     text-[7px]
                     tracking-[0.28em]
-                    text-violet-300/40
+                    text-emerald-200/40
                   "
                 >
                   TECHNOLOGIES
@@ -363,7 +384,7 @@ function Footer() {
                 className="
                   text-[9px]
                   tracking-[0.22em]
-                  text-violet-300/40
+                  text-emerald-200/40
                 "
               >
                 INNOVATE • INTEGRATE • INSPIRE
@@ -374,22 +395,23 @@ function Footer() {
           </div>
 
 
-          {/* =================================
+          {/* =================================================
               SERVICES
-          ================================= */}
+          ================================================= */}
 
           <div>
 
             <span
               className="
                 text-[9px]
-                font-medium
+                font-semibold
                 tracking-[0.22em]
-                text-violet-300/50
+                text-emerald-300/55
               "
             >
               SERVICES
             </span>
+
 
             <div className="mt-6 space-y-3">
 
@@ -404,7 +426,7 @@ function Footer() {
                     transition-all
                     duration-300
                     hover:translate-x-1
-                    hover:text-violet-200
+                    hover:text-emerald-100
                   "
                 >
                   {service}
@@ -417,22 +439,23 @@ function Footer() {
           </div>
 
 
-          {/* =================================
+          {/* =================================================
               COMPANY
-          ================================= */}
+          ================================================= */}
 
           <div>
 
             <span
               className="
                 text-[9px]
-                font-medium
+                font-semibold
                 tracking-[0.22em]
-                text-violet-300/50
+                text-emerald-300/55
               "
             >
               COMPANY
             </span>
+
 
             <div className="mt-6 space-y-3">
 
@@ -460,10 +483,11 @@ function Footer() {
                       h-1
                       w-1
                       rounded-full
-                      bg-violet-400/0
+                      bg-emerald-300/0
                       transition-all
                       duration-300
-                      group-hover:bg-violet-300
+                      group-hover:bg-emerald-300
+                      group-hover:shadow-[0_0_8px_rgba(110,231,183,0.7)]
                     "
                   />
 
@@ -478,18 +502,18 @@ function Footer() {
           </div>
 
 
-          {/* =================================
+          {/* =================================================
               CONTACT
-          ================================= */}
+          ================================================= */}
 
           <div>
 
             <span
               className="
                 text-[9px]
-                font-medium
+                font-semibold
                 tracking-[0.22em]
-                text-violet-300/50
+                text-emerald-300/55
               "
             >
               GET IN TOUCH
@@ -498,8 +522,7 @@ function Footer() {
 
             <div className="mt-6 space-y-5">
 
-
-              {/* Email */}
+              {/* EMAIL */}
 
               <a
                 href="mailto:Info@yovitechnologies.com"
@@ -520,19 +543,22 @@ function Footer() {
                     bg-white/[0.025]
                     transition-all
                     duration-300
-                    group-hover:border-violet-300/20
-                    group-hover:bg-violet-400/10
+                    group-hover:border-emerald-300/20
+                    group-hover:bg-emerald-400/[0.07]
                   "
                 >
+
                   <Mail
                     size={14}
                     className="
                       text-white/30
                       transition-colors
-                      group-hover:text-violet-300
+                      group-hover:text-emerald-200
                     "
                   />
+
                 </div>
+
 
                 <span
                   className="
@@ -549,7 +575,7 @@ function Footer() {
               </a>
 
 
-              {/* Phone */}
+              {/* PHONE */}
 
               <a
                 href="tel:7082341255"
@@ -570,19 +596,22 @@ function Footer() {
                     bg-white/[0.025]
                     transition-all
                     duration-300
-                    group-hover:border-violet-300/20
-                    group-hover:bg-violet-400/10
+                    group-hover:border-emerald-300/20
+                    group-hover:bg-emerald-400/[0.07]
                   "
                 >
+
                   <Phone
                     size={14}
                     className="
                       text-white/30
                       transition-colors
-                      group-hover:text-violet-300
+                      group-hover:text-emerald-200
                     "
                   />
+
                 </div>
+
 
                 <span
                   className="
@@ -598,7 +627,7 @@ function Footer() {
               </a>
 
 
-              {/* Location */}
+              {/* LOCATION */}
 
               <div className="flex items-start gap-3">
 
@@ -616,11 +645,14 @@ function Footer() {
                     bg-white/[0.025]
                   "
                 >
+
                   <MapPin
                     size={14}
                     className="text-white/30"
                   />
+
                 </div>
+
 
                 <span
                   className="
@@ -644,9 +676,9 @@ function Footer() {
         </div>
 
 
-        {/* =====================================
+        {/* ===================================================
             BOTTOM BAR
-        ===================================== */}
+        =================================================== */}
 
         <div
           className="
@@ -654,7 +686,7 @@ function Footer() {
             flex-col
             gap-5
             border-t
-            border-white/[0.08]
+            border-white/[0.07]
             pt-7
             text-[10px]
             text-white/20
@@ -665,33 +697,34 @@ function Footer() {
         >
 
           <span>
-            © {new Date().getFullYear()} YoVi Technologies. All rights reserved.
+            © {new Date().getFullYear()} YoVi Technologies.
+            All rights reserved.
           </span>
 
 
           <div className="flex gap-6">
 
-            <span
+            <Link
+              to="/privacy"
               className="
-                cursor-pointer
                 transition-colors
                 duration-300
-                hover:text-violet-300/70
+                hover:text-emerald-200/70
               "
             >
               Privacy Policy
-            </span>
+            </Link>
 
-            <span
+            <Link
+              to="/terms"
               className="
-                cursor-pointer
                 transition-colors
                 duration-300
-                hover:text-violet-300/70
+                hover:text-emerald-200/70
               "
             >
               Terms
-            </span>
+            </Link>
 
           </div>
 

@@ -88,14 +88,14 @@ function Navbar() {
         isActive
           ? `
             bg-gradient-to-r
-            from-violet-500/[0.14]
-            via-indigo-500/[0.10]
-            to-blue-500/[0.08]
+            from-emerald-500/[0.14]
+            via-teal-500/[0.10]
+            to-cyan-500/[0.08]
 
             text-white
 
-            shadow-[inset_0_0_25px_rgba(139,92,246,0.06)]
-            ring-1 ring-violet-300/[0.08]
+            shadow-[inset_0_0_25px_rgba(16,185,129,0.06)]
+            ring-1 ring-emerald-300/[0.08]
           `
           : `
             text-white/45
@@ -154,8 +154,8 @@ function Navbar() {
               ${
                 scrolled
                   ? `
-                    border-violet-300/[0.14]
-                    bg-[#07070B]/[0.92]
+                    border-emerald-300/[0.14]
+                    bg-[#06100D]/[0.92]
                     shadow-[0_20px_70px_rgba(0,0,0,0.55)]
                     backdrop-blur-2xl
                   `
@@ -191,7 +191,7 @@ function Navbar() {
                   h-[160px]
                   w-[280px]
                   rounded-full
-                  bg-violet-500/[0.055]
+                  bg-emerald-500/[0.055]
                   blur-[70px]
                 "
               />
@@ -204,7 +204,7 @@ function Navbar() {
                   h-[140px]
                   w-[240px]
                   rounded-full
-                  bg-blue-500/[0.035]
+                  bg-cyan-500/[0.035]
                   blur-[70px]
                 "
               />
@@ -240,11 +240,11 @@ function Navbar() {
                   overflow-hidden
                   rounded-xl
                   bg-white
-                  shadow-[0_0_25px_rgba(139,92,246,0.15)]
+                  shadow-[0_0_25px_rgba(16,185,129,0.15)]
                   transition-all
                   duration-300
                   group-hover:scale-105
-                  group-hover:shadow-[0_0_35px_rgba(139,92,246,0.28)]
+                  group-hover:shadow-[0_0_35px_rgba(16,185,129,0.28)]
                 "
               >
 
@@ -288,7 +288,7 @@ function Navbar() {
                     bg-gradient-to-r
                     from-white
                     via-white
-                    to-violet-200
+                    to-emerald-200
                     bg-clip-text
                     text-transparent
                     text-[17px]
@@ -306,7 +306,7 @@ function Navbar() {
                     text-[7px]
                     font-medium
                     tracking-[0.28em]
-                    text-violet-200/40
+                    text-emerald-200/40
                   "
                 >
                   TECHNOLOGIES
@@ -341,8 +341,8 @@ function Navbar() {
                           w-1
                           -translate-x-1/2
                           rounded-full
-                          bg-violet-300
-                          shadow-[0_0_14px_rgba(167,139,250,0.9)]
+                          bg-emerald-300
+                          shadow-[0_0_14px_rgba(110,231,183,0.9)]
                         "
                       />
                     )}
@@ -371,8 +371,8 @@ function Navbar() {
                             w-1
                             -translate-x-1/2
                             rounded-full
-                            bg-violet-300
-                            shadow-[0_0_14px_rgba(167,139,250,0.9)]
+                            bg-emerald-300
+                            shadow-[0_0_14px_rgba(110,231,183,0.9)]
                           "
                         />
                       )}
@@ -400,19 +400,19 @@ function Navbar() {
                 overflow-hidden
                 rounded-full
                 bg-gradient-to-r
-                from-violet-500
-                via-indigo-500
-                to-blue-500
+                from-emerald-500
+                via-teal-500
+                to-cyan-500
                 px-4
                 py-2.5
                 text-[13px]
                 font-semibold
                 text-white
-                shadow-[0_8px_30px_rgba(99,102,241,0.18)]
+                shadow-[0_8px_30px_rgba(20,184,166,0.18)]
                 transition-all
                 duration-300
                 hover:scale-[1.03]
-                hover:shadow-[0_12px_40px_rgba(139,92,246,0.32)]
+                hover:shadow-[0_12px_40px_rgba(16,185,129,0.32)]
                 lg:flex
               "
             >
@@ -476,16 +476,16 @@ function Navbar() {
                 justify-center
                 rounded-full
                 border
-                border-violet-300/[0.12]
+                border-emerald-300/[0.12]
                 bg-gradient-to-br
-                from-violet-500/[0.10]
-                to-blue-500/[0.05]
+                from-emerald-500/[0.10]
+                to-cyan-500/[0.05]
                 text-white
-                shadow-[inset_0_0_15px_rgba(139,92,246,0.04)]
+                shadow-[inset_0_0_15px_rgba(16,185,129,0.04)]
                 transition-all
                 duration-300
-                hover:border-violet-300/[0.22]
-                hover:bg-violet-500/[0.14]
+                hover:border-emerald-300/[0.22]
+                hover:bg-emerald-500/[0.14]
                 lg:hidden
               "
               aria-label="Toggle navigation"
@@ -528,8 +528,8 @@ function Navbar() {
                 overflow-hidden
                 rounded-3xl
                 border
-                border-violet-300/[0.10]
-                bg-[#07070B]/[0.98]
+                border-emerald-300/[0.10]
+                bg-[#06100D]/[0.98]
                 p-3
                 shadow-[0_25px_80px_rgba(0,0,0,0.65)]
                 backdrop-blur-2xl
@@ -547,7 +547,7 @@ function Navbar() {
                   h-[250px]
                   w-[250px]
                   rounded-full
-                  bg-violet-500/[0.07]
+                  bg-emerald-500/[0.07]
                   blur-[90px]
                 "
               />
@@ -575,12 +575,12 @@ function Navbar() {
                         isActive
                           ? `
                             bg-gradient-to-r
-                            from-violet-500/[0.14]
-                            to-indigo-500/[0.08]
+                            from-emerald-500/[0.14]
+                            to-teal-500/[0.08]
                             text-white
                             ring-1
-                            ring-violet-400/[0.10]
-                            shadow-[inset_0_0_25px_rgba(139,92,246,0.05)]
+                            ring-emerald-400/[0.10]
+                            shadow-[inset_0_0_25px_rgba(16,185,129,0.05)]
                           `
                           : `
                             text-white/55
@@ -617,12 +617,12 @@ function Navbar() {
                           isActive
                             ? `
                               bg-gradient-to-r
-                              from-violet-500/[0.14]
-                              to-indigo-500/[0.08]
+                              from-emerald-500/[0.14]
+                              to-teal-500/[0.08]
                               text-white
                               ring-1
-                              ring-violet-400/[0.10]
-                              shadow-[inset_0_0_25px_rgba(139,92,246,0.05)]
+                              ring-emerald-400/[0.10]
+                              shadow-[inset_0_0_25px_rgba(16,185,129,0.05)]
                             `
                             : `
                               text-white/55
@@ -654,15 +654,15 @@ function Navbar() {
                     overflow-hidden
                     rounded-2xl
                     bg-gradient-to-r
-                    from-violet-500
-                    via-indigo-500
-                    to-blue-500
+                    from-emerald-500
+                    via-teal-500
+                    to-cyan-500
                     px-4
                     py-3.5
                     text-sm
                     font-semibold
                     text-white
-                    shadow-[0_10px_35px_rgba(99,102,241,0.20)]
+                    shadow-[0_10px_35px_rgba(20,184,166,0.20)]
                     transition-all
                     duration-300
                   "

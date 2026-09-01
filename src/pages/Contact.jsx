@@ -57,6 +57,7 @@ function Contact() {
       // =========================================
       // PRODUCTION BACKEND URL
       // =========================================
+
       const API_URL =
         "https://yovi-technology-backend-1.onrender.com/api";
 
@@ -108,40 +109,58 @@ function Contact() {
   };
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#050505] px-6 pb-24 pt-32 text-white sm:px-8 lg:px-12">
+    <main className="relative min-h-screen overflow-hidden bg-[#020403] px-6 pb-24 pt-32 text-white sm:px-8 lg:px-12">
 
       {/* =====================================================
-          BACKGROUND GLOWS
+          GLOBAL BACKGROUND
       ===================================================== */}
 
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
 
+        {/* Emerald atmosphere */}
         <div
           className="
             absolute
-            left-[15%]
+            left-[-180px]
             top-[5%]
+            h-[520px]
+            w-[520px]
+            rounded-full
+            bg-emerald-500/[0.055]
+            blur-[160px]
+          "
+        />
+
+        {/* Cyan atmosphere */}
+        <div
+          className="
+            absolute
+            right-[-180px]
+            top-[35%]
             h-[450px]
             w-[450px]
             rounded-full
-            bg-violet-600/[0.07]
-            blur-[140px]
+            bg-cyan-500/[0.04]
+            blur-[150px]
           "
         />
 
+        {/* Bottom emerald glow */}
         <div
           className="
             absolute
-            right-[5%]
-            top-[35%]
-            h-[350px]
-            w-[350px]
+            bottom-[-250px]
+            left-1/2
+            h-[550px]
+            w-[550px]
+            -translate-x-1/2
             rounded-full
-            bg-blue-500/[0.05]
-            blur-[130px]
+            bg-teal-500/[0.035]
+            blur-[160px]
           "
         />
 
+        {/* Grid */}
         <div
           className="
             absolute
@@ -152,15 +171,17 @@ function Contact() {
           "
         />
 
+        {/* Fade */}
         <div
           className="
             absolute
             inset-0
-            bg-[radial-gradient(circle_at_center,transparent_20%,#050505_75%)]
+            bg-[radial-gradient(circle_at_center,transparent_15%,#020403_78%)]
           "
         />
 
       </div>
+
 
       {/* =====================================================
           HERO
@@ -180,8 +201,10 @@ function Contact() {
           transition={{
             duration: 0.8,
           }}
-          className="max-w-3xl"
+          className="max-w-4xl"
         >
+
+          {/* EYEBROW */}
 
           <div className="mb-7 flex items-center gap-3">
 
@@ -194,24 +217,25 @@ function Contact() {
                 justify-center
                 rounded-full
                 border
-                border-violet-400/20
-                bg-violet-400/10
-                shadow-lg
-                shadow-violet-500/10
+                border-emerald-300/25
+                bg-gradient-to-br
+                from-emerald-500/20
+                to-cyan-500/10
+                shadow-[0_0_35px_rgba(16,185,129,0.15)]
               "
             >
               <Sparkles
                 size={14}
-                className="text-violet-300"
+                className="text-emerald-200"
               />
             </span>
 
             <span
               className="
                 text-[10px]
-                font-medium
+                font-semibold
                 tracking-[0.25em]
-                text-violet-300/70
+                text-emerald-200/65
               "
             >
               GET IN TOUCH
@@ -219,8 +243,12 @@ function Contact() {
 
           </div>
 
+
+          {/* HEADING */}
+
           <h1
             className="
+              max-w-4xl
               text-5xl
               font-semibold
               leading-[0.98]
@@ -229,15 +257,15 @@ function Contact() {
               md:text-7xl
             "
           >
-            Let's build something
+            Let's build something{" "}
 
             <span
               className="
                 block
                 bg-gradient-to-r
-                from-white
-                via-violet-200
-                to-blue-300
+                from-emerald-200
+                via-emerald-400
+                to-cyan-400
                 bg-clip-text
                 text-transparent
               "
@@ -246,6 +274,9 @@ function Contact() {
             </span>
 
           </h1>
+
+
+          {/* DESCRIPTION */}
 
           <p
             className="
@@ -263,16 +294,18 @@ function Contact() {
 
         </motion.div>
 
+
         {/* =====================================================
             CONTACT GRID
         ===================================================== */}
 
         <div
           className="
-            mt-20
+            mt-16
             grid
             gap-6
             lg:grid-cols-[0.75fr_1.25fr]
+            lg:gap-7
           "
         >
 
@@ -293,8 +326,10 @@ function Contact() {
               duration: 0.8,
               delay: 0.15,
             }}
-            className="space-y-4"
+            className="space-y-5"
           >
+
+            {/* CONTACT CARD */}
 
             <div
               className="
@@ -309,10 +344,12 @@ function Contact() {
                 backdrop-blur-xl
                 transition-all
                 duration-500
-                hover:border-violet-400/20
-                hover:bg-white/[0.035]
+                hover:border-emerald-300/[0.18]
+                hover:bg-emerald-400/[0.025]
               "
             >
+
+              {/* Glow */}
 
               <div
                 className="
@@ -322,26 +359,44 @@ function Contact() {
                   h-56
                   w-56
                   rounded-full
-                  bg-violet-500/[0.06]
+                  bg-emerald-500/[0.055]
                   blur-[90px]
                   transition-all
                   duration-500
-                  group-hover:bg-violet-500/[0.1]
+                  group-hover:bg-emerald-500/[0.10]
                 "
               />
+
+              <div
+                className="
+                  absolute
+                  -bottom-24
+                  -left-24
+                  h-48
+                  w-48
+                  rounded-full
+                  bg-cyan-500/[0.035]
+                  blur-[80px]
+                "
+              />
+
 
               <span
                 className="
                   relative
                   text-[10px]
+                  font-semibold
                   tracking-[0.2em]
-                  text-white/25
+                  text-emerald-200/30
                 "
               >
                 CONTACT
               </span>
 
+
               <div className="relative mt-8 space-y-7">
+
+                {/* EMAIL */}
 
                 <div className="group/item flex gap-4">
 
@@ -359,13 +414,13 @@ function Contact() {
                       bg-white/[0.04]
                       transition-all
                       duration-300
-                      group-hover/item:border-violet-400/20
-                      group-hover/item:bg-violet-400/[0.06]
+                      group-hover/item:border-emerald-300/25
+                      group-hover/item:bg-emerald-400/[0.06]
                     "
                   >
                     <Mail
                       size={17}
-                      className="text-violet-200"
+                      className="text-emerald-200"
                     />
                   </div>
 
@@ -383,6 +438,9 @@ function Contact() {
 
                 </div>
 
+
+                {/* PHONE */}
+
                 <div className="group/item flex gap-4">
 
                   <div
@@ -399,13 +457,13 @@ function Contact() {
                       bg-white/[0.04]
                       transition-all
                       duration-300
-                      group-hover/item:border-blue-400/20
-                      group-hover/item:bg-blue-400/[0.06]
+                      group-hover/item:border-cyan-300/25
+                      group-hover/item:bg-cyan-400/[0.06]
                     "
                   >
                     <Phone
                       size={17}
-                      className="text-blue-200"
+                      className="text-cyan-200"
                     />
                   </div>
 
@@ -423,6 +481,9 @@ function Contact() {
 
                 </div>
 
+
+                {/* LOCATION */}
+
                 <div className="group/item flex gap-4">
 
                   <div
@@ -439,13 +500,13 @@ function Contact() {
                       bg-white/[0.04]
                       transition-all
                       duration-300
-                      group-hover/item:border-violet-400/20
-                      group-hover/item:bg-violet-400/[0.06]
+                      group-hover/item:border-emerald-300/25
+                      group-hover/item:bg-emerald-400/[0.06]
                     "
                   >
                     <MapPin
                       size={17}
-                      className="text-violet-200"
+                      className="text-emerald-200"
                     />
                   </div>
 
@@ -467,18 +528,25 @@ function Contact() {
 
             </div>
 
+
+            {/* WHAT WE DO CARD */}
+
             <div
               className="
+                group
                 relative
                 overflow-hidden
                 rounded-[28px]
                 border
-                border-violet-400/[0.12]
+                border-emerald-300/[0.12]
                 bg-gradient-to-br
-                from-violet-500/[0.10]
-                via-violet-500/[0.04]
-                to-blue-500/[0.05]
+                from-emerald-500/[0.075]
+                via-white/[0.025]
+                to-cyan-500/[0.035]
                 p-7
+                transition-all
+                duration-500
+                hover:border-emerald-300/[0.20]
               "
             >
 
@@ -490,7 +558,23 @@ function Contact() {
                   h-40
                   w-40
                   rounded-full
-                  bg-violet-500/10
+                  bg-emerald-500/[0.08]
+                  blur-3xl
+                  transition-all
+                  duration-500
+                  group-hover:bg-emerald-500/[0.13]
+                "
+              />
+
+              <div
+                className="
+                  absolute
+                  -bottom-20
+                  -left-16
+                  h-36
+                  w-36
+                  rounded-full
+                  bg-cyan-500/[0.05]
                   blur-3xl
                 "
               />
@@ -500,8 +584,9 @@ function Contact() {
                 <span
                   className="
                     text-[10px]
+                    font-semibold
                     tracking-[0.2em]
-                    text-white/25
+                    text-emerald-200/30
                   "
                 >
                   WHAT WE DO
@@ -522,20 +607,57 @@ function Contact() {
                 <p
                   className="
                     mt-3
+                    max-w-sm
                     text-sm
                     leading-6
                     text-white/35
                   "
                 >
-                  From first idea to a scalable digital product,
-                  we're here to help.
+                  From first idea to a scalable digital
+                  product, we're here to help.
                 </p>
+
+
+                {/* SMALL LINE */}
+
+                <div
+                  className="
+                    mt-7
+                    flex
+                    items-center
+                    gap-2
+                  "
+                >
+
+                  <span
+                    className="
+                      h-1.5
+                      w-1.5
+                      rounded-full
+                      bg-emerald-300
+                      shadow-[0_0_12px_rgba(110,231,183,0.8)]
+                    "
+                  />
+
+                  <span
+                    className="
+                      text-[9px]
+                      font-medium
+                      tracking-[0.2em]
+                      text-emerald-200/35
+                    "
+                  >
+                    TECHNOLOGY • DESIGN • AI
+                  </span>
+
+                </div>
 
               </div>
 
             </div>
 
           </motion.div>
+
 
           {/* =====================================================
               FORM
@@ -555,6 +677,7 @@ function Contact() {
               delay: 0.25,
             }}
             className="
+              group
               relative
               overflow-hidden
               rounded-[32px]
@@ -563,10 +686,15 @@ function Contact() {
               bg-white/[0.025]
               p-6
               backdrop-blur-xl
+              transition-all
+              duration-500
+              hover:border-emerald-300/[0.12]
               sm:p-8
               lg:p-10
             "
           >
+
+            {/* FORM GLOW */}
 
             <div
               className="
@@ -574,21 +702,39 @@ function Contact() {
                 absolute
                 right-[-100px]
                 top-[-100px]
-                h-[280px]
-                w-[280px]
+                h-[300px]
+                w-[300px]
                 rounded-full
-                bg-violet-500/[0.05]
+                bg-emerald-500/[0.045]
                 blur-[100px]
               "
             />
+
+            <div
+              className="
+                pointer-events-none
+                absolute
+                bottom-[-120px]
+                left-[-100px]
+                h-[260px]
+                w-[260px]
+                rounded-full
+                bg-cyan-500/[0.025]
+                blur-[100px]
+              "
+            />
+
+
+            {/* FORM HEADER */}
 
             <div className="relative mb-8">
 
               <span
                 className="
                   text-[10px]
+                  font-semibold
                   tracking-[0.2em]
-                  text-violet-300/50
+                  text-emerald-300/50
                 "
               >
                 START A CONVERSATION
@@ -605,7 +751,20 @@ function Contact() {
                 Tell us about your project.
               </h2>
 
+              <p
+                className="
+                  mt-2
+                  text-sm
+                  text-white/30
+                "
+              >
+                Share a few details and we'll take it from there.
+              </p>
+
             </div>
+
+
+            {/* STATUS */}
 
             {status.message && (
               <motion.div
@@ -653,10 +812,15 @@ function Contact() {
               </motion.div>
             )}
 
+
+            {/* FORM */}
+
             <form
               onSubmit={handleSubmit}
               className="relative space-y-5"
             >
+
+              {/* NAME + EMAIL */}
 
               <div className="grid gap-5 sm:grid-cols-2">
 
@@ -667,6 +831,7 @@ function Contact() {
                       mb-2
                       block
                       text-xs
+                      font-medium
                       text-white/40
                     "
                   >
@@ -694,14 +859,15 @@ function Contact() {
                       transition-all
                       placeholder:text-white/20
                       hover:border-white/15
-                      focus:border-violet-400/40
-                      focus:bg-violet-400/[0.03]
+                      focus:border-emerald-400/35
+                      focus:bg-emerald-400/[0.025]
                       focus:ring-1
-                      focus:ring-violet-400/10
+                      focus:ring-emerald-400/10
                     "
                   />
 
                 </div>
+
 
                 <div>
 
@@ -710,6 +876,7 @@ function Contact() {
                       mb-2
                       block
                       text-xs
+                      font-medium
                       text-white/40
                     "
                   >
@@ -737,16 +904,19 @@ function Contact() {
                       transition-all
                       placeholder:text-white/20
                       hover:border-white/15
-                      focus:border-violet-400/40
-                      focus:bg-violet-400/[0.03]
+                      focus:border-emerald-400/35
+                      focus:bg-emerald-400/[0.025]
                       focus:ring-1
-                      focus:ring-violet-400/10
+                      focus:ring-emerald-400/10
                     "
                   />
 
                 </div>
 
               </div>
+
+
+              {/* PHONE + COMPANY */}
 
               <div className="grid gap-5 sm:grid-cols-2">
 
@@ -757,6 +927,7 @@ function Contact() {
                       mb-2
                       block
                       text-xs
+                      font-medium
                       text-white/40
                     "
                   >
@@ -783,14 +954,15 @@ function Contact() {
                       transition-all
                       placeholder:text-white/20
                       hover:border-white/15
-                      focus:border-violet-400/40
-                      focus:bg-violet-400/[0.03]
+                      focus:border-cyan-400/35
+                      focus:bg-cyan-400/[0.025]
                       focus:ring-1
-                      focus:ring-violet-400/10
+                      focus:ring-cyan-400/10
                     "
                   />
 
                 </div>
+
 
                 <div>
 
@@ -799,6 +971,7 @@ function Contact() {
                       mb-2
                       block
                       text-xs
+                      font-medium
                       text-white/40
                     "
                   >
@@ -825,16 +998,19 @@ function Contact() {
                       transition-all
                       placeholder:text-white/20
                       hover:border-white/15
-                      focus:border-violet-400/40
-                      focus:bg-violet-400/[0.03]
+                      focus:border-cyan-400/35
+                      focus:bg-cyan-400/[0.025]
                       focus:ring-1
-                      focus:ring-violet-400/10
+                      focus:ring-cyan-400/10
                     "
                   />
 
                 </div>
 
               </div>
+
+
+              {/* SERVICE */}
 
               <div>
 
@@ -843,6 +1019,7 @@ function Contact() {
                     mb-2
                     block
                     text-xs
+                    font-medium
                     text-white/40
                   "
                 >
@@ -860,7 +1037,7 @@ function Contact() {
                     rounded-2xl
                     border
                     border-white/10
-                    bg-[#0a0a0c]
+                    bg-[#080b0a]
                     px-4
                     py-3.5
                     text-sm
@@ -868,65 +1045,65 @@ function Contact() {
                     outline-none
                     transition-all
                     hover:border-white/15
-                    focus:border-violet-400/40
-                    focus:bg-[#0d0b12]
+                    focus:border-emerald-400/35
+                    focus:bg-[#090e0c]
                     focus:ring-1
-                    focus:ring-violet-400/10
+                    focus:ring-emerald-400/10
                   "
                 >
 
                   <option
                     value=""
-                    className="bg-[#0a0a0c] text-white/50"
+                    className="bg-[#080b0a] text-white/50"
                   >
                     Select a service
                   </option>
 
                   <option
                     value="Web Development"
-                    className="bg-[#0a0a0c] text-white"
+                    className="bg-[#080b0a] text-white"
                   >
                     Web Development
                   </option>
 
                   <option
                     value="AI Solutions"
-                    className="bg-[#0a0a0c] text-white"
+                    className="bg-[#080b0a] text-white"
                   >
                     AI Solutions
                   </option>
 
                   <option
                     value="Mobile Apps"
-                    className="bg-[#0a0a0c] text-white"
+                    className="bg-[#080b0a] text-white"
                   >
                     Mobile Apps
                   </option>
 
                   <option
                     value="ERP & CRM"
-                    className="bg-[#0a0a0c] text-white"
+                    className="bg-[#080b0a] text-white"
                   >
                     ERP & CRM
                   </option>
 
                   <option
                     value="UI / UX & Branding"
-                    className="bg-[#0a0a0c] text-white"
+                    className="bg-[#080b0a] text-white"
                   >
                     UI / UX & Branding
                   </option>
 
                   <option
                     value="Digital Growth"
-                    className="bg-[#0a0a0c] text-white"
+                    className="bg-[#080b0a] text-white"
                   >
                     Digital Growth
                   </option>
 
                   <option
                     value="Other / Custom Requirement"
-                    className="bg-[#0a0a0c] text-white"
+                    className="bg-[#080b0a] text-white"
                   >
                     Other / Custom Requirement
                   </option>
@@ -934,6 +1111,9 @@ function Contact() {
                 </select>
 
               </div>
+
+
+              {/* CUSTOM SERVICE */}
 
               {formData.service === "Other / Custom Requirement" && (
                 <motion.div
@@ -955,6 +1135,7 @@ function Contact() {
                       mb-2
                       block
                       text-xs
+                      font-medium
                       text-white/40
                     "
                   >
@@ -984,15 +1165,18 @@ function Contact() {
                       transition-all
                       placeholder:text-white/20
                       hover:border-white/15
-                      focus:border-violet-400/40
-                      focus:bg-violet-400/[0.03]
+                      focus:border-emerald-400/35
+                      focus:bg-emerald-400/[0.025]
                       focus:ring-1
-                      focus:ring-violet-400/10
+                      focus:ring-emerald-400/10
                     "
                   />
 
                 </motion.div>
               )}
+
+
+              {/* MESSAGE */}
 
               <div>
 
@@ -1001,6 +1185,7 @@ function Contact() {
                     mb-2
                     block
                     text-xs
+                    font-medium
                     text-white/40
                   "
                 >
@@ -1030,14 +1215,17 @@ function Contact() {
                     transition-all
                     placeholder:text-white/20
                     hover:border-white/15
-                    focus:border-violet-400/40
-                    focus:bg-violet-400/[0.03]
+                    focus:border-emerald-400/35
+                    focus:bg-emerald-400/[0.025]
                     focus:ring-1
-                    focus:ring-violet-400/10
+                    focus:ring-emerald-400/10
                   "
                 />
 
               </div>
+
+
+              {/* SUBMIT */}
 
               <button
                 type="submit"
@@ -1050,18 +1238,19 @@ function Contact() {
                   justify-center
                   gap-3
                   rounded-2xl
-                  bg-white
+                  bg-gradient-to-r
+                  from-emerald-500
+                  to-teal-500
                   px-6
                   py-4
                   text-sm
                   font-semibold
-                  text-black
-                  shadow-xl
-                  shadow-white/[0.03]
+                  text-white
+                  shadow-[0_12px_45px_rgba(16,185,129,0.16)]
                   transition-all
                   duration-300
                   hover:scale-[1.01]
-                  hover:bg-violet-50
+                  hover:shadow-[0_18px_60px_rgba(16,185,129,0.26)]
                   disabled:cursor-not-allowed
                   disabled:opacity-60
                   disabled:hover:scale-100
@@ -1089,8 +1278,8 @@ function Contact() {
                         items-center
                         justify-center
                         rounded-full
-                        bg-black
-                        text-white
+                        bg-white
+                        text-emerald-600
                         transition-transform
                         duration-300
                         group-hover:rotate-45
@@ -1108,6 +1297,143 @@ function Contact() {
           </motion.div>
 
         </div>
+
+      </section>
+
+
+      {/* =====================================================
+          BOTTOM CTA
+      ===================================================== */}
+
+      <section className="relative mx-auto mt-24 max-w-7xl">
+
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.7,
+          }}
+          className="
+            relative
+            overflow-hidden
+            rounded-[30px]
+            border
+            border-emerald-300/[0.10]
+            bg-gradient-to-r
+            from-emerald-500/[0.045]
+            via-white/[0.015]
+            to-cyan-500/[0.035]
+            px-7
+            py-8
+            sm:px-10
+            sm:py-9
+          "
+        >
+
+          <div
+            className="
+              pointer-events-none
+              absolute
+              left-1/2
+              top-1/2
+              h-64
+              w-64
+              -translate-x-1/2
+              -translate-y-1/2
+              rounded-full
+              bg-emerald-500/[0.04]
+              blur-[100px]
+            "
+          />
+
+          <div
+            className="
+              relative
+              flex
+              flex-col
+              gap-5
+              md:flex-row
+              md:items-center
+              md:justify-between
+            "
+          >
+
+            <div>
+
+              <span
+                className="
+                  text-[9px]
+                  font-semibold
+                  tracking-[0.25em]
+                  text-emerald-300/55
+                "
+              >
+                READY WHEN YOU ARE
+              </span>
+
+              <p
+                className="
+                  mt-2
+                  text-sm
+                  text-white/45
+                "
+              >
+                Let's create something that moves your business.
+              </p>
+
+            </div>
+
+
+            <a
+              href="/services"
+              className="
+                group
+                flex
+                w-fit
+                items-center
+                gap-2
+                rounded-full
+                border
+                border-white/[0.10]
+                bg-white/[0.025]
+                px-5
+                py-3
+                text-xs
+                font-medium
+                text-white/60
+                transition-all
+                duration-300
+                hover:border-emerald-300/25
+                hover:bg-emerald-400/[0.06]
+                hover:text-white
+              "
+            >
+              Explore Services
+
+              <ArrowUpRight
+                size={14}
+                className="
+                  transition-transform
+                  duration-300
+                  group-hover:translate-x-0.5
+                  group-hover:-translate-y-0.5
+                "
+              />
+
+            </a>
+
+          </div>
+
+        </motion.div>
 
       </section>
 

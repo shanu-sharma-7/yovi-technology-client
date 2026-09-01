@@ -118,7 +118,7 @@ const principles = [
 
 function Technologies() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#030308] text-white">
+    <main className="relative min-h-screen overflow-hidden bg-[#020403] text-white">
 
       {/* =====================================================
           GLOBAL BACKGROUND
@@ -126,11 +126,48 @@ function Technologies() {
 
       <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
 
-        <div className="absolute left-[10%] top-[5%] h-[500px] w-[500px] rounded-full bg-violet-600/[0.08] blur-[150px]" />
+        {/* Emerald atmosphere */}
+        <div
+          className="
+            absolute
+            left-[-180px]
+            top-[5%]
+            h-[550px]
+            w-[550px]
+            rounded-full
+            bg-emerald-500/[0.045]
+            blur-[160px]
+          "
+        />
 
-        <div className="absolute right-[5%] top-[20%] h-[450px] w-[450px] rounded-full bg-blue-600/[0.07] blur-[150px]" />
+        {/* Cyan atmosphere */}
+        <div
+          className="
+            absolute
+            right-[-180px]
+            top-[25%]
+            h-[500px]
+            w-[500px]
+            rounded-full
+            bg-cyan-500/[0.035]
+            blur-[150px]
+          "
+        />
 
-        <div className="absolute left-[35%] top-[55%] h-[500px] w-[500px] rounded-full bg-cyan-500/[0.035] blur-[160px]" />
+        {/* Teal bottom atmosphere */}
+        <div
+          className="
+            absolute
+            left-1/2
+            bottom-[-250px]
+            h-[550px]
+            w-[550px]
+            -translate-x-1/2
+            rounded-full
+            bg-teal-500/[0.03]
+            blur-[160px]
+          "
+        />
 
       </div>
 
@@ -139,13 +176,37 @@ function Technologies() {
           HERO
       ===================================================== */}
 
-      <section className="relative px-6 pb-24 pt-40 sm:px-8 lg:px-12">
+      <section className="relative px-6 pb-20 pt-36 sm:px-8 sm:pb-24 sm:pt-40 lg:px-12">
 
         {/* Hero Glow */}
 
-        <div className="pointer-events-none absolute left-1/3 top-0 h-[550px] w-[550px] rounded-full bg-violet-600/[0.08] blur-[150px]" />
+        <div
+          className="
+            pointer-events-none
+            absolute
+            left-1/3
+            top-0
+            h-[550px]
+            w-[550px]
+            rounded-full
+            bg-emerald-500/[0.055]
+            blur-[150px]
+          "
+        />
 
-        <div className="pointer-events-none absolute right-10 top-32 h-[400px] w-[400px] rounded-full bg-blue-500/[0.06] blur-[140px]" />
+        <div
+          className="
+            pointer-events-none
+            absolute
+            right-10
+            top-32
+            h-[400px]
+            w-[400px]
+            rounded-full
+            bg-cyan-500/[0.035]
+            blur-[140px]
+          "
+        />
 
 
         <div className="relative mx-auto max-w-7xl">
@@ -171,28 +232,32 @@ function Technologies() {
 
               <span
                 className="
-                  flex h-8 w-8
-                  items-center justify-center
+                  flex
+                  h-8
+                  w-8
+                  items-center
+                  justify-center
                   rounded-full
-                  border border-violet-400/20
+                  border
+                  border-emerald-300/25
                   bg-gradient-to-br
-                  from-violet-400/15
-                  to-blue-400/10
-                  shadow-[0_0_30px_rgba(139,92,246,0.12)]
+                  from-emerald-500/20
+                  to-cyan-500/10
+                  shadow-[0_0_35px_rgba(16,185,129,0.15)]
                 "
               >
                 <Sparkles
                   size={13}
-                  className="text-violet-200"
+                  className="text-emerald-200"
                 />
               </span>
 
               <span
                 className="
                   text-[10px]
-                  font-medium
+                  font-semibold
                   tracking-[0.25em]
-                  text-violet-200/70
+                  text-emerald-200/70
                 "
               >
                 TECHNOLOGY STACK
@@ -222,8 +287,8 @@ function Technologies() {
                   block
                   bg-gradient-to-r
                   from-white
-                  via-violet-200
-                  to-blue-300
+                  via-emerald-200
+                  to-cyan-300
                   bg-clip-text
                   text-transparent
                 "
@@ -262,7 +327,7 @@ function Technologies() {
               border
               border-white/[0.07]
               bg-white/[0.018]
-              shadow-[0_0_80px_rgba(99,102,241,0.04)]
+              shadow-[0_0_80px_rgba(16,185,129,0.035)]
             "
           >
 
@@ -280,19 +345,19 @@ function Technologies() {
               "
             >
 
-              <span className="transition-colors hover:text-violet-300">
+              <span className="transition-colors hover:text-emerald-300">
                 REACT
               </span>
 
-              <span className="transition-colors hover:text-blue-300">
+              <span className="transition-colors hover:text-cyan-300">
                 NEXT.JS
               </span>
 
-              <span className="transition-colors hover:text-cyan-300">
+              <span className="transition-colors hover:text-emerald-300">
                 NODE.JS
               </span>
 
-              <span className="transition-colors hover:text-violet-300">
+              <span className="transition-colors hover:text-teal-300">
                 EXPRESS
               </span>
 
@@ -300,23 +365,23 @@ function Technologies() {
                 MONGODB
               </span>
 
-              <span className="transition-colors hover:text-blue-300">
+              <span className="transition-colors hover:text-cyan-300">
                 MYSQL
               </span>
 
-              <span className="transition-colors hover:text-indigo-300">
+              <span className="transition-colors hover:text-teal-300">
                 POSTGRESQL
               </span>
 
-              <span className="transition-colors hover:text-yellow-200">
+              <span className="transition-colors hover:text-emerald-200">
                 PYTHON
               </span>
 
-              <span className="transition-colors hover:text-violet-300">
+              <span className="transition-colors hover:text-cyan-300">
                 AI
               </span>
 
-              <span className="transition-colors hover:text-cyan-300">
+              <span className="transition-colors hover:text-teal-300">
                 CLOUD
               </span>
 
@@ -340,11 +405,13 @@ function Technologies() {
       <section
         className="
           border-t
-          border-white/[0.06]
+          border-white/[0.07]
           px-6
-          py-28
+          py-24
           sm:px-8
+          sm:py-28
           lg:px-12
+          lg:py-32
         "
       >
 
@@ -355,9 +422,9 @@ function Technologies() {
             <span
               className="
                 text-[10px]
-                font-medium
+                font-semibold
                 tracking-[0.25em]
-                text-violet-300/70
+                text-emerald-300/80
               "
             >
               OUR ECOSYSTEM
@@ -374,18 +441,19 @@ function Technologies() {
               "
             >
 
-              The right tools
+              The right tools{" "}
 
               <span
                 className="
                   bg-gradient-to-r
-                  from-violet-200
-                  to-blue-300
+                  from-emerald-300/80
+                  via-white/45
+                  to-cyan-300/60
                   bg-clip-text
                   text-transparent
                 "
               >
-                {" "}for the right problem.
+                for the right problem.
               </span>
 
             </h2>
@@ -412,7 +480,7 @@ function Technologies() {
           <div
             className="
               grid
-              gap-5
+              gap-4
               md:grid-cols-2
             "
           >
@@ -453,13 +521,13 @@ function Technologies() {
                     bg-gradient-to-br
                     from-white/[0.035]
                     via-white/[0.018]
-                    to-violet-500/[0.015]
+                    to-emerald-500/[0.012]
                     p-8
                     shadow-[0_10px_60px_rgba(0,0,0,0.2)]
                     transition-all
                     duration-500
-                    hover:border-violet-300/20
-                    hover:shadow-[0_20px_80px_rgba(124,58,237,0.10)]
+                    hover:border-emerald-300/20
+                    hover:shadow-[0_20px_80px_rgba(16,185,129,0.10)]
                     sm:p-10
                   "
                 >
@@ -475,11 +543,11 @@ function Technologies() {
                       h-64
                       w-64
                       rounded-full
-                      bg-violet-500/[0.055]
+                      bg-emerald-500/[0.045]
                       blur-[90px]
                       transition-all
                       duration-700
-                      group-hover:bg-violet-500/[0.14]
+                      group-hover:bg-emerald-500/[0.13]
                     "
                   />
 
@@ -492,11 +560,11 @@ function Technologies() {
                       h-56
                       w-56
                       rounded-full
-                      bg-blue-500/[0.025]
+                      bg-cyan-500/[0.025]
                       blur-[90px]
                       transition-all
                       duration-700
-                      group-hover:bg-blue-500/[0.08]
+                      group-hover:bg-cyan-500/[0.07]
                     "
                   />
 
@@ -519,7 +587,7 @@ function Technologies() {
                         text-white/20
                         transition-colors
                         duration-300
-                        group-hover:text-violet-300/50
+                        group-hover:text-emerald-300/60
                       "
                     >
                       {group.number}
@@ -538,8 +606,8 @@ function Technologies() {
                         bg-white/[0.025]
                         transition-all
                         duration-300
-                        group-hover:border-violet-300/20
-                        group-hover:bg-violet-400/10
+                        group-hover:border-emerald-300/20
+                        group-hover:bg-emerald-400/10
                       "
                     >
 
@@ -550,7 +618,7 @@ function Technologies() {
                           text-white/30
                           transition-colors
                           duration-300
-                          group-hover:text-violet-200
+                          group-hover:text-emerald-200
                         "
                       />
 
@@ -621,9 +689,9 @@ function Technologies() {
                           duration-300
                           ${
                             techIndex % 3 === 0
-                              ? "border-violet-400/[0.12] bg-violet-400/[0.045] text-violet-200/55 group-hover:border-violet-300/20 group-hover:text-violet-100/70"
+                              ? "border-emerald-400/[0.13] bg-emerald-400/[0.045] text-emerald-200/60 group-hover:border-emerald-300/25 group-hover:text-emerald-100/75"
                               : techIndex % 3 === 1
-                              ? "border-blue-400/[0.10] bg-blue-400/[0.035] text-blue-200/50 group-hover:border-blue-300/20 group-hover:text-blue-100/70"
+                              ? "border-cyan-400/[0.11] bg-cyan-400/[0.035] text-cyan-200/55 group-hover:border-cyan-300/20 group-hover:text-cyan-100/70"
                               : "border-white/[0.08] bg-white/[0.025] text-white/40 group-hover:border-white/[0.14] group-hover:text-white/60"
                           }
                         `}
@@ -655,10 +723,11 @@ function Technologies() {
         className="
           relative
           border-t
-          border-white/[0.06]
+          border-white/[0.07]
           px-6
-          py-32
+          py-28
           sm:px-8
+          sm:py-32
           lg:px-12
         "
       >
@@ -674,7 +743,7 @@ function Technologies() {
             -translate-x-1/2
             -translate-y-1/2
             rounded-full
-            bg-violet-500/[0.035]
+            bg-emerald-500/[0.035]
             blur-[140px]
           "
         />
@@ -686,9 +755,9 @@ function Technologies() {
             <span
               className="
                 text-[10px]
-                font-medium
+                font-semibold
                 tracking-[0.25em]
-                text-violet-300/70
+                text-emerald-300/80
               "
             >
               ENGINEERING PRINCIPLES
@@ -710,8 +779,9 @@ function Technologies() {
                 className="
                   block
                   bg-gradient-to-r
-                  from-white/30
-                  to-violet-300/40
+                  from-white/40
+                  via-emerald-300/55
+                  to-cyan-300/45
                   bg-clip-text
                   text-transparent
                 "
@@ -728,7 +798,7 @@ function Technologies() {
             className="
               mt-16
               grid
-              gap-5
+              gap-4
               md:grid-cols-3
             "
           >
@@ -769,8 +839,9 @@ function Technologies() {
                     p-7
                     transition-all
                     duration-500
-                    hover:border-violet-300/15
-                    hover:bg-violet-400/[0.025]
+                    hover:border-emerald-300/15
+                    hover:bg-emerald-400/[0.025]
+                    hover:shadow-[0_15px_60px_rgba(16,185,129,0.06)]
                   "
                 >
 
@@ -783,11 +854,11 @@ function Technologies() {
                       h-40
                       w-40
                       rounded-full
-                      bg-violet-500/[0.04]
+                      bg-emerald-500/[0.035]
                       blur-[70px]
                       transition-all
                       duration-500
-                      group-hover:bg-violet-500/[0.10]
+                      group-hover:bg-emerald-500/[0.10]
                     "
                   />
 
@@ -805,8 +876,8 @@ function Technologies() {
                       bg-white/[0.025]
                       transition-all
                       duration-300
-                      group-hover:border-violet-300/20
-                      group-hover:bg-violet-400/10
+                      group-hover:border-emerald-300/20
+                      group-hover:bg-emerald-400/10
                     "
                   >
 
@@ -817,7 +888,7 @@ function Technologies() {
                         text-white/40
                         transition-colors
                         duration-300
-                        group-hover:text-violet-200
+                        group-hover:text-emerald-200
                       "
                     />
 
@@ -866,10 +937,11 @@ function Technologies() {
       <section
         className="
           border-t
-          border-white/[0.06]
+          border-white/[0.07]
           px-6
-          py-32
+          py-28
           sm:px-8
+          sm:py-32
           lg:px-12
         "
       >
@@ -883,19 +955,19 @@ function Technologies() {
               overflow-hidden
               rounded-[34px]
               border
-              border-violet-300/[0.10]
+              border-emerald-300/[0.10]
               bg-gradient-to-br
-              from-violet-500/[0.07]
+              from-emerald-500/[0.065]
               via-white/[0.018]
-              to-blue-500/[0.05]
+              to-cyan-500/[0.04]
               p-8
-              shadow-[0_20px_100px_rgba(124,58,237,0.06)]
+              shadow-[0_20px_100px_rgba(16,185,129,0.05)]
               sm:p-12
               lg:p-16
             "
           >
 
-            {/* Violet Glow */}
+            {/* Emerald Glow */}
 
             <div
               className="
@@ -906,12 +978,12 @@ function Technologies() {
                 h-[400px]
                 w-[400px]
                 rounded-full
-                bg-violet-500/[0.10]
+                bg-emerald-500/[0.09]
                 blur-[120px]
               "
             />
 
-            {/* Blue Glow */}
+            {/* Cyan Glow */}
 
             <div
               className="
@@ -922,7 +994,7 @@ function Technologies() {
                 h-[300px]
                 w-[300px]
                 rounded-full
-                bg-blue-500/[0.07]
+                bg-cyan-500/[0.055]
                 blur-[110px]
               "
             />
@@ -932,9 +1004,9 @@ function Technologies() {
               <span
                 className="
                   text-[10px]
-                  font-medium
+                  font-semibold
                   tracking-[0.25em]
-                  text-violet-200/70
+                  text-emerald-200/70
                 "
               >
                 NEED SOMETHING CUSTOM?
@@ -955,8 +1027,9 @@ function Technologies() {
                 <span
                   className="
                     bg-gradient-to-r
-                    from-violet-200
-                    to-blue-300
+                    from-emerald-300
+                    via-teal-200
+                    to-cyan-300
                     bg-clip-text
                     text-transparent
                   "
@@ -989,17 +1062,19 @@ function Technologies() {
                   items-center
                   gap-3
                   rounded-full
-                  bg-white
+                  bg-gradient-to-r
+                  from-emerald-500
+                  to-teal-500
                   px-7
                   py-4
                   text-sm
                   font-semibold
-                  text-black
-                  shadow-[0_10px_40px_rgba(255,255,255,0.08)]
+                  text-white
+                  shadow-[0_12px_45px_rgba(16,185,129,0.20)]
                   transition-all
                   duration-300
                   hover:scale-[1.03]
-                  hover:shadow-[0_15px_50px_rgba(139,92,246,0.18)]
+                  hover:shadow-[0_18px_60px_rgba(16,185,129,0.30)]
                 "
               >
 
@@ -1013,8 +1088,8 @@ function Technologies() {
                     items-center
                     justify-center
                     rounded-full
-                    bg-black
-                    text-white
+                    bg-white
+                    text-emerald-600
                     transition-transform
                     duration-300
                     group-hover/button:rotate-45
@@ -1043,13 +1118,16 @@ function Technologies() {
           relative
           overflow-hidden
           border-t
-          border-white/[0.06]
+          border-white/[0.07]
           px-6
-          py-32
+          py-28
           sm:px-8
+          sm:py-32
           lg:px-12
         "
       >
+
+        {/* Emerald Glow */}
 
         <div
           className="
@@ -1062,10 +1140,15 @@ function Technologies() {
             -translate-x-1/2
             -translate-y-1/2
             rounded-full
-            bg-violet-500/[0.08]
+            bg-emerald-500/[0.06]
             blur-[140px]
+            sm:h-[550px]
+            sm:w-[550px]
+            sm:blur-[160px]
           "
         />
+
+        {/* Cyan Glow */}
 
         <div
           className="
@@ -1076,7 +1159,7 @@ function Technologies() {
             h-[250px]
             w-[250px]
             rounded-full
-            bg-blue-500/[0.05]
+            bg-cyan-500/[0.035]
             blur-[100px]
           "
         />
@@ -1108,9 +1191,9 @@ function Technologies() {
           <span
             className="
               text-[10px]
-              font-medium
-              tracking-[0.25em]
-              text-violet-300/70
+              font-semibold
+              tracking-[0.28em]
+              text-emerald-300/80
             "
           >
             LET'S BUILD
@@ -1133,9 +1216,9 @@ function Technologies() {
               className="
                 block
                 bg-gradient-to-r
-                from-white/30
-                via-violet-300/50
-                to-blue-300/50
+                from-emerald-200/80
+                via-white/40
+                to-cyan-300/55
                 bg-clip-text
                 text-transparent
               "
@@ -1168,17 +1251,19 @@ function Technologies() {
               items-center
               gap-3
               rounded-full
-              bg-white
+              bg-gradient-to-r
+              from-emerald-500
+              to-teal-500
               px-7
               py-4
               text-sm
               font-semibold
-              text-black
-              shadow-[0_15px_50px_rgba(255,255,255,0.06)]
+              text-white
+              shadow-[0_15px_60px_rgba(16,185,129,0.20)]
               transition-all
               duration-300
               hover:scale-[1.03]
-              hover:shadow-[0_20px_60px_rgba(124,58,237,0.20)]
+              hover:shadow-[0_20px_70px_rgba(16,185,129,0.30)]
             "
           >
 
@@ -1192,8 +1277,8 @@ function Technologies() {
                 items-center
                 justify-center
                 rounded-full
-                bg-black
-                text-white
+                bg-white
+                text-emerald-600
                 transition-transform
                 duration-300
                 group-hover:rotate-45

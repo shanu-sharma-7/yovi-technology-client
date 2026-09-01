@@ -30,6 +30,7 @@ const services = [
       "Website Redesign & Maintenance",
     ],
     technologies: ["React", "Next.js", "Node.js", "TypeScript"],
+    accent: "emerald",
   },
 
   {
@@ -45,6 +46,7 @@ const services = [
       "Custom Business Applications",
     ],
     technologies: ["Android", "iOS", "Cross-Platform"],
+    accent: "cyan",
   },
 
   {
@@ -61,6 +63,7 @@ const services = [
       "Intelligent Customer Support",
     ],
     technologies: ["AI APIs", "Automation", "LLM"],
+    accent: "teal",
   },
 
   {
@@ -78,6 +81,7 @@ const services = [
       "Workflow Management",
     ],
     technologies: ["Node.js", "MongoDB", "MySQL", "REST APIs"],
+    accent: "emerald",
   },
 
   {
@@ -95,6 +99,7 @@ const services = [
       "Content Marketing",
     ],
     technologies: ["SEO", "Google Ads", "Meta Ads", "Analytics"],
+    accent: "cyan",
   },
 
   {
@@ -111,43 +116,175 @@ const services = [
       "Social Media Creatives",
     ],
     technologies: ["UI/UX", "Figma", "Branding"],
+    accent: "teal",
   },
 ];
 
+const accentStyles = {
+  emerald: {
+    glow:
+      "bg-emerald-500/[0.055] group-hover:bg-emerald-500/[0.11]",
+
+    icon:
+      "text-emerald-200 border-emerald-300/10 bg-emerald-400/[0.06] group-hover:border-emerald-300/25 group-hover:bg-emerald-400/[0.11]",
+
+    number:
+      "text-emerald-300/35 group-hover:text-emerald-300/70",
+
+    tag:
+      "group-hover:border-emerald-300/[0.14] group-hover:bg-emerald-400/[0.05] group-hover:text-emerald-200/70",
+
+    check:
+      "group-hover:border-emerald-300/25 group-hover:bg-emerald-400/10 group-hover:text-emerald-200",
+
+    arrow:
+      "group-hover:border-emerald-300/25 group-hover:bg-emerald-400/[0.08] group-hover:text-emerald-100",
+  },
+
+  cyan: {
+    glow:
+      "bg-cyan-500/[0.045] group-hover:bg-cyan-500/[0.09]",
+
+    icon:
+      "text-cyan-200 border-cyan-300/10 bg-cyan-400/[0.05] group-hover:border-cyan-300/25 group-hover:bg-cyan-400/[0.10]",
+
+    number:
+      "text-cyan-300/35 group-hover:text-cyan-300/70",
+
+    tag:
+      "group-hover:border-cyan-300/[0.14] group-hover:bg-cyan-400/[0.05] group-hover:text-cyan-200/70",
+
+    check:
+      "group-hover:border-cyan-300/25 group-hover:bg-cyan-400/10 group-hover:text-cyan-200",
+
+    arrow:
+      "group-hover:border-cyan-300/25 group-hover:bg-cyan-400/[0.08] group-hover:text-cyan-100",
+  },
+
+  teal: {
+    glow:
+      "bg-teal-500/[0.045] group-hover:bg-teal-500/[0.09]",
+
+    icon:
+      "text-teal-200 border-teal-300/10 bg-teal-400/[0.05] group-hover:border-teal-300/25 group-hover:bg-teal-400/[0.10]",
+
+    number:
+      "text-teal-300/35 group-hover:text-teal-300/70",
+
+    tag:
+      "group-hover:border-teal-300/[0.14] group-hover:bg-teal-400/[0.05] group-hover:text-teal-200/70",
+
+    check:
+      "group-hover:border-teal-300/25 group-hover:bg-teal-400/10 group-hover:text-teal-200",
+
+    arrow:
+      "group-hover:border-teal-300/25 group-hover:bg-teal-400/[0.08] group-hover:text-teal-100",
+  },
+};
+
 function Services() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#030305] text-white">
+    <main className="relative min-h-screen overflow-hidden bg-[#020403] text-white">
 
       {/* =====================================================
-          GLOBAL BACKGROUND
+          GLOBAL AMBIENT BACKGROUND
       ===================================================== */}
 
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
 
-        <div
+        {/* Emerald atmosphere */}
+
+        <motion.div
+          animate={{
+            x: [0, 35, 0],
+            y: [0, 25, 0],
+            scale: [1, 1.07, 1],
+          }}
+          transition={{
+            duration: 14,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
           className="
             absolute
-            left-1/2
-            top-[-180px]
-            h-[650px]
-            w-[650px]
-            -translate-x-1/2
+            left-[10%]
+            top-[-140px]
+            h-[520px]
+            w-[520px]
             rounded-full
-            bg-violet-600/[0.09]
+            bg-emerald-500/[0.06]
             blur-[150px]
           "
         />
 
-        <div
+        {/* Cyan atmosphere */}
+
+        <motion.div
+          animate={{
+            x: [0, -40, 0],
+            y: [0, 30, 0],
+            scale: [1, 1.06, 1],
+          }}
+          transition={{
+            duration: 16,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
           className="
             absolute
-            right-[-200px]
-            top-[900px]
+            right-[-120px]
+            top-[25%]
             h-[500px]
             w-[500px]
             rounded-full
-            bg-indigo-500/[0.05]
+            bg-cyan-500/[0.04]
+            blur-[150px]
+          "
+        />
+
+        {/* Teal bottom atmosphere */}
+
+        <motion.div
+          animate={{
+            x: [0, 30, 0],
+            y: [0, -20, 0],
+          }}
+          transition={{
+            duration: 18,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="
+            absolute
+            bottom-[-80px]
+            left-[15%]
+            h-[400px]
+            w-[400px]
+            rounded-full
+            bg-teal-500/[0.035]
             blur-[140px]
+          "
+        />
+
+        {/* Grid */}
+
+        <div
+          className="
+            absolute
+            inset-0
+            opacity-[0.025]
+            [background-image:linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)]
+            [background-size:80px_80px]
+          "
+        />
+
+        {/* Vignette */}
+
+        <div
+          className="
+            absolute
+            inset-0
+            bg-[radial-gradient(circle_at_center,transparent_5%,#020403_88%)]
           "
         />
 
@@ -158,9 +295,9 @@ function Services() {
           HERO
       ===================================================== */}
 
-      <section className="relative px-6 pb-24 pt-40 sm:px-8 lg:px-12">
+      <section className="relative px-6 pb-28 pt-40 sm:px-8 lg:px-12">
 
-        <div className="relative mx-auto max-w-7xl">
+        <div className="mx-auto max-w-7xl">
 
           <motion.div
             initial={{
@@ -174,7 +311,7 @@ function Services() {
             transition={{
               duration: 0.8,
             }}
-            className="max-w-4xl"
+            className="max-w-5xl"
           >
 
             {/* Eyebrow */}
@@ -183,19 +320,23 @@ function Services() {
 
               <span
                 className="
-                  flex h-8 w-8
-                  items-center justify-center
+                  flex
+                  h-8
+                  w-8
+                  items-center
+                  justify-center
                   rounded-full
-                  border border-violet-400/20
+                  border
+                  border-emerald-300/25
                   bg-gradient-to-br
-                  from-violet-500/15
-                  to-indigo-500/10
-                  shadow-[0_0_30px_rgba(139,92,246,0.12)]
+                  from-emerald-500/20
+                  to-cyan-500/10
+                  shadow-[0_0_35px_rgba(16,185,129,0.16)]
                 "
               >
                 <Sparkles
                   size={13}
-                  className="text-violet-300"
+                  className="text-emerald-200"
                 />
               </span>
 
@@ -203,8 +344,8 @@ function Services() {
                 className="
                   text-[10px]
                   font-semibold
-                  tracking-[0.28em]
-                  text-violet-300/80
+                  tracking-[0.25em]
+                  text-emerald-200/70
                 "
               >
                 OUR SERVICES
@@ -223,24 +364,26 @@ function Services() {
                 tracking-[-0.055em]
                 sm:text-6xl
                 md:text-7xl
-                lg:text-[86px]
+                lg:text-[88px]
               "
             >
+
               Everything you need
 
               <span
                 className="
                   block
                   bg-gradient-to-r
-                  from-white/40
-                  via-white/25
-                  to-white/10
+                  from-white
+                  via-emerald-200/65
+                  to-cyan-300/45
                   bg-clip-text
                   text-transparent
                 "
               >
                 to build what matters.
               </span>
+
             </h1>
 
 
@@ -252,7 +395,7 @@ function Services() {
                 max-w-2xl
                 text-base
                 leading-7
-                text-white/45
+                text-white/40
                 sm:text-lg
               "
             >
@@ -264,7 +407,7 @@ function Services() {
           </motion.div>
 
 
-          {/* Bottom info */}
+          {/* Service categories */}
 
           <motion.div
             initial={{
@@ -284,38 +427,35 @@ function Services() {
               gap-x-10
               gap-y-4
               border-t
-              border-white/[0.08]
+              border-white/[0.07]
               pt-7
               text-[10px]
               font-medium
               tracking-[0.22em]
-              text-white/30
+              text-white/25
             "
           >
 
-            <span className="transition-colors hover:text-violet-300">
-              WEB
-            </span>
-
-            <span className="transition-colors hover:text-violet-300">
-              MOBILE
-            </span>
-
-            <span className="transition-colors hover:text-violet-300">
-              AI
-            </span>
-
-            <span className="transition-colors hover:text-violet-300">
-              ERP
-            </span>
-
-            <span className="transition-colors hover:text-violet-300">
-              CRM
-            </span>
-
-            <span className="transition-colors hover:text-violet-300">
-              GROWTH
-            </span>
+            {[
+              "WEB",
+              "MOBILE",
+              "AI",
+              "ERP",
+              "CRM",
+              "GROWTH",
+            ].map((item) => (
+              <span
+                key={item}
+                className="
+                  transition-all
+                  duration-300
+                  hover:text-emerald-200
+                  hover:drop-shadow-[0_0_12px_rgba(16,185,129,0.35)]
+                "
+              >
+                {item}
+              </span>
+            ))}
 
           </motion.div>
 
@@ -334,7 +474,7 @@ function Services() {
           border-t
           border-white/[0.07]
           px-6
-          py-28
+          py-32
           sm:px-8
           lg:px-12
         "
@@ -347,13 +487,14 @@ function Services() {
             {services.map((service, index) => {
 
               const Icon = service.icon;
+              const accent = accentStyles[service.accent];
 
               return (
                 <motion.article
                   key={service.number}
                   initial={{
                     opacity: 0,
-                    y: 35,
+                    y: 30,
                   }}
                   whileInView={{
                     opacity: 1,
@@ -364,8 +505,11 @@ function Services() {
                     amount: 0.12,
                   }}
                   transition={{
-                    duration: 0.7,
+                    duration: 0.65,
                     delay: index * 0.04,
+                  }}
+                  whileHover={{
+                    y: -4,
                   }}
                   className="
                     group
@@ -373,56 +517,54 @@ function Services() {
                     overflow-hidden
                     rounded-[30px]
                     border
-                    border-white/[0.08]
-                    bg-gradient-to-br
-                    from-white/[0.045]
-                    via-white/[0.02]
-                    to-transparent
-                    shadow-[0_20px_80px_rgba(0,0,0,0.2)]
+                    border-white/[0.07]
+                    bg-white/[0.025]
+                    backdrop-blur-xl
                     transition-all
                     duration-500
-                    hover:-translate-y-[2px]
-                    hover:border-violet-300/[0.18]
-                    hover:shadow-[0_25px_100px_rgba(124,58,237,0.08)]
+                    hover:border-emerald-300/[0.14]
+                    hover:bg-white/[0.035]
+                    hover:shadow-[0_25px_100px_rgba(0,0,0,0.35)]
                   "
                 >
 
-                  {/* Card inner glow */}
+                  {/* Accent Glow */}
 
                   <div
-                    className="
+                    className={`
                       pointer-events-none
                       absolute
-                      -right-32
-                      -top-32
+                      -right-28
+                      -top-28
                       h-80
                       w-80
                       rounded-full
-                      bg-violet-500/[0.045]
+                      ${accent.glow}
                       blur-[100px]
                       transition-all
                       duration-700
-                      group-hover:bg-violet-500/[0.11]
-                    "
+                    `}
                   />
 
                   <div
                     className="
                       pointer-events-none
                       absolute
-                      bottom-[-180px]
+                      bottom-[-170px]
                       left-[-100px]
                       h-72
                       w-72
                       rounded-full
-                      bg-indigo-500/[0.035]
+                      bg-cyan-500/[0.02]
                       blur-[100px]
                       transition-all
                       duration-700
-                      group-hover:bg-indigo-500/[0.07]
+                      group-hover:bg-cyan-500/[0.05]
                     "
                   />
 
+
+                  {/* Content */}
 
                   <div
                     className="
@@ -437,43 +579,37 @@ function Services() {
                     "
                   >
 
-                    {/* Number */}
+                    {/* Number + Icon */}
 
                     <div>
 
                       <span
-                        className="
+                        className={`
                           text-[10px]
                           font-semibold
                           tracking-[0.2em]
-                          text-violet-300/35
                           transition-colors
                           duration-300
-                          group-hover:text-violet-300/70
-                        "
+                          ${accent.number}
+                        `}
                       >
                         {service.number}
                       </span>
 
                       <div
-                        className="
+                        className={`
                           mt-5
-                          flex h-11 w-11
+                          flex
+                          h-11
+                          w-11
                           items-center
                           justify-center
                           rounded-xl
                           border
-                          border-white/[0.10]
-                          bg-white/[0.035]
-                          text-white/45
-                          shadow-inner
                           transition-all
                           duration-300
-                          group-hover:border-violet-300/25
-                          group-hover:bg-violet-400/[0.12]
-                          group-hover:text-violet-200
-                          group-hover:shadow-[0_0_30px_rgba(139,92,246,0.12)]
-                        "
+                          ${accent.icon}
+                        `}
                       >
                         <Icon
                           size={19}
@@ -484,7 +620,7 @@ function Services() {
                     </div>
 
 
-                    {/* Main content */}
+                    {/* Main Content */}
 
                     <div>
 
@@ -494,9 +630,6 @@ function Services() {
                           font-semibold
                           tracking-[-0.04em]
                           text-white
-                          transition-colors
-                          duration-300
-                          group-hover:text-violet-50
                           sm:text-4xl
                         "
                       >
@@ -519,37 +652,28 @@ function Services() {
                       </p>
 
 
-                      {/* Technology tags */}
+                      {/* Technologies */}
 
-                      <div
-                        className="
-                          mt-7
-                          flex
-                          flex-wrap
-                          gap-2
-                        "
-                      >
+                      <div className="mt-7 flex flex-wrap gap-2">
 
                         {service.technologies.map((technology) => (
 
                           <span
                             key={technology}
-                            className="
+                            className={`
                               rounded-full
                               border
-                              border-white/[0.09]
-                              bg-white/[0.025]
+                              border-white/[0.08]
+                              bg-white/[0.02]
                               px-3
                               py-1.5
                               text-[10px]
                               font-medium
-                              text-white/40
+                              text-white/35
                               transition-all
                               duration-300
-                              group-hover:border-violet-300/[0.12]
-                              group-hover:bg-violet-400/[0.04]
-                              group-hover:text-violet-200/60
-                            "
+                              ${accent.tag}
+                            `}
                           >
                             {technology}
                           </span>
@@ -571,12 +695,11 @@ function Services() {
                           text-[10px]
                           font-semibold
                           tracking-[0.2em]
-                          text-white/25
+                          text-white/20
                         "
                       >
                         WHAT WE OFFER
                       </p>
-
 
                       <div className="space-y-3">
 
@@ -590,7 +713,7 @@ function Services() {
                               items-center
                               gap-3
                               text-sm
-                              text-white/45
+                              text-white/40
                               transition-colors
                               duration-200
                               hover:text-white/75
@@ -598,22 +721,22 @@ function Services() {
                           >
 
                             <span
-                              className="
-                                flex h-5 w-5
+                              className={`
+                                flex
+                                h-5
+                                w-5
                                 shrink-0
                                 items-center
                                 justify-center
                                 rounded-full
                                 border
-                                border-white/[0.10]
+                                border-white/[0.09]
                                 bg-white/[0.02]
-                                text-white/30
+                                text-white/25
                                 transition-all
                                 duration-200
-                                group-hover/item:border-violet-300/25
-                                group-hover/item:bg-violet-400/10
-                                group-hover/item:text-violet-200
-                              "
+                                ${accent.check}
+                              `}
                             >
                               <Check size={11} />
                             </span>
@@ -634,26 +757,26 @@ function Services() {
                   {/* Arrow */}
 
                   <div
-                    className="
+                    className={`
                       absolute
                       right-7
                       top-7
-                      flex h-9 w-9
+                      flex
+                      h-9
+                      w-9
                       items-center
                       justify-center
                       rounded-full
                       border
-                      border-white/[0.10]
+                      border-white/[0.08]
                       bg-white/[0.02]
-                      text-white/25
+                      text-white/20
                       transition-all
                       duration-300
-                      group-hover:border-violet-300/25
-                      group-hover:bg-violet-400/[0.08]
-                      group-hover:text-violet-100
-                      group-hover:shadow-[0_0_25px_rgba(139,92,246,0.12)]
-                    "
+                      ${accent.arrow}
+                    `}
                   >
+
                     <ArrowUpRight
                       size={15}
                       className="
@@ -662,11 +785,11 @@ function Services() {
                         group-hover:rotate-45
                       "
                     />
+
                   </div>
 
                 </motion.article>
               );
-
             })}
 
           </div>
@@ -693,37 +816,74 @@ function Services() {
         "
       >
 
-        {/* CTA glow */}
+        {/* Emerald */}
 
-        <div
+        <motion.div
+          animate={{
+            scale: [1, 1.08, 1],
+            opacity: [0.7, 1, 0.7],
+          }}
+          transition={{
+            duration: 7,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
           className="
             pointer-events-none
             absolute
-            left-1/2
+            left-[30%]
             top-1/2
             h-[500px]
             w-[500px]
             -translate-x-1/2
             -translate-y-1/2
             rounded-full
-            bg-violet-600/[0.09]
+            bg-emerald-500/[0.055]
             blur-[140px]
           "
         />
+
+        {/* Cyan */}
+
+        <motion.div
+          animate={{
+            scale: [1, 1.06, 1],
+            opacity: [0.6, 1, 0.6],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="
+            pointer-events-none
+            absolute
+            left-[68%]
+            top-1/2
+            h-[420px]
+            w-[420px]
+            -translate-x-1/2
+            -translate-y-1/2
+            rounded-full
+            bg-cyan-500/[0.045]
+            blur-[130px]
+          "
+        />
+
+        {/* Center teal */}
 
         <div
           className="
             pointer-events-none
             absolute
             left-1/2
-            top-1/2
+            top-[65%]
             h-[260px]
             w-[260px]
             -translate-x-1/2
-            -translate-y-1/2
             rounded-full
-            bg-indigo-500/[0.08]
-            blur-[100px]
+            bg-teal-500/[0.035]
+            blur-[110px]
           "
         />
 
@@ -753,10 +913,10 @@ function Services() {
 
           <span
             className="
-              font-semibold
               text-[10px]
+              font-semibold
               tracking-[0.28em]
-              text-violet-300/80
+              text-emerald-300/80
             "
           >
             READY TO BUILD?
@@ -768,26 +928,29 @@ function Services() {
               mt-6
               text-4xl
               font-semibold
+              leading-tight
               tracking-[-0.05em]
               sm:text-5xl
               md:text-6xl
             "
           >
+
             Let's create something
 
             <span
               className="
                 block
                 bg-gradient-to-r
-                from-white/45
-                via-white/25
-                to-white/10
+                from-emerald-200/80
+                via-white/45
+                to-cyan-300/55
                 bg-clip-text
                 text-transparent
               "
             >
               worth building.
             </span>
+
           </h2>
 
 
@@ -798,7 +961,7 @@ function Services() {
               max-w-xl
               text-sm
               leading-6
-              text-white/40
+              text-white/35
             "
           >
             Have a project, idea or business challenge?
@@ -815,33 +978,37 @@ function Services() {
               items-center
               gap-3
               rounded-full
-              bg-white
+              bg-gradient-to-r
+              from-emerald-500
+              to-teal-500
               px-7
               py-4
               text-sm
               font-semibold
-              text-black
-              shadow-[0_10px_50px_rgba(255,255,255,0.08)]
+              text-white
+              shadow-[0_15px_60px_rgba(16,185,129,0.22)]
               transition-all
               duration-300
               hover:scale-[1.04]
-              hover:shadow-[0_15px_60px_rgba(139,92,246,0.20)]
+              hover:shadow-[0_20px_80px_rgba(16,185,129,0.32)]
             "
           >
+
             Start a Project
 
             <span
               className="
-                flex h-6 w-6
+                flex
+                h-6
+                w-6
                 items-center
                 justify-center
                 rounded-full
-                bg-black
-                text-white
+                bg-white
+                text-emerald-600
                 transition-all
                 duration-300
                 group-hover:rotate-45
-                group-hover:bg-violet-600
               "
             >
               <ArrowUpRight size={13} />

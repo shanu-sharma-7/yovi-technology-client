@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 
 import {
@@ -19,13 +20,13 @@ function About() {
       icon: Layers3,
       title: "Customized Solutions",
       text: "Technology designed around your specific business requirements.",
-      accent: "violet",
+      accent: "emerald",
     },
     {
       icon: Zap,
       title: "Modern Technology",
       text: "Current tools and scalable architectures built for long-term growth.",
-      accent: "blue",
+      accent: "teal",
     },
     {
       icon: ShieldCheck,
@@ -37,13 +38,13 @@ function About() {
       icon: Users,
       title: "Business Focused",
       text: "Every technical decision is connected to a meaningful business outcome.",
-      accent: "violet",
+      accent: "emerald",
     },
     {
       icon: Globe2,
       title: "Digital First",
       text: "Responsive and accessible experiences built for today's users.",
-      accent: "blue",
+      accent: "teal",
     },
     {
       icon: Check,
@@ -54,7 +55,7 @@ function About() {
   ];
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#050505] text-white">
+    <main className="relative min-h-screen overflow-hidden bg-[#020403] text-white">
 
       {/* =====================================================
           GLOBAL AMBIENT BACKGROUND
@@ -62,7 +63,7 @@ function About() {
 
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
 
-        {/* Violet */}
+        {/* Emerald atmosphere */}
         <motion.div
           animate={{
             x: [0, 50, 0],
@@ -81,12 +82,12 @@ function About() {
             h-[500px]
             w-[500px]
             rounded-full
-            bg-violet-500/[0.07]
+            bg-emerald-500/[0.055]
             blur-[150px]
           "
         />
 
-        {/* Blue */}
+        {/* Teal atmosphere */}
         <motion.div
           animate={{
             x: [0, -50, 0],
@@ -104,12 +105,12 @@ function About() {
             h-[420px]
             w-[420px]
             rounded-full
-            bg-blue-500/[0.06]
+            bg-teal-500/[0.04]
             blur-[140px]
           "
         />
 
-        {/* Cyan */}
+        {/* Cyan atmosphere */}
         <motion.div
           animate={{
             x: [0, 35, 0],
@@ -147,7 +148,7 @@ function About() {
           className="
             absolute
             inset-0
-            bg-[radial-gradient(circle_at_center,transparent_10%,#050505_82%)]
+            bg-[radial-gradient(circle_at_center,transparent_10%,#020403_82%)]
           "
         />
 
@@ -183,20 +184,23 @@ function About() {
 
               <span
                 className="
-                  flex h-7 w-7
-                  items-center justify-center
+                  flex
+                  h-7
+                  w-7
+                  items-center
+                  justify-center
                   rounded-full
-                  border border-violet-300/20
+                  border
+                  border-emerald-300/20
                   bg-gradient-to-br
-                  from-violet-400/15
-                  to-blue-400/10
-                  shadow-lg
-                  shadow-violet-500/10
+                  from-emerald-400/15
+                  to-cyan-400/10
+                  shadow-[0_0_30px_rgba(16,185,129,0.12)]
                 "
               >
                 <Sparkles
                   size={13}
-                  className="text-violet-200"
+                  className="text-emerald-200"
                 />
               </span>
 
@@ -205,7 +209,7 @@ function About() {
                   text-[10px]
                   font-medium
                   tracking-[0.25em]
-                  text-violet-200/70
+                  text-emerald-200/70
                 "
               >
                 ABOUT YOVI TECHNOLOGIES
@@ -229,7 +233,17 @@ function About() {
             >
               Technology with
 
-              <span className="block text-white/30">
+              <span
+                className="
+                  block
+                  bg-gradient-to-r
+                  from-white
+                  via-white/40
+                  to-emerald-200/25
+                  bg-clip-text
+                  text-transparent
+                "
+              >
                 a reason behind it.
               </span>
             </h1>
@@ -271,22 +285,25 @@ function About() {
                 title: "Technology",
                 text: "Modern engineering",
                 icon: Globe2,
-                glow: "bg-violet-500/[0.08]",
-                iconColor: "text-violet-200",
+                glow: "bg-emerald-500/[0.075]",
+                iconColor: "text-emerald-200",
+                borderColor: "border-emerald-300/10",
               },
               {
                 title: "Innovation",
                 text: "AI & automation",
                 icon: Zap,
-                glow: "bg-blue-500/[0.08]",
-                iconColor: "text-blue-200",
+                glow: "bg-teal-500/[0.065]",
+                iconColor: "text-teal-200",
+                borderColor: "border-teal-300/10",
               },
               {
                 title: "Growth",
                 text: "Business focused",
                 icon: Target,
-                glow: "bg-cyan-500/[0.06]",
+                glow: "bg-cyan-500/[0.055]",
                 iconColor: "text-cyan-200",
+                borderColor: "border-cyan-300/10",
               },
             ].map((item, index) => {
 
@@ -347,10 +364,14 @@ function About() {
 
                     <div
                       className={`
-                        flex h-10 w-10
-                        items-center justify-center
+                        flex
+                        h-10
+                        w-10
+                        items-center
+                        justify-center
                         rounded-xl
-                        border border-white/10
+                        border
+                        ${item.borderColor}
                         bg-white/[0.04]
                         ${item.iconColor}
                       `}
@@ -435,7 +456,7 @@ function About() {
                 text-[10px]
                 font-medium
                 tracking-[0.25em]
-                text-violet-300/70
+                text-emerald-300/70
               "
             >
               WHO WE ARE
@@ -452,7 +473,17 @@ function About() {
             >
               More than a
 
-              <span className="block text-white/30">
+              <span
+                className="
+                  block
+                  bg-gradient-to-r
+                  from-white/40
+                  via-white/25
+                  to-emerald-200/30
+                  bg-clip-text
+                  text-transparent
+                "
+              >
                 technology company.
               </span>
             </h2>
@@ -544,13 +575,13 @@ function About() {
                 overflow-hidden
                 rounded-[30px]
                 border
-                border-violet-300/[0.08]
+                border-emerald-300/[0.08]
                 bg-white/[0.025]
                 p-8
                 backdrop-blur-xl
                 transition-all
                 duration-500
-                hover:border-violet-300/[0.18]
+                hover:border-emerald-300/[0.18]
               "
             >
 
@@ -562,7 +593,7 @@ function About() {
                   h-72
                   w-72
                   rounded-full
-                  bg-violet-500/[0.08]
+                  bg-emerald-500/[0.07]
                   blur-[100px]
                   transition-all
                   duration-700
@@ -573,14 +604,17 @@ function About() {
               <div
                 className="
                   relative
-                  flex h-12 w-12
-                  items-center justify-center
+                  flex
+                  h-12
+                  w-12
+                  items-center
+                  justify-center
                   rounded-2xl
-                  border border-violet-300/15
-                  bg-violet-400/[0.08]
-                  text-violet-200
-                  shadow-lg
-                  shadow-violet-500/10
+                  border
+                  border-emerald-300/15
+                  bg-emerald-400/[0.07]
+                  text-emerald-200
+                  shadow-[0_0_30px_rgba(16,185,129,0.10)]
                 "
               >
                 <Target size={21} />
@@ -593,7 +627,7 @@ function About() {
                   block
                   text-[10px]
                   tracking-[0.25em]
-                  text-violet-300/50
+                  text-emerald-300/50
                 "
               >
                 OUR MISSION
@@ -610,7 +644,16 @@ function About() {
               >
                 Simplify technology.
 
-                <span className="block text-white/30">
+                <span
+                  className="
+                    block
+                    bg-gradient-to-r
+                    from-emerald-200/60
+                    to-white/25
+                    bg-clip-text
+                    text-transparent
+                  "
+                >
                   Accelerate growth.
                 </span>
               </h3>
@@ -645,13 +688,13 @@ function About() {
                 overflow-hidden
                 rounded-[30px]
                 border
-                border-blue-300/[0.08]
+                border-cyan-300/[0.08]
                 bg-white/[0.025]
                 p-8
                 backdrop-blur-xl
                 transition-all
                 duration-500
-                hover:border-blue-300/[0.18]
+                hover:border-cyan-300/[0.18]
               "
             >
 
@@ -663,7 +706,7 @@ function About() {
                   h-72
                   w-72
                   rounded-full
-                  bg-blue-500/[0.08]
+                  bg-cyan-500/[0.06]
                   blur-[100px]
                   transition-all
                   duration-700
@@ -674,14 +717,17 @@ function About() {
               <div
                 className="
                   relative
-                  flex h-12 w-12
-                  items-center justify-center
+                  flex
+                  h-12
+                  w-12
+                  items-center
+                  justify-center
                   rounded-2xl
-                  border border-blue-300/15
-                  bg-blue-400/[0.08]
-                  text-blue-200
-                  shadow-lg
-                  shadow-blue-500/10
+                  border
+                  border-cyan-300/15
+                  bg-cyan-400/[0.06]
+                  text-cyan-200
+                  shadow-[0_0_30px_rgba(34,211,238,0.08)]
                 "
               >
                 <Eye size={21} />
@@ -694,7 +740,7 @@ function About() {
                   block
                   text-[10px]
                   tracking-[0.25em]
-                  text-blue-300/50
+                  text-cyan-300/50
                 "
               >
                 OUR VISION
@@ -711,7 +757,16 @@ function About() {
               >
                 Build what's next.
 
-                <span className="block text-white/30">
+                <span
+                  className="
+                    block
+                    bg-gradient-to-r
+                    from-cyan-200/60
+                    to-white/25
+                    bg-clip-text
+                    text-transparent
+                  "
+                >
                   Together.
                 </span>
               </h3>
@@ -763,7 +818,7 @@ function About() {
                 text-[10px]
                 font-medium
                 tracking-[0.25em]
-                text-violet-300/70
+                text-emerald-300/70
               "
             >
               WHY CHOOSE YOVI
@@ -784,9 +839,9 @@ function About() {
               <span
                 className="
                   bg-gradient-to-r
-                  from-white
-                  via-violet-200
-                  to-blue-300
+                  from-emerald-200
+                  via-white/60
+                  to-cyan-300
                   bg-clip-text
                   text-transparent
                 "
@@ -829,10 +884,10 @@ function About() {
               const Icon = item.icon;
 
               const accent =
-                item.accent === "violet"
-                  ? "text-violet-200 bg-violet-400/[0.08] border-violet-300/10 group-hover:border-violet-300/20"
-                  : item.accent === "blue"
-                  ? "text-blue-200 bg-blue-400/[0.08] border-blue-300/10 group-hover:border-blue-300/20"
+                item.accent === "emerald"
+                  ? "text-emerald-200 bg-emerald-400/[0.07] border-emerald-300/10 group-hover:border-emerald-300/20"
+                  : item.accent === "teal"
+                  ? "text-teal-200 bg-teal-400/[0.06] border-teal-300/10 group-hover:border-teal-300/20"
                   : "text-cyan-200 bg-cyan-400/[0.06] border-cyan-300/10 group-hover:border-cyan-300/20";
 
               return (
@@ -881,7 +936,7 @@ function About() {
                       h-32
                       w-32
                       rounded-full
-                      bg-violet-500/[0.04]
+                      bg-emerald-500/[0.035]
                       blur-[60px]
                       transition-all
                       duration-500
@@ -892,8 +947,11 @@ function About() {
                   <div
                     className={`
                       relative
-                      flex h-10 w-10
-                      items-center justify-center
+                      flex
+                      h-10
+                      w-10
+                      items-center
+                      justify-center
                       rounded-xl
                       border
                       ${accent}
@@ -973,7 +1031,7 @@ function About() {
                 text-[10px]
                 font-medium
                 tracking-[0.25em]
-                text-violet-300/70
+                text-emerald-300/70
               "
             >
               HOW WE THINK
@@ -990,7 +1048,17 @@ function About() {
             >
               Technology should
 
-              <span className="block text-white/30">
+              <span
+                className="
+                  block
+                  bg-gradient-to-r
+                  from-white/40
+                  via-white/25
+                  to-emerald-200/30
+                  bg-clip-text
+                  text-transparent
+                "
+              >
                 solve real problems.
               </span>
             </h2>
@@ -1025,13 +1093,13 @@ function About() {
               overflow-hidden
               rounded-[30px]
               border
-              border-violet-300/[0.08]
+              border-emerald-300/[0.08]
               bg-white/[0.025]
               p-7
               backdrop-blur-xl
               transition-all
               duration-500
-              hover:border-violet-300/[0.16]
+              hover:border-emerald-300/[0.16]
             "
           >
 
@@ -1043,7 +1111,7 @@ function About() {
                 h-60
                 w-60
                 rounded-full
-                bg-violet-500/[0.06]
+                bg-emerald-500/[0.05]
                 blur-[90px]
                 transition-all
                 duration-700
@@ -1085,11 +1153,11 @@ function About() {
                       justify-center
                       rounded-lg
                       border
-                      border-violet-300/10
-                      bg-violet-400/[0.05]
+                      border-emerald-300/10
+                      bg-emerald-400/[0.05]
                       text-[9px]
                       tracking-[0.1em]
-                      text-violet-200/50
+                      text-emerald-200/50
                     "
                   >
                     0{index + 1}
@@ -1137,6 +1205,8 @@ function About() {
         "
       >
 
+        {/* Main CTA glow */}
+
         <div
           className="
             pointer-events-none
@@ -1148,13 +1218,29 @@ function About() {
             -translate-x-1/2
             -translate-y-1/2
             rounded-full
-            bg-gradient-to-r
-            from-violet-500/[0.07]
-            via-blue-500/[0.06]
-            to-cyan-400/[0.04]
+            bg-emerald-500/[0.055]
             blur-[140px]
           "
         />
+
+        {/* Cyan secondary glow */}
+
+        <div
+          className="
+            pointer-events-none
+            absolute
+            left-1/2
+            top-1/2
+            h-[280px]
+            w-[280px]
+            -translate-x-1/2
+            -translate-y-1/2
+            rounded-full
+            bg-cyan-500/[0.045]
+            blur-[100px]
+          "
+        />
+
 
         <motion.div
           initial={{
@@ -1182,9 +1268,9 @@ function About() {
           <span
             className="
               text-[10px]
-              font-medium
+              font-semibold
               tracking-[0.25em]
-              text-violet-300/70
+              text-emerald-300/80
             "
           >
             LET'S BUILD TOGETHER
@@ -1206,9 +1292,9 @@ function About() {
               className="
                 block
                 bg-gradient-to-r
-                from-white/30
-                via-violet-200/40
-                to-blue-300/40
+                from-emerald-200/80
+                via-white/40
+                to-cyan-300/55
                 bg-clip-text
                 text-transparent
               "
@@ -1240,29 +1326,33 @@ function About() {
               items-center
               gap-3
               rounded-full
-              bg-white
+              bg-gradient-to-r
+              from-emerald-500
+              to-teal-500
               px-7
               py-4
               text-sm
               font-semibold
-              text-black
-              shadow-xl
-              shadow-white/5
+              text-white
+              shadow-[0_15px_60px_rgba(16,185,129,0.22)]
               transition-all
               duration-300
-              hover:scale-[1.03]
-              hover:shadow-violet-500/20
+              hover:scale-[1.04]
+              hover:shadow-[0_20px_80px_rgba(16,185,129,0.32)]
             "
           >
             Start a Project
 
             <span
               className="
-                flex h-6 w-6
-                items-center justify-center
+                flex
+                h-6
+                w-6
+                items-center
+                justify-center
                 rounded-full
-                bg-black
-                text-white
+                bg-white
+                text-emerald-600
                 transition-transform
                 duration-300
                 group-hover:rotate-45
@@ -1282,3 +1372,4 @@ function About() {
 }
 
 export default About;
+

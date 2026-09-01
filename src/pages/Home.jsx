@@ -17,7 +17,7 @@ import AnimatedBackground from "../components/AnimatedBackground";
 
 function Home() {
   return (
-    <main className="relative overflow-hidden bg-[#020204] text-white">
+    <main className="relative overflow-hidden bg-[#020403] text-white">
 
       {/* =====================================================
           GLOBAL AMBIENT BACKGROUND
@@ -34,7 +34,7 @@ function Home() {
             h-[600px]
             w-[600px]
             rounded-full
-            bg-violet-600/[0.055]
+            bg-emerald-500/[0.045]
             blur-[160px]
           "
         />
@@ -48,7 +48,7 @@ function Home() {
             h-[600px]
             w-[600px]
             rounded-full
-            bg-blue-600/[0.045]
+            bg-cyan-500/[0.035]
             blur-[160px]
           "
         />
@@ -63,7 +63,7 @@ function Home() {
             w-[550px]
             -translate-x-1/2
             rounded-full
-            bg-indigo-600/[0.035]
+            bg-teal-500/[0.03]
             blur-[160px]
           "
         />
@@ -78,7 +78,7 @@ function Home() {
       <section className="relative min-h-0 lg:min-h-screen">
 
         {/* Background animation remains available */}
-        <AnimatedBackground />
+        <div className="hidden lg:block"><AnimatedBackground /></div>
 
         {/* Main hero aura */}
         <div
@@ -91,7 +91,7 @@ function Home() {
             w-[450px]
             -translate-x-1/2
             rounded-full
-            bg-violet-600/[0.07]
+            bg-emerald-500/[0.055]
             blur-[150px]
             sm:h-[550px]
             sm:w-[550px]
@@ -112,7 +112,7 @@ function Home() {
             h-[300px]
             w-[300px]
             rounded-full
-            bg-blue-500/[0.035]
+            bg-cyan-500/[0.03]
             blur-[120px]
             lg:block
           "
@@ -175,16 +175,16 @@ function Home() {
                     justify-center
                     rounded-full
                     border
-                    border-violet-300/25
+                    border-emerald-300/25
                     bg-gradient-to-br
-                    from-violet-500/20
-                    to-blue-500/10
-                    shadow-[0_0_35px_rgba(139,92,246,0.18)]
+                    from-emerald-500/20
+                    to-cyan-500/10
+                    shadow-[0_0_35px_rgba(16,185,129,0.18)]
                   "
                 >
                   <Sparkles
                     size={13}
-                    className="text-violet-200"
+                    className="text-emerald-200"
                   />
                 </span>
 
@@ -193,7 +193,7 @@ function Home() {
                     text-[9px]
                     font-semibold
                     tracking-[0.18em]
-                    text-violet-200/65
+                    text-emerald-200/65
                     sm:text-[11px]
                     sm:tracking-[0.22em]
                   "
@@ -246,9 +246,9 @@ function Home() {
                   className="
                     block
                     bg-gradient-to-r
-                    from-violet-200
-                    via-violet-400
-                    to-blue-400
+                    from-emerald-200
+                    via-emerald-400
+                    to-cyan-400
                     bg-clip-text
                     text-transparent
                   "
@@ -314,18 +314,18 @@ function Home() {
                     gap-3
                     rounded-full
                     bg-gradient-to-r
-                    from-violet-500
-                    to-indigo-500
+                    from-emerald-500
+                    to-teal-500
                     px-5
                     py-3.5
                     text-sm
                     font-semibold
                     text-white
-                    shadow-[0_12px_45px_rgba(124,58,237,0.22)]
+                    shadow-[0_12px_45px_rgba(16,185,129,0.22)]
                     transition-all
                     duration-300
                     hover:scale-[1.03]
-                    hover:shadow-[0_18px_60px_rgba(124,58,237,0.32)]
+                    hover:shadow-[0_18px_60px_rgba(16,185,129,0.32)]
                     sm:px-6
                   "
                 >
@@ -341,7 +341,7 @@ function Home() {
                       justify-center
                       rounded-full
                       bg-white
-                      text-violet-600
+                      text-emerald-600
                       transition-all
                       duration-300
                       group-hover:rotate-45
@@ -373,8 +373,8 @@ function Home() {
                     backdrop-blur-xl
                     transition-all
                     duration-300
-                    hover:border-violet-300/30
-                    hover:bg-violet-400/[0.07]
+                    hover:border-emerald-300/30
+                    hover:bg-emerald-400/[0.07]
                     hover:text-white
                     sm:px-6
                   "
@@ -460,7 +460,7 @@ function Home() {
                   h-[370px]
                   w-[370px]
                   rounded-full
-                  bg-violet-500/[0.10]
+                  bg-emerald-500/[0.075]
                   blur-[120px]
                 "
               />
@@ -471,7 +471,7 @@ function Home() {
                   h-[220px]
                   w-[220px]
                   rounded-full
-                  bg-blue-500/[0.07]
+                  bg-cyan-500/[0.055]
                   blur-[80px]
                 "
               />
@@ -492,8 +492,8 @@ function Home() {
                   w-[390px]
                   rounded-full
                   border
-                  border-violet-300/[0.10]
-                  shadow-[0_0_80px_rgba(139,92,246,0.05)]
+                  border-emerald-300/[0.10]
+                  shadow-[0_0_80px_rgba(16,185,129,0.05)]
                 "
               >
 
@@ -505,8 +505,8 @@ function Home() {
                     h-2
                     w-2
                     rounded-full
-                    bg-violet-300
-                    shadow-[0_0_25px_rgba(196,181,253,0.9)]
+                    bg-emerald-300
+                    shadow-[0_0_25px_rgba(167,243,208,0.9)]
                   "
                 />
 
@@ -528,7 +528,7 @@ function Home() {
                   w-[280px]
                   rounded-full
                   border
-                  border-blue-300/[0.12]
+                  border-cyan-300/[0.12]
                 "
               >
 
@@ -540,8 +540,8 @@ function Home() {
                     h-1.5
                     w-1.5
                     rounded-full
-                    bg-blue-300
-                    shadow-[0_0_20px_rgba(147,197,253,0.8)]
+                    bg-cyan-300
+                    shadow-[0_0_20px_rgba(103,232,249,0.8)]
                   "
                 />
 
@@ -568,12 +568,12 @@ function Home() {
                   justify-center
                   rounded-full
                   border
-                  border-violet-200/[0.18]
+                  border-emerald-200/[0.18]
                   bg-gradient-to-br
                   from-white/[0.07]
-                  via-violet-500/[0.05]
-                  to-blue-500/[0.04]
-                  shadow-[0_0_100px_rgba(124,58,237,0.18)]
+                  via-emerald-500/[0.04]
+                  to-cyan-500/[0.04]
+                  shadow-[0_0_100px_rgba(16,185,129,0.18)]
                   backdrop-blur-xl
                 "
               >
@@ -595,8 +595,8 @@ function Home() {
                       block
                       bg-gradient-to-b
                       from-white
-                      via-violet-200
-                      to-violet-400
+                      via-emerald-200
+                      to-emerald-400
                       bg-clip-text
                       text-4xl
                       font-bold
@@ -639,11 +639,11 @@ function Home() {
                   top-28
                   rounded-2xl
                   border
-                  border-violet-300/[0.12]
-                  bg-violet-400/[0.035]
+                  border-emerald-300/[0.12]
+                  bg-emerald-400/[0.03]
                   px-4
                   py-3
-                  shadow-[0_10px_45px_rgba(124,58,237,0.10)]
+                  shadow-[0_10px_45px_rgba(16,185,129,0.10)]
                   backdrop-blur-xl
                 "
               >
@@ -653,7 +653,7 @@ function Home() {
                     text-[9px]
                     font-medium
                     tracking-[0.2em]
-                    text-violet-200/55
+                    text-emerald-200/55
                   "
                 >
                   BUILD
@@ -677,11 +677,11 @@ function Home() {
                   right-4
                   rounded-2xl
                   border
-                  border-blue-300/[0.12]
-                  bg-blue-400/[0.035]
+                  border-cyan-300/[0.12]
+                  bg-cyan-400/[0.03]
                   px-4
                   py-3
-                  shadow-[0_10px_45px_rgba(59,130,246,0.10)]
+                  shadow-[0_10px_45px_rgba(34,211,238,0.10)]
                   backdrop-blur-xl
                 "
               >
@@ -691,7 +691,7 @@ function Home() {
                     text-[9px]
                     font-medium
                     tracking-[0.2em]
-                    text-blue-200/55
+                    text-cyan-200/55
                   "
                 >
                   SCALE
@@ -723,7 +723,7 @@ function Home() {
             flex-col
             items-center
             gap-2
-            text-violet-200/30
+            text-emerald-200/30
             md:flex
           "
         >
@@ -748,7 +748,7 @@ function Home() {
           relative
           border-t
           border-white/[0.07]
-          bg-[#020204]
+          bg-[#020403]
           px-6
           py-20
           sm:px-8
@@ -795,7 +795,7 @@ function Home() {
                   text-[10px]
                   font-semibold
                   tracking-[0.25em]
-                  text-violet-300/80
+                  text-emerald-300/80
                 "
               >
                 WHAT WE BUILD
@@ -818,9 +818,9 @@ function Home() {
                 <span
                   className="
                     bg-gradient-to-r
-                    from-violet-300/60
+                    from-emerald-300/60
                     via-white/35
-                    to-blue-300/40
+                    to-cyan-300/40
                     bg-clip-text
                     text-transparent
                   "
@@ -845,7 +845,7 @@ function Home() {
                 font-medium
                 text-white/45
                 transition-colors
-                hover:text-violet-200
+                hover:text-emerald-200
               "
             >
 
@@ -965,7 +965,7 @@ function Home() {
                 text-[10px]
                 font-medium
                 tracking-[0.25em]
-                text-violet-200/25
+                text-emerald-200/25
               "
             >
               TECHNOLOGY • DESIGN • AI
@@ -997,7 +997,7 @@ function Home() {
           overflow-hidden
           border-t
           border-white/[0.07]
-          bg-[#020204]
+          bg-[#020403]
           px-6
           py-24
           sm:px-8
@@ -1017,7 +1017,7 @@ function Home() {
             w-[600px]
             -translate-y-1/2
             rounded-full
-            bg-violet-600/[0.055]
+            bg-emerald-500/[0.045]
             blur-[160px]
           "
         />
@@ -1031,7 +1031,7 @@ function Home() {
             h-[350px]
             w-[350px]
             rounded-full
-            bg-blue-500/[0.035]
+            bg-cyan-500/[0.03]
             blur-[120px]
           "
         />
@@ -1073,7 +1073,7 @@ function Home() {
                 text-[10px]
                 font-semibold
                 tracking-[0.25em]
-                text-violet-300/80
+                text-emerald-300/80
               "
             >
               WHY YOVI
@@ -1098,9 +1098,9 @@ function Home() {
                 className="
                   block
                   bg-gradient-to-r
-                  from-violet-200/75
+                  from-emerald-200/75
                   via-white/35
-                  to-blue-300/50
+                  to-cyan-300/50
                   bg-clip-text
                   text-transparent
                 "
@@ -1137,8 +1137,8 @@ function Home() {
                 gap-3
                 rounded-full
                 border
-                border-violet-300/[0.15]
-                bg-violet-400/[0.035]
+                border-emerald-300/[0.15]
+                bg-emerald-400/[0.03]
                 px-5
                 py-3
                 text-sm
@@ -1146,10 +1146,10 @@ function Home() {
                 text-white/65
                 transition-all
                 duration-300
-                hover:border-violet-300/30
-                hover:bg-violet-400/[0.08]
+                hover:border-emerald-300/30
+                hover:bg-emerald-400/[0.06]
                 hover:text-white
-                hover:shadow-[0_10px_40px_rgba(124,58,237,0.12)]
+                hover:shadow-[0_10px_40px_rgba(16,185,129,0.12)]
               "
             >
 
@@ -1196,11 +1196,11 @@ function Home() {
                 overflow-hidden
                 rounded-[32px]
                 border
-                border-violet-300/[0.10]
+                border-emerald-300/[0.10]
                 bg-gradient-to-br
                 from-white/[0.045]
                 via-violet-500/[0.025]
-                to-blue-500/[0.015]
+                to-cyan-500/[0.015]
                 p-7
                 shadow-[0_30px_120px_rgba(0,0,0,0.3)]
                 backdrop-blur-xl
@@ -1226,7 +1226,7 @@ function Home() {
                   h-60
                   w-60
                   rounded-full
-                  bg-violet-500/[0.10]
+                  bg-emerald-500/[0.075]
                   blur-[90px]
                 "
               />
@@ -1239,7 +1239,7 @@ function Home() {
                   h-52
                   w-52
                   rounded-full
-                  bg-blue-500/[0.06]
+                  bg-cyan-500/[0.06]
                   blur-[80px]
                 "
               />
@@ -1252,7 +1252,7 @@ function Home() {
                     text-[10px]
                     font-semibold
                     tracking-[0.25em]
-                    text-violet-200/35
+                    text-emerald-200/35
                   "
                 >
                   THE YOVI APPROACH
@@ -1274,11 +1274,11 @@ function Home() {
                         justify-center
                         rounded-xl
                         border
-                        border-violet-300/20
-                        bg-violet-400/[0.08]
+                        border-emerald-300/20
+                        bg-emerald-400/[0.06]
                         text-sm
-                        text-violet-200
-                        shadow-[0_0_25px_rgba(124,58,237,0.12)]
+                        text-emerald-200
+                        shadow-[0_0_25px_rgba(16,185,129,0.12)]
                       "
                     >
                       01
@@ -1289,7 +1289,7 @@ function Home() {
                         Technology
                       </p>
 
-                      <p className="mt-1 text-xs text-violet-100/30">
+                      <p className="mt-1 text-xs text-emerald-100/30">
                         Modern engineering
                       </p>
                     </div>
@@ -1304,7 +1304,7 @@ function Home() {
                       w-px
                       bg-gradient-to-b
                       from-violet-400/25
-                      to-blue-400/10
+                      to-cyan-400/10
                     "
                   />
 
@@ -1363,7 +1363,7 @@ function Home() {
                         border-blue-300/15
                         bg-blue-400/[0.05]
                         text-sm
-                        text-blue-200/65
+                        text-cyan-200/65
                       "
                     >
                       03
@@ -1451,7 +1451,7 @@ function Home() {
           overflow-hidden
           border-t
           border-white/[0.07]
-          bg-[#020204]
+          bg-[#020403]
           px-6
           py-24
           sm:px-8
@@ -1472,7 +1472,7 @@ function Home() {
             -translate-x-1/2
             -translate-y-1/2
             rounded-full
-            bg-violet-600/[0.075]
+            bg-emerald-500/[0.055]
             blur-[140px]
             sm:h-[550px]
             sm:w-[550px]
@@ -1491,7 +1491,7 @@ function Home() {
             -translate-x-1/2
             -translate-y-1/2
             rounded-full
-            bg-blue-500/[0.055]
+            bg-cyan-500/[0.045]
             blur-[90px]
             sm:h-[280px]
             sm:w-[280px]
@@ -1528,7 +1528,7 @@ function Home() {
               text-[10px]
               font-semibold
               tracking-[0.28em]
-              text-violet-300/80
+              text-emerald-300/80
             "
           >
             LET'S BUILD SOMETHING
@@ -1554,9 +1554,9 @@ function Home() {
               className="
                 block
                 bg-gradient-to-r
-                from-violet-200/80
+                from-emerald-200/80
                 via-white/40
-                to-blue-300/55
+                to-cyan-300/55
                 bg-clip-text
                 text-transparent
               "
@@ -1593,18 +1593,18 @@ function Home() {
               gap-3
               rounded-full
               bg-gradient-to-r
-              from-violet-500
-              to-indigo-500
+              from-emerald-500
+              to-teal-500
               px-7
               py-4
               text-sm
               font-semibold
               text-white
-              shadow-[0_15px_60px_rgba(124,58,237,0.22)]
+              shadow-[0_15px_60px_rgba(16,185,129,0.22)]
               transition-all
               duration-300
               hover:scale-[1.04]
-              hover:shadow-[0_20px_80px_rgba(124,58,237,0.32)]
+              hover:shadow-[0_20px_80px_rgba(16,185,129,0.32)]
             "
           >
 
@@ -1619,7 +1619,7 @@ function Home() {
                 justify-center
                 rounded-full
                 bg-white
-                text-violet-600
+                text-emerald-600
                 transition-all
                 duration-300
                 group-hover:rotate-45

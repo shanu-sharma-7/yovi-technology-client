@@ -22,7 +22,7 @@ const processSteps = [
     description:
       "We start by understanding your business, users, challenges and objectives. The goal is to understand the problem before building the solution.",
     icon: Search,
-    accent: "violet",
+    accent: "emerald",
     points: ["Business requirements", "User needs", "Goals & objectives"],
   },
   {
@@ -32,7 +32,7 @@ const processSteps = [
     description:
       "We turn requirements into a clear product and technology strategy with the right features, architecture and roadmap.",
     icon: Target,
-    accent: "indigo",
+    accent: "teal",
     points: ["Product roadmap", "Technology planning", "Project milestones"],
   },
   {
@@ -42,7 +42,7 @@ const processSteps = [
     description:
       "We create modern interfaces and intuitive user experiences that balance aesthetics, usability and business goals.",
     icon: Lightbulb,
-    accent: "fuchsia",
+    accent: "cyan",
     points: ["UI/UX design", "Design systems", "Responsive experiences"],
   },
   {
@@ -52,7 +52,7 @@ const processSteps = [
     description:
       "Our engineers transform the approved design into a scalable digital product using modern technologies and clean development practices.",
     icon: Code2,
-    accent: "blue",
+    accent: "emerald",
     points: ["Frontend development", "Backend & APIs", "Database integration"],
   },
   {
@@ -62,7 +62,7 @@ const processSteps = [
     description:
       "Before launch, we test the product across functionality, responsiveness, performance and reliability to ensure everything works as expected.",
     icon: ShieldCheck,
-    accent: "cyan",
+    accent: "teal",
     points: ["Functional testing", "Performance checks", "Responsive testing"],
   },
   {
@@ -72,7 +72,7 @@ const processSteps = [
     description:
       "Once everything is ready, we deploy the solution and make it available to your customers with a smooth and reliable launch.",
     icon: Rocket,
-    accent: "sky",
+    accent: "cyan",
     points: ["Production deployment", "Configuration", "Launch monitoring"],
   },
   {
@@ -88,166 +88,96 @@ const processSteps = [
 ];
 
 const accentStyles = {
-  violet: {
-    glow: "bg-violet-500/[0.07]",
-    hoverGlow: "group-hover:bg-violet-500/[0.13]",
-    border: "group-hover:border-violet-400/20",
-    icon: "group-hover:text-violet-200",
-    iconBg: "group-hover:bg-violet-400/[0.10]",
-    iconBorder: "group-hover:border-violet-300/20",
-    dot: "bg-violet-300",
-    shadow: "shadow-violet-400/40",
-    label: "text-violet-300/70",
-    number: "group-hover:text-violet-200/20",
-  },
-
-  indigo: {
-    glow: "bg-indigo-500/[0.07]",
-    hoverGlow: "group-hover:bg-indigo-500/[0.13]",
-    border: "group-hover:border-indigo-400/20",
-    icon: "group-hover:text-indigo-200",
-    iconBg: "group-hover:bg-indigo-400/[0.10]",
-    iconBorder: "group-hover:border-indigo-300/20",
-    dot: "bg-indigo-300",
-    shadow: "shadow-indigo-400/40",
-    label: "text-indigo-300/70",
-    number: "group-hover:text-indigo-200/20",
-  },
-
-  fuchsia: {
-    glow: "bg-fuchsia-500/[0.06]",
-    hoverGlow: "group-hover:bg-fuchsia-500/[0.12]",
-    border: "group-hover:border-fuchsia-400/20",
-    icon: "group-hover:text-fuchsia-200",
-    iconBg: "group-hover:bg-fuchsia-400/[0.10]",
-    iconBorder: "group-hover:border-fuchsia-300/20",
-    dot: "bg-fuchsia-300",
-    shadow: "shadow-fuchsia-400/40",
-    label: "text-fuchsia-300/70",
-    number: "group-hover:text-fuchsia-200/20",
-  },
-
-  blue: {
-    glow: "bg-blue-500/[0.07]",
-    hoverGlow: "group-hover:bg-blue-500/[0.13]",
-    border: "group-hover:border-blue-400/20",
-    icon: "group-hover:text-blue-200",
-    iconBg: "group-hover:bg-blue-400/[0.10]",
-    iconBorder: "group-hover:border-blue-300/20",
-    dot: "bg-blue-300",
-    shadow: "shadow-blue-400/40",
-    label: "text-blue-300/70",
-    number: "group-hover:text-blue-200/20",
-  },
-
-  cyan: {
-    glow: "bg-cyan-500/[0.06]",
-    hoverGlow: "group-hover:bg-cyan-500/[0.12]",
-    border: "group-hover:border-cyan-400/20",
-    icon: "group-hover:text-cyan-200",
-    iconBg: "group-hover:bg-cyan-400/[0.10]",
-    iconBorder: "group-hover:border-cyan-300/20",
-    dot: "bg-cyan-300",
-    shadow: "shadow-cyan-400/40",
-    label: "text-cyan-300/70",
-    number: "group-hover:text-cyan-200/20",
-  },
-
-  sky: {
-    glow: "bg-sky-500/[0.06]",
-    hoverGlow: "group-hover:bg-sky-500/[0.12]",
-    border: "group-hover:border-sky-400/20",
-    icon: "group-hover:text-sky-200",
-    iconBg: "group-hover:bg-sky-400/[0.10]",
-    iconBorder: "group-hover:border-sky-300/20",
-    dot: "bg-sky-300",
-    shadow: "shadow-sky-400/40",
-    label: "text-sky-300/70",
-    number: "group-hover:text-sky-200/20",
-  },
-
   emerald: {
     glow: "bg-emerald-500/[0.06]",
     hoverGlow: "group-hover:bg-emerald-500/[0.12]",
     border: "group-hover:border-emerald-400/20",
     icon: "group-hover:text-emerald-200",
-    iconBg: "group-hover:bg-emerald-400/[0.10]",
+    iconBg: "group-hover:bg-emerald-400/[0.09]",
     iconBorder: "group-hover:border-emerald-300/20",
     dot: "bg-emerald-300",
     shadow: "shadow-emerald-400/40",
     label: "text-emerald-300/70",
     number: "group-hover:text-emerald-200/20",
   },
+
+  teal: {
+    glow: "bg-teal-500/[0.06]",
+    hoverGlow: "group-hover:bg-teal-500/[0.12]",
+    border: "group-hover:border-teal-400/20",
+    icon: "group-hover:text-teal-200",
+    iconBg: "group-hover:bg-teal-400/[0.09]",
+    iconBorder: "group-hover:border-teal-300/20",
+    dot: "bg-teal-300",
+    shadow: "shadow-teal-400/40",
+    label: "text-teal-300/70",
+    number: "group-hover:text-teal-200/20",
+  },
+
+  cyan: {
+    glow: "bg-cyan-500/[0.055]",
+    hoverGlow: "group-hover:bg-cyan-500/[0.11]",
+    border: "group-hover:border-cyan-400/20",
+    icon: "group-hover:text-cyan-200",
+    iconBg: "group-hover:bg-cyan-400/[0.09]",
+    iconBorder: "group-hover:border-cyan-300/20",
+    dot: "bg-cyan-300",
+    shadow: "shadow-cyan-400/40",
+    label: "text-cyan-300/70",
+    number: "group-hover:text-cyan-200/20",
+  },
 };
 
 function Process() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#040406] text-white">
+    <main className="relative min-h-screen overflow-hidden bg-[#020403] text-white">
 
       {/* =====================================================
-          BACKGROUND
+          GLOBAL AMBIENT BACKGROUND
       ===================================================== */}
 
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
 
-        {/* Violet */}
-
+        {/* Emerald atmosphere */}
         <div
           className="
             absolute
-            left-[8%]
-            top-[-180px]
+            left-[-180px]
+            top-[-150px]
             h-[560px]
             w-[560px]
             rounded-full
-            bg-violet-600/[0.09]
+            bg-emerald-500/[0.055]
             blur-[160px]
           "
         />
 
-        {/* Blue */}
-
+        {/* Cyan atmosphere */}
         <div
           className="
             absolute
-            right-[-120px]
-            top-[30%]
-            h-[500px]
-            w-[500px]
+            right-[-180px]
+            top-[32%]
+            h-[520px]
+            w-[520px]
             rounded-full
-            bg-blue-600/[0.07]
-            blur-[150px]
-          "
-        />
-
-        {/* Cyan */}
-
-        <div
-          className="
-            absolute
-            bottom-[-180px]
-            left-[35%]
-            h-[500px]
-            w-[500px]
-            rounded-full
-            bg-cyan-500/[0.045]
+            bg-cyan-500/[0.035]
             blur-[160px]
           "
         />
 
-        {/* Subtle center light */}
-
+        {/* Teal bottom atmosphere */}
         <div
           className="
             absolute
+            bottom-[-220px]
             left-1/2
-            top-[40%]
-            h-[300px]
-            w-[300px]
+            h-[550px]
+            w-[550px]
             -translate-x-1/2
             rounded-full
-            bg-indigo-500/[0.035]
-            blur-[130px]
+            bg-teal-500/[0.03]
+            blur-[160px]
           "
         />
 
@@ -258,7 +188,7 @@ function Process() {
           HERO
       ===================================================== */}
 
-      <section className="relative px-6 pb-24 pt-40 sm:px-8 lg:px-12">
+      <section className="relative px-6 pb-24 pt-36 sm:px-8 sm:pt-40 lg:px-12">
 
         <div className="mx-auto max-w-7xl">
 
@@ -277,7 +207,7 @@ function Process() {
             className="max-w-5xl"
           >
 
-            {/* Eyebrow */}
+            {/* EYEBROW */}
 
             <div className="mb-7 flex items-center gap-3">
 
@@ -290,25 +220,25 @@ function Process() {
                   justify-center
                   rounded-full
                   border
-                  border-violet-400/20
+                  border-emerald-300/25
                   bg-gradient-to-br
-                  from-violet-400/15
-                  to-blue-400/10
-                  shadow-[0_0_30px_rgba(139,92,246,0.12)]
+                  from-emerald-500/20
+                  to-cyan-500/10
+                  shadow-[0_0_35px_rgba(16,185,129,0.15)]
                 "
               >
                 <Sparkles
                   size={14}
-                  className="text-violet-200"
+                  className="text-emerald-200"
                 />
               </span>
 
               <span
                 className="
                   text-[10px]
-                  font-medium
+                  font-semibold
                   tracking-[0.25em]
-                  text-violet-200/70
+                  text-emerald-200/70
                 "
               >
                 HOW WE WORK
@@ -317,7 +247,7 @@ function Process() {
             </div>
 
 
-            {/* Heading */}
+            {/* HEADING */}
 
             <h1
               className="
@@ -337,18 +267,19 @@ function Process() {
                   block
                   bg-gradient-to-r
                   from-white
-                  via-violet-200
-                  to-blue-300
+                  via-emerald-200
+                  to-cyan-300
                   bg-clip-text
                   text-transparent
                 "
               >
                 to impact.
               </span>
+
             </h1>
 
 
-            {/* Description */}
+            {/* DESCRIPTION */}
 
             <p
               className="
@@ -360,16 +291,15 @@ function Process() {
                 sm:text-lg
               "
             >
-              A structured approach that brings strategy,
-              design, engineering and continuous improvement
-              together to create digital solutions that deliver
-              real business value.
+              A structured approach that brings strategy, design,
+              engineering and continuous improvement together to
+              create digital solutions that deliver real business value.
             </p>
 
           </motion.div>
 
 
-          {/* Process statement */}
+          {/* PROCESS STATEMENT */}
 
           <motion.div
             initial={{
@@ -399,17 +329,17 @@ function Process() {
               {
                 title: "STRATEGY",
                 text: "Understand the business.",
-                accent: "text-violet-300/60",
+                accent: "text-emerald-300/65",
               },
               {
                 title: "EXECUTION",
                 text: "Build with precision.",
-                accent: "text-blue-300/60",
+                accent: "text-teal-300/65",
               },
               {
                 title: "GROWTH",
                 text: "Improve continuously.",
-                accent: "text-cyan-300/60",
+                accent: "text-cyan-300/65",
               },
             ].map((item) => (
 
@@ -444,7 +374,7 @@ function Process() {
         className="
           relative
           border-t
-          border-white/[0.06]
+          border-white/[0.07]
           px-6
           py-28
           sm:px-8
@@ -454,16 +384,32 @@ function Process() {
 
         <div className="mx-auto max-w-6xl">
 
-          {/* Section heading */}
+          {/* SECTION HEADING */}
 
-          <div className="mb-20">
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: 20,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            viewport={{
+              once: true,
+            }}
+            transition={{
+              duration: 0.7,
+            }}
+            className="mb-20"
+          >
 
             <span
               className="
                 text-[10px]
-                font-medium
+                font-semibold
                 tracking-[0.25em]
-                text-violet-300/70
+                text-emerald-300/80
               "
             >
               THE PROCESS
@@ -484,21 +430,22 @@ function Process() {
               <span
                 className="
                   bg-gradient-to-r
-                  from-white/40
-                  via-white/25
-                  to-white/15
+                  from-emerald-300/60
+                  via-white/30
+                  to-cyan-300/40
                   bg-clip-text
                   text-transparent
                 "
               >
                 {" "}for better outcomes.
               </span>
+
             </h2>
 
-          </div>
+          </motion.div>
 
 
-          {/* Timeline */}
+          {/* TIMELINE */}
 
           <div className="relative">
 
@@ -513,8 +460,8 @@ function Process() {
                 hidden
                 w-px
                 bg-gradient-to-b
-                from-violet-400/40
-                via-indigo-400/20
+                from-emerald-400/35
+                via-teal-400/20
                 to-cyan-400/10
                 sm:block
               "
@@ -550,7 +497,7 @@ function Process() {
                     className="group relative"
                   >
 
-                    {/* Timeline dot */}
+                    {/* TIMELINE DOT */}
 
                     <div
                       className="
@@ -566,7 +513,7 @@ function Process() {
                         rounded-full
                         border
                         border-white/[0.10]
-                        bg-[#07070a]
+                        bg-[#050706]
                         backdrop-blur-xl
                         sm:flex
                       "
@@ -589,7 +536,7 @@ function Process() {
                     </div>
 
 
-                    {/* Card */}
+                    {/* CARD */}
 
                     <div
                       className={`
@@ -600,7 +547,7 @@ function Process() {
                         border
                         border-white/[0.07]
                         bg-gradient-to-br
-                        from-white/[0.035]
+                        from-white/[0.04]
                         to-white/[0.015]
                         p-7
                         backdrop-blur-xl
@@ -613,7 +560,7 @@ function Process() {
                       `}
                     >
 
-                      {/* Glow */}
+                      {/* CARD GLOW */}
 
                       <div
                         className={`
@@ -633,7 +580,7 @@ function Process() {
                       />
 
 
-                      {/* Secondary glow */}
+                      {/* SECONDARY GLOW */}
 
                       <div
                         className="
@@ -644,13 +591,13 @@ function Process() {
                           h-[200px]
                           w-[200px]
                           rounded-full
-                          bg-blue-500/[0.025]
+                          bg-cyan-500/[0.02]
                           blur-[90px]
                         "
                       />
 
 
-                      {/* Top row */}
+                      {/* TOP ROW */}
 
                       <div
                         className="
@@ -690,7 +637,7 @@ function Process() {
                         </div>
 
 
-                        {/* Number */}
+                        {/* NUMBER */}
 
                         <span
                           className={`
@@ -710,7 +657,7 @@ function Process() {
                       </div>
 
 
-                      {/* Content */}
+                      {/* CONTENT */}
 
                       <div
                         className="
@@ -735,7 +682,7 @@ function Process() {
                         </p>
 
 
-                        {/* Icon */}
+                        {/* ICON */}
 
                         <div
                           className={`
@@ -766,7 +713,7 @@ function Process() {
                       </div>
 
 
-                      {/* Points */}
+                      {/* POINTS */}
 
                       <div
                         className="
@@ -828,8 +775,9 @@ function Process() {
       <section
         className="
           relative
+          overflow-hidden
           border-t
-          border-white/[0.06]
+          border-white/[0.07]
           px-6
           py-32
           sm:px-8
@@ -837,157 +785,194 @@ function Process() {
         "
       >
 
-        <div className="mx-auto max-w-7xl">
+        {/* Ambient glows */}
 
-          <div
-            className="
-              grid
-              gap-14
-              lg:grid-cols-[0.9fr_1.1fr]
-              lg:items-center
-            "
-          >
+        <div
+          className="
+            pointer-events-none
+            absolute
+            right-[-180px]
+            top-1/2
+            h-[550px]
+            w-[550px]
+            -translate-y-1/2
+            rounded-full
+            bg-emerald-500/[0.045]
+            blur-[160px]
+          "
+        />
 
-            {/* Left */}
+        <div
+          className="
+            pointer-events-none
+            absolute
+            left-[-180px]
+            bottom-[-100px]
+            h-[350px]
+            w-[350px]
+            rounded-full
+            bg-cyan-500/[0.03]
+            blur-[120px]
+          "
+        />
 
-            <div>
+
+        <div
+          className="
+            mx-auto
+            grid
+            max-w-7xl
+            gap-14
+            lg:grid-cols-[0.9fr_1.1fr]
+            lg:items-center
+          "
+        >
+
+          {/* LEFT */}
+
+          <div>
+
+            <span
+              className="
+                text-[10px]
+                font-semibold
+                tracking-[0.25em]
+                text-emerald-300/80
+              "
+            >
+              OUR PRINCIPLE
+            </span>
+
+            <h2
+              className="
+                mt-5
+                text-4xl
+                font-semibold
+                leading-tight
+                tracking-[-0.05em]
+                sm:text-5xl
+              "
+            >
+              Great products aren't
 
               <span
                 className="
-                  text-[10px]
-                  font-medium
-                  tracking-[0.25em]
-                  text-violet-300/70
+                  block
+                  bg-gradient-to-r
+                  from-emerald-200/75
+                  via-white/35
+                  to-cyan-300/50
+                  bg-clip-text
+                  text-transparent
                 "
               >
-                OUR PRINCIPLE
+                built by accident.
               </span>
 
-              <h2
-                className="
-                  mt-5
-                  text-4xl
-                  font-semibold
-                  leading-tight
-                  tracking-[-0.05em]
-                  sm:text-5xl
-                "
-              >
-                Great products aren't
+            </h2>
 
-                <span
-                  className="
-                    block
-                    bg-gradient-to-r
-                    from-white/40
-                    to-white/15
-                    bg-clip-text
-                    text-transparent
-                  "
-                >
-                  built by accident.
-                </span>
-              </h2>
-
-            </div>
+          </div>
 
 
-            {/* Right */}
+          {/* RIGHT */}
 
-            <div>
+          <div>
+
+            <div
+              className="
+                group
+                relative
+                overflow-hidden
+                rounded-[30px]
+                border
+                border-emerald-300/[0.10]
+                bg-gradient-to-br
+                from-white/[0.045]
+                via-emerald-500/[0.025]
+                to-cyan-500/[0.02]
+                p-8
+                backdrop-blur-xl
+                transition-all
+                duration-500
+                hover:border-emerald-300/20
+                sm:p-10
+              "
+            >
+
+              {/* Glow */}
 
               <div
                 className="
-                  group
-                  relative
-                  overflow-hidden
-                  rounded-[30px]
-                  border
-                  border-white/[0.07]
-                  bg-gradient-to-br
-                  from-violet-500/[0.07]
-                  via-white/[0.025]
-                  to-blue-500/[0.05]
-                  p-8
-                  backdrop-blur-xl
+                  pointer-events-none
+                  absolute
+                  -right-24
+                  -top-24
+                  h-64
+                  w-64
+                  rounded-full
+                  bg-emerald-500/[0.075]
+                  blur-[100px]
                   transition-all
-                  duration-500
-                  hover:border-violet-300/20
-                  sm:p-10
+                  duration-700
+                  group-hover:bg-emerald-500/[0.13]
                 "
-              >
+              />
 
-                {/* Glow */}
+              <div className="relative">
+
+                {/* ICON */}
 
                 <div
                   className="
-                    pointer-events-none
-                    absolute
-                    -right-24
-                    -top-24
-                    h-64
-                    w-64
-                    rounded-full
-                    bg-violet-500/[0.08]
-                    blur-[100px]
-                    transition-all
-                    duration-700
-                    group-hover:bg-violet-500/[0.14]
+                    flex
+                    h-12
+                    w-12
+                    items-center
+                    justify-center
+                    rounded-2xl
+                    border
+                    border-emerald-300/15
+                    bg-emerald-400/[0.08]
                   "
-                />
-
-                <div className="relative">
-
-                  <div
-                    className="
-                      flex
-                      h-12
-                      w-12
-                      items-center
-                      justify-center
-                      rounded-2xl
-                      border
-                      border-violet-300/15
-                      bg-violet-400/[0.08]
-                    "
-                  >
-                    <BrainCircuit
-                      size={24}
-                      strokeWidth={1.5}
-                      className="text-violet-200/70"
-                    />
-                  </div>
-
-                  <p
-                    className="
-                      mt-7
-                      text-lg
-                      leading-8
-                      tracking-[-0.02em]
-                      text-white/55
-                      sm:text-xl
-                    "
-                  >
-                    We believe successful digital products come
-                    from the combination of{" "}
-
-                    <span
-                      className="
-                        bg-gradient-to-r
-                        from-violet-200
-                        to-blue-200
-                        bg-clip-text
-                        text-transparent
-                      "
-                    >
-                      clear strategy, thoughtful design,
-                      strong engineering
-                    </span>
-
-                    {" "}and continuous improvement.
-                  </p>
-
+                >
+                  <BrainCircuit
+                    size={24}
+                    strokeWidth={1.5}
+                    className="text-emerald-200/70"
+                  />
                 </div>
+
+
+                {/* TEXT */}
+
+                <p
+                  className="
+                    mt-7
+                    text-lg
+                    leading-8
+                    tracking-[-0.02em]
+                    text-white/55
+                    sm:text-xl
+                  "
+                >
+                  We believe successful digital products come
+                  from the combination of{" "}
+
+                  <span
+                    className="
+                      bg-gradient-to-r
+                      from-emerald-200
+                      to-cyan-200
+                      bg-clip-text
+                      text-transparent
+                    "
+                  >
+                    clear strategy, thoughtful design,
+                    strong engineering
+                  </span>
+
+                  {" "}and continuous improvement.
+                </p>
 
               </div>
 
@@ -1009,7 +994,7 @@ function Process() {
           relative
           overflow-hidden
           border-t
-          border-white/[0.06]
+          border-white/[0.07]
           px-6
           py-32
           sm:px-8
@@ -1017,7 +1002,7 @@ function Process() {
         "
       >
 
-        {/* Main CTA glow */}
+        {/* MAIN GLOW */}
 
         <div
           className="
@@ -1030,10 +1015,12 @@ function Process() {
             -translate-x-1/2
             -translate-y-1/2
             rounded-full
-            bg-violet-500/[0.08]
+            bg-emerald-500/[0.055]
             blur-[150px]
           "
         />
+
+        {/* SECONDARY GLOW */}
 
         <div
           className="
@@ -1045,10 +1032,11 @@ function Process() {
             w-[250px]
             -translate-y-1/2
             rounded-full
-            bg-blue-500/[0.05]
+            bg-cyan-500/[0.035]
             blur-[120px]
           "
         />
+
 
         <motion.div
           initial={{
@@ -1076,40 +1064,45 @@ function Process() {
           <span
             className="
               text-[10px]
-              font-medium
-              tracking-[0.25em]
-              text-violet-300/70
+              font-semibold
+              tracking-[0.28em]
+              text-emerald-300/80
             "
           >
-            READY TO BUILD?
+            LET'S BUILD SOMETHING
           </span>
+
 
           <h2
             className="
               mt-6
               text-4xl
               font-semibold
+              leading-tight
               tracking-[-0.05em]
               sm:text-5xl
               md:text-6xl
+              lg:text-7xl
             "
           >
-            Let's turn your idea
+            Have an idea?
 
             <span
               className="
                 block
                 bg-gradient-to-r
-                from-white/45
-                via-violet-200/40
-                to-blue-200/35
+                from-emerald-200/80
+                via-white/40
+                to-cyan-300/55
                 bg-clip-text
                 text-transparent
               "
             >
-              into something real.
+              Let's turn it into reality.
             </span>
+
           </h2>
+
 
           <p
             className="
@@ -1121,9 +1114,12 @@ function Process() {
               text-white/35
             "
           >
-            Tell us what you're building and let's explore
-            how technology can move your business forward.
+            Tell us what you're building, what you're trying
+            to improve, or where you want to go next.
           </p>
+
+
+          {/* CTA */}
 
           <a
             href="/contact"
@@ -1135,21 +1131,21 @@ function Process() {
               gap-3
               rounded-full
               bg-gradient-to-r
-              from-white
-              to-violet-100
+              from-emerald-500
+              to-teal-500
               px-7
               py-4
               text-sm
               font-semibold
-              text-black
-              shadow-[0_10px_40px_rgba(139,92,246,0.18)]
+              text-white
+              shadow-[0_15px_60px_rgba(16,185,129,0.22)]
               transition-all
               duration-300
               hover:scale-[1.04]
-              hover:shadow-[0_15px_50px_rgba(139,92,246,0.28)]
+              hover:shadow-[0_20px_80px_rgba(16,185,129,0.32)]
             "
           >
-            Start a Project
+            Start a Conversation
 
             <span
               className="
@@ -1159,9 +1155,9 @@ function Process() {
                 items-center
                 justify-center
                 rounded-full
-                bg-black
-                text-white
-                transition-transform
+                bg-white
+                text-emerald-600
+                transition-all
                 duration-300
                 group-hover:rotate-45
               "

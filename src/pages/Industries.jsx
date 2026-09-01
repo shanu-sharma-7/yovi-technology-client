@@ -21,7 +21,6 @@ const industries = [
     description:
       "Digital systems that help manufacturers improve operations, workflows and business visibility.",
     icon: Factory,
-    accent: "violet",
   },
   {
     number: "02",
@@ -29,7 +28,6 @@ const industries = [
     description:
       "Modern digital experiences and technology solutions for healthcare businesses and service providers.",
     icon: HeartPulse,
-    accent: "rose",
   },
   {
     number: "03",
@@ -37,7 +35,6 @@ const industries = [
     description:
       "Connected digital solutions for transportation, logistics operations and customer management.",
     icon: Truck,
-    accent: "blue",
   },
   {
     number: "04",
@@ -45,7 +42,6 @@ const industries = [
     description:
       "Digital platforms and applications that make learning, administration and engagement easier.",
     icon: GraduationCap,
-    accent: "cyan",
   },
   {
     number: "05",
@@ -53,7 +49,6 @@ const industries = [
     description:
       "Digital experiences that help property businesses showcase, manage and grow their operations.",
     icon: Building2,
-    accent: "amber",
   },
   {
     number: "06",
@@ -61,7 +56,6 @@ const industries = [
     description:
       "High-performance commerce experiences designed to improve customer journeys and conversions.",
     icon: ShoppingBag,
-    accent: "pink",
   },
   {
     number: "07",
@@ -69,7 +63,6 @@ const industries = [
     description:
       "Technology solutions that help service businesses automate processes and serve customers better.",
     icon: BriefcaseBusiness,
-    accent: "indigo",
   },
   {
     number: "08",
@@ -77,7 +70,6 @@ const industries = [
     description:
       "Digital experiences that improve customer engagement, operations and online presence.",
     icon: Hotel,
-    accent: "emerald",
   },
   {
     number: "09",
@@ -85,155 +77,85 @@ const industries = [
     description:
       "Flexible and scalable technology solutions built around the needs of growing businesses.",
     icon: Rocket,
-    accent: "orange",
   },
 ];
 
-const accentStyles = {
-  violet: {
-    glow: "bg-violet-500/[0.07] group-hover:bg-violet-500/[0.14]",
-    icon:
-      "group-hover:border-violet-300/30 group-hover:bg-violet-400/10 group-hover:text-violet-200",
-    line: "group-hover:bg-violet-400",
-    number: "group-hover:text-violet-300/60",
-  },
-
-  rose: {
-    glow: "bg-rose-500/[0.06] group-hover:bg-rose-500/[0.13]",
-    icon:
-      "group-hover:border-rose-300/30 group-hover:bg-rose-400/10 group-hover:text-rose-200",
-    line: "group-hover:bg-rose-400",
-    number: "group-hover:text-rose-300/60",
-  },
-
-  blue: {
-    glow: "bg-blue-500/[0.06] group-hover:bg-blue-500/[0.13]",
-    icon:
-      "group-hover:border-blue-300/30 group-hover:bg-blue-400/10 group-hover:text-blue-200",
-    line: "group-hover:bg-blue-400",
-    number: "group-hover:text-blue-300/60",
-  },
-
-  cyan: {
-    glow: "bg-cyan-500/[0.06] group-hover:bg-cyan-500/[0.13]",
-    icon:
-      "group-hover:border-cyan-300/30 group-hover:bg-cyan-400/10 group-hover:text-cyan-200",
-    line: "group-hover:bg-cyan-400",
-    number: "group-hover:text-cyan-300/60",
-  },
-
-  amber: {
-    glow: "bg-amber-500/[0.06] group-hover:bg-amber-500/[0.13]",
-    icon:
-      "group-hover:border-amber-300/30 group-hover:bg-amber-400/10 group-hover:text-amber-200",
-    line: "group-hover:bg-amber-400",
-    number: "group-hover:text-amber-300/60",
-  },
-
-  pink: {
-    glow: "bg-pink-500/[0.06] group-hover:bg-pink-500/[0.13]",
-    icon:
-      "group-hover:border-pink-300/30 group-hover:bg-pink-400/10 group-hover:text-pink-200",
-    line: "group-hover:bg-pink-400",
-    number: "group-hover:text-pink-300/60",
-  },
-
-  indigo: {
-    glow: "bg-indigo-500/[0.06] group-hover:bg-indigo-500/[0.13]",
-    icon:
-      "group-hover:border-indigo-300/30 group-hover:bg-indigo-400/10 group-hover:text-indigo-200",
-    line: "group-hover:bg-indigo-400",
-    number: "group-hover:text-indigo-300/60",
-  },
-
-  emerald: {
-    glow: "bg-emerald-500/[0.06] group-hover:bg-emerald-500/[0.13]",
-    icon:
-      "group-hover:border-emerald-300/30 group-hover:bg-emerald-400/10 group-hover:text-emerald-200",
-    line: "group-hover:bg-emerald-400",
-    number: "group-hover:text-emerald-300/60",
-  },
-
-  orange: {
-    glow: "bg-orange-500/[0.06] group-hover:bg-orange-500/[0.13]",
-    icon:
-      "group-hover:border-orange-300/30 group-hover:bg-orange-400/10 group-hover:text-orange-200",
-    line: "group-hover:bg-orange-400",
-    number: "group-hover:text-orange-300/60",
-  },
-};
-
 function Industries() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#050505] text-white">
+    <main className="relative min-h-screen overflow-hidden bg-[#020403] text-white">
 
       {/* =====================================================
-          GLOBAL BACKGROUND
+          GLOBAL AMBIENT BACKGROUND
       ===================================================== */}
 
       <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
 
-        {/* Violet Glow */}
+        {/* Emerald Atmosphere */}
+
         <motion.div
           className="
             absolute
-            left-[15%]
+            left-[10%]
             top-[5%]
+            h-[500px]
+            w-[500px]
+            rounded-full
+            bg-emerald-500/[0.045]
+            blur-[160px]
+          "
+          animate={{
+            scale: [1, 1.1, 1],
+            opacity: [0.45, 0.7, 0.45],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+
+        {/* Cyan Atmosphere */}
+
+        <motion.div
+          className="
+            absolute
+            right-[-100px]
+            top-[35%]
             h-[450px]
             w-[450px]
             rounded-full
-            bg-violet-600/[0.08]
+            bg-cyan-500/[0.03]
             blur-[150px]
           "
           animate={{
-            scale: [1, 1.12, 1],
-            opacity: [0.4, 0.6, 0.4],
+            x: [0, -40, 0],
+            y: [0, 40, 0],
           }}
           transition={{
-            duration: 9,
+            duration: 12,
             repeat: Infinity,
             ease: "easeInOut",
           }}
         />
 
-        {/* Blue Glow */}
-        <motion.div
-          className="
-            absolute
-            right-[5%]
-            top-[35%]
-            h-[400px]
-            w-[400px]
-            rounded-full
-            bg-blue-500/[0.05]
-            blur-[150px]
-          "
-          animate={{
-            x: [0, -50, 0],
-            y: [0, 50, 0],
-          }}
-          transition={{
-            duration: 11,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
+        {/* Teal Bottom Glow */}
 
-        {/* Cyan Glow */}
         <div
           className="
             absolute
-            bottom-[10%]
-            left-[40%]
-            h-[350px]
-            w-[350px]
+            bottom-[-100px]
+            left-1/2
+            h-[400px]
+            w-[400px]
+            -translate-x-1/2
             rounded-full
-            bg-cyan-500/[0.025]
+            bg-teal-500/[0.025]
             blur-[140px]
           "
         />
 
         {/* Grid */}
+
         <div
           className="
             absolute
@@ -245,11 +167,12 @@ function Industries() {
         />
 
         {/* Radial Fade */}
+
         <div
           className="
             absolute
             inset-0
-            bg-[radial-gradient(circle_at_center,transparent_15%,#050505_80%)]
+            bg-[radial-gradient(circle_at_center,transparent_15%,#020403_82%)]
           "
         />
 
@@ -260,22 +183,43 @@ function Industries() {
           HERO
       ===================================================== */}
 
-      <section className="relative px-6 pb-24 pt-40 sm:px-8 lg:px-12">
+      <section
+        className="
+          relative
+          px-6
+          pb-24
+          pt-36
+          sm:px-8
+          sm:pt-40
+          lg:px-12
+          lg:pt-44
+        "
+      >
 
         {/* Hero Glow */}
 
-        <div
+        <motion.div
           className="
             pointer-events-none
             absolute
-            right-1/4
+            left-1/2
             top-10
             h-[500px]
             w-[500px]
+            -translate-x-1/2
             rounded-full
-            bg-violet-600/[0.08]
-            blur-[140px]
+            bg-emerald-500/[0.045]
+            blur-[150px]
           "
+          animate={{
+            scale: [1, 1.08, 1],
+            opacity: [0.4, 0.65, 0.4],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
         />
 
         <div className="relative mx-auto max-w-7xl">
@@ -295,7 +239,7 @@ function Industries() {
             className="max-w-5xl"
           >
 
-            {/* Eyebrow */}
+            {/* EYEBROW */}
 
             <div className="mb-7 flex items-center gap-3">
 
@@ -310,28 +254,33 @@ function Industries() {
                 }}
                 className="
                   flex
-                  h-7
-                  w-7
+                  h-8
+                  w-8
                   items-center
                   justify-center
                   rounded-full
                   border
-                  border-violet-400/20
-                  bg-violet-400/10
+                  border-emerald-300/25
+                  bg-gradient-to-br
+                  from-emerald-500/20
+                  to-cyan-500/10
+                  shadow-[0_0_35px_rgba(16,185,129,0.15)]
                 "
               >
+
                 <Sparkles
                   size={13}
-                  className="text-violet-300"
+                  className="text-emerald-200"
                 />
+
               </motion.span>
 
               <span
                 className="
                   text-[10px]
-                  font-medium
+                  font-semibold
                   tracking-[0.25em]
-                  text-violet-300/70
+                  text-emerald-200/65
                 "
               >
                 INDUSTRIES WE SERVE
@@ -340,7 +289,7 @@ function Industries() {
             </div>
 
 
-            {/* Heading */}
+            {/* HEADING */}
 
             <h1
               className="
@@ -361,8 +310,8 @@ function Industries() {
                   block
                   bg-gradient-to-r
                   from-white
-                  via-violet-200
-                  to-blue-300
+                  via-emerald-200
+                  to-cyan-300
                   bg-clip-text
                   text-transparent
                 "
@@ -372,6 +321,8 @@ function Industries() {
 
             </h1>
 
+
+            {/* DESCRIPTION */}
 
             <p
               className="
@@ -391,9 +342,21 @@ function Industries() {
           </motion.div>
 
 
-          {/* Industry Tags */}
+          {/* INDUSTRY TAGS */}
 
-          <div
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: 15,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              duration: 0.8,
+              delay: 0.25,
+            }}
             className="
               mt-20
               flex
@@ -404,10 +367,12 @@ function Industries() {
               border-white/[0.07]
               pt-7
               text-[10px]
+              font-medium
               tracking-[0.22em]
               text-white/25
             "
           >
+
             {[
               "MANUFACTURING",
               "HEALTHCARE",
@@ -416,14 +381,21 @@ function Industries() {
               "RETAIL",
               "STARTUPS",
             ].map((item) => (
+
               <span
                 key={item}
-                className="transition-colors duration-300 hover:text-violet-300/70"
+                className="
+                  transition-colors
+                  duration-300
+                  hover:text-emerald-300/80
+                "
               >
                 {item}
               </span>
+
             ))}
-          </div>
+
+          </motion.div>
 
         </div>
 
@@ -447,16 +419,33 @@ function Industries() {
 
         <div className="mx-auto max-w-7xl">
 
-          {/* Section Heading */}
+          {/* SECTION HEADING */}
 
-          <div className="mb-14 max-w-2xl">
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: 25,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            viewport={{
+              once: true,
+              amount: 0.2,
+            }}
+            transition={{
+              duration: 0.7,
+            }}
+            className="mb-14 max-w-2xl"
+          >
 
             <span
               className="
                 text-[10px]
-                font-medium
+                font-semibold
                 tracking-[0.25em]
-                text-violet-300/70
+                text-emerald-300/80
               "
             >
               OUR EXPERTISE
@@ -471,17 +460,19 @@ function Industries() {
                 sm:text-5xl
               "
             >
+
               Different industries.
 
               <span className="block text-white/30">
                 One technology mindset.
               </span>
+
             </h2>
 
-          </div>
+          </motion.div>
 
 
-          {/* Grid */}
+          {/* INDUSTRY GRID */}
 
           <div
             className="
@@ -495,7 +486,6 @@ function Industries() {
             {industries.map((industry, index) => {
 
               const Icon = industry.icon;
-              const theme = accentStyles[industry.accent];
 
               return (
                 <motion.article
@@ -531,17 +521,17 @@ function Industries() {
                     p-7
                     transition-all
                     duration-500
-                    hover:border-white/[0.14]
+                    hover:border-emerald-300/[0.16]
                     hover:bg-white/[0.035]
-                    hover:shadow-2xl
+                    hover:shadow-[0_25px_80px_rgba(16,185,129,0.06)]
                     sm:p-8
                   "
                 >
 
-                  {/* Industry Glow */}
+                  {/* CARD GLOW */}
 
                   <div
-                    className={`
+                    className="
                       pointer-events-none
                       absolute
                       -right-20
@@ -549,44 +539,67 @@ function Industries() {
                       h-56
                       w-56
                       rounded-full
+                      bg-emerald-500/[0.045]
                       blur-[80px]
                       transition-all
                       duration-700
-                      ${theme.glow}
-                    `}
+                      group-hover:bg-emerald-500/[0.10]
+                    "
                   />
 
 
-                  {/* Top Accent Line */}
+                  {/* SECONDARY GLOW */}
 
                   <div
-                    className={`
+                    className="
+                      pointer-events-none
+                      absolute
+                      -bottom-24
+                      -left-20
+                      h-44
+                      w-44
+                      rounded-full
+                      bg-cyan-500/[0.02]
+                      blur-[70px]
+                      transition-all
+                      duration-700
+                      group-hover:bg-cyan-500/[0.055]
+                    "
+                  />
+
+
+                  {/* TOP ACCENT */}
+
+                  <div
+                    className="
                       absolute
                       left-8
                       top-0
                       h-px
                       w-0
+                      bg-gradient-to-r
+                      from-emerald-400
+                      to-cyan-400
                       transition-all
                       duration-500
                       group-hover:w-20
-                      ${theme.line}
-                    `}
+                    "
                   />
 
 
-                  {/* Number */}
+                  {/* NUMBER */}
 
                   <div className="relative flex items-center justify-between">
 
                     <span
-                      className={`
+                      className="
                         text-[10px]
                         tracking-[0.2em]
                         text-white/20
                         transition-colors
                         duration-300
-                        ${theme.number}
-                      `}
+                        group-hover:text-emerald-300/60
+                      "
                     >
                       {industry.number}
                     </span>
@@ -599,17 +612,17 @@ function Industries() {
                         duration-300
                         group-hover:-translate-y-1
                         group-hover:translate-x-1
-                        group-hover:text-white/70
+                        group-hover:text-emerald-200/80
                       "
                     />
 
                   </div>
 
 
-                  {/* Icon */}
+                  {/* ICON */}
 
                   <div
-                    className={`
+                    className="
                       relative
                       mt-12
                       flex
@@ -624,17 +637,22 @@ function Industries() {
                       text-white/45
                       transition-all
                       duration-300
-                      ${theme.icon}
-                    `}
+                      group-hover:border-emerald-300/25
+                      group-hover:bg-emerald-400/[0.07]
+                      group-hover:text-emerald-200
+                      group-hover:shadow-[0_0_30px_rgba(16,185,129,0.10)]
+                    "
                   >
+
                     <Icon
                       size={21}
                       strokeWidth={1.5}
                     />
+
                   </div>
 
 
-                  {/* Content */}
+                  {/* CONTENT */}
 
                   <div className="relative mt-7">
 
@@ -643,6 +661,7 @@ function Industries() {
                         text-xl
                         font-medium
                         tracking-[-0.025em]
+                        text-white/90
                         transition-colors
                         duration-300
                         group-hover:text-white
@@ -659,7 +678,7 @@ function Industries() {
                         text-white/30
                         transition-colors
                         duration-300
-                        group-hover:text-white/40
+                        group-hover:text-white/45
                       "
                     >
                       {industry.description}
@@ -684,6 +703,8 @@ function Industries() {
 
       <section
         className="
+          relative
+          overflow-hidden
           border-t
           border-white/[0.06]
           px-6
@@ -692,6 +713,38 @@ function Industries() {
           lg:px-12
         "
       >
+
+        {/* Ambient Glow */}
+
+        <div
+          className="
+            pointer-events-none
+            absolute
+            left-[-180px]
+            top-1/2
+            h-[500px]
+            w-[500px]
+            -translate-y-1/2
+            rounded-full
+            bg-emerald-500/[0.035]
+            blur-[150px]
+          "
+        />
+
+        <div
+          className="
+            pointer-events-none
+            absolute
+            right-[-150px]
+            bottom-[-100px]
+            h-[400px]
+            w-[400px]
+            rounded-full
+            bg-cyan-500/[0.025]
+            blur-[130px]
+          "
+        />
+
 
         <div
           className="
@@ -704,7 +757,7 @@ function Industries() {
           "
         >
 
-          {/* Left */}
+          {/* LEFT */}
 
           <motion.div
             initial={{
@@ -726,9 +779,9 @@ function Industries() {
             <span
               className="
                 text-[10px]
-                font-medium
+                font-semibold
                 tracking-[0.25em]
-                text-violet-300/70
+                text-emerald-300/80
               "
             >
               BUSINESS FIRST
@@ -745,20 +798,23 @@ function Industries() {
                 md:text-6xl
               "
             >
+
               We adapt technology
 
               <span
                 className="
                   block
                   bg-gradient-to-r
-                  from-white
-                  to-blue-300/70
+                  from-emerald-200
+                  via-emerald-300/70
+                  to-cyan-300/60
                   bg-clip-text
                   text-transparent
                 "
               >
                 to your business.
               </span>
+
             </h2>
 
             <p
@@ -778,7 +834,7 @@ function Industries() {
           </motion.div>
 
 
-          {/* Right */}
+          {/* RIGHT */}
 
           <motion.div
             initial={{
@@ -803,24 +859,42 @@ function Industries() {
               border-white/[0.07]
               bg-white/[0.025]
               p-8
+              shadow-[0_25px_100px_rgba(0,0,0,0.25)]
+              backdrop-blur-xl
               sm:p-10
             "
           >
 
-            {/* Blue Glow */}
+            {/* Grid */}
 
             <div
               className="
+                pointer-events-none
+                absolute
+                inset-0
+                opacity-[0.025]
+                [background-image:linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)]
+                [background-size:40px_40px]
+              "
+            />
+
+
+            {/* Glow */}
+
+            <div
+              className="
+                pointer-events-none
                 absolute
                 -right-24
                 -top-24
                 h-64
                 w-64
                 rounded-full
-                bg-blue-500/[0.07]
+                bg-emerald-500/[0.06]
                 blur-[90px]
               "
             />
+
 
             <div className="relative space-y-6">
 
@@ -869,7 +943,7 @@ function Industries() {
                       text-white/20
                       transition-colors
                       duration-300
-                      group-hover/step:text-violet-300/60
+                      group-hover/step:text-emerald-300/70
                     "
                   >
                     0{index + 1}
@@ -925,15 +999,16 @@ function Industries() {
           relative
           overflow-hidden
           border-t
-          border-white/[0.06]
+          border-white/[0.07]
           px-6
-          py-32
+          py-28
           sm:px-8
+          sm:py-32
           lg:px-12
         "
       >
 
-        {/* CTA Glow */}
+        {/* Main Glow */}
 
         <motion.div
           className="
@@ -941,24 +1016,44 @@ function Industries() {
             absolute
             left-1/2
             top-1/2
-            h-[450px]
-            w-[450px]
+            h-[500px]
+            w-[500px]
             -translate-x-1/2
             -translate-y-1/2
             rounded-full
-            bg-violet-500/[0.07]
-            blur-[130px]
+            bg-emerald-500/[0.045]
+            blur-[150px]
           "
           animate={{
-            scale: [1, 1.15, 1],
+            scale: [1, 1.12, 1],
             opacity: [0.4, 0.7, 0.4],
           }}
           transition={{
-            duration: 7,
+            duration: 8,
             repeat: Infinity,
             ease: "easeInOut",
           }}
         />
+
+
+        {/* Cyan Core */}
+
+        <div
+          className="
+            pointer-events-none
+            absolute
+            left-1/2
+            top-1/2
+            h-[250px]
+            w-[250px]
+            -translate-x-1/2
+            -translate-y-1/2
+            rounded-full
+            bg-cyan-500/[0.035]
+            blur-[100px]
+          "
+        />
+
 
         <motion.div
           initial={{
@@ -986,40 +1081,45 @@ function Industries() {
           <span
             className="
               text-[10px]
-              font-medium
-              tracking-[0.25em]
-              text-violet-300/70
+              font-semibold
+              tracking-[0.28em]
+              text-emerald-300/80
             "
           >
             YOUR INDUSTRY. YOUR SOLUTION.
           </span>
+
 
           <h2
             className="
               mt-6
               text-4xl
               font-semibold
+              leading-tight
               tracking-[-0.05em]
               sm:text-5xl
               md:text-6xl
             "
           >
+
             Have a business challenge?
 
             <span
               className="
                 block
                 bg-gradient-to-r
-                from-white/30
-                via-violet-300/50
-                to-blue-300/50
+                from-emerald-200/80
+                via-white/40
+                to-cyan-300/55
                 bg-clip-text
                 text-transparent
               "
             >
               Let's solve it with technology.
             </span>
+
           </h2>
+
 
           <p
             className="
@@ -1035,6 +1135,9 @@ function Industries() {
             the right digital approach for you.
           </p>
 
+
+          {/* CTA BUTTON */}
+
           <a
             href="/contact"
             className="
@@ -1044,19 +1147,22 @@ function Industries() {
               items-center
               gap-3
               rounded-full
-              bg-white
+              bg-gradient-to-r
+              from-emerald-500
+              to-teal-500
               px-7
               py-4
               text-sm
               font-semibold
-              text-black
-              shadow-[0_0_40px_rgba(139,92,246,0.12)]
+              text-white
+              shadow-[0_15px_60px_rgba(16,185,129,0.22)]
               transition-all
               duration-300
-              hover:scale-[1.03]
-              hover:shadow-[0_0_50px_rgba(139,92,246,0.22)]
+              hover:scale-[1.04]
+              hover:shadow-[0_20px_80px_rgba(16,185,129,0.32)]
             "
           >
+
             Talk to YoVi
 
             <span
@@ -1067,9 +1173,9 @@ function Industries() {
                 items-center
                 justify-center
                 rounded-full
-                bg-black
-                text-white
-                transition-transform
+                bg-white
+                text-emerald-600
+                transition-all
                 duration-300
                 group-hover:rotate-45
               "
