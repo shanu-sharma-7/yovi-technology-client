@@ -1,14 +1,14 @@
-
 import { useRef } from "react";
+import { ArrowUpRight } from "lucide-react";
 
 function SpotlightCard({
   number,
   title,
   description,
-  technologies,
+  technologies = [],
   icon: Icon,
   className = "",
-  accent = "violet",
+  accent = "blue",
   image = "",
 }) {
   const cardRef = useRef(null);
@@ -20,104 +20,86 @@ function SpotlightCard({
 
     const rect = card.getBoundingClientRect();
 
-    card.style.setProperty(
-      "--mouse-x",
-      `${e.clientX - rect.left}px`
-    );
-
-    card.style.setProperty(
-      "--mouse-y",
-      `${e.clientY - rect.top}px`
-    );
+    card.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
+    card.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
   };
 
   const accentStyles = {
-    violet: {
-      glow: "rgba(139,92,246,0.20)",
-      border: "group-hover:border-violet-400/30",
-      iconBg: "group-hover:bg-violet-400/15",
-      iconText: "group-hover:text-violet-200",
-      number: "text-violet-300/60",
-    },
-
     blue: {
-      glow: "rgba(59,130,246,0.20)",
-      border: "group-hover:border-blue-400/30",
+      glow: "rgba(59,130,246,0.24)",
+      border: "group-hover:border-blue-300/30",
       iconBg: "group-hover:bg-blue-400/15",
-      iconText: "group-hover:text-blue-200",
-      number: "text-blue-300/60",
+      iconText: "group-hover:text-blue-100",
+      number: "text-blue-200/70 group-hover:text-blue-100",
+      tag:
+        "group-hover:border-blue-300/25 group-hover:bg-blue-400/10 group-hover:text-blue-100",
     },
 
     cyan: {
-      glow: "rgba(6,182,212,0.20)",
-      border: "group-hover:border-cyan-400/30",
+      glow: "rgba(34,211,238,0.23)",
+      border: "group-hover:border-cyan-300/30",
       iconBg: "group-hover:bg-cyan-400/15",
-      iconText: "group-hover:text-cyan-200",
-      number: "text-cyan-300/60",
+      iconText: "group-hover:text-cyan-100",
+      number: "text-cyan-200/70 group-hover:text-cyan-100",
+      tag:
+        "group-hover:border-cyan-300/25 group-hover:bg-cyan-400/10 group-hover:text-cyan-100",
     },
 
-    pink: {
-      glow: "rgba(236,72,153,0.20)",
-      border: "group-hover:border-pink-400/30",
-      iconBg: "group-hover:bg-pink-400/15",
-      iconText: "group-hover:text-pink-200",
-      number: "text-pink-300/60",
+    indigo: {
+      glow: "rgba(99,102,241,0.24)",
+      border: "group-hover:border-indigo-300/30",
+      iconBg: "group-hover:bg-indigo-400/15",
+      iconText: "group-hover:text-indigo-100",
+      number: "text-indigo-200/70 group-hover:text-indigo-100",
+      tag:
+        "group-hover:border-indigo-300/25 group-hover:bg-indigo-400/10 group-hover:text-indigo-100",
     },
 
-    emerald: {
-      glow: "rgba(16,185,129,0.20)",
-      border: "group-hover:border-emerald-400/30",
-      iconBg: "group-hover:bg-emerald-400/15",
-      iconText: "group-hover:text-emerald-200",
-      number: "text-emerald-300/60",
-    },
-
-    orange: {
-      glow: "rgba(249,115,22,0.20)",
-      border: "group-hover:border-orange-400/30",
-      iconBg: "group-hover:bg-orange-400/15",
-      iconText: "group-hover:text-orange-200",
-      number: "text-orange-300/60",
+    violet: {
+      glow: "rgba(139,92,246,0.24)",
+      border: "group-hover:border-violet-300/30",
+      iconBg: "group-hover:bg-violet-400/15",
+      iconText: "group-hover:text-violet-100",
+      number: "text-violet-200/70 group-hover:text-violet-100",
+      tag:
+        "group-hover:border-violet-300/25 group-hover:bg-violet-400/10 group-hover:text-violet-100",
     },
   };
 
-  const theme = accentStyles[accent] || accentStyles.violet;
+  const theme = accentStyles[accent] || accentStyles.blue;
 
   return (
-    <div
+    <article
       ref={cardRef}
       onMouseMove={handleMouseMove}
       className={`
-        group relative overflow-hidden rounded-[28px]
-        border border-white/[0.08]
-        bg-gradient-to-br
-        from-white/[0.055]
-        via-white/[0.025]
-        to-white/[0.015]
-        p-7
-
-        shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]
-
-        transition-all duration-500
-        hover:-translate-y-1
-        hover:shadow-2xl
-
+        group
+        relative
+        min-h-[520px]
+        overflow-hidden
+        rounded-[30px]
+        border
+        border-white/[0.10]
+        bg-[#0a1935]
+        shadow-[0_20px_70px_rgba(0,0,0,0.20)]
+        transition-all
+        duration-500
+        hover:-translate-y-2
+        hover:shadow-[0_30px_100px_rgba(0,0,0,0.32)]
         ${theme.border}
         ${className}
       `}
     >
-
       {/* =====================================================
-          CARD IMAGE
+          IMAGE
       ===================================================== */}
 
       {image && (
         <div className="pointer-events-none absolute inset-0">
-
-          {/* Image */}
           <img
             src={image}
-            alt=""
+            alt={title}
+            loading="lazy"
             className="
               absolute
               inset-0
@@ -125,54 +107,73 @@ function SpotlightCard({
               w-full
               object-cover
               object-center
-              opacity-45
+              opacity-[0.52]
+              saturate-[1.05]
               transition-all
               duration-700
               group-hover:scale-105
-              group-hover:opacity-55
+              group-hover:opacity-[0.62]
             "
           />
 
-          {/* Dark overlay */}
+          {/* Main readability overlay */}
+          <div
+            className="
+              absolute
+              inset-0
+              bg-gradient-to-b
+              from-[#07152f]/45
+              via-[#07152f]/65
+              to-[#07152f]/98
+            "
+          />
+
+          {/* Left cinematic overlay */}
           <div
             className="
               absolute
               inset-0
               bg-gradient-to-r
-              from-[#020403]/95
-              via-[#020403]/70
-              to-[#020403]/45
+              from-[#07152f]/75
+              via-transparent
+              to-[#07152f]/30
             "
           />
 
-          {/* Bottom dark fade */}
+          {/* Bottom fade */}
           <div
             className="
               absolute
-              inset-0
+              inset-x-0
+              bottom-0
+              h-[55%]
               bg-gradient-to-t
-              from-[#020403]/95
-              via-transparent
-              to-[#020403]/35
+              from-[#07152f]
+              via-[#07152f]/80
+              to-transparent
             "
           />
 
-          {/* Emerald ambient glow */}
+          {/* Accent ambient glow */}
           <div
             className="
               absolute
               inset-0
               opacity-40
               transition-opacity
-              duration-500
-              group-hover:opacity-70
-              bg-[radial-gradient(circle_at_80%_20%,rgba(16,185,129,0.22),transparent_45%)]
+              duration-700
+              group-hover:opacity-75
             "
+            style={{
+              background: `radial-gradient(
+                circle at 75% 20%,
+                ${theme.glow},
+                transparent 42%
+              )`,
+            }}
           />
-
         </div>
       )}
-
 
       {/* =====================================================
           CURSOR SPOTLIGHT
@@ -191,29 +192,28 @@ function SpotlightCard({
         "
         style={{
           background: `radial-gradient(
-            380px circle at var(--mouse-x) var(--mouse-y),
+            360px circle at var(--mouse-x) var(--mouse-y),
             ${theme.glow},
             transparent 45%
           )`,
         }}
       />
 
-
       {/* =====================================================
-          TOP GRADIENT GLOW
+          TOP RIGHT GLOW
       ===================================================== */}
 
       <div
         className="
           pointer-events-none
           absolute
-          -right-20
-          -top-20
+          -right-24
+          -top-24
           z-[1]
-          h-44
-          w-44
+          h-52
+          w-52
           rounded-full
-          blur-3xl
+          blur-[80px]
           opacity-0
           transition-opacity
           duration-500
@@ -224,169 +224,183 @@ function SpotlightCard({
         }}
       />
 
-
       {/* =====================================================
           CONTENT
       ===================================================== */}
 
-      <div className="relative z-10 flex h-full flex-col">
-
-        {/* Top */}
+      <div className="relative z-10 flex h-full min-h-[520px] flex-col p-7 sm:p-8">
+        {/* TOP */}
 
         <div className="flex items-start justify-between">
-
-          <span
+          <div
             className={`
-              text-[10px]
+              text-[11px]
               font-semibold
-              tracking-[0.2em]
+              tracking-[0.22em]
               transition-colors
               duration-300
               ${theme.number}
             `}
           >
             {number}
-          </span>
-
+          </div>
 
           {Icon && (
             <div
               className={`
                 flex
-                h-11
-                w-11
+                h-12
+                w-12
                 items-center
                 justify-center
                 rounded-2xl
                 border
-                border-white/10
-                bg-white/[0.045]
-                text-white/60
-                backdrop-blur-md
+                border-white/[0.14]
+                bg-white/[0.06]
+                text-white/70
+                backdrop-blur-xl
+                shadow-[0_8px_30px_rgba(0,0,0,0.18)]
                 transition-all
                 duration-300
-
                 ${theme.iconBg}
                 ${theme.iconText}
-
                 group-hover:scale-110
               `}
             >
-              <Icon
-                size={19}
-                strokeWidth={1.5}
-              />
+              <Icon size={20} strokeWidth={1.5} />
             </div>
           )}
-
         </div>
 
+        {/* SERVICE LABEL */}
 
-        {/* Content */}
+        <div className="mt-14">
+          <span
+            className="
+              text-[10px]
+              font-medium
+              uppercase
+              tracking-[0.24em]
+              text-blue-100/45
+            "
+          >
+            YOVI TECHNOLOGIES
+          </span>
+        </div>
 
-        <div className="mt-auto pt-20">
+        {/* TITLE + DESCRIPTION */}
 
+        <div className="mt-4">
           <h3
             className="
-              text-2xl
+              max-w-xl
+              text-3xl
               font-semibold
-              tracking-[-0.04em]
+              leading-[1.08]
+              tracking-[-0.045em]
               text-white
               transition-transform
               duration-300
               group-hover:translate-x-0.5
+              sm:text-[34px]
             "
           >
             {title}
           </h3>
 
-
           <p
             className="
-              mt-3
-              max-w-md
-              text-sm
-              leading-6
-              text-white/45
+              mt-4
+              max-w-lg
+              text-[15px]
+              font-normal
+              leading-7
+              text-blue-50/65
               transition-colors
               duration-300
-              group-hover:text-white/60
+              group-hover:text-blue-50/80
             "
           >
             {description}
           </p>
+        </div>
 
+        {/* TECHNOLOGIES */}
 
-          {/* Technologies */}
-
-          {technologies && (
-            <div className="mt-6 flex flex-wrap gap-2">
-
+        {technologies.length > 0 && (
+          <div className="mt-auto pt-8">
+            <div className="flex flex-wrap gap-2">
               {technologies.map((tech) => (
                 <span
                   key={tech}
-                  className="
+                  className={`
                     rounded-full
                     border
-                    border-white/[0.08]
-                    bg-white/[0.035]
-                    px-3
-                    py-1.5
+                    border-white/[0.10]
+                    bg-white/[0.045]
+                    px-3.5
+                    py-2
                     text-[10px]
-                    text-white/40
+                    font-medium
+                    tracking-wide
+                    text-blue-50/55
                     backdrop-blur-md
                     transition-all
                     duration-300
-                    group-hover:border-white/[0.13]
-                    group-hover:bg-white/[0.06]
-                    group-hover:text-white/55
-                  "
+                    ${theme.tag}
+                  `}
                 >
                   {tech}
                 </span>
               ))}
-
             </div>
-          )}
+          </div>
+        )}
 
+        {/* BOTTOM */}
+
+        <div className="mt-7 flex items-end justify-between border-t border-white/[0.08] pt-5">
+          <span
+            className="
+              text-[10px]
+              font-medium
+              tracking-[0.2em]
+              text-white/30
+              transition-colors
+              duration-300
+              group-hover:text-white/50
+            "
+          >
+            EXPLORE SERVICE
+          </span>
+
+          <div
+            className="
+              flex
+              h-10
+              w-10
+              items-center
+              justify-center
+              rounded-full
+              border
+              border-white/[0.12]
+              bg-white/[0.035]
+              text-white/45
+              backdrop-blur-md
+              transition-all
+              duration-300
+              group-hover:rotate-45
+              group-hover:border-white/25
+              group-hover:bg-white/[0.08]
+              group-hover:text-white
+            "
+          >
+            <ArrowUpRight size={16} strokeWidth={1.7} />
+          </div>
         </div>
-
-
-        {/* Arrow */}
-
-        <div
-          className="
-            absolute
-            bottom-7
-            right-7
-            flex
-            h-9
-            w-9
-            items-center
-            justify-center
-            rounded-full
-            border
-            border-white/10
-            bg-white/[0.025]
-            text-white/40
-            backdrop-blur-md
-            transition-all
-            duration-300
-
-            group-hover:rotate-45
-            group-hover:bg-white/[0.08]
-            group-hover:border-white/20
-            group-hover:text-white
-          "
-        >
-          ↗
-        </div>
-
       </div>
-
-    </div>
+    </article>
   );
 }
 
 export default SpotlightCard;
-

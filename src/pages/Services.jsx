@@ -20,7 +20,7 @@ const services = [
     description:
       "Modern, high-performance websites and web applications designed around your business goals.",
     image:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=90",
     items: [
       "Business Websites",
       "Corporate Websites",
@@ -31,7 +31,7 @@ const services = [
       "Website Redesign & Maintenance",
     ],
     technologies: ["React", "Next.js", "Node.js", "TypeScript"],
-    accent: "emerald",
+    accent: "blue",
   },
 
   {
@@ -41,7 +41,7 @@ const services = [
     description:
       "Scalable mobile experiences that help businesses connect with customers wherever they are.",
     image:
-      "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1400&q=90",
     items: [
       "Android Applications",
       "iOS Applications",
@@ -59,7 +59,7 @@ const services = [
     description:
       "Intelligent systems that automate repetitive work, improve customer experiences and unlock new possibilities.",
     image:
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1400&q=90",
     items: [
       "AI Chatbots",
       "AI-Powered Business Solutions",
@@ -68,7 +68,7 @@ const services = [
       "Intelligent Customer Support",
     ],
     technologies: ["AI APIs", "Automation", "LLM"],
-    accent: "teal",
+    accent: "indigo",
   },
 
   {
@@ -78,7 +78,7 @@ const services = [
     description:
       "Connected business platforms that bring operations, customers and workflows together.",
     image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=90",
     items: [
       "Custom ERP Systems",
       "CRM Development",
@@ -88,7 +88,7 @@ const services = [
       "Workflow Management",
     ],
     technologies: ["Node.js", "MongoDB", "MySQL", "REST APIs"],
-    accent: "emerald",
+    accent: "blue",
   },
 
   {
@@ -98,7 +98,7 @@ const services = [
     description:
       "Data-driven digital growth strategies designed to increase visibility, generate leads and reach the right audience.",
     image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=90",
     items: [
       "Search Engine Optimization",
       "Google Ads",
@@ -118,7 +118,7 @@ const services = [
     description:
       "Thoughtful visual experiences and brand systems that make businesses memorable.",
     image:
-      "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1400&q=90",
     items: [
       "UI/UX Design",
       "Website Design",
@@ -127,88 +127,89 @@ const services = [
       "Social Media Creatives",
     ],
     technologies: ["UI/UX", "Figma", "Branding"],
-    accent: "teal",
+    accent: "indigo",
   },
 ];
 
 const accentStyles = {
-  emerald: {
+  blue: {
     glow:
-      "bg-emerald-500/[0.055] group-hover:bg-emerald-500/[0.11]",
+      "bg-blue-500/[0.10] group-hover:bg-blue-500/[0.17]",
 
     icon:
-      "text-emerald-200 border-emerald-300/10 bg-emerald-400/[0.06] group-hover:border-emerald-300/25 group-hover:bg-emerald-400/[0.11]",
+      "text-blue-200 border-blue-300/15 bg-blue-400/[0.08] group-hover:border-blue-300/30 group-hover:bg-blue-400/[0.14]",
 
     number:
-      "text-emerald-300/35 group-hover:text-emerald-300/70",
+      "text-blue-200/60 group-hover:text-blue-200",
 
     tag:
-      "group-hover:border-emerald-300/[0.14] group-hover:bg-emerald-400/[0.05] group-hover:text-emerald-200/70",
+      "group-hover:border-blue-300/25 group-hover:bg-blue-400/[0.08] group-hover:text-blue-100",
 
     check:
-      "group-hover:border-emerald-300/25 group-hover:bg-emerald-400/10 group-hover:text-emerald-200",
+      "group-hover:border-blue-300/30 group-hover:bg-blue-400/10 group-hover:text-blue-100",
 
     arrow:
-      "group-hover:border-emerald-300/25 group-hover:bg-emerald-400/[0.08] group-hover:text-emerald-100",
+      "group-hover:border-blue-300/30 group-hover:bg-blue-400/[0.10] group-hover:text-blue-100",
   },
 
   cyan: {
     glow:
-      "bg-cyan-500/[0.045] group-hover:bg-cyan-500/[0.09]",
+      "bg-cyan-500/[0.08] group-hover:bg-cyan-500/[0.15]",
 
     icon:
-      "text-cyan-200 border-cyan-300/10 bg-cyan-400/[0.05] group-hover:border-cyan-300/25 group-hover:bg-cyan-400/[0.10]",
+      "text-cyan-200 border-cyan-300/15 bg-cyan-400/[0.07] group-hover:border-cyan-300/30 group-hover:bg-cyan-400/[0.13]",
 
     number:
-      "text-cyan-300/35 group-hover:text-cyan-300/70",
+      "text-cyan-200/60 group-hover:text-cyan-200",
 
     tag:
-      "group-hover:border-cyan-300/[0.14] group-hover:bg-cyan-400/[0.05] group-hover:text-cyan-200/70",
+      "group-hover:border-cyan-300/25 group-hover:bg-cyan-400/[0.08] group-hover:text-cyan-100",
 
     check:
-      "group-hover:border-cyan-300/25 group-hover:bg-cyan-400/10 group-hover:text-cyan-200",
+      "group-hover:border-cyan-300/30 group-hover:bg-cyan-400/10 group-hover:text-cyan-100",
 
     arrow:
-      "group-hover:border-cyan-300/25 group-hover:bg-cyan-400/[0.08] group-hover:text-cyan-100",
+      "group-hover:border-cyan-300/30 group-hover:bg-cyan-400/[0.10] group-hover:text-cyan-100",
   },
 
-  teal: {
+  indigo: {
     glow:
-      "bg-teal-500/[0.045] group-hover:bg-teal-500/[0.09]",
+      "bg-indigo-500/[0.08] group-hover:bg-indigo-500/[0.15]",
 
     icon:
-      "text-teal-200 border-teal-300/10 bg-teal-400/[0.05] group-hover:border-teal-300/25 group-hover:bg-teal-400/[0.10]",
+      "text-indigo-200 border-indigo-300/15 bg-indigo-400/[0.07] group-hover:border-indigo-300/30 group-hover:bg-indigo-400/[0.13]",
 
     number:
-      "text-teal-300/35 group-hover:text-teal-300/70",
+      "text-indigo-200/60 group-hover:text-indigo-200",
 
     tag:
-      "group-hover:border-teal-300/[0.14] group-hover:bg-teal-400/[0.05] group-hover:text-teal-200/70",
+      "group-hover:border-indigo-300/25 group-hover:bg-indigo-400/[0.08] group-hover:text-indigo-100",
 
     check:
-      "group-hover:border-teal-300/25 group-hover:bg-teal-400/10 group-hover:text-teal-200",
+      "group-hover:border-indigo-300/30 group-hover:bg-indigo-400/10 group-hover:text-indigo-100",
 
     arrow:
-      "group-hover:border-teal-300/25 group-hover:bg-teal-400/[0.08] group-hover:text-teal-100",
+      "group-hover:border-indigo-300/30 group-hover:bg-indigo-400/[0.10] group-hover:text-indigo-100",
   },
 };
 
 function Services() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#020403] text-white">
+    <main className="relative min-h-screen overflow-hidden bg-[#07152f] text-white">
 
       {/* =====================================================
-          GLOBAL AMBIENT BACKGROUND
+          GLOBAL BLUE AMBIENT BACKGROUND
       ===================================================== */}
 
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
 
-        {/* Emerald atmosphere */}
+        {/* Top blue atmosphere */}
+
         <motion.div
           animate={{
-            x: [0, 35, 0],
+            x: [0, 45, 0],
             y: [0, 25, 0],
-            scale: [1, 1.07, 1],
+            scale: [1, 1.08, 1],
           }}
           transition={{
             duration: 14,
@@ -217,22 +218,23 @@ function Services() {
           }}
           className="
             absolute
-            left-[10%]
-            top-[-140px]
-            h-[520px]
-            w-[520px]
+            left-[8%]
+            top-[-150px]
+            h-[600px]
+            w-[600px]
             rounded-full
-            bg-emerald-500/[0.06]
+            bg-blue-500/[0.16]
             blur-[150px]
           "
         />
 
         {/* Cyan atmosphere */}
+
         <motion.div
           animate={{
             x: [0, -40, 0],
-            y: [0, 30, 0],
-            scale: [1, 1.06, 1],
+            y: [0, 35, 0],
+            scale: [1, 1.10, 1],
           }}
           transition={{
             duration: 16,
@@ -241,21 +243,22 @@ function Services() {
           }}
           className="
             absolute
-            right-[-120px]
-            top-[25%]
-            h-[500px]
-            w-[500px]
+            left-[42%]
+            top-[18%]
+            h-[520px]
+            w-[520px]
             rounded-full
-            bg-cyan-500/[0.04]
+            bg-cyan-400/[0.075]
             blur-[150px]
           "
         />
 
-        {/* Teal bottom atmosphere */}
+        {/* Right indigo atmosphere */}
+
         <motion.div
           animate={{
-            x: [0, 30, 0],
-            y: [0, -20, 0],
+            x: [0, -45, 0],
+            y: [0, 35, 0],
           }}
           transition={{
             duration: 18,
@@ -264,33 +267,74 @@ function Services() {
           }}
           className="
             absolute
-            bottom-[-80px]
-            left-[15%]
-            h-[400px]
-            w-[400px]
+            right-[-120px]
+            top-[35%]
+            h-[540px]
+            w-[540px]
             rounded-full
-            bg-teal-500/[0.035]
+            bg-indigo-500/[0.12]
+            blur-[150px]
+          "
+        />
+
+        {/* Bottom blue atmosphere */}
+
+        <motion.div
+          animate={{
+            x: [0, 35, 0],
+            y: [0, -20, 0],
+            scale: [1, 1.08, 1],
+          }}
+          transition={{
+            duration: 17,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="
+            absolute
+            bottom-[-100px]
+            left-[10%]
+            h-[450px]
+            w-[450px]
+            rounded-full
+            bg-blue-400/[0.08]
             blur-[140px]
           "
         />
 
         {/* Grid */}
+
         <div
           className="
             absolute
             inset-0
-            opacity-[0.025]
+            opacity-[0.04]
             [background-image:linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)]
             [background-size:80px_80px]
           "
         />
 
-        {/* Vignette */}
+        {/* Center vignette */}
+
         <div
           className="
             absolute
             inset-0
-            bg-[radial-gradient(circle_at_center,transparent_5%,#020403_88%)]
+            bg-[radial-gradient(circle_at_center,transparent_5%,#07152f_88%)]
+          "
+        />
+
+        {/* Bottom fade */}
+
+        <div
+          className="
+            absolute
+            inset-x-0
+            bottom-0
+            h-[35%]
+            bg-gradient-to-t
+            from-[#07152f]
+            to-transparent
           "
         />
 
@@ -301,9 +345,50 @@ function Services() {
           HERO
       ===================================================== */}
 
-      <section className="relative px-6 pb-28 pt-40 sm:px-8 lg:px-12">
+      <section className="relative overflow-hidden px-6 pb-28 pt-40 sm:px-8 lg:px-12">
 
-        <div className="mx-auto max-w-7xl">
+        {/* Hero technology image */}
+
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-[650px] overflow-hidden">
+
+          <img
+            src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=90"
+            alt=""
+            className="
+              absolute
+              inset-0
+              h-full
+              w-full
+              object-cover
+              object-center
+              opacity-[0.20]
+              grayscale-[10%]
+            "
+          />
+
+          <div
+            className="
+              absolute
+              inset-0
+              bg-gradient-to-b
+              from-[#07152f]/25
+              via-[#07152f]/60
+              to-[#07152f]
+            "
+          />
+
+          <div
+            className="
+              absolute
+              inset-0
+              bg-[radial-gradient(circle_at_65%_35%,rgba(59,130,246,0.24),transparent_42%)]
+            "
+          />
+
+        </div>
+
+
+        <div className="relative mx-auto max-w-7xl">
 
           <motion.div
             initial={{
@@ -320,62 +405,9 @@ function Services() {
             className="relative max-w-5xl"
           >
 
-            {/* Hero decorative image */}
-
-            <div
-              className="
-                pointer-events-none
-                absolute
-                -right-20
-                -top-32
-                hidden
-                h-[500px]
-                w-[650px]
-                overflow-hidden
-                rounded-[50%]
-                opacity-30
-                lg:block
-              "
-            >
-              <img
-                src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=85"
-                alt=""
-                className="
-                  h-full
-                  w-full
-                  object-cover
-                  opacity-50
-                  mix-blend-screen
-                "
-              />
-
-              <div
-                className="
-                  absolute
-                  inset-0
-                  bg-gradient-to-l
-                  from-transparent
-                  via-[#020403]/50
-                  to-[#020403]
-                "
-              />
-
-              <div
-                className="
-                  absolute
-                  inset-0
-                  bg-gradient-to-b
-                  from-transparent
-                  via-transparent
-                  to-[#020403]
-                "
-              />
-            </div>
-
-
             {/* Eyebrow */}
 
-            <div className="relative mb-7 flex items-center gap-3">
+            <div className="mb-7 flex items-center gap-3">
 
               <span
                 className="
@@ -386,16 +418,16 @@ function Services() {
                   justify-center
                   rounded-full
                   border
-                  border-emerald-300/25
+                  border-blue-300/25
                   bg-gradient-to-br
-                  from-emerald-500/20
+                  from-blue-500/20
                   to-cyan-500/10
-                  shadow-[0_0_35px_rgba(16,185,129,0.16)]
+                  shadow-[0_0_35px_rgba(59,130,246,0.18)]
                 "
               >
                 <Sparkles
                   size={13}
-                  className="text-emerald-200"
+                  className="text-blue-200"
                 />
               </span>
 
@@ -404,7 +436,7 @@ function Services() {
                   text-[10px]
                   font-semibold
                   tracking-[0.25em]
-                  text-emerald-200/70
+                  text-blue-200/85
                 "
               >
                 OUR SERVICES
@@ -413,15 +445,15 @@ function Services() {
             </div>
 
 
-            {/* Heading */}
+            {/* Main heading */}
 
             <h1
               className="
-                relative
                 text-5xl
                 font-semibold
                 leading-[0.98]
                 tracking-[-0.055em]
+                text-white
                 sm:text-6xl
                 md:text-7xl
                 lg:text-[88px]
@@ -435,8 +467,8 @@ function Services() {
                   block
                   bg-gradient-to-r
                   from-white
-                  via-emerald-200/65
-                  to-cyan-300/45
+                  via-blue-100
+                  to-cyan-200
                   bg-clip-text
                   text-transparent
                 "
@@ -451,13 +483,14 @@ function Services() {
 
             <p
               className="
-                relative
                 mt-8
                 max-w-2xl
                 text-base
+                font-normal
                 leading-7
-                text-white/40
+                text-blue-50/75
                 sm:text-lg
+                sm:leading-8
               "
             >
               From digital products and AI-powered solutions
@@ -488,12 +521,12 @@ function Services() {
               gap-x-10
               gap-y-4
               border-t
-              border-white/[0.07]
+              border-white/[0.10]
               pt-7
               text-[10px]
               font-medium
               tracking-[0.22em]
-              text-white/25
+              text-blue-100/45
             "
           >
 
@@ -511,8 +544,8 @@ function Services() {
                 className="
                   transition-all
                   duration-300
-                  hover:text-emerald-200
-                  hover:drop-shadow-[0_0_12px_rgba(16,185,129,0.35)]
+                  hover:text-cyan-200
+                  hover:drop-shadow-[0_0_12px_rgba(34,211,238,0.35)]
                 "
               >
                 {item}
@@ -535,7 +568,7 @@ function Services() {
         className="
           relative
           border-t
-          border-white/[0.07]
+          border-white/[0.10]
           px-6
           py-32
           sm:px-8
@@ -581,18 +614,19 @@ function Services() {
                     overflow-hidden
                     rounded-[30px]
                     border
-                    border-white/[0.07]
-                    bg-white/[0.025]
+                    border-white/[0.10]
+                    bg-white/[0.045]
+                    shadow-[0_20px_70px_rgba(0,0,0,0.15)]
                     backdrop-blur-xl
                     transition-all
                     duration-500
-                    hover:border-emerald-300/[0.14]
-                    hover:bg-white/[0.035]
-                    hover:shadow-[0_25px_100px_rgba(0,0,0,0.35)]
+                    hover:border-blue-300/[0.24]
+                    hover:bg-white/[0.065]
+                    hover:shadow-[0_25px_100px_rgba(0,0,0,0.25)]
                   "
                 >
 
-                  {/* Accent Glow */}
+                  {/* Top-right glow */}
 
                   <div
                     className={`
@@ -610,6 +644,8 @@ function Services() {
                     `}
                   />
 
+                  {/* Bottom-left cyan glow */}
+
                   <div
                     className="
                       pointer-events-none
@@ -619,11 +655,11 @@ function Services() {
                       h-72
                       w-72
                       rounded-full
-                      bg-cyan-500/[0.02]
+                      bg-cyan-500/[0.025]
                       blur-[100px]
                       transition-all
                       duration-700
-                      group-hover:bg-cyan-500/[0.05]
+                      group-hover:bg-cyan-500/[0.06]
                     "
                   />
 
@@ -646,7 +682,7 @@ function Services() {
                   >
 
                     {/* =================================================
-                        SERVICE IMAGE
+                        IMAGE
                     ================================================= */}
 
                     <div
@@ -656,8 +692,9 @@ function Services() {
                         overflow-hidden
                         rounded-[22px]
                         border
-                        border-white/[0.08]
+                        border-white/[0.12]
                         bg-black/30
+                        shadow-[0_15px_50px_rgba(0,0,0,0.20)]
                       "
                     >
 
@@ -666,7 +703,7 @@ function Services() {
                         alt={service.title}
                         loading="lazy"
                         whileHover={{
-                          scale: 1.06,
+                          scale: 1.07,
                         }}
                         transition={{
                           duration: 0.7,
@@ -677,23 +714,24 @@ function Services() {
                           h-full
                           w-full
                           object-cover
-                          opacity-70
-                          grayscale-[15%]
+                          opacity-[0.95]
+                          saturate-[1.05]
+                          grayscale-[5%]
                           transition-opacity
                           duration-500
-                          group-hover:opacity-90
+                          group-hover:opacity-100
                         "
                       />
 
-                      {/* Dark image overlay */}
+                      {/* Much lighter image overlay */}
 
                       <div
                         className="
                           absolute
                           inset-0
                           bg-gradient-to-r
-                          from-[#020403]/70
-                          via-[#020403]/25
+                          from-[#07152f]/45
+                          via-[#07152f]/10
                           to-transparent
                         "
                       />
@@ -703,13 +741,13 @@ function Services() {
                           absolute
                           inset-0
                           bg-gradient-to-t
-                          from-[#020403]/90
+                          from-[#07152f]/65
                           via-transparent
                           to-transparent
                         "
                       />
 
-                      {/* Image glow */}
+                      {/* Blue image glow */}
 
                       <div
                         className="
@@ -719,7 +757,7 @@ function Services() {
                           h-40
                           w-40
                           rounded-full
-                          bg-emerald-400/[0.12]
+                          bg-blue-400/[0.14]
                           blur-[60px]
                           transition-all
                           duration-500
@@ -755,7 +793,7 @@ function Services() {
                           className="
                             h-px
                             w-8
-                            bg-white/20
+                            bg-white/35
                           "
                         />
 
@@ -764,7 +802,7 @@ function Services() {
                             text-[9px]
                             font-medium
                             tracking-[0.18em]
-                            text-white/40
+                            text-white/65
                           "
                         >
                           YOVI TECHNOLOGIES
@@ -844,11 +882,12 @@ function Services() {
                           mt-4
                           max-w-xl
                           text-sm
-                          leading-6
-                          text-white/40
+                          font-normal
+                          leading-7
+                          text-blue-50/70
                           transition-colors
                           duration-300
-                          group-hover:text-white/50
+                          group-hover:text-blue-50/85
                         "
                       >
                         {service.description}
@@ -866,13 +905,13 @@ function Services() {
                             className={`
                               rounded-full
                               border
-                              border-white/[0.08]
-                              bg-white/[0.02]
+                              border-white/[0.12]
+                              bg-white/[0.035]
                               px-3
                               py-1.5
                               text-[10px]
                               font-medium
-                              text-white/35
+                              text-blue-50/60
                               transition-all
                               duration-300
                               ${accent.tag}
@@ -900,7 +939,7 @@ function Services() {
                           text-[10px]
                           font-semibold
                           tracking-[0.2em]
-                          text-white/20
+                          text-blue-100/45
                         "
                       >
                         WHAT WE OFFER
@@ -918,10 +957,11 @@ function Services() {
                               items-center
                               gap-3
                               text-sm
-                              text-white/40
+                              font-normal
+                              text-blue-50/65
                               transition-colors
                               duration-200
-                              hover:text-white/75
+                              hover:text-white
                             "
                           >
 
@@ -935,9 +975,9 @@ function Services() {
                                 justify-center
                                 rounded-full
                                 border
-                                border-white/[0.09]
-                                bg-white/[0.02]
-                                text-white/25
+                                border-white/[0.12]
+                                bg-white/[0.025]
+                                text-white/40
                                 transition-all
                                 duration-200
                                 ${accent.check}
@@ -973,9 +1013,9 @@ function Services() {
                       justify-center
                       rounded-full
                       border
-                      border-white/[0.08]
-                      bg-white/[0.02]
-                      text-white/20
+                      border-white/[0.10]
+                      bg-white/[0.035]
+                      text-white/35
                       transition-all
                       duration-300
                       ${accent.arrow}
@@ -1015,7 +1055,7 @@ function Services() {
           relative
           overflow-hidden
           border-t
-          border-white/[0.07]
+          border-white/[0.10]
           px-6
           py-32
           sm:px-8
@@ -1023,7 +1063,7 @@ function Services() {
         "
       >
 
-        {/* CTA Background Image */}
+        {/* CTA Background */}
 
         <div
           className="
@@ -1035,13 +1075,13 @@ function Services() {
         >
 
           <img
-            src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1800&q=85"
+            src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1800&q=90"
             alt=""
             className="
               h-full
               w-full
               object-cover
-              opacity-[0.13]
+              opacity-[0.16]
             "
           />
 
@@ -1050,9 +1090,9 @@ function Services() {
               absolute
               inset-0
               bg-gradient-to-r
-              from-[#020403]
-              via-[#020403]/80
-              to-[#020403]
+              from-[#07152f]
+              via-[#07152f]/75
+              to-[#07152f]
             "
           />
 
@@ -1061,16 +1101,24 @@ function Services() {
               absolute
               inset-0
               bg-gradient-to-t
-              from-[#020403]
+              from-[#07152f]
               via-transparent
-              to-[#020403]
+              to-[#07152f]
+            "
+          />
+
+          <div
+            className="
+              absolute
+              inset-0
+              bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.20),transparent_48%)]
             "
           />
 
         </div>
 
 
-        {/* Emerald */}
+        {/* Blue glow */}
 
         <motion.div
           animate={{
@@ -1092,12 +1140,12 @@ function Services() {
             -translate-x-1/2
             -translate-y-1/2
             rounded-full
-            bg-emerald-500/[0.055]
+            bg-blue-500/[0.09]
             blur-[140px]
           "
         />
 
-        {/* Cyan */}
+        {/* Cyan glow */}
 
         <motion.div
           animate={{
@@ -1119,12 +1167,12 @@ function Services() {
             -translate-x-1/2
             -translate-y-1/2
             rounded-full
-            bg-cyan-500/[0.045]
+            bg-cyan-400/[0.07]
             blur-[130px]
           "
         />
 
-        {/* Center teal */}
+        {/* Center glow */}
 
         <div
           className="
@@ -1136,7 +1184,7 @@ function Services() {
             w-[260px]
             -translate-x-1/2
             rounded-full
-            bg-teal-500/[0.035]
+            bg-indigo-500/[0.05]
             blur-[110px]
           "
         />
@@ -1172,7 +1220,7 @@ function Services() {
               text-[10px]
               font-semibold
               tracking-[0.28em]
-              text-emerald-300/80
+              text-cyan-200/90
             "
           >
             READY TO BUILD?
@@ -1186,6 +1234,7 @@ function Services() {
               font-semibold
               leading-tight
               tracking-[-0.05em]
+              text-white
               sm:text-5xl
               md:text-6xl
             "
@@ -1197,9 +1246,9 @@ function Services() {
               className="
                 block
                 bg-gradient-to-r
-                from-emerald-200/80
-                via-white/45
-                to-cyan-300/55
+                from-blue-200
+                via-white
+                to-cyan-200
                 bg-clip-text
                 text-transparent
               "
@@ -1216,8 +1265,8 @@ function Services() {
               mt-6
               max-w-xl
               text-sm
-              leading-6
-              text-white/35
+              leading-7
+              text-blue-50/70
             "
           >
             Have a project, idea or business challenge?
@@ -1235,18 +1284,19 @@ function Services() {
               gap-3
               rounded-full
               bg-gradient-to-r
-              from-emerald-500
-              to-teal-500
+              from-blue-500
+              via-blue-500
+              to-cyan-500
               px-7
               py-4
               text-sm
               font-semibold
               text-white
-              shadow-[0_15px_60px_rgba(16,185,129,0.22)]
+              shadow-[0_15px_60px_rgba(37,99,235,0.30)]
               transition-all
               duration-300
               hover:scale-[1.04]
-              hover:shadow-[0_20px_80px_rgba(16,185,129,0.32)]
+              hover:shadow-[0_20px_80px_rgba(34,211,238,0.30)]
             "
           >
 
@@ -1261,7 +1311,7 @@ function Services() {
                 justify-center
                 rounded-full
                 bg-white
-                text-emerald-600
+                text-blue-600
                 transition-all
                 duration-300
                 group-hover:rotate-45

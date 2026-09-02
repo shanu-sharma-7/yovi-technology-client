@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 
 import {
@@ -20,76 +19,82 @@ function About() {
       icon: Layers3,
       title: "Customized Solutions",
       text: "Technology designed around your specific business requirements.",
-      accent: "emerald",
+      accent: "blue",
     },
     {
       icon: Zap,
       title: "Modern Technology",
       text: "Current tools and scalable architectures built for long-term growth.",
-      accent: "teal",
+      accent: "cyan",
     },
     {
       icon: ShieldCheck,
       title: "Secure Development",
       text: "Security-conscious development practices across the product lifecycle.",
-      accent: "cyan",
+      accent: "indigo",
     },
     {
       icon: Users,
       title: "Business Focused",
       text: "Every technical decision is connected to a meaningful business outcome.",
-      accent: "emerald",
+      accent: "blue",
     },
     {
       icon: Globe2,
       title: "Digital First",
       text: "Responsive and accessible experiences built for today's users.",
-      accent: "teal",
+      accent: "cyan",
     },
     {
       icon: Check,
       title: "Post-Launch Support",
       text: "We stay connected after launch to help your digital product evolve.",
-      accent: "cyan",
+      accent: "indigo",
+    },
+  ];
+
+  const positioning = [
+    {
+      title: "Technology",
+      text: "Modern engineering",
+      icon: Globe2,
+      glow: "bg-blue-500/[0.12]",
+      iconColor: "text-blue-200",
+      borderColor: "border-blue-300/20",
+    },
+    {
+      title: "Innovation",
+      text: "AI & automation",
+      icon: Zap,
+      glow: "bg-cyan-400/[0.11]",
+      iconColor: "text-cyan-200",
+      borderColor: "border-cyan-300/20",
+    },
+    {
+      title: "Growth",
+      text: "Business focused",
+      icon: Target,
+      glow: "bg-indigo-500/[0.10]",
+      iconColor: "text-indigo-200",
+      borderColor: "border-indigo-300/20",
     },
   ];
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#020403] text-white">
+    <main className="relative min-h-screen overflow-hidden bg-[#07152f] text-white">
 
       {/* =====================================================
-          GLOBAL AMBIENT BACKGROUND
+          GLOBAL BLUE AMBIENT BACKGROUND
       ===================================================== */}
 
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
 
+        {/* Top blue glow */}
         <motion.div
           animate={{
             x: [0, 50, 0],
-            y: [0, 25, 0],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="
-            absolute
-            left-[18%]
-            top-[5%]
-            h-[500px]
-            w-[500px]
-            rounded-full
-            bg-emerald-500/[0.055]
-            blur-[150px]
-          "
-        />
-
-        <motion.div
-          animate={{
-            x: [0, -50, 0],
-            y: [0, 35, 0],
+            y: [0, 30, 0],
+            scale: [1, 1.08, 1],
           }}
           transition={{
             duration: 14,
@@ -98,19 +103,22 @@ function About() {
           }}
           className="
             absolute
-            right-[-10%]
-            top-[30%]
-            h-[420px]
-            w-[420px]
+            left-[8%]
+            top-[-8%]
+            h-[600px]
+            w-[600px]
             rounded-full
-            bg-teal-500/[0.04]
-            blur-[140px]
+            bg-blue-500/[0.18]
+            blur-[150px]
           "
         />
 
+        {/* Cyan center glow */}
         <motion.div
           animate={{
-            x: [0, 35, 0],
+            x: [0, -40, 0],
+            y: [0, 40, 0],
+            scale: [1, 1.12, 1],
           }}
           transition={{
             duration: 16,
@@ -119,31 +127,92 @@ function About() {
           }}
           className="
             absolute
-            bottom-[10%]
-            left-[5%]
-            h-[300px]
-            w-[300px]
+            left-[45%]
+            top-[18%]
+            h-[500px]
+            w-[500px]
             rounded-full
-            bg-cyan-400/[0.035]
-            blur-[130px]
+            bg-cyan-400/[0.08]
+            blur-[150px]
           "
         />
 
+        {/* Right indigo glow */}
+        <motion.div
+          animate={{
+            x: [0, -45, 0],
+            y: [0, 35, 0],
+          }}
+          transition={{
+            duration: 18,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="
+            absolute
+            right-[-10%]
+            top-[35%]
+            h-[520px]
+            w-[520px]
+            rounded-full
+            bg-indigo-500/[0.13]
+            blur-[150px]
+          "
+        />
+
+        {/* Bottom blue glow */}
+        <motion.div
+          animate={{
+            x: [0, 35, 0],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 17,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="
+            absolute
+            bottom-[-10%]
+            left-[10%]
+            h-[420px]
+            w-[420px]
+            rounded-full
+            bg-blue-400/[0.09]
+            blur-[140px]
+          "
+        />
+
+        {/* Grid */}
         <div
           className="
             absolute
             inset-0
-            opacity-[0.035]
+            opacity-[0.045]
             [background-image:linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)]
             [background-size:80px_80px]
           "
         />
 
+        {/* Soft overlay */}
         <div
           className="
             absolute
             inset-0
-            bg-[radial-gradient(circle_at_center,transparent_10%,#020403_82%)]
+            bg-[radial-gradient(circle_at_center,transparent_5%,#07152f_88%)]
+          "
+        />
+
+        {/* Bottom fade */}
+        <div
+          className="
+            absolute
+            inset-x-0
+            bottom-0
+            h-[35%]
+            bg-gradient-to-t
+            from-[#07152f]
+            to-transparent
           "
         />
 
@@ -156,8 +225,7 @@ function About() {
 
       <section className="relative overflow-hidden px-6 pb-28 pt-40 sm:px-8 lg:px-12">
 
-        {/* Hero Image */}
-
+        {/* Hero image */}
         <div className="pointer-events-none absolute inset-x-0 top-0 h-[620px] overflow-hidden">
 
           <img
@@ -170,8 +238,8 @@ function About() {
               w-full
               object-cover
               object-center
-              opacity-[0.12]
-              grayscale
+              opacity-[0.15]
+              grayscale-[20%]
             "
           />
 
@@ -180,9 +248,9 @@ function About() {
               absolute
               inset-0
               bg-gradient-to-b
-              from-[#020403]/45
-              via-[#020403]/75
-              to-[#020403]
+              from-[#07152f]/35
+              via-[#07152f]/70
+              to-[#07152f]
             "
           />
 
@@ -190,7 +258,7 @@ function About() {
             className="
               absolute
               inset-0
-              bg-[radial-gradient(circle_at_65%_35%,rgba(16,185,129,0.16),transparent_38%)]
+              bg-[radial-gradient(circle_at_65%_35%,rgba(59,130,246,0.22),transparent_40%)]
             "
           />
 
@@ -227,25 +295,23 @@ function About() {
                   justify-center
                   rounded-full
                   border
-                  border-emerald-300/20
-                  bg-gradient-to-br
-                  from-emerald-400/15
-                  to-cyan-400/10
-                  shadow-[0_0_30px_rgba(16,185,129,0.12)]
+                  border-blue-300/25
+                  bg-blue-400/10
+                  shadow-[0_0_30px_rgba(59,130,246,0.18)]
                 "
               >
                 <Sparkles
                   size={13}
-                  className="text-emerald-200"
+                  className="text-blue-200"
                 />
               </span>
 
               <span
                 className="
                   text-[10px]
-                  font-medium
+                  font-semibold
                   tracking-[0.25em]
-                  text-emerald-200/70
+                  text-blue-200/80
                 "
               >
                 ABOUT YOVI TECHNOLOGIES
@@ -262,6 +328,7 @@ function About() {
                 font-semibold
                 leading-[0.98]
                 tracking-[-0.055em]
+                text-white
                 sm:text-6xl
                 md:text-7xl
                 lg:text-[88px]
@@ -274,8 +341,8 @@ function About() {
                   block
                   bg-gradient-to-r
                   from-white
-                  via-white/40
-                  to-emerald-200/25
+                  via-blue-100
+                  to-cyan-200
                   bg-clip-text
                   text-transparent
                 "
@@ -291,7 +358,7 @@ function About() {
                 max-w-2xl
                 text-base
                 leading-7
-                text-white/40
+                text-blue-50/75
                 sm:text-lg
               "
             >
@@ -309,38 +376,12 @@ function About() {
             className="
               mt-20
               grid
-              gap-3
+              gap-4
               sm:grid-cols-3
             "
           >
 
-            {[
-              {
-                title: "Technology",
-                text: "Modern engineering",
-                icon: Globe2,
-                glow: "bg-emerald-500/[0.075]",
-                iconColor: "text-emerald-200",
-                borderColor: "border-emerald-300/10",
-              },
-              {
-                title: "Innovation",
-                text: "AI & automation",
-                icon: Zap,
-                glow: "bg-teal-500/[0.065]",
-                iconColor: "text-teal-200",
-                borderColor: "border-teal-300/10",
-              },
-              {
-                title: "Growth",
-                text: "Business focused",
-                icon: Target,
-                glow: "bg-cyan-500/[0.055]",
-                iconColor: "text-cyan-200",
-                borderColor: "border-cyan-300/10",
-              },
-            ].map((item, index) => {
-
+            {positioning.map((item, index) => {
               const Icon = item.icon;
 
               return (
@@ -367,14 +408,15 @@ function About() {
                     overflow-hidden
                     rounded-3xl
                     border
-                    border-white/[0.07]
-                    bg-white/[0.025]
+                    border-white/[0.12]
+                    bg-white/[0.065]
                     p-7
+                    shadow-[0_20px_70px_rgba(0,0,0,0.12)]
                     backdrop-blur-xl
                     transition-all
                     duration-500
-                    hover:border-white/[0.14]
-                    hover:bg-white/[0.04]
+                    hover:border-white/[0.22]
+                    hover:bg-white/[0.09]
                   "
                 >
 
@@ -406,7 +448,7 @@ function About() {
                         rounded-xl
                         border
                         ${item.borderColor}
-                        bg-white/[0.04]
+                        bg-white/[0.06]
                         ${item.iconColor}
                       `}
                     >
@@ -419,7 +461,7 @@ function About() {
                         block
                         text-[9px]
                         tracking-[0.2em]
-                        text-white/20
+                        text-blue-100/40
                       "
                     >
                       0{index + 1}
@@ -429,7 +471,8 @@ function About() {
                       className="
                         mt-3
                         text-lg
-                        font-medium
+                        font-semibold
+                        text-white
                       "
                     >
                       {item.title}
@@ -439,7 +482,7 @@ function About() {
                       className="
                         mt-2
                         text-xs
-                        text-white/30
+                        text-blue-50/60
                       "
                     >
                       {item.text}
@@ -459,13 +502,13 @@ function About() {
 
 
       {/* =====================================================
-          WHO WE ARE — UPDATED VISUAL SECTION
+          WHO WE ARE
       ===================================================== */}
 
       <section
         className="
           border-t
-          border-white/[0.06]
+          border-white/[0.10]
           px-6
           py-28
           sm:px-8
@@ -486,9 +529,7 @@ function About() {
           "
         >
 
-          {/* =================================================
-              IMAGE
-          ================================================= */}
+          {/* IMAGE */}
 
           <motion.div
             initial={{
@@ -509,13 +550,8 @@ function About() {
             whileHover={{
               y: -5,
             }}
-            className="
-              group
-              relative
-            "
+            className="group relative"
           >
-
-            {/* Outer glow */}
 
             <div
               className="
@@ -523,15 +559,13 @@ function About() {
                 absolute
                 -inset-8
                 rounded-[45px]
-                bg-emerald-500/[0.055]
+                bg-blue-500/[0.10]
                 blur-[65px]
                 transition-all
                 duration-700
-                group-hover:bg-emerald-500/[0.09]
+                group-hover:bg-blue-400/[0.16]
               "
             />
-
-            {/* Image frame */}
 
             <div
               className="
@@ -540,9 +574,9 @@ function About() {
                 overflow-hidden
                 rounded-[32px]
                 border
-                border-emerald-300/[0.12]
-                bg-white/[0.02]
-                shadow-[0_30px_100px_rgba(0,0,0,0.4)]
+                border-blue-300/[0.18]
+                bg-white/[0.04]
+                shadow-[0_30px_100px_rgba(0,0,0,0.25)]
               "
             >
 
@@ -554,16 +588,14 @@ function About() {
                   w-full
                   object-cover
                   object-center
-                  grayscale-[20%]
-                  opacity-80
+                  grayscale-[10%]
+                  opacity-90
                   transition-all
                   duration-700
                   group-hover:scale-105
-                  group-hover:opacity-90
+                  group-hover:opacity-100
                 "
               />
-
-              {/* Image overlay */}
 
               <div
                 className="
@@ -571,9 +603,9 @@ function About() {
                   absolute
                   inset-0
                   bg-gradient-to-t
-                  from-[#020403]/80
-                  via-[#020403]/15
-                  to-emerald-950/10
+                  from-[#07152f]/75
+                  via-[#07152f]/10
+                  to-blue-950/10
                 "
               />
 
@@ -582,11 +614,9 @@ function About() {
                   pointer-events-none
                   absolute
                   inset-0
-                  bg-[radial-gradient(circle_at_75%_20%,rgba(16,185,129,0.18),transparent_32%)]
+                  bg-[radial-gradient(circle_at_75%_20%,rgba(59,130,246,0.20),transparent_32%)]
                 "
               />
-
-              {/* Image border highlight */}
 
               <div
                 className="
@@ -596,12 +626,12 @@ function About() {
                   rounded-[32px]
                   ring-1
                   ring-inset
-                  ring-white/[0.08]
+                  ring-white/[0.12]
                 "
               />
 
 
-              {/* Floating top badge */}
+              {/* Top badge */}
 
               <div
                 className="
@@ -613,8 +643,8 @@ function About() {
                   gap-2
                   rounded-full
                   border
-                  border-white/[0.10]
-                  bg-[#020403]/65
+                  border-white/[0.16]
+                  bg-[#07152f]/65
                   px-3
                   py-2
                   backdrop-blur-xl
@@ -626,8 +656,8 @@ function About() {
                     h-1.5
                     w-1.5
                     rounded-full
-                    bg-emerald-300
-                    shadow-[0_0_12px_rgba(110,231,183,0.8)]
+                    bg-cyan-300
+                    shadow-[0_0_12px_rgba(103,232,249,0.8)]
                   "
                 />
 
@@ -636,7 +666,7 @@ function About() {
                     text-[8px]
                     font-medium
                     tracking-[0.18em]
-                    text-white/60
+                    text-white/75
                   "
                 >
                   DIGITAL PARTNERSHIP
@@ -645,7 +675,7 @@ function About() {
               </div>
 
 
-              {/* Floating bottom badge */}
+              {/* Bottom badge */}
 
               <div
                 className="
@@ -665,7 +695,7 @@ function About() {
                     className="
                       text-[9px]
                       tracking-[0.22em]
-                      text-emerald-200/60
+                      text-blue-200/80
                     "
                   >
                     YOVI TECHNOLOGIES
@@ -675,7 +705,7 @@ function About() {
                     className="
                       mt-1
                       text-xs
-                      text-white/50
+                      text-white/65
                     "
                   >
                     Engineering meaningful digital experiences
@@ -693,9 +723,9 @@ function About() {
                     justify-center
                     rounded-xl
                     border
-                    border-white/[0.10]
-                    bg-black/35
-                    text-emerald-200/70
+                    border-white/[0.14]
+                    bg-[#07152f]/55
+                    text-blue-200
                     backdrop-blur-xl
                   "
                 >
@@ -709,9 +739,7 @@ function About() {
           </motion.div>
 
 
-          {/* =================================================
-              CONTENT
-          ================================================= */}
+          {/* CONTENT */}
 
           <motion.div
             initial={{
@@ -735,9 +763,9 @@ function About() {
             <span
               className="
                 text-[10px]
-                font-medium
+                font-semibold
                 tracking-[0.25em]
-                text-emerald-300/70
+                text-blue-200/80
               "
             >
               WHO WE ARE
@@ -750,6 +778,7 @@ function About() {
                 font-semibold
                 leading-[1.05]
                 tracking-[-0.05em]
+                text-white
                 sm:text-5xl
               "
             >
@@ -759,9 +788,9 @@ function About() {
                 className="
                   block
                   bg-gradient-to-r
-                  from-white/45
-                  via-white/25
-                  to-emerald-200/30
+                  from-blue-100
+                  via-white
+                  to-cyan-200
                   bg-clip-text
                   text-transparent
                 "
@@ -770,18 +799,16 @@ function About() {
               </span>
             </h2>
 
-
             <div
               className="
                 mt-8
                 h-px
                 w-16
                 bg-gradient-to-r
-                from-emerald-300/60
+                from-blue-300
                 to-transparent
               "
             />
-
 
             <div className="mt-8 space-y-6">
 
@@ -789,7 +816,7 @@ function About() {
                 className="
                   text-lg
                   leading-8
-                  text-white/65
+                  text-white/80
                 "
               >
                 YoVi Technologies helps businesses turn ideas,
@@ -801,7 +828,7 @@ function About() {
                 className="
                   text-sm
                   leading-7
-                  text-white/35
+                  text-blue-50/65
                 "
               >
                 We specialize in modern websites, custom web
@@ -814,7 +841,7 @@ function About() {
                 className="
                   text-sm
                   leading-7
-                  text-white/35
+                  text-blue-50/65
                 "
               >
                 Our approach combines technology, design,
@@ -848,17 +875,17 @@ function About() {
                   className="
                     rounded-full
                     border
-                    border-white/[0.07]
-                    bg-white/[0.025]
+                    border-blue-200/[0.14]
+                    bg-blue-400/[0.06]
                     px-3
                     py-1.5
                     text-[8px]
                     tracking-[0.18em]
-                    text-white/30
+                    text-blue-100/60
                     transition-all
                     duration-300
-                    hover:border-emerald-300/15
-                    hover:text-emerald-200/60
+                    hover:border-cyan-300/30
+                    hover:text-cyan-200
                   "
                 >
                   {item}
@@ -884,12 +911,13 @@ function About() {
                 className="
                   rounded-2xl
                   border
-                  border-white/[0.06]
-                  bg-white/[0.02]
+                  border-white/[0.10]
+                  bg-white/[0.055]
                   p-4
+                  backdrop-blur-xl
                 "
               >
-                <p className="text-xl font-semibold text-white/80">
+                <p className="text-xl font-semibold text-white">
                   01
                 </p>
 
@@ -898,7 +926,7 @@ function About() {
                     mt-1
                     text-[9px]
                     tracking-[0.18em]
-                    text-white/25
+                    text-blue-100/45
                   "
                 >
                   BUSINESS FIRST
@@ -909,12 +937,13 @@ function About() {
                 className="
                   rounded-2xl
                   border
-                  border-white/[0.06]
-                  bg-white/[0.02]
+                  border-white/[0.10]
+                  bg-white/[0.055]
                   p-4
+                  backdrop-blur-xl
                 "
               >
-                <p className="text-xl font-semibold text-white/80">
+                <p className="text-xl font-semibold text-white">
                   02
                 </p>
 
@@ -923,7 +952,7 @@ function About() {
                     mt-1
                     text-[9px]
                     tracking-[0.18em]
-                    text-white/25
+                    text-blue-100/45
                   "
                 >
                   DIGITAL FIRST
@@ -946,7 +975,7 @@ function About() {
       <section
         className="
           border-t
-          border-white/[0.06]
+          border-white/[0.10]
           px-6
           py-28
           sm:px-8
@@ -956,13 +985,7 @@ function About() {
 
         <div className="mx-auto max-w-7xl">
 
-          <div
-            className="
-              grid
-              gap-5
-              lg:grid-cols-2
-            "
-          >
+          <div className="grid gap-5 lg:grid-cols-2">
 
             {/* MISSION */}
 
@@ -976,13 +999,14 @@ function About() {
                 overflow-hidden
                 rounded-[30px]
                 border
-                border-emerald-300/[0.08]
-                bg-white/[0.025]
+                border-blue-300/[0.14]
+                bg-white/[0.045]
                 p-8
+                shadow-[0_20px_70px_rgba(0,0,0,0.12)]
                 backdrop-blur-xl
                 transition-all
                 duration-500
-                hover:border-emerald-300/[0.18]
+                hover:border-blue-300/[0.28]
               "
             >
 
@@ -996,12 +1020,12 @@ function About() {
                   h-full
                   w-full
                   object-cover
-                  opacity-[0.055]
-                  grayscale
+                  opacity-[0.10]
+                  grayscale-[15%]
                   transition-all
                   duration-700
                   group-hover:scale-105
-                  group-hover:opacity-[0.08]
+                  group-hover:opacity-[0.14]
                 "
               />
 
@@ -1010,9 +1034,9 @@ function About() {
                   absolute
                   inset-0
                   bg-gradient-to-br
-                  from-[#020403]/75
-                  via-[#020403]/90
-                  to-emerald-950/40
+                  from-[#07152f]/70
+                  via-[#07152f]/80
+                  to-blue-950/55
                 "
               />
 
@@ -1024,7 +1048,7 @@ function About() {
                   h-72
                   w-72
                   rounded-full
-                  bg-emerald-500/[0.07]
+                  bg-blue-500/[0.10]
                   blur-[100px]
                   transition-all
                   duration-700
@@ -1043,10 +1067,10 @@ function About() {
                     justify-center
                     rounded-2xl
                     border
-                    border-emerald-300/15
-                    bg-emerald-400/[0.07]
-                    text-emerald-200
-                    shadow-[0_0_30px_rgba(16,185,129,0.10)]
+                    border-blue-300/20
+                    bg-blue-400/[0.10]
+                    text-blue-200
+                    shadow-[0_0_30px_rgba(59,130,246,0.15)]
                   "
                 >
                   <Target size={21} />
@@ -1058,7 +1082,7 @@ function About() {
                     block
                     text-[10px]
                     tracking-[0.25em]
-                    text-emerald-300/50
+                    text-blue-200/70
                   "
                 >
                   OUR MISSION
@@ -1070,6 +1094,7 @@ function About() {
                     text-3xl
                     font-semibold
                     tracking-[-0.04em]
+                    text-white
                   "
                 >
                   Simplify technology.
@@ -1078,8 +1103,8 @@ function About() {
                     className="
                       block
                       bg-gradient-to-r
-                      from-emerald-200/60
-                      to-white/25
+                      from-blue-200
+                      to-cyan-200
                       bg-clip-text
                       text-transparent
                     "
@@ -1093,7 +1118,7 @@ function About() {
                     mt-6
                     text-sm
                     leading-7
-                    text-white/35
+                    text-blue-50/65
                   "
                 >
                   To help businesses use technology to simplify
@@ -1119,13 +1144,14 @@ function About() {
                 overflow-hidden
                 rounded-[30px]
                 border
-                border-cyan-300/[0.08]
-                bg-white/[0.025]
+                border-cyan-300/[0.14]
+                bg-white/[0.045]
                 p-8
+                shadow-[0_20px_70px_rgba(0,0,0,0.12)]
                 backdrop-blur-xl
                 transition-all
                 duration-500
-                hover:border-cyan-300/[0.18]
+                hover:border-cyan-300/[0.28]
               "
             >
 
@@ -1139,12 +1165,12 @@ function About() {
                   h-full
                   w-full
                   object-cover
-                  opacity-[0.06]
-                  grayscale
+                  opacity-[0.10]
+                  grayscale-[10%]
                   transition-all
                   duration-700
                   group-hover:scale-105
-                  group-hover:opacity-[0.09]
+                  group-hover:opacity-[0.14]
                 "
               />
 
@@ -1153,9 +1179,9 @@ function About() {
                   absolute
                   inset-0
                   bg-gradient-to-br
-                  from-[#020403]/75
-                  via-[#020403]/90
-                  to-cyan-950/40
+                  from-[#07152f]/70
+                  via-[#07152f]/80
+                  to-indigo-950/55
                 "
               />
 
@@ -1167,7 +1193,7 @@ function About() {
                   h-72
                   w-72
                   rounded-full
-                  bg-cyan-500/[0.06]
+                  bg-cyan-500/[0.08]
                   blur-[100px]
                   transition-all
                   duration-700
@@ -1186,10 +1212,10 @@ function About() {
                     justify-center
                     rounded-2xl
                     border
-                    border-cyan-300/15
-                    bg-cyan-400/[0.06]
+                    border-cyan-300/20
+                    bg-cyan-400/[0.08]
                     text-cyan-200
-                    shadow-[0_0_30px_rgba(34,211,238,0.08)]
+                    shadow-[0_0_30px_rgba(34,211,238,0.12)]
                   "
                 >
                   <Eye size={21} />
@@ -1201,7 +1227,7 @@ function About() {
                     block
                     text-[10px]
                     tracking-[0.25em]
-                    text-cyan-300/50
+                    text-cyan-200/70
                   "
                 >
                   OUR VISION
@@ -1213,6 +1239,7 @@ function About() {
                     text-3xl
                     font-semibold
                     tracking-[-0.04em]
+                    text-white
                   "
                 >
                   Build what's next.
@@ -1221,8 +1248,8 @@ function About() {
                     className="
                       block
                       bg-gradient-to-r
-                      from-cyan-200/60
-                      to-white/25
+                      from-cyan-200
+                      to-blue-200
                       bg-clip-text
                       text-transparent
                     "
@@ -1236,7 +1263,7 @@ function About() {
                     mt-6
                     text-sm
                     leading-7
-                    text-white/35
+                    text-blue-50/65
                   "
                 >
                   To become a trusted technology partner for
@@ -1262,7 +1289,7 @@ function About() {
       <section
         className="
           border-t
-          border-white/[0.06]
+          border-white/[0.10]
           px-6
           py-32
           sm:px-8
@@ -1277,9 +1304,9 @@ function About() {
             <span
               className="
                 text-[10px]
-                font-medium
+                font-semibold
                 tracking-[0.25em]
-                text-emerald-300/70
+                text-blue-200/80
               "
             >
               WHY CHOOSE YOVI
@@ -1291,6 +1318,7 @@ function About() {
                 text-4xl
                 font-semibold
                 tracking-[-0.05em]
+                text-white
                 sm:text-5xl
                 md:text-6xl
               "
@@ -1300,9 +1328,9 @@ function About() {
               <span
                 className="
                   bg-gradient-to-r
-                  from-emerald-200
-                  via-white/60
-                  to-cyan-300
+                  from-blue-200
+                  via-white
+                  to-cyan-200
                   bg-clip-text
                   text-transparent
                 "
@@ -1317,7 +1345,7 @@ function About() {
                 max-w-xl
                 text-sm
                 leading-7
-                text-white/35
+                text-blue-50/65
               "
             >
               We don't believe in one-size-fits-all
@@ -1345,11 +1373,11 @@ function About() {
               const Icon = item.icon;
 
               const accent =
-                item.accent === "emerald"
-                  ? "text-emerald-200 bg-emerald-400/[0.07] border-emerald-300/10 group-hover:border-emerald-300/20"
-                  : item.accent === "teal"
-                  ? "text-teal-200 bg-teal-400/[0.06] border-teal-300/10 group-hover:border-teal-300/20"
-                  : "text-cyan-200 bg-cyan-400/[0.06] border-cyan-300/10 group-hover:border-cyan-300/20";
+                item.accent === "blue"
+                  ? "text-blue-200 bg-blue-400/[0.09] border-blue-300/15 group-hover:border-blue-300/30"
+                  : item.accent === "cyan"
+                  ? "text-cyan-200 bg-cyan-400/[0.08] border-cyan-300/15 group-hover:border-cyan-300/30"
+                  : "text-indigo-200 bg-indigo-400/[0.08] border-indigo-300/15 group-hover:border-indigo-300/30";
 
               return (
                 <motion.div
@@ -1379,13 +1407,15 @@ function About() {
                     overflow-hidden
                     rounded-2xl
                     border
-                    border-white/[0.07]
-                    bg-white/[0.02]
+                    border-white/[0.10]
+                    bg-white/[0.045]
                     p-6
+                    shadow-[0_15px_50px_rgba(0,0,0,0.10)]
+                    backdrop-blur-xl
                     transition-all
                     duration-500
-                    hover:border-white/[0.14]
-                    hover:bg-white/[0.035]
+                    hover:border-white/[0.20]
+                    hover:bg-white/[0.07]
                   "
                 >
 
@@ -1397,7 +1427,7 @@ function About() {
                       h-32
                       w-32
                       rounded-full
-                      bg-emerald-500/[0.035]
+                      bg-blue-400/[0.06]
                       blur-[60px]
                       transition-all
                       duration-500
@@ -1429,7 +1459,8 @@ function About() {
                       relative
                       mt-5
                       text-sm
-                      font-medium
+                      font-semibold
+                      text-white
                     "
                   >
                     {item.title}
@@ -1441,7 +1472,7 @@ function About() {
                       mt-2
                       text-xs
                       leading-6
-                      text-white/30
+                      text-blue-50/60
                     "
                   >
                     {item.text}
@@ -1466,7 +1497,7 @@ function About() {
       <section
         className="
           border-t
-          border-white/[0.06]
+          border-white/[0.10]
           px-6
           py-28
           sm:px-8
@@ -1493,9 +1524,9 @@ function About() {
             <span
               className="
                 text-[10px]
-                font-medium
+                font-semibold
                 tracking-[0.25em]
-                text-emerald-300/70
+                text-blue-200/80
               "
             >
               HOW WE THINK
@@ -1507,6 +1538,7 @@ function About() {
                 text-4xl
                 font-semibold
                 tracking-[-0.05em]
+                text-white
                 sm:text-5xl
               "
             >
@@ -1516,9 +1548,9 @@ function About() {
                 className="
                   block
                   bg-gradient-to-r
-                  from-white/40
-                  via-white/25
-                  to-emerald-200/30
+                  from-blue-100
+                  via-white
+                  to-cyan-200
                   bg-clip-text
                   text-transparent
                 "
@@ -1533,7 +1565,7 @@ function About() {
                 max-w-xl
                 text-sm
                 leading-7
-                text-white/35
+                text-blue-50/65
               "
             >
               We start by understanding the problem before
@@ -1571,12 +1603,13 @@ function About() {
               overflow-hidden
               rounded-[30px]
               border
-              border-emerald-300/[0.08]
-              bg-white/[0.025]
+              border-blue-300/[0.14]
+              bg-white/[0.045]
+              shadow-[0_20px_70px_rgba(0,0,0,0.14)]
               backdrop-blur-xl
               transition-all
               duration-500
-              hover:border-emerald-300/[0.16]
+              hover:border-blue-300/[0.28]
             "
           >
 
@@ -1589,8 +1622,8 @@ function About() {
                 h-full
                 w-full
                 object-cover
-                opacity-[0.12]
-                grayscale
+                opacity-[0.13]
+                grayscale-[15%]
                 transition-transform
                 duration-700
                 group-hover:scale-105
@@ -1602,9 +1635,9 @@ function About() {
                 absolute
                 inset-0
                 bg-gradient-to-br
-                from-[#020403]/90
-                via-[#020403]/85
-                to-emerald-950/45
+                from-[#07152f]/85
+                via-[#07152f]/75
+                to-blue-950/50
               "
             />
 
@@ -1616,7 +1649,7 @@ function About() {
                 h-60
                 w-60
                 rounded-full
-                bg-emerald-500/[0.05]
+                bg-blue-500/[0.08]
                 blur-[90px]
                 transition-all
                 duration-700
@@ -1642,7 +1675,7 @@ function About() {
                     items-center
                     gap-4
                     border-b
-                    border-white/[0.06]
+                    border-white/[0.09]
                     py-5
                     last:border-0
                   "
@@ -1658,11 +1691,11 @@ function About() {
                       justify-center
                       rounded-lg
                       border
-                      border-emerald-300/10
-                      bg-emerald-400/[0.05]
+                      border-blue-300/20
+                      bg-blue-400/[0.08]
                       text-[9px]
                       tracking-[0.1em]
-                      text-emerald-200/50
+                      text-blue-200/70
                     "
                   >
                     0{index + 1}
@@ -1671,10 +1704,10 @@ function About() {
                   <span
                     className="
                       text-sm
-                      text-white/55
+                      text-white/70
                       transition-colors
                       duration-300
-                      group-hover:text-white/70
+                      group-hover:text-white/85
                     "
                   >
                     {item}
@@ -1702,7 +1735,7 @@ function About() {
           relative
           overflow-hidden
           border-t
-          border-white/[0.06]
+          border-white/[0.10]
           px-6
           py-32
           sm:px-8
@@ -1710,7 +1743,7 @@ function About() {
         "
       >
 
-        {/* CTA background image */}
+        {/* CTA background */}
 
         <div className="pointer-events-none absolute inset-0">
 
@@ -1721,8 +1754,8 @@ function About() {
               h-full
               w-full
               object-cover
-              opacity-[0.07]
-              grayscale
+              opacity-[0.10]
+              grayscale-[10%]
             "
           />
 
@@ -1730,7 +1763,7 @@ function About() {
             className="
               absolute
               inset-0
-              bg-[#020403]/85
+              bg-[#07152f]/75
             "
           />
 
@@ -1738,14 +1771,14 @@ function About() {
             className="
               absolute
               inset-0
-              bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.12),transparent_48%)]
+              bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.20),transparent_48%)]
             "
           />
 
         </div>
 
 
-        {/* Main CTA glow */}
+        {/* Blue glow */}
 
         <div
           className="
@@ -1753,17 +1786,17 @@ function About() {
             absolute
             left-1/2
             top-1/2
-            h-[450px]
-            w-[450px]
+            h-[500px]
+            w-[500px]
             -translate-x-1/2
             -translate-y-1/2
             rounded-full
-            bg-emerald-500/[0.055]
+            bg-blue-500/[0.10]
             blur-[140px]
           "
         />
 
-        {/* Cyan secondary glow */}
+        {/* Cyan glow */}
 
         <div
           className="
@@ -1771,12 +1804,12 @@ function About() {
             absolute
             left-1/2
             top-1/2
-            h-[280px]
-            w-[280px]
+            h-[300px]
+            w-[300px]
             -translate-x-1/2
             -translate-y-1/2
             rounded-full
-            bg-cyan-500/[0.045]
+            bg-cyan-400/[0.08]
             blur-[100px]
           "
         />
@@ -1810,7 +1843,7 @@ function About() {
               text-[10px]
               font-semibold
               tracking-[0.25em]
-              text-emerald-300/80
+              text-cyan-200/85
             "
           >
             LET'S BUILD TOGETHER
@@ -1822,6 +1855,7 @@ function About() {
               text-4xl
               font-semibold
               tracking-[-0.05em]
+              text-white
               sm:text-5xl
               md:text-6xl
             "
@@ -1832,9 +1866,9 @@ function About() {
               className="
                 block
                 bg-gradient-to-r
-                from-emerald-200/80
-                via-white/40
-                to-cyan-300/55
+                from-blue-200
+                via-white
+                to-cyan-200
                 bg-clip-text
                 text-transparent
               "
@@ -1850,7 +1884,7 @@ function About() {
               max-w-xl
               text-sm
               leading-6
-              text-white/35
+              text-blue-50/70
             "
           >
             Let's turn your ideas into meaningful digital
@@ -1867,18 +1901,19 @@ function About() {
               gap-3
               rounded-full
               bg-gradient-to-r
-              from-emerald-500
-              to-teal-500
+              from-blue-500
+              via-blue-500
+              to-cyan-500
               px-7
               py-4
               text-sm
               font-semibold
               text-white
-              shadow-[0_15px_60px_rgba(16,185,129,0.22)]
+              shadow-[0_15px_60px_rgba(37,99,235,0.30)]
               transition-all
               duration-300
               hover:scale-[1.04]
-              hover:shadow-[0_20px_80px_rgba(16,185,129,0.32)]
+              hover:shadow-[0_20px_80px_rgba(34,211,238,0.30)]
             "
           >
 
@@ -1893,7 +1928,7 @@ function About() {
                 justify-center
                 rounded-full
                 bg-white
-                text-emerald-600
+                text-blue-600
                 transition-transform
                 duration-300
                 group-hover:rotate-45
@@ -1913,4 +1948,3 @@ function About() {
 }
 
 export default About;
-

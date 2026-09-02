@@ -1,4 +1,3 @@
-
 import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 import yoviLogo from "../assets/yovi-logo.png";
@@ -6,9 +5,9 @@ import yoviLogo from "../assets/yovi-logo.png";
 function Footer() {
   const services = [
     "Web Development",
-    "Mobile Apps",
+    "Mobile App Development",
     "AI Solutions",
-    "ERP & CRM",
+    "ERP & CRM Development",
     "Digital Marketing",
     "UI/UX & Branding",
   ];
@@ -37,69 +36,98 @@ function Footer() {
   ];
 
   return (
-    <footer className="relative overflow-hidden border-t border-white/[0.07] bg-[#020403] text-white">
+    <footer className="relative overflow-hidden border-t border-blue-200/[0.10] bg-[#07152f] text-white">
 
       {/* =====================================================
-          AMBIENT BACKGROUND
+          BACKGROUND
       ===================================================== */}
 
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
 
-        {/* Emerald atmosphere */}
+        {/* Clear technology image */}
+
+        <img
+          src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2200&q=95"
+          alt=""
+          className="
+            absolute
+            inset-0
+            h-full
+            w-full
+            object-cover
+            object-center
+            opacity-[0.16]
+          "
+        />
+
+        {/* Main dark overlay */}
+
+        <div
+          className="
+            absolute
+            inset-0
+            bg-gradient-to-b
+            from-[#07152f]/70
+            via-[#07152f]/88
+            to-[#07152f]
+          "
+        />
+
+        {/* Blue atmosphere */}
+
         <div
           className="
             absolute
             left-[-180px]
             top-[-180px]
-            h-[520px]
-            w-[520px]
+            h-[600px]
+            w-[600px]
             rounded-full
-            bg-emerald-500/[0.045]
-            blur-[160px]
+            bg-blue-500/[0.13]
+            blur-[150px]
           "
         />
 
         {/* Cyan atmosphere */}
+
         <div
           className="
             absolute
             right-[-180px]
-            top-[25%]
-            h-[520px]
-            w-[520px]
-            rounded-full
-            bg-cyan-500/[0.035]
-            blur-[160px]
-          "
-        />
-
-        {/* Bottom emerald glow */}
-        <div
-          className="
-            absolute
-            bottom-[-260px]
-            left-1/2
+            top-[20%]
             h-[550px]
             w-[550px]
-            -translate-x-1/2
             rounded-full
-            bg-emerald-500/[0.035]
-            blur-[160px]
+            bg-cyan-400/[0.09]
+            blur-[150px]
           "
         />
 
-        {/* Subtle center glow */}
+        {/* Bottom blue glow */}
+
         <div
           className="
             absolute
+            bottom-[-250px]
             left-1/2
-            top-[35%]
-            h-[320px]
-            w-[320px]
+            h-[600px]
+            w-[600px]
             -translate-x-1/2
             rounded-full
-            bg-teal-500/[0.025]
-            blur-[130px]
+            bg-blue-500/[0.08]
+            blur-[150px]
+          "
+        />
+
+        {/* Grid */}
+
+        <div
+          className="
+            absolute
+            inset-0
+            opacity-[0.035]
+            [background-image:linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)]
+            [background-size:80px_80px]
           "
         />
 
@@ -107,10 +135,11 @@ function Footer() {
 
 
       {/* =====================================================
-          MAIN FOOTER
+          MAIN
       ===================================================== */}
 
-      <div className="relative mx-auto max-w-7xl px-6 pb-10 pt-20 sm:px-8 lg:px-12">
+      <div className="relative mx-auto max-w-7xl px-6 pb-8 pt-20 sm:px-8 lg:px-12">
+
 
         {/* ===================================================
             CTA
@@ -119,141 +148,215 @@ function Footer() {
         <div
           className="
             relative
-            grid
-            gap-10
             overflow-hidden
-            border-b
-            border-white/[0.07]
-            pb-16
-            lg:grid-cols-[1.2fr_0.8fr]
-            lg:items-end
+            rounded-[32px]
+            border
+            border-blue-200/[0.12]
+            bg-[#0a1d3d]/60
+            px-7
+            py-10
+            shadow-[0_30px_100px_rgba(0,0,0,0.25)]
+            backdrop-blur-xl
+            sm:px-10
+            sm:py-12
+            lg:px-12
+            lg:py-14
           "
         >
 
-          {/* CTA glow */}
+          {/* CTA image */}
+
+          <img
+            src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1800&q=95"
+            alt=""
+            className="
+              pointer-events-none
+              absolute
+              inset-0
+              h-full
+              w-full
+              object-cover
+              object-center
+              opacity-[0.10]
+            "
+          />
+
+          {/* CTA overlay */}
 
           <div
             className="
               pointer-events-none
               absolute
-              -left-32
-              -top-32
-              h-[320px]
-              w-[320px]
-              rounded-full
-              bg-emerald-500/[0.05]
-              blur-[110px]
+              inset-0
+              bg-gradient-to-r
+              from-[#07152f]
+              via-[#07152f]/80
+              to-[#07152f]/50
             "
           />
 
-          <div className="relative">
+          {/* Blue glow */}
 
-            <span
-              className="
-                inline-flex
-                items-center
-                gap-2
-                text-[10px]
-                font-semibold
-                tracking-[0.25em]
-                text-emerald-300/70
-              "
-            >
-              <span
+          <div
+            className="
+              pointer-events-none
+              absolute
+              -right-32
+              -top-32
+              h-[380px]
+              w-[380px]
+              rounded-full
+              bg-blue-500/[0.16]
+              blur-[120px]
+            "
+          />
+
+          <div className="relative grid gap-10 lg:grid-cols-[1fr_auto] lg:items-center">
+
+            {/* CTA TEXT */}
+
+            <div>
+
+              <div className="mb-5 flex items-center gap-3">
+
+                <span
+                  className="
+                    flex
+                    h-8
+                    w-8
+                    items-center
+                    justify-center
+                    rounded-full
+                    border
+                    border-cyan-300/25
+                    bg-cyan-400/[0.08]
+                    shadow-[0_0_30px_rgba(34,211,238,0.15)]
+                  "
+                >
+                  <span
+                    className="
+                      h-1.5
+                      w-1.5
+                      rounded-full
+                      bg-cyan-300
+                      shadow-[0_0_15px_rgba(34,211,238,0.9)]
+                    "
+                  />
+                </span>
+
+                <span
+                  className="
+                    text-[10px]
+                    font-semibold
+                    tracking-[0.28em]
+                    text-cyan-200/85
+                  "
+                >
+                  HAVE A PROJECT IN MIND?
+                </span>
+
+              </div>
+
+
+              <h2
                 className="
-                  h-1.5
-                  w-1.5
-                  rounded-full
-                  bg-emerald-300
-                  shadow-[0_0_18px_rgba(110,231,183,0.8)]
-                "
-              />
-
-              HAVE A PROJECT IN MIND?
-            </span>
-
-
-            <h2
-              className="
-                mt-5
-                max-w-3xl
-                text-4xl
-                font-semibold
-                leading-[1.05]
-                tracking-[-0.05em]
-                sm:text-5xl
-                md:text-6xl
-              "
-            >
-              Let's build something
-
-              <span
-                className="
-                  block
-                  bg-gradient-to-r
-                  from-emerald-200/75
-                  via-white/40
-                  to-cyan-300/45
-                  bg-clip-text
-                  text-transparent
+                  max-w-3xl
+                  text-4xl
+                  font-semibold
+                  leading-[1.05]
+                  tracking-[-0.045em]
+                  text-white
+                  sm:text-5xl
+                  md:text-6xl
                 "
               >
-                meaningful.
-              </span>
+                Let's build something
 
-            </h2>
+                <span
+                  className="
+                    block
+                    bg-gradient-to-r
+                    from-blue-200
+                    via-white
+                    to-cyan-200
+                    bg-clip-text
+                    text-transparent
+                  "
+                >
+                  worth building.
+                </span>
+              </h2>
 
-          </div>
 
-
-          {/* CTA BUTTON */}
-
-          <div className="relative lg:flex lg:justify-end">
-
-            <Link
-              to="/contact"
-              className="
-                group
-                inline-flex
-                items-center
-                gap-3
-                rounded-full
-                bg-gradient-to-r
-                from-emerald-500
-                to-teal-500
-                px-6
-                py-3.5
-                text-sm
-                font-semibold
-                text-white
-                shadow-[0_12px_45px_rgba(16,185,129,0.18)]
-                transition-all
-                duration-300
-                hover:scale-[1.04]
-                hover:shadow-[0_18px_60px_rgba(16,185,129,0.30)]
-              "
-            >
-              Start a Project
-
-              <span
+              <p
                 className="
-                  flex
-                  h-6
-                  w-6
+                  mt-5
+                  max-w-xl
+                  text-sm
+                  leading-7
+                  text-blue-50/65
+                  sm:text-base
+                "
+              >
+                From websites and mobile apps to AI-powered systems,
+                ERP, CRM and digital growth — let's create something
+                that moves your business forward.
+              </p>
+
+            </div>
+
+
+            {/* CTA BUTTON */}
+
+            <div className="relative">
+
+              <Link
+                to="/contact"
+                className="
+                  group
+                  inline-flex
                   items-center
-                  justify-center
+                  gap-3
                   rounded-full
-                  bg-white
-                  text-emerald-600
+                  bg-gradient-to-r
+                  from-blue-500
+                  via-blue-500
+                  to-cyan-500
+                  px-7
+                  py-4
+                  text-sm
+                  font-semibold
+                  text-white
+                  shadow-[0_15px_60px_rgba(37,99,235,0.30)]
                   transition-all
                   duration-300
-                  group-hover:rotate-45
+                  hover:scale-[1.04]
+                  hover:shadow-[0_20px_80px_rgba(34,211,238,0.28)]
                 "
               >
-                <ArrowUpRight size={13} />
-              </span>
+                Start a Project
 
-            </Link>
+                <span
+                  className="
+                    flex
+                    h-7
+                    w-7
+                    items-center
+                    justify-center
+                    rounded-full
+                    bg-white
+                    text-blue-600
+                    transition-all
+                    duration-300
+                    group-hover:rotate-45
+                  "
+                >
+                  <ArrowUpRight size={14} />
+                </span>
+
+              </Link>
+
+            </div>
 
           </div>
 
@@ -268,11 +371,14 @@ function Footer() {
           className="
             grid
             gap-12
+            border-b
+            border-white/[0.08]
             py-16
             sm:grid-cols-2
-            lg:grid-cols-[1.4fr_0.8fr_0.8fr_1fr]
+            lg:grid-cols-[1.35fr_0.85fr_0.75fr_1fr]
           "
         >
+
 
           {/* =================================================
               BRAND
@@ -285,32 +391,39 @@ function Footer() {
               className="group inline-flex items-center gap-3"
             >
 
+              {/* LOGO */}
+
               <div
                 className="
                   relative
                   flex
-                  h-11
-                  w-11
+                  h-12
+                  w-12
                   items-center
                   justify-center
                   overflow-hidden
                   rounded-2xl
                   border
-                  border-emerald-300/[0.12]
+                  border-blue-200/[0.18]
                   bg-white
-                  shadow-[0_0_30px_rgba(16,185,129,0.08)]
+                  shadow-[0_0_35px_rgba(59,130,246,0.14)]
                   transition-all
                   duration-300
                   group-hover:scale-105
-                  group-hover:border-emerald-300/30
-                  group-hover:shadow-[0_0_40px_rgba(16,185,129,0.18)]
+                  group-hover:border-cyan-300/40
+                  group-hover:shadow-[0_0_45px_rgba(34,211,238,0.20)]
                 "
               >
 
                 <img
                   src={yoviLogo}
                   alt="YoVi Technologies"
-                  className="h-full w-full object-contain p-1.5"
+                  className="
+                    h-full
+                    w-full
+                    object-contain
+                    p-1.5
+                  "
                 />
 
                 {/* Logo shine */}
@@ -334,14 +447,17 @@ function Footer() {
               </div>
 
 
+              {/* BRAND NAME */}
+
               <div className="leading-none">
 
                 <span
                   className="
                     block
-                    text-lg
+                    text-xl
                     font-semibold
-                    tracking-[-0.03em]
+                    tracking-[-0.035em]
+                    text-white
                   "
                 >
                   YoVi
@@ -349,11 +465,12 @@ function Footer() {
 
                 <span
                   className="
-                    mt-1
+                    mt-1.5
                     block
                     text-[7px]
-                    tracking-[0.28em]
-                    text-emerald-200/40
+                    font-medium
+                    tracking-[0.30em]
+                    text-cyan-200/55
                   "
                 >
                   TECHNOLOGIES
@@ -370,7 +487,7 @@ function Footer() {
                 max-w-sm
                 text-sm
                 leading-7
-                text-white/30
+                text-blue-50/55
               "
             >
               Technology, design and AI solutions that help
@@ -378,13 +495,22 @@ function Footer() {
             </p>
 
 
+            {/* TAGLINE */}
+
             <div className="mt-7">
 
               <span
                 className="
+                  rounded-full
+                  border
+                  border-blue-300/[0.12]
+                  bg-blue-400/[0.04]
+                  px-3
+                  py-1.5
                   text-[9px]
-                  tracking-[0.22em]
-                  text-emerald-200/40
+                  font-medium
+                  tracking-[0.20em]
+                  text-cyan-200/55
                 "
               >
                 INNOVATE • INTEGRATE • INSPIRE
@@ -403,33 +529,54 @@ function Footer() {
 
             <span
               className="
-                text-[9px]
+                text-[10px]
                 font-semibold
                 tracking-[0.22em]
-                text-emerald-300/55
+                text-cyan-200/75
               "
             >
               SERVICES
             </span>
 
 
-            <div className="mt-6 space-y-3">
+            <div className="mt-6 space-y-3.5">
 
               {services.map((service) => (
 
                 <div
                   key={service}
                   className="
+                    group
+                    flex
                     cursor-default
+                    items-center
+                    gap-2.5
                     text-sm
-                    text-white/35
+                    font-medium
+                    text-blue-50/55
                     transition-all
                     duration-300
                     hover:translate-x-1
-                    hover:text-emerald-100
+                    hover:text-white
                   "
                 >
+
+                  <span
+                    className="
+                      h-1
+                      w-1
+                      shrink-0
+                      rounded-full
+                      bg-cyan-300/20
+                      transition-all
+                      duration-300
+                      group-hover:bg-cyan-300
+                      group-hover:shadow-[0_0_10px_rgba(34,211,238,0.8)]
+                    "
+                  />
+
                   {service}
+
                 </div>
 
               ))}
@@ -447,17 +594,17 @@ function Footer() {
 
             <span
               className="
-                text-[9px]
+                text-[10px]
                 font-semibold
                 tracking-[0.22em]
-                text-emerald-300/55
+                text-cyan-200/75
               "
             >
               COMPANY
             </span>
 
 
-            <div className="mt-6 space-y-3">
+            <div className="mt-6 space-y-3.5">
 
               {companyLinks.map((link) => (
 
@@ -468,9 +615,10 @@ function Footer() {
                     group
                     flex
                     items-center
-                    gap-2
+                    gap-2.5
                     text-sm
-                    text-white/35
+                    font-medium
+                    text-blue-50/55
                     transition-all
                     duration-300
                     hover:translate-x-1
@@ -482,12 +630,13 @@ function Footer() {
                     className="
                       h-1
                       w-1
+                      shrink-0
                       rounded-full
-                      bg-emerald-300/0
+                      bg-blue-300/20
                       transition-all
                       duration-300
-                      group-hover:bg-emerald-300
-                      group-hover:shadow-[0_0_8px_rgba(110,231,183,0.7)]
+                      group-hover:bg-blue-300
+                      group-hover:shadow-[0_0_10px_rgba(59,130,246,0.8)]
                     "
                   />
 
@@ -510,10 +659,10 @@ function Footer() {
 
             <span
               className="
-                text-[9px]
+                text-[10px]
                 font-semibold
                 tracking-[0.22em]
-                text-emerald-300/55
+                text-cyan-200/75
               "
             >
               GET IN TOUCH
@@ -521,6 +670,7 @@ function Footer() {
 
 
             <div className="mt-6 space-y-5">
+
 
               {/* EMAIL */}
 
@@ -532,28 +682,28 @@ function Footer() {
                 <div
                   className="
                     flex
-                    h-8
-                    w-8
+                    h-9
+                    w-9
                     shrink-0
                     items-center
                     justify-center
-                    rounded-lg
+                    rounded-xl
                     border
-                    border-white/[0.07]
-                    bg-white/[0.025]
+                    border-blue-200/[0.10]
+                    bg-blue-400/[0.04]
                     transition-all
                     duration-300
-                    group-hover:border-emerald-300/20
-                    group-hover:bg-emerald-400/[0.07]
+                    group-hover:border-cyan-300/30
+                    group-hover:bg-cyan-400/[0.08]
                   "
                 >
 
                   <Mail
-                    size={14}
+                    size={15}
                     className="
-                      text-white/30
+                      text-blue-100/45
                       transition-colors
-                      group-hover:text-emerald-200
+                      group-hover:text-cyan-200
                     "
                   />
 
@@ -564,7 +714,8 @@ function Footer() {
                   className="
                     pt-1.5
                     text-sm
-                    text-white/35
+                    font-medium
+                    text-blue-50/55
                     transition-colors
                     group-hover:text-white
                   "
@@ -585,28 +736,28 @@ function Footer() {
                 <div
                   className="
                     flex
-                    h-8
-                    w-8
+                    h-9
+                    w-9
                     shrink-0
                     items-center
                     justify-center
-                    rounded-lg
+                    rounded-xl
                     border
-                    border-white/[0.07]
-                    bg-white/[0.025]
+                    border-blue-200/[0.10]
+                    bg-blue-400/[0.04]
                     transition-all
                     duration-300
-                    group-hover:border-emerald-300/20
-                    group-hover:bg-emerald-400/[0.07]
+                    group-hover:border-blue-300/30
+                    group-hover:bg-blue-400/[0.08]
                   "
                 >
 
                   <Phone
-                    size={14}
+                    size={15}
                     className="
-                      text-white/30
+                      text-blue-100/45
                       transition-colors
-                      group-hover:text-emerald-200
+                      group-hover:text-blue-200
                     "
                   />
 
@@ -616,7 +767,8 @@ function Footer() {
                 <span
                   className="
                     text-sm
-                    text-white/35
+                    font-medium
+                    text-blue-50/55
                     transition-colors
                     group-hover:text-white
                   "
@@ -634,21 +786,21 @@ function Footer() {
                 <div
                   className="
                     flex
-                    h-8
-                    w-8
+                    h-9
+                    w-9
                     shrink-0
                     items-center
                     justify-center
-                    rounded-lg
+                    rounded-xl
                     border
-                    border-white/[0.07]
-                    bg-white/[0.025]
+                    border-blue-200/[0.10]
+                    bg-blue-400/[0.04]
                   "
                 >
 
                   <MapPin
-                    size={14}
-                    className="text-white/30"
+                    size={15}
+                    className="text-blue-100/45"
                   />
 
                 </div>
@@ -658,8 +810,9 @@ function Footer() {
                   className="
                     pt-1
                     text-sm
+                    font-medium
                     leading-6
-                    text-white/35
+                    text-blue-50/55
                   "
                 >
                   Satnali, Mahendergarh,
@@ -685,11 +838,10 @@ function Footer() {
             flex
             flex-col
             gap-5
-            border-t
-            border-white/[0.07]
             pt-7
-            text-[10px]
-            text-white/20
+            text-[11px]
+            font-medium
+            text-blue-100/35
             sm:flex-row
             sm:items-center
             sm:justify-between
@@ -702,14 +854,14 @@ function Footer() {
           </span>
 
 
-          <div className="flex gap-6">
+          <div className="flex gap-7">
 
             <Link
               to="/privacy"
               className="
                 transition-colors
                 duration-300
-                hover:text-emerald-200/70
+                hover:text-cyan-200
               "
             >
               Privacy Policy
@@ -720,7 +872,7 @@ function Footer() {
               className="
                 transition-colors
                 duration-300
-                hover:text-emerald-200/70
+                hover:text-cyan-200
               "
             >
               Terms
@@ -737,4 +889,3 @@ function Footer() {
 }
 
 export default Footer;
-

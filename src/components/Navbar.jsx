@@ -1,12 +1,7 @@
-
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import yoviLogo from "../assets/yovi-logo.png";
-import {
-  ArrowUpRight,
-  Menu,
-  X,
-} from "lucide-react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -25,7 +20,7 @@ function Navbar() {
   }, []);
 
   /*
-    When mobile menu opens, add extra top space to the page
+    When mobile menu opens, add extra top space
     so the dropdown doesn't cover the hero content.
   */
   useEffect(() => {
@@ -88,19 +83,19 @@ function Navbar() {
         isActive
           ? `
             bg-gradient-to-r
-            from-emerald-500/[0.14]
-            via-teal-500/[0.10]
-            to-cyan-500/[0.08]
+            from-blue-500/[0.16]
+            via-blue-400/[0.10]
+            to-cyan-400/[0.10]
 
             text-white
 
-            shadow-[inset_0_0_25px_rgba(16,185,129,0.06)]
-            ring-1 ring-emerald-300/[0.08]
+            shadow-[inset_0_0_25px_rgba(59,130,246,0.07)]
+            ring-1 ring-blue-300/[0.12]
           `
           : `
-            text-white/45
+            text-white/50
 
-            hover:bg-white/[0.035]
+            hover:bg-blue-400/[0.045]
             hover:text-white/90
           `
       }
@@ -129,13 +124,11 @@ function Navbar() {
         `}
       </style>
 
-
       {/* =====================================================
           HEADER
       ===================================================== */}
 
       <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6">
-
         <div className="mx-auto max-w-7xl">
 
           {/* =====================================================
@@ -154,15 +147,15 @@ function Navbar() {
               ${
                 scrolled
                   ? `
-                    border-emerald-300/[0.14]
-                    bg-[#06100D]/[0.92]
-                    shadow-[0_20px_70px_rgba(0,0,0,0.55)]
+                    border-blue-300/[0.16]
+                    bg-[#071525]/[0.94]
+                    shadow-[0_20px_70px_rgba(15,40,80,0.38)]
                     backdrop-blur-2xl
                   `
                   : `
-                    border-white/[0.07]
-                    bg-white/[0.025]
-                    shadow-[0_10px_40px_rgba(0,0,0,0.12)]
+                    border-blue-200/[0.08]
+                    bg-[#07111f]/[0.72]
+                    shadow-[0_10px_40px_rgba(15,40,80,0.18)]
                     backdrop-blur-xl
                   `
               }
@@ -170,7 +163,7 @@ function Navbar() {
           >
 
             {/* =====================================================
-                SUBTLE NAVBAR GLOW
+                SUBTLE NAVBAR BLUE GLOW
             ===================================================== */}
 
             <div
@@ -183,6 +176,8 @@ function Navbar() {
               "
             >
 
+              {/* Blue glow */}
+
               <div
                 className="
                   absolute
@@ -191,10 +186,12 @@ function Navbar() {
                   h-[160px]
                   w-[280px]
                   rounded-full
-                  bg-emerald-500/[0.055]
+                  bg-blue-500/[0.075]
                   blur-[70px]
                 "
               />
+
+              {/* Cyan glow */}
 
               <div
                 className="
@@ -204,13 +201,12 @@ function Navbar() {
                   h-[140px]
                   w-[240px]
                   rounded-full
-                  bg-cyan-500/[0.035]
+                  bg-cyan-500/[0.045]
                   blur-[70px]
                 "
               />
 
             </div>
-
 
             {/* =====================================================
                 LOGO
@@ -240,11 +236,11 @@ function Navbar() {
                   overflow-hidden
                   rounded-xl
                   bg-white
-                  shadow-[0_0_25px_rgba(16,185,129,0.15)]
+                  shadow-[0_0_25px_rgba(59,130,246,0.18)]
                   transition-all
                   duration-300
                   group-hover:scale-105
-                  group-hover:shadow-[0_0_35px_rgba(16,185,129,0.28)]
+                  group-hover:shadow-[0_0_35px_rgba(59,130,246,0.30)]
                 "
               >
 
@@ -258,6 +254,8 @@ function Navbar() {
                     p-1.5
                   "
                 />
+
+                {/* Logo shine */}
 
                 <span
                   className="
@@ -277,7 +275,6 @@ function Navbar() {
 
               </div>
 
-
               {/* Brand */}
 
               <div className="hidden leading-none sm:block">
@@ -288,7 +285,7 @@ function Navbar() {
                     bg-gradient-to-r
                     from-white
                     via-white
-                    to-emerald-200
+                    to-blue-200
                     bg-clip-text
                     text-transparent
                     text-[17px]
@@ -306,7 +303,7 @@ function Navbar() {
                     text-[7px]
                     font-medium
                     tracking-[0.28em]
-                    text-emerald-200/40
+                    text-blue-200/45
                   "
                 >
                   TECHNOLOGIES
@@ -316,12 +313,13 @@ function Navbar() {
 
             </Link>
 
-
             {/* =====================================================
                 DESKTOP NAVIGATION
             ===================================================== */}
 
             <div className="relative z-10 hidden items-center gap-1 lg:flex">
+
+              {/* HOME */}
 
               <NavLink
                 to="/"
@@ -341,8 +339,8 @@ function Navbar() {
                           w-1
                           -translate-x-1/2
                           rounded-full
-                          bg-emerald-300
-                          shadow-[0_0_14px_rgba(110,231,183,0.9)]
+                          bg-cyan-300
+                          shadow-[0_0_14px_rgba(103,232,249,0.95)]
                         "
                       />
                     )}
@@ -350,6 +348,7 @@ function Navbar() {
                 )}
               </NavLink>
 
+              {/* OTHER LINKS */}
 
               {navLinks.map((link) => (
                 <NavLink
@@ -371,8 +370,8 @@ function Navbar() {
                             w-1
                             -translate-x-1/2
                             rounded-full
-                            bg-emerald-300
-                            shadow-[0_0_14px_rgba(110,231,183,0.9)]
+                            bg-cyan-300
+                            shadow-[0_0_14px_rgba(103,232,249,0.95)]
                           "
                         />
                       )}
@@ -382,7 +381,6 @@ function Navbar() {
               ))}
 
             </div>
-
 
             {/* =====================================================
                 DESKTOP CTA
@@ -400,22 +398,24 @@ function Navbar() {
                 overflow-hidden
                 rounded-full
                 bg-gradient-to-r
-                from-emerald-500
-                via-teal-500
+                from-blue-600
+                via-blue-500
                 to-cyan-500
                 px-4
                 py-2.5
                 text-[13px]
                 font-semibold
                 text-white
-                shadow-[0_8px_30px_rgba(20,184,166,0.18)]
+                shadow-[0_8px_30px_rgba(37,99,235,0.20)]
                 transition-all
                 duration-300
                 hover:scale-[1.03]
-                hover:shadow-[0_12px_40px_rgba(16,185,129,0.32)]
+                hover:shadow-[0_12px_40px_rgba(37,99,235,0.34)]
                 lg:flex
               "
             >
+
+              {/* CTA shine */}
 
               <span
                 className="
@@ -458,7 +458,6 @@ function Navbar() {
 
             </Link>
 
-
             {/* =====================================================
                 MOBILE MENU BUTTON
             ===================================================== */}
@@ -476,16 +475,16 @@ function Navbar() {
                 justify-center
                 rounded-full
                 border
-                border-emerald-300/[0.12]
+                border-blue-300/[0.15]
                 bg-gradient-to-br
-                from-emerald-500/[0.10]
-                to-cyan-500/[0.05]
+                from-blue-500/[0.12]
+                to-cyan-500/[0.06]
                 text-white
-                shadow-[inset_0_0_15px_rgba(16,185,129,0.04)]
+                shadow-[inset_0_0_15px_rgba(59,130,246,0.05)]
                 transition-all
                 duration-300
-                hover:border-emerald-300/[0.22]
-                hover:bg-emerald-500/[0.14]
+                hover:border-blue-300/[0.25]
+                hover:bg-blue-500/[0.16]
                 lg:hidden
               "
               aria-label="Toggle navigation"
@@ -501,7 +500,6 @@ function Navbar() {
             </button>
 
           </nav>
-
 
           {/* =====================================================
               MOBILE MENU
@@ -528,15 +526,17 @@ function Navbar() {
                 overflow-hidden
                 rounded-3xl
                 border
-                border-emerald-300/[0.10]
-                bg-[#06100D]/[0.98]
+                border-blue-300/[0.12]
+                bg-[#071525]/[0.98]
                 p-3
-                shadow-[0_25px_80px_rgba(0,0,0,0.65)]
+                shadow-[0_25px_80px_rgba(8,30,65,0.55)]
                 backdrop-blur-2xl
               "
             >
 
-              {/* Mobile glow */}
+              {/* =================================================
+                  MOBILE BLUE GLOW
+              ================================================= */}
 
               <div
                 className="
@@ -547,15 +547,28 @@ function Navbar() {
                   h-[250px]
                   w-[250px]
                   rounded-full
-                  bg-emerald-500/[0.07]
+                  bg-blue-500/[0.10]
                   blur-[90px]
                 "
               />
 
+              <div
+                className="
+                  pointer-events-none
+                  absolute
+                  left-[-100px]
+                  bottom-[-120px]
+                  h-[220px]
+                  w-[220px]
+                  rounded-full
+                  bg-cyan-500/[0.055]
+                  blur-[80px]
+                "
+              />
 
               <div className="relative z-10">
 
-                {/* Home */}
+                {/* HOME */}
 
                 <NavLink
                   to="/"
@@ -575,16 +588,16 @@ function Navbar() {
                         isActive
                           ? `
                             bg-gradient-to-r
-                            from-emerald-500/[0.14]
-                            to-teal-500/[0.08]
+                            from-blue-500/[0.16]
+                            to-cyan-500/[0.08]
                             text-white
                             ring-1
-                            ring-emerald-400/[0.10]
-                            shadow-[inset_0_0_25px_rgba(16,185,129,0.05)]
+                            ring-blue-400/[0.12]
+                            shadow-[inset_0_0_25px_rgba(59,130,246,0.06)]
                           `
                           : `
                             text-white/55
-                            hover:bg-white/[0.035]
+                            hover:bg-blue-400/[0.045]
                             hover:text-white
                           `
                       }
@@ -594,8 +607,7 @@ function Navbar() {
                   Home
                 </NavLink>
 
-
-                {/* Mobile Links */}
+                {/* MOBILE LINKS */}
 
                 {navLinks.map((link) => (
                   <NavLink
@@ -617,16 +629,16 @@ function Navbar() {
                           isActive
                             ? `
                               bg-gradient-to-r
-                              from-emerald-500/[0.14]
-                              to-teal-500/[0.08]
+                              from-blue-500/[0.16]
+                              to-cyan-500/[0.08]
                               text-white
                               ring-1
-                              ring-emerald-400/[0.10]
-                              shadow-[inset_0_0_25px_rgba(16,185,129,0.05)]
+                              ring-blue-400/[0.12]
+                              shadow-[inset_0_0_25px_rgba(59,130,246,0.06)]
                             `
                             : `
                               text-white/55
-                              hover:bg-white/[0.035]
+                              hover:bg-blue-400/[0.045]
                               hover:text-white
                             `
                         }
@@ -637,8 +649,9 @@ function Navbar() {
                   </NavLink>
                 ))}
 
-
-                {/* Mobile CTA */}
+                {/* =================================================
+                    MOBILE CTA
+                ================================================= */}
 
                 <Link
                   to="/contact"
@@ -654,15 +667,15 @@ function Navbar() {
                     overflow-hidden
                     rounded-2xl
                     bg-gradient-to-r
-                    from-emerald-500
-                    via-teal-500
+                    from-blue-600
+                    via-blue-500
                     to-cyan-500
                     px-4
                     py-3.5
                     text-sm
                     font-semibold
                     text-white
-                    shadow-[0_10px_35px_rgba(20,184,166,0.20)]
+                    shadow-[0_10px_35px_rgba(37,99,235,0.22)]
                     transition-all
                     duration-300
                   "
@@ -714,11 +727,9 @@ function Navbar() {
           </div>
 
         </div>
-
       </header>
     </>
   );
 }
 
 export default Navbar;
-

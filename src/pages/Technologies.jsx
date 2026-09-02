@@ -1,192 +1,379 @@
-
 import { motion } from "framer-motion";
 
 import {
   ArrowUpRight,
   Sparkles,
   Code2,
-  Server,
-  Database,
   Cloud,
   BrainCircuit,
-  GitBranch,
-  Layers3,
-  ShieldCheck,
-  Zap,
+  Smartphone,
+  Boxes,
+  Palette,
+  Check,
 } from "lucide-react";
+
+/* =========================================================
+   TECHNOLOGY GROUPS
+========================================================= */
 
 const technologyGroups = [
   {
     number: "01",
-    title: "Frontend Engineering",
+    title: "Web Technologies",
     description:
-      "Modern interfaces engineered for performance, responsiveness and exceptional user experiences.",
+      "Modern technologies for building fast, responsive and scalable websites and web applications.",
     icon: Code2,
     image:
-      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=95",
     technologies: [
       "React",
       "Next.js",
-      "HTML",
-      "CSS",
       "JavaScript",
       "TypeScript",
+      "HTML",
+      "CSS",
     ],
+    features: [
+      "Modern Web Applications",
+      "Responsive Interfaces",
+      "SEO-Friendly Architecture",
+      "High Performance",
+    ],
+    accent: "blue",
   },
+
   {
     number: "02",
-    title: "Backend Engineering",
+    title: "Mobile Technologies",
     description:
-      "Reliable server-side systems, APIs and business logic designed to scale with your product.",
-    icon: Server,
+      "Flexible mobile technologies for creating reliable applications across Android, iOS and multiple platforms.",
+    icon: Smartphone,
     image:
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1600&q=95",
+    technologies: [
+      "Android",
+      "iOS",
+      "Cross-Platform",
+      "REST APIs",
+    ],
+    features: [
+      "Android Applications",
+      "iOS Applications",
+      "Cross-Platform Development",
+      "Business Applications",
+    ],
+    accent: "cyan",
+  },
+
+  {
+    number: "03",
+    title: "AI & Automation",
+    description:
+      "AI technologies that help businesses automate workflows, improve customer experiences and build intelligent products.",
+    icon: BrainCircuit,
+    image:
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1600&q=95",
+    technologies: [
+      "AI APIs",
+      "LLM",
+      "AI Chatbots",
+      "Automation",
+    ],
+    features: [
+      "AI-Powered Solutions",
+      "Intelligent Chatbots",
+      "Workflow Automation",
+      "AI Integrations",
+    ],
+    accent: "indigo",
+  },
+
+  {
+    number: "04",
+    title: "ERP & CRM Technologies",
+    description:
+      "Reliable backend and database technologies for building connected business management and customer platforms.",
+    icon: Boxes,
+    image:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=95",
     technologies: [
       "Node.js",
       "Express.js",
-      "PHP",
-      "Python",
-      "REST APIs",
-    ],
-  },
-  {
-    number: "03",
-    title: "Databases",
-    description:
-      "Structured and flexible data architectures built around your application's requirements.",
-    icon: Database,
-    image:
-      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=85",
-    technologies: [
       "MongoDB",
       "MySQL",
       "PostgreSQL",
+      "REST APIs",
     ],
+    features: [
+      "Custom ERP Systems",
+      "CRM Platforms",
+      "Inventory Management",
+      "Business Automation",
+    ],
+    accent: "blue",
   },
+
   {
-    number: "04",
+    number: "05",
     title: "Cloud & Infrastructure",
     description:
-      "Cloud-ready applications and deployment workflows designed for reliability and scalability.",
+      "Cloud-ready technologies and deployment solutions designed for reliable, secure and scalable digital products.",
     icon: Cloud,
     image:
-      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=95",
     technologies: [
       "Cloud Services",
       "Firebase",
-      "Deployment",
       "Hosting",
+      "Deployment",
+      "APIs",
     ],
-  },
-  {
-    number: "05",
-    title: "AI & Automation",
-    description:
-      "Intelligent integrations that automate workflows and create smarter digital experiences.",
-    icon: BrainCircuit,
-    image:
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=85",
-    technologies: [
-      "AI APIs",
-      "AI Chatbots",
-      "Automation",
-      "Intelligent Systems",
+    features: [
+      "Cloud Deployment",
+      "Scalable Infrastructure",
+      "Application Hosting",
+      "Reliable Systems",
     ],
+    accent: "cyan",
   },
+
   {
     number: "06",
-    title: "Development Tools",
+    title: "Design & Development Tools",
     description:
-      "Modern engineering tools that help teams collaborate, maintain and continuously improve products.",
-    icon: GitBranch,
+      "Modern tools that help us design, develop, manage and continuously improve digital products.",
+    icon: Palette,
     image:
-      "https://images.unsplash.com/photo-1556075798-4825dfaaf498?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1600&q=95",
     technologies: [
       "Git",
       "GitHub",
+      "Figma",
       "API Integration",
       "Cloud Tools",
     ],
+    features: [
+      "Version Control",
+      "UI/UX Design",
+      "API Integration",
+      "Team Collaboration",
+    ],
+    accent: "indigo",
   },
 ];
 
-const principles = [
-  {
-    icon: Layers3,
-    title: "Scalable Architecture",
-    text: "We choose technologies and structures that can evolve as your business grows.",
+/* =========================================================
+   ACCENT STYLES
+========================================================= */
+
+const accentStyles = {
+  blue: {
+    glow:
+      "bg-blue-500/[0.09] group-hover:bg-blue-500/[0.16]",
+
+    icon:
+      "text-blue-200 border-blue-300/15 bg-blue-400/[0.08] group-hover:border-blue-300/30 group-hover:bg-blue-400/[0.14]",
+
+    number:
+      "text-blue-200/60 group-hover:text-blue-200",
+
+    tag:
+      "group-hover:border-blue-300/25 group-hover:bg-blue-400/[0.08] group-hover:text-blue-100",
+
+    check:
+      "group-hover:border-blue-300/30 group-hover:bg-blue-400/10 group-hover:text-blue-100",
+
+    arrow:
+      "group-hover:border-blue-300/30 group-hover:bg-blue-400/[0.10] group-hover:text-blue-100",
   },
-  {
-    icon: ShieldCheck,
-    title: "Security Mindset",
-    text: "Security and reliability remain important throughout the development lifecycle.",
+
+  cyan: {
+    glow:
+      "bg-cyan-500/[0.08] group-hover:bg-cyan-500/[0.15]",
+
+    icon:
+      "text-cyan-200 border-cyan-300/15 bg-cyan-400/[0.07] group-hover:border-cyan-300/30 group-hover:bg-cyan-400/[0.13]",
+
+    number:
+      "text-cyan-200/60 group-hover:text-cyan-200",
+
+    tag:
+      "group-hover:border-cyan-300/25 group-hover:bg-cyan-400/[0.08] group-hover:text-cyan-100",
+
+    check:
+      "group-hover:border-cyan-300/30 group-hover:bg-cyan-400/10 group-hover:text-cyan-100",
+
+    arrow:
+      "group-hover:border-cyan-300/30 group-hover:bg-cyan-400/[0.10] group-hover:text-cyan-100",
   },
-  {
-    icon: Zap,
-    title: "Performance First",
-    text: "Fast, responsive and efficient digital experiences are built into our approach.",
+
+  indigo: {
+    glow:
+      "bg-indigo-500/[0.08] group-hover:bg-indigo-500/[0.15]",
+
+    icon:
+      "text-indigo-200 border-indigo-300/15 bg-indigo-400/[0.07] group-hover:border-indigo-300/30 group-hover:bg-indigo-400/[0.13]",
+
+    number:
+      "text-indigo-200/60 group-hover:text-indigo-200",
+
+    tag:
+      "group-hover:border-indigo-300/25 group-hover:bg-indigo-400/[0.08] group-hover:text-indigo-100",
+
+    check:
+      "group-hover:border-indigo-300/30 group-hover:bg-indigo-400/10 group-hover:text-indigo-100",
+
+    arrow:
+      "group-hover:border-indigo-300/30 group-hover:bg-indigo-400/[0.10] group-hover:text-indigo-100",
   },
-];
+};
+
+/* =========================================================
+   TECHNOLOGIES PAGE
+========================================================= */
 
 function Technologies() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#020403] text-white">
+    <main className="relative min-h-screen overflow-hidden bg-[#07152f] text-white">
 
       {/* =====================================================
-          GLOBAL BACKGROUND
+          GLOBAL BLUE AMBIENT BACKGROUND
       ===================================================== */}
 
-      <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
 
-        <div
+        {/* Top Blue Atmosphere */}
+
+        <motion.div
+          animate={{
+            x: [0, 40, 0],
+            y: [0, 25, 0],
+            scale: [1, 1.08, 1],
+          }}
+          transition={{
+            duration: 14,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
           className="
             absolute
-            left-[-180px]
-            top-[5%]
-            h-[550px]
-            w-[550px]
+            left-[5%]
+            top-[-160px]
+            h-[600px]
+            w-[600px]
             rounded-full
-            bg-emerald-500/[0.045]
-            blur-[160px]
-          "
-        />
-
-        <div
-          className="
-            absolute
-            right-[-180px]
-            top-[25%]
-            h-[500px]
-            w-[500px]
-            rounded-full
-            bg-cyan-500/[0.035]
+            bg-blue-500/[0.14]
             blur-[150px]
           "
         />
 
-        <div
+        {/* Cyan Atmosphere */}
+
+        <motion.div
+          animate={{
+            x: [0, -35, 0],
+            y: [0, 30, 0],
+            scale: [1, 1.08, 1],
+          }}
+          transition={{
+            duration: 16,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
           className="
             absolute
-            left-1/2
-            bottom-[-250px]
-            h-[550px]
-            w-[550px]
-            -translate-x-1/2
+            left-[42%]
+            top-[20%]
+            h-[520px]
+            w-[520px]
             rounded-full
-            bg-teal-500/[0.03]
-            blur-[160px]
+            bg-cyan-400/[0.065]
+            blur-[150px]
           "
         />
 
-        {/* Subtle grid */}
+        {/* Right Indigo Atmosphere */}
+
+        <motion.div
+          animate={{
+            x: [0, -40, 0],
+            y: [0, 30, 0],
+          }}
+          transition={{
+            duration: 18,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="
+            absolute
+            right-[-140px]
+            top-[35%]
+            h-[550px]
+            w-[550px]
+            rounded-full
+            bg-indigo-500/[0.10]
+            blur-[150px]
+          "
+        />
+
+        {/* Bottom Blue Atmosphere */}
+
+        <motion.div
+          animate={{
+            x: [0, 35, 0],
+            y: [0, -20, 0],
+            scale: [1, 1.08, 1],
+          }}
+          transition={{
+            duration: 17,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="
+            absolute
+            bottom-[-120px]
+            left-[8%]
+            h-[450px]
+            w-[450px]
+            rounded-full
+            bg-blue-400/[0.07]
+            blur-[140px]
+          "
+        />
+
+        {/* Grid */}
 
         <div
           className="
             absolute
             inset-0
-            opacity-[0.025]
+            opacity-[0.035]
             [background-image:linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)]
             [background-size:80px_80px]
+          "
+        />
+
+        {/* Center Vignette */}
+
+        <div
+          className="
+            absolute
+            inset-0
+            bg-[radial-gradient(circle_at_center,transparent_5%,#07152f_90%)]
+          "
+        />
+
+        {/* Bottom Fade */}
+
+        <div
+          className="
+            absolute
+            inset-x-0
+            bottom-0
+            h-[35%]
+            bg-gradient-to-t
+            from-[#07152f]
+            to-transparent
           "
         />
 
@@ -202,61 +389,70 @@ function Technologies() {
           relative
           overflow-hidden
           px-6
-          pb-20
-          pt-36
+          pb-28
+          pt-40
           sm:px-8
-          sm:pb-24
-          sm:pt-40
           lg:px-12
-          lg:pb-28
         "
       >
 
-        {/* Hero Glows */}
+        {/* Hero Technology Image */}
 
         <div
           className="
             pointer-events-none
             absolute
-            left-1/4
+            inset-x-0
             top-0
-            h-[550px]
-            w-[550px]
-            rounded-full
-            bg-emerald-500/[0.055]
-            blur-[150px]
-          "
-        />
-
-        <div
-          className="
-            pointer-events-none
-            absolute
-            right-10
-            top-32
-            h-[400px]
-            w-[400px]
-            rounded-full
-            bg-cyan-500/[0.035]
-            blur-[140px]
-          "
-        />
-
-
-        <div
-          className="
-            relative
-            mx-auto
-            grid
-            max-w-7xl
-            items-center
-            gap-14
-            lg:grid-cols-[1.05fr_0.95fr]
-            lg:gap-20
+            h-[680px]
+            overflow-hidden
           "
         >
 
-          {/* LEFT */}
+          <img
+            src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=95"
+            alt=""
+            className="
+              absolute
+              inset-0
+              h-full
+              w-full
+              object-cover
+              object-center
+              opacity-[0.20]
+              saturate-[1.15]
+            "
+          />
+
+          {/* Image Gradient */}
+
+          <div
+            className="
+              absolute
+              inset-0
+              bg-gradient-to-b
+              from-[#07152f]/20
+              via-[#07152f]/55
+              to-[#07152f]
+            "
+          />
+
+          {/* Blue Radial Glow */}
+
+          <div
+            className="
+              absolute
+              inset-0
+              bg-[radial-gradient(circle_at_65%_35%,rgba(59,130,246,0.24),transparent_42%)]
+            "
+          />
+
+        </div>
+
+
+        {/* Hero Content */}
+
+        <div className="relative mx-auto max-w-7xl">
 
           <motion.div
             initial={{
@@ -270,7 +466,7 @@ function Technologies() {
             transition={{
               duration: 0.8,
             }}
-            className="relative z-10 max-w-5xl"
+            className="relative max-w-5xl"
           >
 
             {/* Eyebrow */}
@@ -279,10 +475,10 @@ function Technologies() {
 
               <motion.span
                 animate={{
-                  rotate: [0, 10, -10, 0],
+                  rotate: [0, 8, -8, 0],
                 }}
                 transition={{
-                  duration: 4,
+                  duration: 5,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
@@ -294,16 +490,16 @@ function Technologies() {
                   justify-center
                   rounded-full
                   border
-                  border-emerald-300/25
+                  border-blue-300/25
                   bg-gradient-to-br
-                  from-emerald-500/20
+                  from-blue-500/20
                   to-cyan-500/10
-                  shadow-[0_0_35px_rgba(16,185,129,0.15)]
+                  shadow-[0_0_35px_rgba(59,130,246,0.18)]
                 "
               >
                 <Sparkles
                   size={13}
-                  className="text-emerald-200"
+                  className="text-blue-200"
                 />
               </motion.span>
 
@@ -312,7 +508,7 @@ function Technologies() {
                   text-[10px]
                   font-semibold
                   tracking-[0.25em]
-                  text-emerald-200/70
+                  text-blue-200/85
                 "
               >
                 TECHNOLOGY STACK
@@ -321,7 +517,7 @@ function Technologies() {
             </div>
 
 
-            {/* Heading */}
+            {/* Main Heading */}
 
             <h1
               className="
@@ -329,9 +525,10 @@ function Technologies() {
                 font-semibold
                 leading-[0.98]
                 tracking-[-0.055em]
+                text-white
                 sm:text-6xl
                 md:text-7xl
-                lg:text-[82px]
+                lg:text-[88px]
               "
             >
 
@@ -342,17 +539,19 @@ function Technologies() {
                   block
                   bg-gradient-to-r
                   from-white
-                  via-emerald-200
-                  to-cyan-300
+                  via-blue-100
+                  to-cyan-200
                   bg-clip-text
                   text-transparent
                 "
               >
-                moves ideas forward.
+                powers your business.
               </span>
 
             </h1>
 
+
+            {/* Description */}
 
             <p
               className="
@@ -360,228 +559,73 @@ function Technologies() {
                 max-w-2xl
                 text-base
                 leading-7
-                text-white/40
+                text-blue-50/70
                 sm:text-lg
+                sm:leading-8
               "
             >
-              We use modern technologies, proven engineering
-              practices and scalable architectures to turn
-              business ideas into reliable digital products.
+              We use modern technologies, scalable architectures
+              and proven engineering practices to build reliable
+              digital products for growing businesses.
             </p>
 
           </motion.div>
 
 
-          {/* HERO IMAGE */}
+          {/* Technology Categories */}
 
           <motion.div
             initial={{
               opacity: 0,
-              x: 35,
-              scale: 0.97,
             }}
             animate={{
               opacity: 1,
-              x: 0,
-              scale: 1,
             }}
             transition={{
-              duration: 0.9,
-              delay: 0.15,
+              duration: 1,
+              delay: 0.4,
             }}
             className="
-              group
-              relative
-              min-h-[340px]
-              overflow-hidden
-              rounded-[34px]
-              border
-              border-white/[0.08]
-              bg-white/[0.02]
-              shadow-[0_30px_100px_rgba(0,0,0,0.45)]
-              sm:min-h-[410px]
+              mt-20
+              flex
+              flex-wrap
+              gap-x-10
+              gap-y-4
+              border-t
+              border-white/[0.10]
+              pt-7
+              text-[10px]
+              font-medium
+              tracking-[0.22em]
+              text-blue-100/45
             "
           >
 
-            <img
-              src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=90"
-              alt="Technology team working on digital products"
-              className="
-                absolute
-                inset-0
-                h-full
-                w-full
-                object-cover
-                opacity-55
-                grayscale-[20%]
-                transition-transform
-                duration-1000
-                group-hover:scale-105
-              "
-            />
+            {[
+              "WEB",
+              "MOBILE",
+              "AI",
+              "ERP",
+              "CRM",
+              "CLOUD",
+              "TOOLS",
+            ].map((item) => (
 
-            {/* Dark image overlay */}
+              <span
+                key={item}
+                className="
+                  transition-all
+                  duration-300
+                  hover:text-cyan-200
+                  hover:drop-shadow-[0_0_12px_rgba(34,211,238,0.35)]
+                "
+              >
+                {item}
+              </span>
 
-            <div
-              className="
-                absolute
-                inset-0
-                bg-gradient-to-br
-                from-[#020403]/85
-                via-[#020403]/40
-                to-emerald-950/45
-              "
-            />
-
-            {/* Emerald glow */}
-
-            <div
-              className="
-                pointer-events-none
-                absolute
-                -right-20
-                -top-20
-                h-72
-                w-72
-                rounded-full
-                bg-emerald-400/[0.14]
-                blur-[90px]
-              "
-            />
-
-            {/* Floating visual */}
-
-            <div
-              className="
-                absolute
-                bottom-6
-                left-6
-                right-6
-                rounded-2xl
-                border
-                border-white/[0.10]
-                bg-black/35
-                p-5
-                backdrop-blur-xl
-              "
-            >
-
-              <div className="flex items-center justify-between">
-
-                <div>
-                  <p className="text-[9px] tracking-[0.22em] text-emerald-300/70">
-                    DIGITAL ENGINEERING
-                  </p>
-
-                  <p className="mt-2 text-sm font-medium text-white/85">
-                    Built for scale. Designed for people.
-                  </p>
-                </div>
-
-                <div
-                  className="
-                    flex
-                    h-10
-                    w-10
-                    items-center
-                    justify-center
-                    rounded-full
-                    border
-                    border-emerald-300/20
-                    bg-emerald-400/10
-                  "
-                >
-                  <ArrowUpRight
-                    size={17}
-                    className="text-emerald-200"
-                  />
-                </div>
-
-              </div>
-
-            </div>
+            ))}
 
           </motion.div>
-
-        </div>
-
-
-        {/* Technology Strip */}
-
-        <div className="relative mx-auto mt-20 max-w-7xl">
-
-          <div
-            className="
-              overflow-hidden
-              rounded-2xl
-              border
-              border-white/[0.07]
-              bg-white/[0.018]
-              shadow-[0_0_80px_rgba(16,185,129,0.035)]
-            "
-          >
-
-            <div
-              className="
-                flex
-                min-w-max
-                gap-10
-                px-6
-                py-5
-                text-[10px]
-                font-medium
-                tracking-[0.22em]
-                text-white/25
-              "
-            >
-
-              <span className="transition-colors hover:text-emerald-300">
-                REACT
-              </span>
-
-              <span className="transition-colors hover:text-cyan-300">
-                NEXT.JS
-              </span>
-
-              <span className="transition-colors hover:text-emerald-300">
-                NODE.JS
-              </span>
-
-              <span className="transition-colors hover:text-teal-300">
-                EXPRESS
-              </span>
-
-              <span className="transition-colors hover:text-emerald-300">
-                MONGODB
-              </span>
-
-              <span className="transition-colors hover:text-cyan-300">
-                MYSQL
-              </span>
-
-              <span className="transition-colors hover:text-teal-300">
-                POSTGRESQL
-              </span>
-
-              <span className="transition-colors hover:text-emerald-200">
-                PYTHON
-              </span>
-
-              <span className="transition-colors hover:text-cyan-300">
-                AI
-              </span>
-
-              <span className="transition-colors hover:text-teal-300">
-                CLOUD
-              </span>
-
-              <span className="transition-colors hover:text-white/70">
-                GITHUB
-              </span>
-
-            </div>
-
-          </div>
 
         </div>
 
@@ -594,18 +638,19 @@ function Technologies() {
 
       <section
         className="
+          relative
           border-t
-          border-white/[0.07]
+          border-white/[0.10]
           px-6
-          py-24
+          py-32
           sm:px-8
-          sm:py-28
           lg:px-12
-          lg:py-32
         "
       >
 
         <div className="mx-auto max-w-7xl">
+
+          {/* Section Heading */}
 
           <div className="mb-14 max-w-3xl">
 
@@ -614,10 +659,10 @@ function Technologies() {
                 text-[10px]
                 font-semibold
                 tracking-[0.25em]
-                text-emerald-300/80
+                text-blue-200/85
               "
             >
-              OUR ECOSYSTEM
+              OUR TECHNOLOGY ECOSYSTEM
             </span>
 
             <h2
@@ -626,23 +671,26 @@ function Technologies() {
                 text-4xl
                 font-semibold
                 tracking-[-0.05em]
+                text-white
                 sm:text-5xl
                 md:text-6xl
               "
             >
-              The right tools{" "}
+
+              The technology behind
 
               <span
                 className="
+                  block
                   bg-gradient-to-r
-                  from-emerald-300/80
-                  via-white/45
-                  to-cyan-300/60
+                  from-white
+                  via-blue-100
+                  to-cyan-200
                   bg-clip-text
                   text-transparent
                 "
               >
-                for the right problem.
+                better digital products.
               </span>
 
             </h2>
@@ -653,12 +701,12 @@ function Technologies() {
                 max-w-xl
                 text-sm
                 leading-7
-                text-white/35
+                text-blue-50/65
               "
             >
-              We don't select technology just because it's
-              popular. We choose the tools that make sense for
-              the product, users and business goals.
+              We select the right technologies based on your
+              product, users, business requirements and
+              long-term growth.
             </p>
 
           </div>
@@ -666,19 +714,15 @@ function Technologies() {
 
           {/* Technology Cards */}
 
-          <div
-            className="
-              grid
-              gap-4
-              md:grid-cols-2
-            "
-          >
+          <div className="space-y-5">
 
             {technologyGroups.map((group, index) => {
 
               const Icon = group.icon;
+              const accent = accentStyles[group.accent];
 
               return (
+
                 <motion.article
                   key={group.number}
                   initial={{
@@ -691,264 +735,443 @@ function Technologies() {
                   }}
                   viewport={{
                     once: true,
-                    amount: 0.15,
+                    amount: 0.12,
                   }}
                   transition={{
-                    duration: 0.6,
-                    delay: index * 0.05,
+                    duration: 0.65,
+                    delay: index * 0.04,
                   }}
                   whileHover={{
-                    y: -6,
+                    y: -4,
                   }}
                   className="
                     group
                     relative
-                    min-h-[430px]
                     overflow-hidden
                     rounded-[30px]
                     border
-                    border-white/[0.07]
-                    bg-[#050807]
-                    p-8
-                    shadow-[0_10px_60px_rgba(0,0,0,0.2)]
+                    border-white/[0.10]
+                    bg-white/[0.045]
+                    shadow-[0_20px_70px_rgba(0,0,0,0.15)]
+                    backdrop-blur-xl
                     transition-all
                     duration-500
-                    hover:border-emerald-300/20
-                    hover:shadow-[0_20px_80px_rgba(16,185,129,0.10)]
-                    sm:p-10
+                    hover:border-blue-300/[0.24]
+                    hover:bg-white/[0.065]
+                    hover:shadow-[0_25px_100px_rgba(0,0,0,0.25)]
                   "
                 >
 
-                  {/* =====================================================
-                      CARD IMAGE
-                  ===================================================== */}
-
-                  <img
-                    src={group.image}
-                    alt={group.title}
-                    className="
-                      pointer-events-none
-                      absolute
-                      inset-0
-                      h-full
-                      w-full
-                      object-cover
-                      opacity-[0.30]
-                      grayscale-[15%]
-                      transition-all
-                      duration-700
-                      group-hover:scale-105
-                      group-hover:opacity-[0.40]
-                    "
-                  />
-
-                  {/* Image overlay */}
+                  {/* Top Right Glow */}
 
                   <div
-                    className="
+                    className={`
                       pointer-events-none
                       absolute
-                      inset-0
-                      bg-gradient-to-b
-                      from-[#020403]/45
-                      via-[#020403]/65
-                      to-[#020403]/90
-                    "
-                  />
-
-                  {/* Bottom readability overlay */}
-
-                  <div
-                    className="
-                      pointer-events-none
-                      absolute
-                      inset-0
-                      bg-gradient-to-t
-                      from-[#020403]/80
-                      via-transparent
-                      to-transparent
-                    "
-                  />
-
-                  {/* Emerald Card Glow */}
-
-                  <div
-                    className="
-                      pointer-events-none
-                      absolute
-                      -right-24
-                      -top-24
-                      h-64
-                      w-64
+                      -right-28
+                      -top-28
+                      h-80
+                      w-80
                       rounded-full
-                      bg-emerald-500/[0.06]
-                      blur-[90px]
+                      ${accent.glow}
+                      blur-[100px]
                       transition-all
                       duration-700
-                      group-hover:bg-emerald-500/[0.15]
-                    "
+                    `}
                   />
 
-                  {/* Cyan Card Glow */}
+                  {/* Bottom Left Cyan Glow */}
 
                   <div
                     className="
                       pointer-events-none
                       absolute
-                      -bottom-32
-                      -left-32
-                      h-56
-                      w-56
+                      bottom-[-170px]
+                      left-[-100px]
+                      h-72
+                      w-72
                       rounded-full
-                      bg-cyan-500/[0.035]
-                      blur-[90px]
+                      bg-cyan-500/[0.025]
+                      blur-[100px]
                       transition-all
                       duration-700
-                      group-hover:bg-cyan-500/[0.08]
+                      group-hover:bg-cyan-500/[0.07]
                     "
                   />
 
 
-                  {/* Top */}
+                  {/* Main Card Grid */}
 
                   <div
                     className="
                       relative
-                      z-10
-                      flex
-                      items-center
-                      justify-between
+                      grid
+                      gap-8
+                      p-5
+                      sm:p-7
+                      lg:grid-cols-[300px_1fr_0.8fr]
+                      lg:gap-10
+                      lg:p-10
                     "
                   >
 
-                    <span
-                      className="
-                        text-[10px]
-                        tracking-[0.2em]
-                        text-white/40
-                        transition-colors
-                        duration-300
-                        group-hover:text-emerald-300/80
-                      "
-                    >
-                      {group.number}
-                    </span>
+                    {/* =================================================
+                        IMAGE
+                    ================================================= */}
 
                     <div
                       className="
-                        flex
-                        h-10
-                        w-10
-                        items-center
-                        justify-center
-                        rounded-xl
+                        relative
+                        min-h-[230px]
+                        overflow-hidden
+                        rounded-[22px]
                         border
                         border-white/[0.12]
                         bg-black/30
-                        backdrop-blur-md
-                        transition-all
-                        duration-300
-                        group-hover:border-emerald-300/25
-                        group-hover:bg-emerald-400/10
+                        shadow-[0_15px_50px_rgba(0,0,0,0.20)]
                       "
                     >
 
-                      <Icon
-                        size={19}
-                        strokeWidth={1.5}
+                      <motion.img
+                        src={group.image}
+                        alt={group.title}
+                        loading="lazy"
+                        whileHover={{
+                          scale: 1.07,
+                        }}
+                        transition={{
+                          duration: 0.7,
+                        }}
                         className="
-                          text-white/55
-                          transition-colors
-                          duration-300
-                          group-hover:text-emerald-200
+                          absolute
+                          inset-0
+                          h-full
+                          w-full
+                          object-cover
+                          opacity-100
+                          saturate-[1.08]
+                          transition-all
+                          duration-500
+                          group-hover:brightness-110
                         "
                       />
+
+                      {/* Image Overlay */}
+
+                      <div
+                        className="
+                          absolute
+                          inset-0
+                          bg-gradient-to-r
+                          from-[#07152f]/30
+                          via-[#07152f]/5
+                          to-transparent
+                        "
+                      />
+
+                      <div
+                        className="
+                          absolute
+                          inset-0
+                          bg-gradient-to-t
+                          from-[#07152f]/65
+                          via-transparent
+                          to-transparent
+                        "
+                      />
+
+                      {/* Blue Image Glow */}
+
+                      <div
+                        className="
+                          absolute
+                          -bottom-16
+                          -left-10
+                          h-40
+                          w-40
+                          rounded-full
+                          bg-blue-400/[0.12]
+                          blur-[60px]
+                          transition-all
+                          duration-500
+                          group-hover:scale-150
+                        "
+                      />
+
+                      {/* Image Label */}
+
+                      <div
+                        className="
+                          absolute
+                          bottom-5
+                          left-5
+                          flex
+                          items-center
+                          gap-3
+                        "
+                      >
+
+                        <span
+                          className={`
+                            text-[11px]
+                            font-semibold
+                            tracking-[0.2em]
+                            ${accent.number}
+                          `}
+                        >
+                          {group.number}
+                        </span>
+
+                        <span
+                          className="
+                            h-px
+                            w-8
+                            bg-white/35
+                          "
+                        />
+
+                        <span
+                          className="
+                            text-[9px]
+                            font-medium
+                            tracking-[0.18em]
+                            text-white/75
+                          "
+                        >
+                          YOVI TECHNOLOGIES
+                        </span>
+
+                      </div>
+
+                    </div>
+
+
+                    {/* =================================================
+                        MAIN CONTENT
+                    ================================================= */}
+
+                    <div>
+
+                      {/* Number + Icon */}
+
+                      <div className="flex items-center gap-4">
+
+                        <span
+                          className={`
+                            text-[10px]
+                            font-semibold
+                            tracking-[0.2em]
+                            transition-colors
+                            duration-300
+                            ${accent.number}
+                          `}
+                        >
+                          {group.number}
+                        </span>
+
+                        <div
+                          className={`
+                            flex
+                            h-11
+                            w-11
+                            items-center
+                            justify-center
+                            rounded-xl
+                            border
+                            transition-all
+                            duration-300
+                            ${accent.icon}
+                          `}
+                        >
+
+                          <Icon
+                            size={19}
+                            strokeWidth={1.5}
+                          />
+
+                        </div>
+
+                      </div>
+
+
+                      {/* Title */}
+
+                      <h2
+                        className="
+                          mt-6
+                          text-3xl
+                          font-semibold
+                          tracking-[-0.04em]
+                          text-white
+                          sm:text-4xl
+                        "
+                      >
+                        {group.title}
+                      </h2>
+
+
+                      {/* Description */}
+
+                      <p
+                        className="
+                          mt-4
+                          max-w-xl
+                          text-sm
+                          leading-7
+                          text-blue-50/70
+                          transition-colors
+                          duration-300
+                          group-hover:text-blue-50/90
+                        "
+                      >
+                        {group.description}
+                      </p>
+
+
+                      {/* Technologies */}
+
+                      <div className="mt-7 flex flex-wrap gap-2">
+
+                        {group.technologies.map(
+                          (technology, techIndex) => (
+
+                            <span
+                              key={technology}
+                              className={`
+                                rounded-full
+                                border
+                                px-3
+                                py-1.5
+                                text-[10px]
+                                font-medium
+                                transition-all
+                                duration-300
+                                ${
+                                  techIndex % 3 === 0
+                                    ? "border-blue-300/20 bg-blue-400/[0.07] text-blue-100/75 group-hover:border-blue-300/30 group-hover:bg-blue-400/[0.11] group-hover:text-blue-100"
+                                    : techIndex % 3 === 1
+                                    ? "border-cyan-300/20 bg-cyan-400/[0.06] text-cyan-100/70 group-hover:border-cyan-300/30 group-hover:bg-cyan-400/[0.10] group-hover:text-cyan-100"
+                                    : "border-white/[0.12] bg-white/[0.035] text-white/55 group-hover:border-white/[0.18] group-hover:bg-white/[0.05] group-hover:text-white/80"
+                                }
+                              `}
+                            >
+                              {technology}
+                            </span>
+
+                          )
+                        )}
+
+                      </div>
+
+                    </div>
+
+
+                    {/* =================================================
+                        FEATURES
+                    ================================================= */}
+
+                    <div>
+
+                      <p
+                        className="
+                          mb-5
+                          text-[10px]
+                          font-semibold
+                          tracking-[0.2em]
+                          text-blue-100/45
+                        "
+                      >
+                        WHAT IT ENABLES
+                      </p>
+
+                      <div className="space-y-3">
+
+                        {group.features.map((feature) => (
+
+                          <div
+                            key={feature}
+                            className="
+                              flex
+                              items-center
+                              gap-3
+                              text-sm
+                              text-blue-50/65
+                              transition-colors
+                              duration-200
+                              hover:text-white
+                            "
+                          >
+
+                            <span
+                              className={`
+                                flex
+                                h-5
+                                w-5
+                                shrink-0
+                                items-center
+                                justify-center
+                                rounded-full
+                                border
+                                border-white/[0.12]
+                                bg-white/[0.025]
+                                text-white/40
+                                transition-all
+                                duration-200
+                                ${accent.check}
+                              `}
+                            >
+                              <Check size={11} />
+                            </span>
+
+                            {feature}
+
+                          </div>
+
+                        ))}
+
+                      </div>
 
                     </div>
 
                   </div>
 
 
-                  {/* Title */}
-
-                  <div className="relative z-10 mt-16">
-
-                    <h3
-                      className="
-                        text-2xl
-                        font-medium
-                        tracking-[-0.03em]
-                        text-white/95
-                        transition-colors
-                        duration-300
-                        group-hover:text-white
-                      "
-                    >
-                      {group.title}
-                    </h3>
-
-                    <p
-                      className="
-                        mt-4
-                        max-w-lg
-                        text-sm
-                        leading-6
-                        text-white/45
-                        transition-colors
-                        duration-300
-                        group-hover:text-white/60
-                      "
-                    >
-                      {group.description}
-                    </p>
-
-                  </div>
-
-
-                  {/* Technology Pills */}
+                  {/* Card Arrow */}
 
                   <div
-                    className="
-                      relative
-                      z-10
-                      mt-8
+                    className={`
+                      absolute
+                      right-7
+                      top-7
                       flex
-                      flex-wrap
-                      gap-2
-                    "
+                      h-9
+                      w-9
+                      items-center
+                      justify-center
+                      rounded-full
+                      border
+                      border-white/[0.10]
+                      bg-white/[0.035]
+                      text-white/35
+                      transition-all
+                      duration-300
+                      ${accent.arrow}
+                    `}
                   >
 
-                    {group.technologies.map((technology, techIndex) => (
-
-                      <span
-                        key={technology}
-                        className={`
-                          rounded-full
-                          border
-                          px-3
-                          py-1.5
-                          text-[10px]
-                          tracking-[0.05em]
-                          backdrop-blur-sm
-                          transition-all
-                          duration-300
-                          ${
-                            techIndex % 3 === 0
-                              ? "border-emerald-400/[0.20] bg-emerald-400/[0.08] text-emerald-100/75 group-hover:border-emerald-300/30 group-hover:bg-emerald-400/[0.12] group-hover:text-emerald-100"
-                              : techIndex % 3 === 1
-                              ? "border-cyan-400/[0.18] bg-cyan-400/[0.07] text-cyan-100/70 group-hover:border-cyan-300/25 group-hover:bg-cyan-400/[0.10] group-hover:text-cyan-100"
-                              : "border-white/[0.12] bg-black/25 text-white/55 group-hover:border-white/[0.18] group-hover:bg-white/[0.05] group-hover:text-white/75"
-                          }
-                        `}
-                      >
-                        {technology}
-                      </span>
-
-                    ))}
+                    <ArrowUpRight
+                      size={15}
+                      className="
+                        transition-transform
+                        duration-300
+                        group-hover:rotate-45
+                      "
+                    />
 
                   </div>
 
                 </motion.article>
+
               );
 
             })}
@@ -961,7 +1184,7 @@ function Technologies() {
 
 
       {/* =====================================================
-          ENGINEERING PRINCIPLES
+          ENGINEERING APPROACH
       ===================================================== */}
 
       <section
@@ -969,33 +1192,73 @@ function Technologies() {
           relative
           overflow-hidden
           border-t
-          border-white/[0.07]
+          border-white/[0.10]
           px-6
-          py-28
+          py-32
           sm:px-8
-          sm:py-32
           lg:px-12
         "
       >
+
+        {/* Background Image */}
 
         <div
           className="
             pointer-events-none
             absolute
-            left-1/2
-            top-1/2
-            h-[450px]
-            w-[450px]
-            -translate-x-1/2
-            -translate-y-1/2
-            rounded-full
-            bg-emerald-500/[0.035]
-            blur-[140px]
+            inset-0
+            overflow-hidden
           "
-        />
+        >
+
+          <img
+            src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1800&q=95"
+            alt=""
+            className="
+              h-full
+              w-full
+              object-cover
+              opacity-[0.15]
+              grayscale-[10%]
+            "
+          />
+
+          <div
+            className="
+              absolute
+              inset-0
+              bg-gradient-to-r
+              from-[#07152f]
+              via-[#07152f]/80
+              to-[#07152f]/50
+            "
+          />
+
+          <div
+            className="
+              absolute
+              inset-0
+              bg-gradient-to-t
+              from-[#07152f]
+              via-transparent
+              to-[#07152f]
+            "
+          />
+
+          <div
+            className="
+              absolute
+              inset-0
+              bg-[radial-gradient(circle_at_70%_50%,rgba(59,130,246,0.18),transparent_45%)]
+            "
+          />
+
+        </div>
 
 
         <div className="relative mx-auto max-w-7xl">
+
+          {/* Heading */}
 
           <div className="max-w-3xl">
 
@@ -1004,10 +1267,10 @@ function Technologies() {
                 text-[10px]
                 font-semibold
                 tracking-[0.25em]
-                text-emerald-300/80
+                text-cyan-200/85
               "
             >
-              ENGINEERING PRINCIPLES
+              ENGINEERING APPROACH
             </span>
 
             <h2
@@ -1016,18 +1279,21 @@ function Technologies() {
                 text-4xl
                 font-semibold
                 tracking-[-0.05em]
+                text-white
                 sm:text-5xl
+                md:text-6xl
               "
             >
+
               Technology is only
 
               <span
                 className="
                   block
                   bg-gradient-to-r
-                  from-white/40
-                  via-emerald-300/55
-                  to-cyan-300/45
+                  from-blue-200
+                  via-white
+                  to-cyan-200
                   bg-clip-text
                   text-transparent
                 "
@@ -1037,10 +1303,24 @@ function Technologies() {
 
             </h2>
 
+            <p
+              className="
+                mt-6
+                max-w-xl
+                text-sm
+                leading-7
+                text-blue-50/65
+              "
+            >
+              The right technology matters, but so do
+              architecture, security, performance and the
+              ability to evolve with your business.
+            </p>
+
           </div>
 
 
-          {/* Engineering Visual */}
+          {/* Visual Panel */}
 
           <motion.div
             initial={{
@@ -1065,19 +1345,20 @@ function Technologies() {
               overflow-hidden
               rounded-[30px]
               border
-              border-white/[0.07]
+              border-white/[0.10]
+              shadow-[0_20px_80px_rgba(0,0,0,0.25)]
             "
           >
 
             <img
-              src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1800&q=85"
+              src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1800&q=95"
               alt="Software engineering workspace"
               className="
                 h-full
                 w-full
                 object-cover
-                opacity-30
-                grayscale
+                opacity-35
+                grayscale-[5%]
                 transition-transform
                 duration-1000
                 group-hover:scale-105
@@ -1089,9 +1370,9 @@ function Technologies() {
                 absolute
                 inset-0
                 bg-gradient-to-r
-                from-[#020403]/95
-                via-[#020403]/60
-                to-emerald-950/40
+                from-[#07152f]/90
+                via-[#07152f]/55
+                to-[#07152f]/30
               "
             />
 
@@ -1099,7 +1380,7 @@ function Technologies() {
               className="
                 absolute
                 inset-0
-                bg-[radial-gradient(circle_at_70%_50%,rgba(16,185,129,0.12),transparent_45%)]
+                bg-[radial-gradient(circle_at_70%_50%,rgba(59,130,246,0.16),transparent_45%)]
               "
             />
 
@@ -1112,7 +1393,7 @@ function Technologies() {
                     text-[9px]
                     font-semibold
                     tracking-[0.25em]
-                    text-emerald-300/70
+                    text-cyan-200/80
                   "
                 >
                   ENGINEERED WITH INTENTION
@@ -1124,7 +1405,7 @@ function Technologies() {
                     text-xl
                     font-medium
                     tracking-[-0.025em]
-                    text-white/80
+                    text-white/85
                     sm:text-2xl
                   "
                 >
@@ -1139,6 +1420,8 @@ function Technologies() {
           </motion.div>
 
 
+          {/* Approach Cards */}
+
           <div
             className="
               mt-5
@@ -1148,11 +1431,31 @@ function Technologies() {
             "
           >
 
-            {principles.map((item, index) => {
+            {[
+              {
+                icon: Boxes,
+                title: "Scalable Architecture",
+                text:
+                  "We choose technologies and structures that can evolve as your business grows.",
+              },
+              {
+                icon: Check,
+                title: "Reliable Engineering",
+                text:
+                  "Our development approach focuses on stability, maintainability and long-term reliability.",
+              },
+              {
+                icon: Cloud,
+                title: "Future Ready",
+                text:
+                  "Cloud-ready systems and modern technologies help your product adapt to changing needs.",
+              },
+            ].map((item, index) => {
 
               const Icon = item.icon;
 
               return (
+
                 <motion.div
                   key={item.title}
                   initial={{
@@ -1179,14 +1482,15 @@ function Technologies() {
                     overflow-hidden
                     rounded-[26px]
                     border
-                    border-white/[0.07]
-                    bg-white/[0.018]
+                    border-white/[0.09]
+                    bg-white/[0.045]
                     p-7
+                    backdrop-blur-xl
                     transition-all
                     duration-500
-                    hover:border-emerald-300/15
-                    hover:bg-emerald-400/[0.025]
-                    hover:shadow-[0_15px_60px_rgba(16,185,129,0.06)]
+                    hover:border-blue-300/20
+                    hover:bg-blue-400/[0.025]
+                    hover:shadow-[0_15px_60px_rgba(37,99,235,0.08)]
                   "
                 >
 
@@ -1199,11 +1503,11 @@ function Technologies() {
                       h-40
                       w-40
                       rounded-full
-                      bg-emerald-500/[0.035]
+                      bg-blue-500/[0.035]
                       blur-[70px]
                       transition-all
                       duration-500
-                      group-hover:bg-emerald-500/[0.10]
+                      group-hover:bg-blue-500/[0.10]
                     "
                   />
 
@@ -1219,22 +1523,18 @@ function Technologies() {
                       border
                       border-white/[0.08]
                       bg-white/[0.025]
+                      text-blue-200/70
                       transition-all
                       duration-300
-                      group-hover:border-emerald-300/20
-                      group-hover:bg-emerald-400/10
+                      group-hover:border-blue-300/20
+                      group-hover:bg-blue-400/10
+                      group-hover:text-blue-100
                     "
                   >
 
                     <Icon
                       size={19}
                       strokeWidth={1.5}
-                      className="
-                        text-white/40
-                        transition-colors
-                        duration-300
-                        group-hover:text-emerald-200
-                      "
                     />
 
                   </div>
@@ -1245,7 +1545,7 @@ function Technologies() {
                       mt-6
                       text-sm
                       font-medium
-                      text-white/80
+                      text-white/85
                     "
                   >
                     {item.title}
@@ -1257,13 +1557,14 @@ function Technologies() {
                       mt-3
                       text-xs
                       leading-6
-                      text-white/30
+                      text-blue-50/45
                     "
                   >
                     {item.text}
                   </p>
 
                 </motion.div>
+
               );
 
             })}
@@ -1276,17 +1577,16 @@ function Technologies() {
 
 
       {/* =====================================================
-          CUSTOM TECHNOLOGY
+          CUSTOM TECHNOLOGY CTA
       ===================================================== */}
 
       <section
         className="
           border-t
-          border-white/[0.07]
+          border-white/[0.10]
           px-6
-          py-28
+          py-32
           sm:px-8
-          sm:py-32
           lg:px-12
         "
       >
@@ -1301,15 +1601,15 @@ function Technologies() {
               overflow-hidden
               rounded-[34px]
               border
-              border-emerald-300/[0.10]
-              shadow-[0_20px_100px_rgba(16,185,129,0.05)]
+              border-blue-300/[0.12]
+              shadow-[0_20px_100px_rgba(37,99,235,0.06)]
             "
           >
 
             {/* Main Image */}
 
             <img
-              src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1800&q=90"
+              src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1800&q=95"
               alt="Team building custom digital technology"
               className="
                 absolute
@@ -1317,24 +1617,24 @@ function Technologies() {
                 h-full
                 w-full
                 object-cover
-                opacity-35
-                grayscale-[15%]
+                opacity-40
+                saturate-[1.05]
                 transition-transform
                 duration-1000
                 group-hover:scale-105
               "
             />
 
-            {/* Image overlays */}
+            {/* Image Overlay */}
 
             <div
               className="
                 absolute
                 inset-0
                 bg-gradient-to-r
-                from-[#020403]/95
-                via-[#020403]/75
-                to-[#020403]/35
+                from-[#07152f]/95
+                via-[#07152f]/72
+                to-[#07152f]/30
               "
             />
 
@@ -1343,13 +1643,13 @@ function Technologies() {
                 absolute
                 inset-0
                 bg-gradient-to-t
-                from-[#020403]/90
+                from-[#07152f]/90
                 via-transparent
-                to-emerald-950/20
+                to-[#07152f]/20
               "
             />
 
-            {/* Emerald Glow */}
+            {/* Blue Glow */}
 
             <div
               className="
@@ -1360,7 +1660,7 @@ function Technologies() {
                 h-[400px]
                 w-[400px]
                 rounded-full
-                bg-emerald-500/[0.10]
+                bg-blue-500/[0.12]
                 blur-[120px]
               "
             />
@@ -1376,11 +1676,13 @@ function Technologies() {
                 h-[300px]
                 w-[300px]
                 rounded-full
-                bg-cyan-500/[0.055]
+                bg-cyan-500/[0.06]
                 blur-[110px]
               "
             />
 
+
+            {/* Content */}
 
             <div
               className="
@@ -1402,7 +1704,7 @@ function Technologies() {
                     text-[10px]
                     font-semibold
                     tracking-[0.25em]
-                    text-emerald-200/75
+                    text-cyan-200/85
                   "
                 >
                   NEED SOMETHING CUSTOM?
@@ -1414,6 +1716,7 @@ function Technologies() {
                     text-4xl
                     font-semibold
                     tracking-[-0.05em]
+                    text-white
                     sm:text-5xl
                     md:text-6xl
                   "
@@ -1425,9 +1728,9 @@ function Technologies() {
                     className="
                       block
                       bg-gradient-to-r
-                      from-emerald-300
-                      via-teal-200
-                      to-cyan-300
+                      from-blue-200
+                      via-white
+                      to-cyan-200
                       bg-clip-text
                       text-transparent
                     "
@@ -1443,12 +1746,13 @@ function Technologies() {
                     max-w-xl
                     text-sm
                     leading-7
-                    text-white/45
+                    text-blue-50/70
                   "
                 >
-                  From custom APIs and business systems to AI
-                  integrations and automation, we can design a
-                  technology stack around your exact requirements.
+                  From custom APIs and business systems to
+                  AI integrations and automation, we can
+                  design a technology stack around your exact
+                  requirements.
                 </p>
 
                 <a
@@ -1461,18 +1765,19 @@ function Technologies() {
                     gap-3
                     rounded-full
                     bg-gradient-to-r
-                    from-emerald-500
-                    to-teal-500
+                    from-blue-500
+                    via-blue-500
+                    to-cyan-500
                     px-7
                     py-4
                     text-sm
                     font-semibold
                     text-white
-                    shadow-[0_12px_45px_rgba(16,185,129,0.20)]
+                    shadow-[0_15px_60px_rgba(37,99,235,0.25)]
                     transition-all
                     duration-300
                     hover:scale-[1.03]
-                    hover:shadow-[0_18px_60px_rgba(16,185,129,0.30)]
+                    hover:shadow-[0_20px_80px_rgba(34,211,238,0.28)]
                   "
                 >
 
@@ -1487,7 +1792,7 @@ function Technologies() {
                       justify-center
                       rounded-full
                       bg-white
-                      text-emerald-600
+                      text-blue-600
                       transition-transform
                       duration-300
                       group-hover/button:rotate-45
@@ -1518,67 +1823,143 @@ function Technologies() {
           relative
           overflow-hidden
           border-t
-          border-white/[0.07]
+          border-white/[0.10]
           px-6
-          py-28
+          py-32
           sm:px-8
-          sm:py-32
           lg:px-12
         "
       >
 
-        {/* Background visual */}
+        {/* CTA Background */}
 
         <div
           className="
             pointer-events-none
             absolute
             inset-0
-            opacity-[0.08]
+            overflow-hidden
           "
         >
 
           <img
-            src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1800&q=80"
+            src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1800&q=95"
             alt=""
-            className="h-full w-full object-cover grayscale"
+            className="
+              h-full
+              w-full
+              object-cover
+              opacity-[0.15]
+              grayscale-[5%]
+            "
+          />
+
+          <div
+            className="
+              absolute
+              inset-0
+              bg-gradient-to-r
+              from-[#07152f]
+              via-[#07152f]/75
+              to-[#07152f]
+            "
+          />
+
+          <div
+            className="
+              absolute
+              inset-0
+              bg-gradient-to-t
+              from-[#07152f]
+              via-transparent
+              to-[#07152f]
+            "
+          />
+
+          <div
+            className="
+              absolute
+              inset-0
+              bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.20),transparent_48%)]
+            "
           />
 
         </div>
 
 
-        {/* Emerald Glow */}
+        {/* Blue Glow */}
+
+        <motion.div
+          animate={{
+            scale: [1, 1.08, 1],
+            opacity: [0.7, 1, 0.7],
+          }}
+          transition={{
+            duration: 7,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="
+            pointer-events-none
+            absolute
+            left-[30%]
+            top-1/2
+            h-[500px]
+            w-[500px]
+            -translate-x-1/2
+            -translate-y-1/2
+            rounded-full
+            bg-blue-500/[0.09]
+            blur-[140px]
+          "
+        />
+
+        {/* Cyan Glow */}
+
+        <motion.div
+          animate={{
+            scale: [1, 1.06, 1],
+            opacity: [0.6, 1, 0.6],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="
+            pointer-events-none
+            absolute
+            left-[68%]
+            top-1/2
+            h-[420px]
+            w-[420px]
+            -translate-x-1/2
+            -translate-y-1/2
+            rounded-full
+            bg-cyan-400/[0.07]
+            blur-[130px]
+          "
+        />
+
+        {/* Indigo Glow */}
 
         <div
           className="
             pointer-events-none
             absolute
             left-1/2
-            top-1/2
-            h-[450px]
-            w-[450px]
+            top-[65%]
+            h-[260px]
+            w-[260px]
             -translate-x-1/2
-            -translate-y-1/2
             rounded-full
-            bg-emerald-500/[0.08]
-            blur-[140px]
-            sm:h-[550px]
-            sm:w-[550px]
-            sm:blur-[160px]
+            bg-indigo-500/[0.05]
+            blur-[110px]
           "
         />
 
-        {/* Dark overlay */}
 
-        <div
-          className="
-            pointer-events-none
-            absolute
-            inset-0
-            bg-[#020403]/75
-          "
-        />
-
+        {/* CTA Content */}
 
         <motion.div
           initial={{
@@ -1609,40 +1990,44 @@ function Technologies() {
               text-[10px]
               font-semibold
               tracking-[0.28em]
-              text-emerald-300/80
+              text-cyan-200/90
             "
           >
-            LET'S BUILD
+            READY TO BUILD?
           </span>
+
 
           <h2
             className="
               mt-6
               text-4xl
               font-semibold
+              leading-tight
               tracking-[-0.05em]
+              text-white
               sm:text-5xl
               md:text-6xl
             "
           >
 
-            Have an idea?
+            Let's create something
 
             <span
               className="
                 block
                 bg-gradient-to-r
-                from-emerald-200/80
-                via-white/50
-                to-cyan-300/55
+                from-blue-200
+                via-white
+                to-cyan-200
                 bg-clip-text
                 text-transparent
               "
             >
-              Let's engineer it.
+              worth building.
             </span>
 
           </h2>
+
 
           <p
             className="
@@ -1650,13 +2035,15 @@ function Technologies() {
               mt-6
               max-w-xl
               text-sm
-              leading-6
-              text-white/40
+              leading-7
+              text-blue-50/70
             "
           >
-            Tell us about your idea and let's build the
-            technology behind your next digital product.
+            Have a project, idea or business challenge?
+            Let's talk about how the right technology can
+            move it forward.
           </p>
+
 
           <a
             href="/contact"
@@ -1668,18 +2055,19 @@ function Technologies() {
               gap-3
               rounded-full
               bg-gradient-to-r
-              from-emerald-500
-              to-teal-500
+              from-blue-500
+              via-blue-500
+              to-cyan-500
               px-7
               py-4
               text-sm
               font-semibold
               text-white
-              shadow-[0_15px_60px_rgba(16,185,129,0.20)]
+              shadow-[0_15px_60px_rgba(37,99,235,0.30)]
               transition-all
               duration-300
-              hover:scale-[1.03]
-              hover:shadow-[0_20px_70px_rgba(16,185,129,0.30)]
+              hover:scale-[1.04]
+              hover:shadow-[0_20px_80px_rgba(34,211,238,0.30)]
             "
           >
 
@@ -1694,8 +2082,8 @@ function Technologies() {
                 justify-center
                 rounded-full
                 bg-white
-                text-emerald-600
-                transition-transform
+                text-blue-600
+                transition-all
                 duration-300
                 group-hover:rotate-45
               "
@@ -1714,4 +2102,3 @@ function Technologies() {
 }
 
 export default Technologies;
-

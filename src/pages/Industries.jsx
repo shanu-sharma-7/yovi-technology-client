@@ -2,173 +2,170 @@ import { motion } from "framer-motion";
 
 import {
   ArrowUpRight,
-  Factory,
-  HeartPulse,
-  Truck,
-  GraduationCap,
-  Building2,
-  ShoppingBag,
-  BriefcaseBusiness,
-  Hotel,
-  Rocket,
+  Globe2,
+  Smartphone,
+  BrainCircuit,
+  Boxes,
+  Megaphone,
+  Palette,
   Sparkles,
 } from "lucide-react";
 
 const industries = [
   {
     number: "01",
-    title: "Manufacturing",
+    title: "Technology & SaaS",
     description:
-      "Digital systems that help manufacturers improve operations, workflows and business visibility.",
-    icon: Factory,
+      "High-performance digital products, websites and scalable applications built for technology companies and growing SaaS businesses.",
+    icon: Globe2,
     image:
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=95",
+    services: ["Web Development", "Mobile Apps", "AI Solutions"],
   },
+
   {
     number: "02",
     title: "Healthcare",
     description:
-      "Modern digital experiences and technology solutions for healthcare businesses and service providers.",
-    icon: HeartPulse,
+      "Digital platforms and intelligent solutions that help healthcare organizations improve patient experiences, operations and communication.",
+    icon: BrainCircuit,
     image:
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1600&q=95",
+    services: ["Web Development", "AI Solutions", "CRM"],
   },
+
   {
     number: "03",
     title: "Logistics & Transportation",
     description:
-      "Connected digital solutions for transportation, logistics operations and customer management.",
-    icon: Truck,
+      "Connected technology for fleet operations, logistics management, customer communication and smarter business workflows.",
+    icon: Boxes,
     image:
-      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=95",
+    services: ["ERP & CRM", "Mobile Apps", "Automation"],
   },
+
   {
     number: "04",
     title: "Education",
     description:
-      "Digital platforms and applications that make learning, administration and engagement easier.",
-    icon: GraduationCap,
+      "Modern digital experiences that make learning, administration, communication and student engagement easier.",
+    icon: Smartphone,
     image:
-      "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=95",
+    services: ["Web Development", "Mobile Apps", "UI/UX"],
   },
+
   {
     number: "05",
-    title: "Real Estate",
-    description:
-      "Digital experiences that help property businesses showcase, manage and grow their operations.",
-    icon: Building2,
-    image:
-      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=85",
-  },
-  {
-    number: "06",
     title: "Retail & E-commerce",
     description:
-      "High-performance commerce experiences designed to improve customer journeys and conversions.",
-    icon: ShoppingBag,
+      "Conversion-focused digital experiences that help retail brands build stronger customer journeys and grow online.",
+    icon: Megaphone,
     image:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1600&q=95",
+    services: ["E-commerce", "Digital Marketing", "AI"],
   },
+
   {
-    number: "07",
+    number: "06",
     title: "Professional Services",
     description:
-      "Technology solutions that help service businesses automate processes and serve customers better.",
-    icon: BriefcaseBusiness,
+      "Business technology that helps service companies automate workflows, manage customers and build a stronger digital presence.",
+    icon: Palette,
     image:
-      "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=85",
+      "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1600&q=95",
+    services: ["Web Development", "CRM", "Branding"],
   },
-  {
-    number: "08",
-    title: "Hospitality",
-    description:
-      "Digital experiences that improve customer engagement, operations and online presence.",
-    icon: Hotel,
-    image:
-      "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=85",
-  },
-  {
-    number: "09",
-    title: "Startups & SMBs",
-    description:
-      "Flexible and scalable technology solutions built around the needs of growing businesses.",
-    icon: Rocket,
-    image:
-      "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=85",
-  },
+];
+
+const serviceColors = [
+  "border-blue-300/15 bg-blue-400/[0.06] text-blue-100/75",
+  "border-cyan-300/15 bg-cyan-400/[0.06] text-cyan-100/75",
+  "border-indigo-300/15 bg-indigo-400/[0.06] text-indigo-100/75",
 ];
 
 function Industries() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#020403] text-white">
+    <main className="relative min-h-screen overflow-hidden bg-[#07152f] font-sans text-white antialiased">
 
       {/* =====================================================
-          GLOBAL AMBIENT BACKGROUND
+          GLOBAL BACKGROUND
       ===================================================== */}
 
       <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
 
-        {/* Emerald Atmosphere */}
+        {/* Blue glow */}
 
         <motion.div
+          animate={{
+            x: [0, 40, 0],
+            y: [0, 25, 0],
+            scale: [1, 1.08, 1],
+          }}
+          transition={{
+            duration: 14,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
           className="
             absolute
-            left-[10%]
-            top-[5%]
+            left-[5%]
+            top-[-160px]
+            h-[620px]
+            w-[620px]
+            rounded-full
+            bg-blue-500/[0.13]
+            blur-[150px]
+          "
+        />
+
+        {/* Cyan glow */}
+
+        <motion.div
+          animate={{
+            x: [0, -40, 0],
+            y: [0, 30, 0],
+            scale: [1, 1.08, 1],
+          }}
+          transition={{
+            duration: 16,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="
+            absolute
+            left-[40%]
+            top-[25%]
             h-[500px]
             w-[500px]
             rounded-full
-            bg-emerald-500/[0.045]
-            blur-[160px]
-          "
-          animate={{
-            scale: [1, 1.1, 1],
-            opacity: [0.45, 0.7, 0.45],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-
-        {/* Cyan Atmosphere */}
-
-        <motion.div
-          className="
-            absolute
-            right-[-100px]
-            top-[35%]
-            h-[450px]
-            w-[450px]
-            rounded-full
-            bg-cyan-500/[0.03]
+            bg-cyan-400/[0.055]
             blur-[150px]
           "
+        />
+
+        {/* Indigo glow */}
+
+        <motion.div
           animate={{
-            x: [0, -40, 0],
-            y: [0, 40, 0],
+            x: [0, -35, 0],
+            y: [0, 30, 0],
           }}
           transition={{
-            duration: 12,
+            duration: 18,
             repeat: Infinity,
             ease: "easeInOut",
           }}
-        />
-
-        {/* Teal Bottom Glow */}
-
-        <div
           className="
             absolute
-            bottom-[-100px]
-            left-1/2
-            h-[400px]
-            w-[400px]
-            -translate-x-1/2
+            right-[-150px]
+            top-[40%]
+            h-[520px]
+            w-[520px]
             rounded-full
-            bg-teal-500/[0.025]
-            blur-[140px]
+            bg-indigo-500/[0.09]
+            blur-[150px]
           "
         />
 
@@ -184,13 +181,13 @@ function Industries() {
           "
         />
 
-        {/* Radial Fade */}
+        {/* Vignette */}
 
         <div
           className="
             absolute
             inset-0
-            bg-[radial-gradient(circle_at_center,transparent_15%,#020403_82%)]
+            bg-[radial-gradient(circle_at_center,transparent_10%,#07152f_90%)]
           "
         />
 
@@ -206,7 +203,7 @@ function Industries() {
           relative
           overflow-hidden
           px-6
-          pb-24
+          pb-28
           pt-36
           sm:px-8
           sm:pt-40
@@ -215,24 +212,24 @@ function Industries() {
         "
       >
 
-        {/* Hero Background Image */}
+        {/* Hero Image */}
 
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-[620px] overflow-hidden">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-[680px] overflow-hidden">
 
           <motion.img
             initial={{
               opacity: 0,
-              scale: 1.08,
+              scale: 1.06,
             }}
             animate={{
-              opacity: 0.22,
+              opacity: 0.32,
               scale: 1,
             }}
             transition={{
               duration: 1.4,
               ease: "easeOut",
             }}
-            src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1800&q=85"
+            src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=2000&q=95"
             alt=""
             className="
               absolute
@@ -241,56 +238,62 @@ function Industries() {
               w-full
               object-cover
               object-center
+              saturate-[1.05]
             "
           />
+
+          {/* Soft readability overlay */}
 
           <div
             className="
               absolute
               inset-0
               bg-gradient-to-b
-              from-[#020403]/40
-              via-[#020403]/80
-              to-[#020403]
+              from-[#07152f]/25
+              via-[#07152f]/55
+              to-[#07152f]
             "
           />
+
+          {/* Blue light */}
 
           <div
             className="
               absolute
               inset-0
-              bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.08),transparent_55%)]
+              bg-[radial-gradient(circle_at_65%_35%,rgba(59,130,246,0.20),transparent_45%)]
             "
           />
 
         </div>
 
 
-        {/* Hero Glow */}
+        {/* Hero glow */}
 
         <motion.div
+          animate={{
+            scale: [1, 1.08, 1],
+            opacity: [0.35, 0.6, 0.35],
+          }}
+          transition={{
+            duration: 9,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
           className="
             pointer-events-none
             absolute
             left-1/2
             top-10
-            h-[500px]
-            w-[500px]
+            h-[520px]
+            w-[520px]
             -translate-x-1/2
             rounded-full
-            bg-emerald-500/[0.045]
+            bg-blue-500/[0.07]
             blur-[150px]
           "
-          animate={{
-            scale: [1, 1.08, 1],
-            opacity: [0.4, 0.65, 0.4],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
         />
+
 
         <div className="relative mx-auto max-w-7xl">
 
@@ -309,13 +312,13 @@ function Industries() {
             className="max-w-5xl"
           >
 
-            {/* EYEBROW */}
+            {/* Eyebrow */}
 
             <div className="mb-7 flex items-center gap-3">
 
               <motion.span
                 animate={{
-                  rotate: [0, 10, -10, 0],
+                  rotate: [0, 8, -8, 0],
                 }}
                 transition={{
                   duration: 4,
@@ -324,33 +327,33 @@ function Industries() {
                 }}
                 className="
                   flex
-                  h-8
-                  w-8
+                  h-9
+                  w-9
                   items-center
                   justify-center
                   rounded-full
                   border
-                  border-emerald-300/25
+                  border-blue-300/25
                   bg-gradient-to-br
-                  from-emerald-500/20
+                  from-blue-500/20
                   to-cyan-500/10
-                  shadow-[0_0_35px_rgba(16,185,129,0.15)]
+                  shadow-[0_0_35px_rgba(59,130,246,0.18)]
                 "
               >
 
                 <Sparkles
-                  size={13}
-                  className="text-emerald-200"
+                  size={14}
+                  className="text-blue-200"
                 />
 
               </motion.span>
 
               <span
                 className="
-                  text-[10px]
+                  text-[11px]
                   font-semibold
                   tracking-[0.25em]
-                  text-emerald-200/65
+                  text-blue-200/85
                 "
               >
                 INDUSTRIES WE SERVE
@@ -359,60 +362,63 @@ function Industries() {
             </div>
 
 
-            {/* HEADING */}
+            {/* Heading */}
 
             <h1
               className="
                 text-5xl
-                font-semibold
+                font-bold
                 leading-[0.98]
                 tracking-[-0.055em]
+                text-white
                 sm:text-6xl
                 md:text-7xl
-                lg:text-[86px]
+                lg:text-[88px]
               "
             >
 
-              Technology for
+              Technology built
 
               <span
                 className="
                   block
                   bg-gradient-to-r
                   from-white
-                  via-emerald-200
-                  to-cyan-300
+                  via-blue-100
+                  to-cyan-200
                   bg-clip-text
                   text-transparent
                 "
               >
-                businesses that move.
+                around your industry.
               </span>
 
             </h1>
 
 
-            {/* DESCRIPTION */}
+            {/* Description */}
 
             <p
               className="
                 mt-8
                 max-w-2xl
                 text-base
+                font-normal
                 leading-7
-                text-white/40
+                text-blue-50/75
                 sm:text-lg
+                sm:leading-8
               "
             >
-              We build digital products and business solutions
-              for organizations across industries, adapting
-              technology to the way each business works.
+              Every business works differently. We combine web,
+              mobile, AI, business systems, marketing and design
+              to create technology that fits the way your industry works.
             </p>
 
           </motion.div>
 
 
-          {/* INDUSTRY TAGS */}
+          {/* Industry Tags */}
 
           <motion.div
             initial={{
@@ -431,25 +437,25 @@ function Industries() {
               mt-20
               flex
               flex-wrap
-              gap-x-8
+              gap-x-9
               gap-y-4
               border-t
-              border-white/[0.07]
+              border-white/[0.10]
               pt-7
               text-[10px]
-              font-medium
+              font-semibold
               tracking-[0.22em]
-              text-white/25
+              text-blue-100/45
             "
           >
 
             {[
-              "MANUFACTURING",
+              "TECHNOLOGY",
               "HEALTHCARE",
               "LOGISTICS",
               "EDUCATION",
               "RETAIL",
-              "STARTUPS",
+              "SERVICES",
             ].map((item) => (
 
               <span
@@ -457,8 +463,8 @@ function Industries() {
                 className="
                   transition-all
                   duration-300
-                  hover:text-emerald-300/80
-                  hover:drop-shadow-[0_0_12px_rgba(16,185,129,0.3)]
+                  hover:text-cyan-200
+                  hover:drop-shadow-[0_0_12px_rgba(34,211,238,0.35)]
                 "
               >
                 {item}
@@ -474,15 +480,16 @@ function Industries() {
 
 
       {/* =====================================================
-          INDUSTRIES GRID
+          INDUSTRIES SECTION
       ===================================================== */}
 
       <section
         className="
+          relative
           border-t
-          border-white/[0.06]
+          border-white/[0.10]
           px-6
-          py-28
+          py-32
           sm:px-8
           lg:px-12
         "
@@ -490,7 +497,7 @@ function Industries() {
 
         <div className="mx-auto max-w-7xl">
 
-          {/* SECTION HEADING */}
+          {/* Section heading */}
 
           <motion.div
             initial={{
@@ -508,47 +515,64 @@ function Industries() {
             transition={{
               duration: 0.7,
             }}
-            className="mb-14 max-w-2xl"
+            className="mb-14 max-w-3xl"
           >
 
             <span
               className="
-                text-[10px]
+                text-[11px]
                 font-semibold
                 tracking-[0.25em]
-                text-emerald-300/80
+                text-cyan-200/85
               "
             >
-              OUR EXPERTISE
+              WHERE WE WORK
             </span>
 
             <h2
               className="
                 mt-5
                 text-4xl
-                font-semibold
+                font-bold
+                leading-tight
                 tracking-[-0.05em]
+                text-white
                 sm:text-5xl
               "
             >
 
               Different industries.
 
-              <span className="block text-white/30">
-                One technology mindset.
+              <span className="block text-white/35">
+                Powerful technology.
               </span>
 
             </h2>
 
+            <p
+              className="
+                mt-6
+                max-w-2xl
+                text-sm
+                leading-7
+                text-blue-50/60
+                sm:text-base
+              "
+            >
+              From startups and technology companies to healthcare,
+              logistics, education and retail, we build digital
+              solutions around real business requirements.
+            </p>
+
           </motion.div>
 
 
-          {/* INDUSTRY GRID */}
+          {/* Industry Grid */}
 
           <div
             className="
               grid
-              gap-4
+              gap-5
               sm:grid-cols-2
               lg:grid-cols-3
             "
@@ -575,7 +599,7 @@ function Industries() {
                   }}
                   transition={{
                     duration: 0.6,
-                    delay: index * 0.04,
+                    delay: index * 0.05,
                   }}
                   whileHover={{
                     y: -7,
@@ -583,201 +607,210 @@ function Industries() {
                   className="
                     group
                     relative
-                    min-h-[380px]
+                    min-h-[490px]
                     overflow-hidden
                     rounded-[28px]
                     border
-                    border-white/[0.07]
-                    bg-white/[0.025]
+                    border-white/[0.10]
+                    bg-white/[0.045]
+                    shadow-[0_20px_70px_rgba(0,0,0,0.18)]
+                    backdrop-blur-xl
                     transition-all
                     duration-500
-                    hover:border-emerald-300/[0.16]
-                    hover:bg-white/[0.035]
-                    hover:shadow-[0_25px_80px_rgba(16,185,129,0.08)]
+                    hover:border-blue-300/[0.25]
+                    hover:bg-white/[0.065]
+                    hover:shadow-[0_30px_100px_rgba(37,99,235,0.15)]
                   "
                 >
 
                   {/* =================================================
-                      CARD IMAGE
+                      CLEAR CARD IMAGE
                   ================================================= */}
 
-                  <div className="absolute inset-x-0 top-0 h-[190px] overflow-hidden">
+                  <div
+                    className="
+                      absolute
+                      inset-x-0
+                      top-0
+                      h-[260px]
+                      overflow-hidden
+                    "
+                  >
 
                     <motion.img
                       src={industry.image}
                       alt={industry.title}
                       loading="lazy"
                       whileHover={{
-                        scale: 1.08,
+                        scale: 1.06,
                       }}
                       transition={{
-                        duration: 0.7,
+                        duration: 0.8,
                         ease: "easeOut",
                       }}
                       className="
                         h-full
                         w-full
                         object-cover
-                        opacity-[0.42]
-                        grayscale-[15%]
-                        transition-opacity
+                        object-center
+                        opacity-100
+                        saturate-[1.08]
+                        transition-all
                         duration-500
-                        group-hover:opacity-[0.58]
+                        group-hover:brightness-110
                       "
                     />
 
-                    {/* Image Dark Overlay */}
+                    {/* Very light overlay only at bottom */}
 
                     <div
                       className="
                         absolute
                         inset-0
                         bg-gradient-to-b
-                        from-[#020403]/20
-                        via-[#020403]/45
-                        to-[#020403]
+                        from-black/5
+                        via-transparent
+                        to-[#07152f]/90
                       "
                     />
 
-                    {/* Green Tint */}
+                    {/* Subtle blue tint */}
 
                     <div
                       className="
                         absolute
                         inset-0
                         bg-gradient-to-br
-                        from-emerald-500/[0.06]
+                        from-blue-500/[0.05]
                         via-transparent
                         to-cyan-500/[0.04]
-                        opacity-0
-                        transition-opacity
-                        duration-500
-                        group-hover:opacity-100
                       "
                     />
 
                   </div>
 
 
-                  {/* CARD GLOW */}
+                  {/* Card glow */}
 
                   <div
                     className="
                       pointer-events-none
                       absolute
-                      -right-20
-                      -top-20
-                      h-56
-                      w-56
+                      -right-24
+                      -top-24
+                      h-72
+                      w-72
                       rounded-full
-                      bg-emerald-500/[0.045]
-                      blur-[80px]
+                      bg-blue-500/[0.06]
+                      blur-[90px]
                       transition-all
                       duration-700
-                      group-hover:bg-emerald-500/[0.10]
+                      group-hover:bg-blue-500/[0.12]
                     "
                   />
 
 
-                  {/* SECONDARY GLOW */}
-
-                  <div
-                    className="
-                      pointer-events-none
-                      absolute
-                      -bottom-24
-                      -left-20
-                      h-44
-                      w-44
-                      rounded-full
-                      bg-cyan-500/[0.02]
-                      blur-[70px]
-                      transition-all
-                      duration-700
-                      group-hover:bg-cyan-500/[0.055]
-                    "
-                  />
-
-
-                  {/* TOP ACCENT */}
+                  {/* Top accent */}
 
                   <div
                     className="
                       absolute
                       left-8
                       top-0
-                      z-20
-                      h-px
+                      z-30
+                      h-[2px]
                       w-0
                       bg-gradient-to-r
-                      from-emerald-400
+                      from-blue-400
                       to-cyan-400
                       transition-all
                       duration-500
-                      group-hover:w-20
+                      group-hover:w-24
                     "
                   />
 
 
-                  {/* CONTENT */}
+                  {/* Content */}
 
-                  <div className="relative z-10 flex h-full min-h-[380px] flex-col p-7 sm:p-8">
+                  <div
+                    className="
+                      relative
+                      z-20
+                      flex
+                      min-h-[490px]
+                      flex-col
+                      p-7
+                      sm:p-8
+                    "
+                  >
 
-                    {/* NUMBER */}
+                    {/* Top row */}
 
                     <div className="flex items-center justify-between">
 
                       <span
                         className="
+                          rounded-full
+                          border
+                          border-white/[0.12]
+                          bg-[#07152f]/55
+                          px-3
+                          py-1.5
                           text-[10px]
-                          tracking-[0.2em]
-                          text-white/25
-                          transition-colors
-                          duration-300
-                          group-hover:text-emerald-300/70
+                          font-semibold
+                          tracking-[0.18em]
+                          text-white/70
+                          backdrop-blur-md
                         "
                       >
                         {industry.number}
                       </span>
 
+
                       <div
                         className="
                           flex
-                          h-8
-                          w-8
+                          h-9
+                          w-9
                           items-center
                           justify-center
                           rounded-full
                           border
-                          border-white/[0.08]
-                          bg-[#020403]/40
-                          text-white/30
+                          border-white/[0.14]
+                          bg-[#07152f]/55
+                          text-white/55
                           backdrop-blur-md
                           transition-all
                           duration-300
-                          group-hover:border-emerald-300/20
-                          group-hover:bg-emerald-400/[0.07]
-                          group-hover:text-emerald-200
+                          group-hover:border-cyan-300/30
+                          group-hover:bg-blue-400/[0.10]
+                          group-hover:text-cyan-100
                         "
                       >
+
                         <ArrowUpRight
-                          size={14}
+                          size={15}
                           className="
                             transition-transform
                             duration-300
                             group-hover:rotate-45
                           "
                         />
+
                       </div>
 
                     </div>
 
 
-                    {/* ICON */}
+                    {/* Spacer for image */}
+
+                    <div className="flex-1" />
+
+
+                    {/* Icon */}
 
                     <div
                       className="
-                        mt-[105px]
                         flex
                         h-12
                         w-12
@@ -785,41 +818,41 @@ function Industries() {
                         justify-center
                         rounded-2xl
                         border
-                        border-white/10
-                        bg-[#020403]/60
-                        text-white/55
-                        shadow-[0_10px_30px_rgba(0,0,0,0.25)]
+                        border-white/[0.16]
+                        bg-[#07152f]/75
+                        text-blue-100
+                        shadow-[0_10px_35px_rgba(0,0,0,0.35)]
                         backdrop-blur-xl
                         transition-all
                         duration-300
-                        group-hover:border-emerald-300/25
-                        group-hover:bg-emerald-400/[0.08]
-                        group-hover:text-emerald-200
-                        group-hover:shadow-[0_0_30px_rgba(16,185,129,0.12)]
+                        group-hover:border-cyan-300/30
+                        group-hover:bg-blue-400/[0.12]
+                        group-hover:text-cyan-100
+                        group-hover:shadow-[0_0_35px_rgba(34,211,238,0.15)]
                       "
                     >
 
                       <Icon
                         size={21}
-                        strokeWidth={1.5}
+                        strokeWidth={1.7}
                       />
 
                     </div>
 
 
-                    {/* CONTENT */}
+                    {/* Text */}
 
-                    <div className="relative mt-6">
+                    <div className="mt-6">
 
                       <h3
                         className="
-                          text-xl
-                          font-medium
-                          tracking-[-0.025em]
-                          text-white/90
+                          text-2xl
+                          font-bold
+                          tracking-[-0.035em]
+                          text-white
                           transition-colors
                           duration-300
-                          group-hover:text-white
+                          group-hover:text-cyan-50
                         "
                       >
                         {industry.title}
@@ -829,15 +862,44 @@ function Industries() {
                         className="
                           mt-3
                           text-sm
+                          font-normal
                           leading-6
-                          text-white/30
+                          text-blue-50/65
                           transition-colors
                           duration-300
-                          group-hover:text-white/50
+                          group-hover:text-blue-50/80
                         "
                       >
                         {industry.description}
                       </p>
+
+                    </div>
+
+
+                    {/* Services */}
+
+                    <div className="mt-6 flex flex-wrap gap-2">
+
+                      {industry.services.map((service, serviceIndex) => (
+
+                        <span
+                          key={service}
+                          className={`
+                            rounded-full
+                            border
+                            px-3
+                            py-1.5
+                            text-[10px]
+                            font-medium
+                            transition-all
+                            duration-300
+                            ${serviceColors[serviceIndex % serviceColors.length]}
+                          `}
+                        >
+                          {service}
+                        </span>
+
+                      ))}
 
                     </div>
 
@@ -855,7 +917,7 @@ function Industries() {
 
 
       {/* =====================================================
-          BUSINESS FOCUS
+          BUSINESS APPROACH
       ===================================================== */}
 
       <section
@@ -863,7 +925,7 @@ function Industries() {
           relative
           overflow-hidden
           border-t
-          border-white/[0.06]
+          border-white/[0.10]
           px-6
           py-32
           sm:px-8
@@ -871,19 +933,19 @@ function Industries() {
         "
       >
 
-        {/* Ambient Glow */}
+        {/* Background */}
 
         <div
           className="
             pointer-events-none
             absolute
-            left-[-180px]
+            left-[-200px]
             top-1/2
             h-[500px]
             w-[500px]
             -translate-y-1/2
             rounded-full
-            bg-emerald-500/[0.035]
+            bg-blue-500/[0.045]
             blur-[150px]
           "
         />
@@ -894,11 +956,11 @@ function Industries() {
             absolute
             right-[-150px]
             bottom-[-100px]
-            h-[400px]
-            w-[400px]
+            h-[450px]
+            w-[450px]
             rounded-full
-            bg-cyan-500/[0.025]
-            blur-[130px]
+            bg-cyan-400/[0.035]
+            blur-[140px]
           "
         />
 
@@ -914,7 +976,7 @@ function Industries() {
           "
         >
 
-          {/* LEFT */}
+          {/* Left */}
 
           <motion.div
             initial={{
@@ -935,10 +997,10 @@ function Industries() {
 
             <span
               className="
-                text-[10px]
+                text-[11px]
                 font-semibold
                 tracking-[0.25em]
-                text-emerald-300/80
+                text-cyan-200/85
               "
             >
               BUSINESS FIRST
@@ -948,28 +1010,29 @@ function Industries() {
               className="
                 mt-5
                 text-4xl
-                font-semibold
+                font-bold
                 leading-tight
                 tracking-[-0.05em]
+                text-white
                 sm:text-5xl
                 md:text-6xl
               "
             >
 
-              We adapt technology
+              Technology should fit
 
               <span
                 className="
                   block
                   bg-gradient-to-r
-                  from-emerald-200
-                  via-emerald-300/70
-                  to-cyan-300/60
+                  from-blue-200
+                  via-blue-300
+                  to-cyan-200
                   bg-clip-text
                   text-transparent
                 "
               >
-                to your business.
+                your business.
               </span>
 
             </h2>
@@ -980,18 +1043,19 @@ function Industries() {
                 max-w-xl
                 text-sm
                 leading-7
-                text-white/35
+                text-blue-50/65
+                sm:text-base
               "
             >
-              Every industry has different workflows,
-              customers and challenges. That's why we don't
-              simply apply the same technology everywhere.
+              We don't believe in one-size-fits-all technology.
+              We understand your workflows, customers and goals
+              before choosing the right digital approach.
             </p>
 
           </motion.div>
 
 
-          {/* RIGHT */}
+          {/* Right */}
 
           <motion.div
             initial={{
@@ -1013,8 +1077,8 @@ function Industries() {
               overflow-hidden
               rounded-[30px]
               border
-              border-white/[0.07]
-              bg-white/[0.025]
+              border-white/[0.10]
+              bg-white/[0.045]
               p-8
               shadow-[0_25px_100px_rgba(0,0,0,0.25)]
               backdrop-blur-xl
@@ -1022,21 +1086,19 @@ function Industries() {
             "
           >
 
-            {/* Business Image */}
+            {/* Background image */}
 
             <div className="absolute inset-0 overflow-hidden">
 
               <img
-                src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1400&q=85"
+                src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1600&q=95"
                 alt=""
                 className="
                   h-full
                   w-full
                   object-cover
-                  opacity-[0.12]
-                  grayscale
-                  transition-all
-                  duration-700
+                  opacity-[0.18]
+                  saturate-[1.05]
                 "
               />
 
@@ -1045,9 +1107,9 @@ function Industries() {
                   absolute
                   inset-0
                   bg-gradient-to-br
-                  from-[#020403]/95
-                  via-[#020403]/85
-                  to-emerald-950/30
+                  from-[#07152f]/90
+                  via-[#07152f]/78
+                  to-[#07152f]/65
                 "
               />
 
@@ -1079,7 +1141,7 @@ function Industries() {
                 h-64
                 w-64
                 rounded-full
-                bg-emerald-500/[0.06]
+                bg-blue-500/[0.08]
                 blur-[90px]
               "
             />
@@ -1089,27 +1151,31 @@ function Industries() {
 
               {[
                 {
+                  number: "01",
                   title: "Understand",
-                  text: "Learn how your business operates.",
+                  text: "Learn how your industry and business actually operate.",
                 },
                 {
-                  title: "Customize",
-                  text: "Choose technology around your requirements.",
+                  number: "02",
+                  title: "Choose",
+                  text: "Select the right mix of web, mobile, AI and business technology.",
                 },
                 {
+                  number: "03",
                   title: "Build",
-                  text: "Create scalable digital solutions.",
+                  text: "Create scalable digital solutions around your requirements.",
                 },
                 {
+                  number: "04",
                   title: "Grow",
-                  text: "Improve and evolve with your business.",
+                  text: "Improve, optimize and evolve as your business grows.",
                 },
-              ].map((item, index) => (
+              ].map((item) => (
 
                 <motion.div
-                  key={item.title}
+                  key={item.number}
                   whileHover={{
-                    x: 5,
+                    x: 6,
                   }}
                   className="
                     group/step
@@ -1117,7 +1183,7 @@ function Industries() {
                     items-start
                     gap-5
                     border-b
-                    border-white/[0.06]
+                    border-white/[0.08]
                     pb-6
                     last:border-0
                     last:pb-0
@@ -1128,14 +1194,15 @@ function Industries() {
                     className="
                       mt-0.5
                       text-[10px]
+                      font-semibold
                       tracking-[0.15em]
-                      text-white/20
+                      text-blue-200/40
                       transition-colors
                       duration-300
-                      group-hover/step:text-emerald-300/70
+                      group-hover/step:text-cyan-200
                     "
                   >
-                    0{index + 1}
+                    {item.number}
                   </span>
 
                   <div>
@@ -1143,8 +1210,8 @@ function Industries() {
                     <h3
                       className="
                         text-sm
-                        font-medium
-                        text-white/80
+                        font-semibold
+                        text-white/85
                         transition-colors
                         duration-300
                         group-hover/step:text-white
@@ -1158,7 +1225,7 @@ function Industries() {
                         mt-1.5
                         text-xs
                         leading-5
-                        text-white/25
+                        text-blue-50/50
                       "
                     >
                       {item.text}
@@ -1188,28 +1255,34 @@ function Industries() {
           relative
           overflow-hidden
           border-t
-          border-white/[0.07]
+          border-white/[0.10]
           px-6
-          py-28
+          py-32
           sm:px-8
-          sm:py-32
           lg:px-12
         "
       >
 
-        {/* CTA Background Image */}
+        {/* CTA Image */}
 
-        <div className="pointer-events-none absolute inset-0">
+        <div
+          className="
+            pointer-events-none
+            absolute
+            inset-0
+            overflow-hidden
+          "
+        >
 
           <img
-            src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1800&q=85"
+            src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=2000&q=95"
             alt=""
             className="
               h-full
               w-full
               object-cover
-              opacity-[0.10]
-              grayscale
+              opacity-[0.18]
+              saturate-[1.05]
             "
           />
 
@@ -1217,62 +1290,92 @@ function Industries() {
             className="
               absolute
               inset-0
-              bg-gradient-to-b
-              from-[#020403]
-              via-[#020403]/85
-              to-[#020403]
+              bg-gradient-to-r
+              from-[#07152f]/95
+              via-[#07152f]/70
+              to-[#07152f]/95
+            "
+          />
+
+          <div
+            className="
+              absolute
+              inset-0
+              bg-gradient-to-t
+              from-[#07152f]
+              via-transparent
+              to-[#07152f]
+            "
+          />
+
+          <div
+            className="
+              absolute
+              inset-0
+              bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.18),transparent_48%)]
             "
           />
 
         </div>
 
 
-        {/* Main Glow */}
+        {/* Blue glow */}
 
         <motion.div
-          className="
-            pointer-events-none
-            absolute
-            left-1/2
-            top-1/2
-            h-[500px]
-            w-[500px]
-            -translate-x-1/2
-            -translate-y-1/2
-            rounded-full
-            bg-emerald-500/[0.045]
-            blur-[150px]
-          "
           animate={{
-            scale: [1, 1.12, 1],
-            opacity: [0.4, 0.7, 0.4],
+            scale: [1, 1.08, 1],
+            opacity: [0.45, 0.8, 0.45],
           }}
           transition={{
             duration: 8,
             repeat: Infinity,
             ease: "easeInOut",
           }}
-        />
-
-
-        {/* Cyan Core */}
-
-        <div
           className="
             pointer-events-none
             absolute
-            left-1/2
+            left-[30%]
             top-1/2
-            h-[250px]
-            w-[250px]
+            h-[500px]
+            w-[500px]
             -translate-x-1/2
             -translate-y-1/2
             rounded-full
-            bg-cyan-500/[0.035]
-            blur-[100px]
+            bg-blue-500/[0.08]
+            blur-[140px]
           "
         />
 
+
+        {/* Cyan glow */}
+
+        <motion.div
+          animate={{
+            scale: [1, 1.06, 1],
+            opacity: [0.4, 0.75, 0.4],
+          }}
+          transition={{
+            duration: 9,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="
+            pointer-events-none
+            absolute
+            left-[70%]
+            top-1/2
+            h-[420px]
+            w-[420px]
+            -translate-x-1/2
+            -translate-y-1/2
+            rounded-full
+            bg-cyan-400/[0.06]
+            blur-[130px]
+          "
+        />
+
+
+        {/* CTA Content */}
 
         <motion.div
           initial={{
@@ -1299,10 +1402,10 @@ function Industries() {
 
           <span
             className="
-              text-[10px]
+              text-[11px]
               font-semibold
               tracking-[0.28em]
-              text-emerald-300/80
+              text-cyan-200/90
             "
           >
             YOUR INDUSTRY. YOUR SOLUTION.
@@ -1313,9 +1416,10 @@ function Industries() {
             className="
               mt-6
               text-4xl
-              font-semibold
+              font-bold
               leading-tight
               tracking-[-0.05em]
+              text-white
               sm:text-5xl
               md:text-6xl
             "
@@ -1327,9 +1431,9 @@ function Industries() {
               className="
                 block
                 bg-gradient-to-r
-                from-emerald-200/80
-                via-white/40
-                to-cyan-300/55
+                from-blue-200
+                via-white
+                to-cyan-200
                 bg-clip-text
                 text-transparent
               "
@@ -1346,16 +1450,18 @@ function Industries() {
               mt-6
               max-w-xl
               text-sm
-              leading-6
-              text-white/35
+              leading-7
+              text-blue-50/65
+              sm:text-base
             "
           >
             Tell us about your business and we'll explore
-            the right digital approach for you.
+            the right combination of technology, design and
+            digital strategy for you.
           </p>
 
 
-          {/* CTA BUTTON */}
+          {/* CTA */}
 
           <a
             href="/contact"
@@ -1367,18 +1473,19 @@ function Industries() {
               gap-3
               rounded-full
               bg-gradient-to-r
-              from-emerald-500
-              to-teal-500
+              from-blue-500
+              via-blue-500
+              to-cyan-500
               px-7
               py-4
               text-sm
               font-semibold
               text-white
-              shadow-[0_15px_60px_rgba(16,185,129,0.22)]
+              shadow-[0_15px_60px_rgba(37,99,235,0.30)]
               transition-all
               duration-300
               hover:scale-[1.04]
-              hover:shadow-[0_20px_80px_rgba(16,185,129,0.32)]
+              hover:shadow-[0_20px_80px_rgba(34,211,238,0.30)]
             "
           >
 
@@ -1393,13 +1500,15 @@ function Industries() {
                 justify-center
                 rounded-full
                 bg-white
-                text-emerald-600
+                text-blue-600
                 transition-all
                 duration-300
                 group-hover:rotate-45
               "
             >
+
               <ArrowUpRight size={13} />
+
             </span>
 
           </a>
