@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 import {
@@ -13,6 +14,37 @@ import {
   Target,
 } from "lucide-react";
 
+import api from "../services/api";
+
+const fallbackImages = {
+  "process-hero":
+    "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=90",
+
+  "process-discovery":
+    "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1400&q=90",
+
+  "process-strategy":
+    "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=90",
+
+  "process-experience":
+    "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1400&q=90",
+
+  "process-engineering":
+    "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=90",
+
+  "process-quality":
+    "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=90",
+
+  "process-launch":
+    "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=90",
+
+  "process-support":
+    "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1400&q=90",
+
+  "process-cta":
+    "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1800&q=90",
+};
+
 const processSteps = [
   {
     number: "01",
@@ -22,8 +54,7 @@ const processSteps = [
       "We start by understanding your business, users, challenges and objectives. The goal is to understand the problem before building the solution.",
     icon: Search,
     accent: "blue",
-    image:
-      "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1400&q=90",
+    imageKey: "process-discovery",
     points: ["Business requirements", "User needs", "Goals & objectives"],
   },
   {
@@ -34,8 +65,7 @@ const processSteps = [
       "We turn requirements into a clear product and technology strategy with the right features, architecture and roadmap.",
     icon: Target,
     accent: "cyan",
-    image:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=90",
+    imageKey: "process-strategy",
     points: ["Product roadmap", "Technology planning", "Project milestones"],
   },
   {
@@ -46,8 +76,7 @@ const processSteps = [
       "We create modern interfaces and intuitive user experiences that balance aesthetics, usability and business goals.",
     icon: Lightbulb,
     accent: "indigo",
-    image:
-      "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1400&q=90",
+    imageKey: "process-experience",
     points: ["UI/UX design", "Design systems", "Responsive experiences"],
   },
   {
@@ -58,8 +87,7 @@ const processSteps = [
       "Our engineers transform the approved design into a scalable digital product using modern technologies and clean development practices.",
     icon: Code2,
     accent: "blue",
-    image:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=90",
+    imageKey: "process-engineering",
     points: ["Frontend development", "Backend & APIs", "Database integration"],
   },
   {
@@ -70,8 +98,7 @@ const processSteps = [
       "Before launch, we test the product across functionality, responsiveness, performance and reliability to ensure everything works as expected.",
     icon: ShieldCheck,
     accent: "cyan",
-    image:
-      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=90",
+    imageKey: "process-quality",
     points: ["Functional testing", "Performance checks", "Responsive testing"],
   },
   {
@@ -82,8 +109,7 @@ const processSteps = [
       "Once everything is ready, we deploy the solution and make it available to your customers with a smooth and reliable launch.",
     icon: Rocket,
     accent: "indigo",
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=90",
+    imageKey: "process-launch",
     points: ["Production deployment", "Configuration", "Launch monitoring"],
   },
   {
@@ -94,8 +120,7 @@ const processSteps = [
       "Our relationship doesn't end after launch. We help maintain, improve and evolve your digital solution as your business grows.",
     icon: CheckCircle2,
     accent: "blue",
-    image:
-      "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1400&q=90",
+    imageKey: "process-support",
     points: ["Maintenance", "Improvements", "Ongoing support"],
   },
 ];
@@ -148,15 +173,63 @@ const accentStyles = {
 };
 
 function Process() {
+  const [websiteImages, setWebsiteImages] = useState([]);
+  const [content, setContent] = useState(null);
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const response = await api.get("/images");
+        setWebsiteImages(response.data?.data || []);
+      } catch (error) {
+        console.error("Process Images Error:", error);
+      }
+    };
+
+    const fetchContent = async () => {
+      try {
+        const response = await api.get("/content/process");
+        setContent(response.data?.data || response.data || {});
+      } catch (error) {
+        console.error("Process Content Error:", error);
+      }
+    };
+
+    fetchImages();
+    fetchContent();
+  }, []);
+
+  const getImageByKey = (key) => {
+    const image = websiteImages.find((item) => item.key === key);
+
+    return image?.url || fallbackImages[key];
+  };
+
+ const cmsSteps = content?.process?.steps || [];
+
+const steps = cmsSteps.map((cmsStep, index) => {
+  const defaultStep = processSteps[index] || processSteps[0];
+
+  return {
+    ...defaultStep,
+    ...cmsStep,
+    icon: defaultStep.icon,
+    accent: defaultStep.accent,
+  };
+});
+
+  const processContent = content?.process || {};
+  const hero = content?.hero || {};
+  const principle = processContent.principle || {};
+  const cta = content?.cta || {};
+
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#07152f] text-white">
-
       {/* =====================================================
           GLOBAL BLUE AMBIENT BACKGROUND
       ===================================================== */}
 
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-
         {/* Top blue atmosphere */}
 
         <motion.div
@@ -188,7 +261,7 @@ function Process() {
           animate={{
             x: [0, -40, 0],
             y: [0, 35, 0],
-            scale: [1, 1.10, 1],
+            scale: [1, 1.1, 1],
           }}
           transition={{
             duration: 16,
@@ -291,22 +364,18 @@ function Process() {
             to-transparent
           "
         />
-
       </div>
-
 
       {/* =====================================================
           HERO
       ===================================================== */}
 
       <section className="relative overflow-hidden px-6 pb-28 pt-40 sm:px-8 lg:px-12">
-
         {/* Hero technology image */}
 
         <div className="pointer-events-none absolute inset-x-0 top-0 h-[650px] overflow-hidden">
-
           <img
-            src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=90"
+            src={getImageByKey("process-hero")}
             alt=""
             className="
               absolute
@@ -338,12 +407,9 @@ function Process() {
               bg-[radial-gradient(circle_at_65%_35%,rgba(59,130,246,0.24),transparent_42%)]
             "
           />
-
         </div>
 
-
         <div className="relative mx-auto max-w-7xl">
-
           <motion.div
             initial={{
               opacity: 0,
@@ -358,11 +424,9 @@ function Process() {
             }}
             className="relative max-w-5xl"
           >
-
             {/* Eyebrow */}
 
             <div className="mb-7 flex items-center gap-3">
-
               <motion.span
                 animate={{
                   rotate: [0, 10, -10, 0],
@@ -387,10 +451,7 @@ function Process() {
                   shadow-[0_0_35px_rgba(59,130,246,0.18)]
                 "
               >
-                <Sparkles
-                  size={14}
-                  className="text-blue-200"
-                />
+                <Sparkles size={14} className="text-blue-200" />
               </motion.span>
 
               <span
@@ -401,11 +462,9 @@ function Process() {
                   text-blue-200/85
                 "
               >
-                HOW WE WORK
+                {hero.badge || "HOW WE WORK"}
               </span>
-
             </div>
-
 
             <h1
               className="
@@ -419,7 +478,7 @@ function Process() {
                 lg:text-[88px]
               "
             >
-              From idea
+              {hero.headingLine1 || "From idea"}
 
               <span
                 className="
@@ -432,11 +491,9 @@ function Process() {
                   text-transparent
                 "
               >
-                to impact.
+                {hero.headingLine2 || "to impact."}
               </span>
-
             </h1>
-
 
             <p
               className="
@@ -450,13 +507,10 @@ function Process() {
                 sm:leading-8
               "
             >
-              A structured approach that brings strategy, design,
-              engineering and continuous improvement together to
-              create digital solutions that deliver real business value.
+              {hero.description ||
+                "A structured approach that brings strategy, design, engineering and continuous improvement together to create digital solutions that deliver real business value."}
             </p>
-
           </motion.div>
-
 
           {/* PROCESS STATEMENT */}
 
@@ -483,7 +537,6 @@ function Process() {
               sm:grid-cols-3
             "
           >
-
             {[
               {
                 title: "STRATEGY",
@@ -501,9 +554,7 @@ function Process() {
                 accent: "text-indigo-200/65",
               },
             ].map((item) => (
-
               <div key={item.title}>
-
                 <span
                   className={`text-[9px] tracking-[0.22em] ${item.accent}`}
                 >
@@ -513,17 +564,11 @@ function Process() {
                 <p className="mt-2 text-sm text-blue-50/60">
                   {item.text}
                 </p>
-
               </div>
-
             ))}
-
           </motion.div>
-
         </div>
-
       </section>
-
 
       {/* =====================================================
           PROCESS TIMELINE
@@ -540,9 +585,7 @@ function Process() {
           lg:px-12
         "
       >
-
         <div className="mx-auto max-w-6xl">
-
           <motion.div
             initial={{
               opacity: 0,
@@ -560,7 +603,6 @@ function Process() {
             }}
             className="mb-20"
           >
-
             <span
               className="
                 text-[10px]
@@ -569,7 +611,7 @@ function Process() {
                 text-blue-200/80
               "
             >
-              THE PROCESS
+              {processContent.eyebrow || "THE PROCESS"}
             </span>
 
             <h2
@@ -583,7 +625,7 @@ function Process() {
                 sm:text-5xl
               "
             >
-              A process designed
+              {processContent.heading || "A process designed"}
 
               <span
                 className="
@@ -595,18 +637,15 @@ function Process() {
                   text-transparent
                 "
               >
-                {" "}for better outcomes.
+                {" "}
+                {processContent.highlightedHeading || "for better outcomes."}
               </span>
-
             </h2>
-
           </motion.div>
-
 
           {/* TIMELINE */}
 
           <div className="relative">
-
             {/* Vertical line */}
 
             <div
@@ -625,11 +664,8 @@ function Process() {
               "
             />
 
-
             <div className="space-y-6">
-
-              {processSteps.map((step, index) => {
-
+              {steps.map((step, index) => {
                 const Icon = step.icon;
                 const theme = accentStyles[step.accent];
 
@@ -654,7 +690,6 @@ function Process() {
                     }}
                     className="group relative"
                   >
-
                     {/* TIMELINE DOT */}
 
                     <div
@@ -676,7 +711,6 @@ function Process() {
                         sm:flex
                       "
                     >
-
                       <div
                         className={`
                           h-2
@@ -690,9 +724,7 @@ function Process() {
                           group-hover:scale-150
                         `}
                       />
-
                     </div>
-
 
                     {/* CARD */}
 
@@ -719,13 +751,10 @@ function Process() {
                         sm:p-10
                       `}
                     >
-
-                      {/* =================================================
-                          CARD IMAGE
-                      ================================================= */}
+                      {/* CARD IMAGE */}
 
                       <img
-                        src={step.image}
+                        src={getImageByKey(step.imageKey)}
                         alt={`${step.title} process`}
                         loading="lazy"
                         className="
@@ -744,7 +773,6 @@ function Process() {
                           group-hover:opacity-[0.58]
                         "
                       />
-
 
                       {/* IMAGE OVERLAY */}
 
@@ -772,7 +800,6 @@ function Process() {
                         "
                       />
 
-
                       {/* IMAGE HIGHLIGHT */}
 
                       <div
@@ -783,7 +810,6 @@ function Process() {
                           bg-[radial-gradient(circle_at_75%_35%,rgba(59,130,246,0.16),transparent_38%)]
                         "
                       />
-
 
                       {/* CARD GLOW */}
 
@@ -804,7 +830,6 @@ function Process() {
                         `}
                       />
 
-
                       {/* SECONDARY GLOW */}
 
                       <div
@@ -821,11 +846,9 @@ function Process() {
                         "
                       />
 
-
                       {/* CONTENT */}
 
                       <div className="relative z-10">
-
                         {/* TOP ROW */}
 
                         <div
@@ -836,9 +859,7 @@ function Process() {
                             gap-6
                           "
                         >
-
                           <div>
-
                             <span
                               className={`
                                 text-[9px]
@@ -862,9 +883,7 @@ function Process() {
                             >
                               {step.title}
                             </h3>
-
                           </div>
-
 
                           {/* NUMBER */}
 
@@ -882,9 +901,7 @@ function Process() {
                           >
                             {step.number}
                           </span>
-
                         </div>
-
 
                         {/* CONTENT */}
 
@@ -897,7 +914,6 @@ function Process() {
                             md:items-end
                           "
                         >
-
                           <p
                             className="
                               max-w-2xl
@@ -911,7 +927,6 @@ function Process() {
                           >
                             {step.description}
                           </p>
-
 
                           {/* ICON */}
 
@@ -936,16 +951,9 @@ function Process() {
                               md:flex
                             `}
                           >
-
-                            <Icon
-                              size={22}
-                              strokeWidth={1.5}
-                            />
-
+                            <Icon size={22} strokeWidth={1.5} />
                           </div>
-
                         </div>
-
 
                         {/* POINTS */}
 
@@ -957,9 +965,7 @@ function Process() {
                             gap-2
                           "
                         >
-
                           {step.points.map((point) => (
-
                             <span
                               key={point}
                               className={`
@@ -980,28 +986,17 @@ function Process() {
                             >
                               {point}
                             </span>
-
                           ))}
-
                         </div>
-
                       </div>
-
                     </div>
-
                   </motion.div>
                 );
-
               })}
-
             </div>
-
           </div>
-
         </div>
-
       </section>
-
 
       {/* =====================================================
           PRINCIPLE
@@ -1019,7 +1014,6 @@ function Process() {
           lg:px-12
         "
       >
-
         <div
           className="
             pointer-events-none
@@ -1049,7 +1043,6 @@ function Process() {
           "
         />
 
-
         <div
           className="
             mx-auto
@@ -1060,11 +1053,9 @@ function Process() {
             lg:items-center
           "
         >
-
           {/* LEFT */}
 
           <div>
-
             <span
               className="
                 text-[10px]
@@ -1073,7 +1064,7 @@ function Process() {
                 text-blue-200/80
               "
             >
-              OUR PRINCIPLE
+              {principle.eyebrow || "OUR PRINCIPLE"}
             </span>
 
             <h2
@@ -1086,7 +1077,7 @@ function Process() {
                 sm:text-5xl
               "
             >
-              Great products aren't
+              {principle.heading || "Great products aren't"}
 
               <span
                 className="
@@ -1099,18 +1090,14 @@ function Process() {
                   text-transparent
                 "
               >
-                built by accident.
+                {principle.highlightedHeading || "built by accident."}
               </span>
-
             </h2>
-
           </div>
-
 
           {/* RIGHT */}
 
           <div>
-
             <div
               className="
                 group
@@ -1131,7 +1118,6 @@ function Process() {
                 sm:p-10
               "
             >
-
               <div
                 className="
                   pointer-events-none
@@ -1150,7 +1136,6 @@ function Process() {
               />
 
               <div className="relative">
-
                 <div
                   className="
                     flex
@@ -1171,7 +1156,6 @@ function Process() {
                   />
                 </div>
 
-
                 <p
                   className="
                     mt-7
@@ -1182,35 +1166,17 @@ function Process() {
                     sm:text-xl
                   "
                 >
-                  We believe successful digital products come
-                  from the combination of{" "}
+                  We believe successful digital products come from the
+                  combination of{" "}
 
-                  <span
-                    className="
-                      bg-gradient-to-r
-                      from-blue-200
-                      to-cyan-200
-                      bg-clip-text
-                      text-transparent
-                    "
-                  >
-                    clear strategy, thoughtful design,
-                    strong engineering
-                  </span>
-
-                  {" "}and continuous improvement.
+                  {principle.description ||
+                    "We believe successful digital products come from the combination of clear strategy, thoughtful design, strong engineering and continuous improvement."}
                 </p>
-
               </div>
-
             </div>
-
           </div>
-
         </div>
-
       </section>
-
 
       {/* =====================================================
           CTA
@@ -1228,7 +1194,6 @@ function Process() {
           lg:px-12
         "
       >
-
         {/* CTA IMAGE */}
 
         <div
@@ -1238,9 +1203,8 @@ function Process() {
             inset-0
           "
         >
-
           <img
-            src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1800&q=90"
+            src={getImageByKey("process-cta")}
             alt=""
             className="
               h-full
@@ -1250,9 +1214,7 @@ function Process() {
               grayscale-[10%]
             "
           />
-
         </div>
-
 
         {/* CTA OVERLAY */}
 
@@ -1280,7 +1242,6 @@ function Process() {
           "
         />
 
-
         {/* CENTER GLOW */}
 
         <div
@@ -1298,7 +1259,6 @@ function Process() {
             blur-[150px]
           "
         />
-
 
         <motion.div
           initial={{
@@ -1323,7 +1283,6 @@ function Process() {
             text-center
           "
         >
-
           <span
             className="
               text-[10px]
@@ -1332,9 +1291,8 @@ function Process() {
               text-blue-200/85
             "
           >
-            LET'S BUILD SOMETHING
+            {cta.eyebrow || "LET'S BUILD SOMETHING"}
           </span>
-
 
           <h2
             className="
@@ -1349,7 +1307,7 @@ function Process() {
               lg:text-7xl
             "
           >
-            Have an idea?
+            {cta.heading || "Have an idea?"}
 
             <span
               className="
@@ -1362,11 +1320,9 @@ function Process() {
                 text-transparent
               "
             >
-              Let's turn it into reality.
+              {cta.highlightedHeading || "Let's turn it into reality."}
             </span>
-
           </h2>
-
 
           <p
             className="
@@ -1378,13 +1334,12 @@ function Process() {
               text-blue-50/65
             "
           >
-            Tell us what you're building, what you're trying
-            to improve, or where you want to go next.
+            {cta.description ||
+              "Tell us what you're building, what you're trying to improve, or where you want to go next."}
           </p>
 
-
           <a
-            href="/contact"
+            href={cta.buttonLink || "/contact"}
             className="
               group
               mt-9
@@ -1408,7 +1363,7 @@ function Process() {
               hover:shadow-[0_20px_80px_rgba(34,211,238,0.30)]
             "
           >
-            Start a Conversation
+            {cta.buttonText || "Start a Conversation"}
 
             <span
               className="
@@ -1427,13 +1382,9 @@ function Process() {
             >
               <ArrowUpRight size={13} />
             </span>
-
           </a>
-
         </motion.div>
-
       </section>
-
     </main>
   );
 }

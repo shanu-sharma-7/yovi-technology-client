@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 import {
@@ -11,6 +11,20 @@ import {
   Loader2,
   Sparkles,
 } from "lucide-react";
+
+import api from "../services/api";
+
+// =========================================================
+// FALLBACK IMAGES
+// =========================================================
+
+const fallbackImages = {
+  "contact-hero":
+    "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=90",
+
+  "contact-card":
+    "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=90",
+};
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -29,6 +43,38 @@ function Contact() {
   });
 
   const [loading, setLoading] = useState(false);
+
+  // =========================================================
+  // WEBSITE IMAGES
+  // =========================================================
+
+  const [websiteImages, setWebsiteImages] = useState([]);
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const response = await api.get("/images");
+
+        setWebsiteImages(response.data?.data || []);
+      } catch (error) {
+        console.error("Contact Images Error:", error);
+      }
+    };
+
+    fetchImages();
+  }, []);
+
+  // =========================================================
+  // GET IMAGE BY KEY
+  // =========================================================
+
+  const getImageByKey = (key) => {
+    const image = websiteImages.find(
+      (item) => item.key === key
+    );
+
+    return image?.url || fallbackImages[key];
+  };
 
   // =========================================================
   // HANDLE INPUT CHANGE
@@ -264,7 +310,7 @@ function Contact() {
         <div className="pointer-events-none absolute inset-x-0 top-0 h-[620px] overflow-hidden">
 
           <img
-            src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=90"
+            src={getImageByKey("contact-hero")}
             alt=""
             className="
               absolute
@@ -506,7 +552,7 @@ function Contact() {
               >
 
                 <img
-                  src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=90"
+                  src={getImageByKey("contact-card")}
                   alt="Modern technology and digital innovation"
                   loading="lazy"
                   className="

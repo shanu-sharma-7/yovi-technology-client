@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 import {
@@ -12,15 +13,51 @@ import {
   Sparkles,
 } from "lucide-react";
 
-const services = [
+import api from "../services/api";
+
+// =========================================
+// FALLBACK IMAGES
+// =========================================
+
+const fallbackImages = {
+  "services-hero":
+    "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=90",
+
+  "services-web":
+    "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=90",
+
+  "services-mobile":
+    "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1400&q=90",
+
+  "services-ai":
+    "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1400&q=90",
+
+  "services-erp":
+    "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=90",
+
+  "services-growth":
+    "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=90",
+
+  "services-branding":
+    "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1400&q=90",
+
+  "services-cta":
+    "https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1800&q=90",
+};
+
+// =========================================
+// ORIGINAL SERVICES DATA
+// DO NOT DELETE
+// =========================================
+
+const defaultServices = [
   {
     number: "01",
     icon: Globe2,
     title: "Web Development",
     description:
       "Modern, high-performance websites and web applications designed around your business goals.",
-    image:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=90",
+    imageKey: "services-web",
     items: [
       "Business Websites",
       "Corporate Websites",
@@ -30,7 +67,12 @@ const services = [
       "Custom Web Applications",
       "Website Redesign & Maintenance",
     ],
-    technologies: ["React", "Next.js", "Node.js", "TypeScript"],
+    technologies: [
+      "React",
+      "Next.js",
+      "Node.js",
+      "TypeScript",
+    ],
     accent: "blue",
   },
 
@@ -40,15 +82,18 @@ const services = [
     title: "Mobile App Development",
     description:
       "Scalable mobile experiences that help businesses connect with customers wherever they are.",
-    image:
-      "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1400&q=90",
+    imageKey: "services-mobile",
     items: [
       "Android Applications",
       "iOS Applications",
       "Cross-Platform Applications",
       "Custom Business Applications",
     ],
-    technologies: ["Android", "iOS", "Cross-Platform"],
+    technologies: [
+      "Android",
+      "iOS",
+      "Cross-Platform",
+    ],
     accent: "cyan",
   },
 
@@ -58,8 +103,7 @@ const services = [
     title: "AI Solutions",
     description:
       "Intelligent systems that automate repetitive work, improve customer experiences and unlock new possibilities.",
-    image:
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1400&q=90",
+    imageKey: "services-ai",
     items: [
       "AI Chatbots",
       "AI-Powered Business Solutions",
@@ -67,7 +111,11 @@ const services = [
       "AI Integrations",
       "Intelligent Customer Support",
     ],
-    technologies: ["AI APIs", "Automation", "LLM"],
+    technologies: [
+      "AI APIs",
+      "Automation",
+      "LLM",
+    ],
     accent: "indigo",
   },
 
@@ -77,8 +125,7 @@ const services = [
     title: "ERP & CRM Development",
     description:
       "Connected business platforms that bring operations, customers and workflows together.",
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=90",
+    imageKey: "services-erp",
     items: [
       "Custom ERP Systems",
       "CRM Development",
@@ -87,7 +134,12 @@ const services = [
       "Lead Management",
       "Workflow Management",
     ],
-    technologies: ["Node.js", "MongoDB", "MySQL", "REST APIs"],
+    technologies: [
+      "Node.js",
+      "MongoDB",
+      "MySQL",
+      "REST APIs",
+    ],
     accent: "blue",
   },
 
@@ -97,8 +149,7 @@ const services = [
     title: "Digital Marketing",
     description:
       "Data-driven digital growth strategies designed to increase visibility, generate leads and reach the right audience.",
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=90",
+    imageKey: "services-growth",
     items: [
       "Search Engine Optimization",
       "Google Ads",
@@ -107,7 +158,12 @@ const services = [
       "Lead Generation",
       "Content Marketing",
     ],
-    technologies: ["SEO", "Google Ads", "Meta Ads", "Analytics"],
+    technologies: [
+      "SEO",
+      "Google Ads",
+      "Meta Ads",
+      "Analytics",
+    ],
     accent: "cyan",
   },
 
@@ -117,8 +173,7 @@ const services = [
     title: "UI/UX & Branding",
     description:
       "Thoughtful visual experiences and brand systems that make businesses memorable.",
-    image:
-      "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1400&q=90",
+    imageKey: "services-branding",
     items: [
       "UI/UX Design",
       "Website Design",
@@ -126,10 +181,18 @@ const services = [
       "Brand Identity",
       "Social Media Creatives",
     ],
-    technologies: ["UI/UX", "Figma", "Branding"],
+    technologies: [
+      "UI/UX",
+      "Figma",
+      "Branding",
+    ],
     accent: "indigo",
   },
 ];
+
+// =========================================
+// ACCENT STYLES
+// =========================================
 
 const accentStyles = {
   blue: {
@@ -193,17 +256,221 @@ const accentStyles = {
   },
 };
 
+// =========================================
+// SERVICES COMPONENT
+// =========================================
+
 function Services() {
+  // =========================================
+  // STATES
+  // =========================================
+
+  const [websiteImages, setWebsiteImages] = useState([]);
+
+  const [content, setContent] = useState(null);
+
+  // =========================================
+  // FETCH WEBSITE IMAGES
+  // =========================================
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const response = await api.get("/images");
+
+        setWebsiteImages(
+          response.data?.data || []
+        );
+      } catch (error) {
+        console.error(
+          "Services Images Error:",
+          error
+        );
+      }
+    };
+
+    fetchImages();
+  }, []);
+
+  // =========================================
+  // FETCH SERVICES CONTENT
+  // =========================================
+
+  useEffect(() => {
+    const fetchContent = async () => {
+      try {
+        const response = await api.get(
+          "/content/services"
+        );
+
+        setContent(
+          response.data?.data || null
+        );
+      } catch (error) {
+        console.error(
+          "Services Content Error:",
+          error
+        );
+
+        // Keep original content if API fails
+        setContent(null);
+      }
+    };
+
+    fetchContent();
+  }, []);
+
+  // =========================================
+  // GET IMAGE BY KEY
+  // =========================================
+
+  const getImageByKey = (key) => {
+    const image = websiteImages.find(
+      (item) => item.key === key
+    );
+
+    return (
+      image?.url ||
+      fallbackImages[key]
+    );
+  };
+
+  // =========================================
+  // MERGE ADMIN CONTENT WITH ORIGINAL DATA
+  // =========================================
+  //
+  // Original data is ALWAYS preserved.
+  //
+  // Admin content overrides only when available.
+  //
+  // =========================================
+
+  const adminCards =
+    content?.services?.cards || [];
+
+  const services = defaultServices.map(
+    (defaultService, index) => {
+      const adminService =
+        adminCards[index];
+
+      // No admin data for this service
+      if (!adminService) {
+        return defaultService;
+      }
+
+      return {
+        ...defaultService,
+
+        number:
+          adminService.number ||
+          defaultService.number,
+
+        title:
+          adminService.title ||
+          defaultService.title,
+
+        description:
+          adminService.description ||
+          defaultService.description,
+
+        imageKey:
+          adminService.imageKey ||
+          defaultService.imageKey,
+
+        items:
+          Array.isArray(
+            adminService.items
+          ) &&
+          adminService.items.length > 0
+            ? adminService.items
+            : defaultService.items,
+
+        technologies:
+          Array.isArray(
+            adminService.technologies
+          ) &&
+          adminService.technologies.length > 0
+            ? adminService.technologies
+            : defaultService.technologies,
+      };
+    }
+  );
+
+  // =========================================
+  // HERO FALLBACK DATA
+  // =========================================
+
+  const heroBadge =
+    content?.hero?.badge ||
+    "OUR SERVICES";
+
+  const heroHeadingLine1 =
+    content?.hero?.headingLine1 ||
+    "Everything you need";
+
+  const heroHeadingLine2 =
+    content?.hero?.headingLine2 ||
+    "to build what matters.";
+
+  const heroDescription =
+    content?.hero?.description ||
+    "From digital products and AI-powered solutions to business systems and digital growth, YoVi brings technology, design and strategy together.";
+
+  const heroTags =
+    Array.isArray(
+      content?.hero?.tags
+    ) &&
+    content.hero.tags.length > 0
+      ? content.hero.tags
+      : [
+          "WEB",
+          "MOBILE",
+          "AI",
+          "ERP",
+          "CRM",
+          "GROWTH",
+        ];
+
+  // =========================================
+  // CTA FALLBACK DATA
+  // =========================================
+
+  const ctaEyebrow =
+    content?.cta?.eyebrow ||
+    "READY TO BUILD?";
+
+  const ctaHeading =
+    content?.cta?.heading ||
+    "Let's create something";
+
+  const ctaHighlightedHeading =
+    content?.cta?.highlightedHeading ||
+    "worth building.";
+
+  const ctaDescription =
+    content?.cta?.description ||
+    "Have a project, idea or business challenge? Let's talk about how technology can move it forward.";
+
+  const ctaButtonText =
+    content?.cta?.buttonText ||
+    "Start a Project";
+
+  const ctaButtonLink =
+    content?.cta?.buttonLink ||
+    "/contact";
+
+  // =========================================
+  // RETURN
+  // =========================================
+
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#07152f] text-white">
 
-      {/* =====================================================
+      {/* =========================================
           GLOBAL BLUE AMBIENT BACKGROUND
-      ===================================================== */}
+      ========================================= */}
 
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-
-        {/* Top blue atmosphere */}
 
         <motion.div
           animate={{
@@ -228,8 +495,6 @@ function Services() {
           "
         />
 
-        {/* Cyan atmosphere */}
-
         <motion.div
           animate={{
             x: [0, -40, 0],
@@ -253,8 +518,6 @@ function Services() {
           "
         />
 
-        {/* Right indigo atmosphere */}
-
         <motion.div
           animate={{
             x: [0, -45, 0],
@@ -276,8 +539,6 @@ function Services() {
             blur-[150px]
           "
         />
-
-        {/* Bottom blue atmosphere */}
 
         <motion.div
           animate={{
@@ -302,8 +563,6 @@ function Services() {
           "
         />
 
-        {/* Grid */}
-
         <div
           className="
             absolute
@@ -314,8 +573,6 @@ function Services() {
           "
         />
 
-        {/* Center vignette */}
-
         <div
           className="
             absolute
@@ -323,8 +580,6 @@ function Services() {
             bg-[radial-gradient(circle_at_center,transparent_5%,#07152f_88%)]
           "
         />
-
-        {/* Bottom fade */}
 
         <div
           className="
@@ -340,19 +595,18 @@ function Services() {
 
       </div>
 
-
-      {/* =====================================================
+      {/* =========================================
           HERO
-      ===================================================== */}
+      ========================================= */}
 
       <section className="relative overflow-hidden px-6 pb-28 pt-40 sm:px-8 lg:px-12">
-
-        {/* Hero technology image */}
 
         <div className="pointer-events-none absolute inset-x-0 top-0 h-[650px] overflow-hidden">
 
           <img
-            src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=90"
+            src={getImageByKey(
+              "services-hero"
+            )}
             alt=""
             className="
               absolute
@@ -387,7 +641,6 @@ function Services() {
 
         </div>
 
-
         <div className="relative mx-auto max-w-7xl">
 
           <motion.div
@@ -405,7 +658,7 @@ function Services() {
             className="relative max-w-5xl"
           >
 
-            {/* Eyebrow */}
+            {/* HERO BADGE */}
 
             <div className="mb-7 flex items-center gap-3">
 
@@ -439,13 +692,12 @@ function Services() {
                   text-blue-200/85
                 "
               >
-                OUR SERVICES
+                {heroBadge}
               </span>
 
             </div>
 
-
-            {/* Main heading */}
+            {/* HERO HEADING */}
 
             <h1
               className="
@@ -459,8 +711,7 @@ function Services() {
                 lg:text-[88px]
               "
             >
-
-              Everything you need
+              {heroHeadingLine1}
 
               <span
                 className="
@@ -473,13 +724,28 @@ function Services() {
                   text-transparent
                 "
               >
-                to build what matters.
+                {heroHeadingLine2}
               </span>
+
+              {content?.hero?.headingLine3 && (
+                <span
+                  className="
+                    block
+                    bg-gradient-to-r
+                    from-white
+                    via-blue-100
+                    to-cyan-200
+                    bg-clip-text
+                    text-transparent
+                  "
+                >
+                  {content.hero.headingLine3}
+                </span>
+              )}
 
             </h1>
 
-
-            {/* Description */}
+            {/* HERO DESCRIPTION */}
 
             <p
               className="
@@ -493,15 +759,12 @@ function Services() {
                 sm:leading-8
               "
             >
-              From digital products and AI-powered solutions
-              to business systems and digital growth, YoVi
-              brings technology, design and strategy together.
+              {heroDescription}
             </p>
 
           </motion.div>
 
-
-          {/* Service categories */}
+          {/* HERO TAGS */}
 
           <motion.div
             initial={{
@@ -530,39 +793,30 @@ function Services() {
             "
           >
 
-            {[
-              "WEB",
-              "MOBILE",
-              "AI",
-              "ERP",
-              "CRM",
-              "GROWTH",
-            ].map((item) => (
-
-              <span
-                key={item}
-                className="
-                  transition-all
-                  duration-300
-                  hover:text-cyan-200
-                  hover:drop-shadow-[0_0_12px_rgba(34,211,238,0.35)]
-                "
-              >
-                {item}
-              </span>
-
-            ))}
+            {heroTags.map(
+              (item, index) => (
+                <span
+                  key={`${item}-${index}`}
+                  className="
+                    transition-all
+                    duration-300
+                    hover:text-cyan-200
+                    hover:drop-shadow-[0_0_12px_rgba(34,211,238,0.35)]
+                  "
+                >
+                  {item}
+                </span>
+              )
+            )}
 
           </motion.div>
 
         </div>
-
       </section>
 
-
-      {/* =====================================================
+      {/* =========================================
           SERVICES
-      ===================================================== */}
+      ========================================= */}
 
       <section
         className="
@@ -580,475 +834,477 @@ function Services() {
 
           <div className="space-y-5">
 
-            {services.map((service, index) => {
+            {services.map(
+              (service, index) => {
 
-              const Icon = service.icon;
-              const accent = accentStyles[service.accent];
+                const Icon =
+                  service.icon;
 
-              return (
+                const accent =
+                  accentStyles[
+                    service.accent
+                  ] ||
+                  accentStyles.blue;
 
-                <motion.article
-                  key={service.number}
-                  initial={{
-                    opacity: 0,
-                    y: 30,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  viewport={{
-                    once: true,
-                    amount: 0.12,
-                  }}
-                  transition={{
-                    duration: 0.65,
-                    delay: index * 0.04,
-                  }}
-                  whileHover={{
-                    y: -4,
-                  }}
-                  className="
-                    group
-                    relative
-                    overflow-hidden
-                    rounded-[30px]
-                    border
-                    border-white/[0.10]
-                    bg-white/[0.045]
-                    shadow-[0_20px_70px_rgba(0,0,0,0.15)]
-                    backdrop-blur-xl
-                    transition-all
-                    duration-500
-                    hover:border-blue-300/[0.24]
-                    hover:bg-white/[0.065]
-                    hover:shadow-[0_25px_100px_rgba(0,0,0,0.25)]
-                  "
-                >
-
-                  {/* Top-right glow */}
-
-                  <div
-                    className={`
-                      pointer-events-none
-                      absolute
-                      -right-28
-                      -top-28
-                      h-80
-                      w-80
-                      rounded-full
-                      ${accent.glow}
-                      blur-[100px]
-                      transition-all
-                      duration-700
-                    `}
-                  />
-
-                  {/* Bottom-left cyan glow */}
-
-                  <div
+                return (
+                  <motion.article
+                    key={`${service.number}-${index}`}
+                    initial={{
+                      opacity: 0,
+                      y: 30,
+                    }}
+                    whileInView={{
+                      opacity: 1,
+                      y: 0,
+                    }}
+                    viewport={{
+                      once: true,
+                      amount: 0.12,
+                    }}
+                    transition={{
+                      duration: 0.65,
+                      delay:
+                        index * 0.04,
+                    }}
+                    whileHover={{
+                      y: -4,
+                    }}
                     className="
-                      pointer-events-none
-                      absolute
-                      bottom-[-170px]
-                      left-[-100px]
-                      h-72
-                      w-72
-                      rounded-full
-                      bg-cyan-500/[0.025]
-                      blur-[100px]
-                      transition-all
-                      duration-700
-                      group-hover:bg-cyan-500/[0.06]
-                    "
-                  />
-
-
-                  {/* =================================================
-                      CONTENT
-                  ================================================= */}
-
-                  <div
-                    className="
+                      group
                       relative
-                      grid
-                      gap-8
-                      p-5
-                      sm:p-7
-                      lg:grid-cols-[300px_1fr_0.8fr]
-                      lg:gap-10
-                      lg:p-10
+                      overflow-hidden
+                      rounded-[30px]
+                      border
+                      border-white/[0.10]
+                      bg-white/[0.045]
+                      shadow-[0_20px_70px_rgba(0,0,0,0.15)]
+                      backdrop-blur-xl
+                      transition-all
+                      duration-500
+                      hover:border-blue-300/[0.24]
+                      hover:bg-white/[0.065]
+                      hover:shadow-[0_25px_100px_rgba(0,0,0,0.25)]
                     "
                   >
 
-                    {/* =================================================
-                        IMAGE
-                    ================================================= */}
+                    {/* CARD GLOW */}
+
+                    <div
+                      className={`
+                        pointer-events-none
+                        absolute
+                        -right-28
+                        -top-28
+                        h-80
+                        w-80
+                        rounded-full
+                        ${accent.glow}
+                        blur-[100px]
+                        transition-all
+                        duration-700
+                      `}
+                    />
+
+                    <div
+                      className="
+                        pointer-events-none
+                        absolute
+                        bottom-[-170px]
+                        left-[-100px]
+                        h-72
+                        w-72
+                        rounded-full
+                        bg-cyan-500/[0.025]
+                        blur-[100px]
+                        transition-all
+                        duration-700
+                        group-hover:bg-cyan-500/[0.06]
+                      "
+                    />
 
                     <div
                       className="
                         relative
-                        min-h-[220px]
-                        overflow-hidden
-                        rounded-[22px]
-                        border
-                        border-white/[0.12]
-                        bg-black/30
-                        shadow-[0_15px_50px_rgba(0,0,0,0.20)]
+                        grid
+                        gap-8
+                        p-5
+                        sm:p-7
+                        lg:grid-cols-[300px_1fr_0.8fr]
+                        lg:gap-10
+                        lg:p-10
                       "
                     >
 
-                      <motion.img
-                        src={service.image}
-                        alt={service.title}
-                        loading="lazy"
-                        whileHover={{
-                          scale: 1.07,
-                        }}
-                        transition={{
-                          duration: 0.7,
-                        }}
-                        className="
-                          absolute
-                          inset-0
-                          h-full
-                          w-full
-                          object-cover
-                          opacity-[0.95]
-                          saturate-[1.05]
-                          grayscale-[5%]
-                          transition-opacity
-                          duration-500
-                          group-hover:opacity-100
-                        "
-                      />
-
-                      {/* Much lighter image overlay */}
+                      {/* =====================================
+                          IMAGE
+                      ===================================== */}
 
                       <div
                         className="
-                          absolute
-                          inset-0
-                          bg-gradient-to-r
-                          from-[#07152f]/45
-                          via-[#07152f]/10
-                          to-transparent
-                        "
-                      />
-
-                      <div
-                        className="
-                          absolute
-                          inset-0
-                          bg-gradient-to-t
-                          from-[#07152f]/65
-                          via-transparent
-                          to-transparent
-                        "
-                      />
-
-                      {/* Blue image glow */}
-
-                      <div
-                        className="
-                          absolute
-                          -bottom-16
-                          -left-10
-                          h-40
-                          w-40
-                          rounded-full
-                          bg-blue-400/[0.14]
-                          blur-[60px]
-                          transition-all
-                          duration-500
-                          group-hover:scale-150
-                        "
-                      />
-
-                      {/* Number over image */}
-
-                      <div
-                        className="
-                          absolute
-                          bottom-5
-                          left-5
-                          flex
-                          items-center
-                          gap-3
+                          relative
+                          min-h-[220px]
+                          overflow-hidden
+                          rounded-[22px]
+                          border
+                          border-white/[0.12]
+                          bg-black/30
+                          shadow-[0_15px_50px_rgba(0,0,0,0.20)]
                         "
                       >
 
-                        <span
-                          className={`
-                            text-[11px]
-                            font-semibold
-                            tracking-[0.2em]
-                            ${accent.number}
-                          `}
-                        >
-                          {service.number}
-                        </span>
-
-                        <span
+                        <motion.img
+                          src={getImageByKey(
+                            service.imageKey
+                          )}
+                          alt={
+                            service.title
+                          }
+                          loading="lazy"
+                          whileHover={{
+                            scale: 1.07,
+                          }}
+                          transition={{
+                            duration: 0.7,
+                          }}
                           className="
-                            h-px
-                            w-8
-                            bg-white/35
+                            absolute
+                            inset-0
+                            h-full
+                            w-full
+                            object-cover
+                            opacity-[0.95]
+                            saturate-[1.05]
+                            grayscale-[5%]
+                            transition-opacity
+                            duration-500
+                            group-hover:opacity-100
                           "
                         />
 
-                        <span
+                        <div
                           className="
-                            text-[9px]
-                            font-medium
-                            tracking-[0.18em]
-                            text-white/65
+                            absolute
+                            inset-0
+                            bg-gradient-to-r
+                            from-[#07152f]/45
+                            via-[#07152f]/10
+                            to-transparent
                           "
-                        >
-                          YOVI TECHNOLOGIES
-                        </span>
-
-                      </div>
-
-                    </div>
-
-
-                    {/* =================================================
-                        MAIN CONTENT
-                    ================================================= */}
-
-                    <div>
-
-                      {/* Number + Icon */}
-
-                      <div className="flex items-center gap-4">
-
-                        <span
-                          className={`
-                            text-[10px]
-                            font-semibold
-                            tracking-[0.2em]
-                            transition-colors
-                            duration-300
-                            ${accent.number}
-                          `}
-                        >
-                          {service.number}
-                        </span>
+                        />
 
                         <div
-                          className={`
-                            flex
-                            h-11
-                            w-11
-                            items-center
-                            justify-center
-                            rounded-xl
-                            border
+                          className="
+                            absolute
+                            inset-0
+                            bg-gradient-to-t
+                            from-[#07152f]/65
+                            via-transparent
+                            to-transparent
+                          "
+                        />
+
+                        <div
+                          className="
+                            absolute
+                            -bottom-16
+                            -left-10
+                            h-40
+                            w-40
+                            rounded-full
+                            bg-blue-400/[0.14]
+                            blur-[60px]
                             transition-all
-                            duration-300
-                            ${accent.icon}
-                          `}
+                            duration-500
+                            group-hover:scale-150
+                          "
+                        />
+
+                        <div
+                          className="
+                            absolute
+                            bottom-5
+                            left-5
+                            flex
+                            items-center
+                            gap-3
+                          "
                         >
-                          <Icon
-                            size={19}
-                            strokeWidth={1.5}
+
+                          <span
+                            className={`
+                              text-[11px]
+                              font-semibold
+                              tracking-[0.2em]
+                              ${accent.number}
+                            `}
+                          >
+                            {service.number}
+                          </span>
+
+                          <span
+                            className="
+                              h-px
+                              w-8
+                              bg-white/35
+                            "
                           />
+
+                          <span
+                            className="
+                              text-[9px]
+                              font-medium
+                              tracking-[0.18em]
+                              text-white/65
+                            "
+                          >
+                            YOVI TECHNOLOGIES
+                          </span>
+
                         </div>
 
                       </div>
 
+                      {/* =====================================
+                          MAIN CONTENT
+                      ===================================== */}
 
-                      {/* Title */}
+                      <div>
 
-                      <h2
-                        className="
-                          mt-6
-                          text-3xl
-                          font-semibold
-                          tracking-[-0.04em]
-                          text-white
-                          sm:text-4xl
-                        "
-                      >
-                        {service.title}
-                      </h2>
-
-
-                      {/* Description */}
-
-                      <p
-                        className="
-                          mt-4
-                          max-w-xl
-                          text-sm
-                          font-normal
-                          leading-7
-                          text-blue-50/70
-                          transition-colors
-                          duration-300
-                          group-hover:text-blue-50/85
-                        "
-                      >
-                        {service.description}
-                      </p>
-
-
-                      {/* Technologies */}
-
-                      <div className="mt-7 flex flex-wrap gap-2">
-
-                        {service.technologies.map((technology) => (
+                        <div className="flex items-center gap-4">
 
                           <span
-                            key={technology}
                             className={`
-                              rounded-full
-                              border
-                              border-white/[0.12]
-                              bg-white/[0.035]
-                              px-3
-                              py-1.5
                               text-[10px]
-                              font-medium
-                              text-blue-50/60
-                              transition-all
+                              font-semibold
+                              tracking-[0.2em]
+                              transition-colors
                               duration-300
-                              ${accent.tag}
+                              ${accent.number}
                             `}
                           >
-                            {technology}
+                            {service.number}
                           </span>
 
-                        ))}
-
-                      </div>
-
-                    </div>
-
-
-                    {/* =================================================
-                        FEATURES
-                    ================================================= */}
-
-                    <div>
-
-                      <p
-                        className="
-                          mb-5
-                          text-[10px]
-                          font-semibold
-                          tracking-[0.2em]
-                          text-blue-100/45
-                        "
-                      >
-                        WHAT WE OFFER
-                      </p>
-
-                      <div className="space-y-3">
-
-                        {service.items.map((item) => (
-
                           <div
-                            key={item}
-                            className="
-                              group/item
+                            className={`
                               flex
+                              h-11
+                              w-11
                               items-center
-                              gap-3
-                              text-sm
-                              font-normal
-                              text-blue-50/65
-                              transition-colors
-                              duration-200
-                              hover:text-white
-                            "
+                              justify-center
+                              rounded-xl
+                              border
+                              transition-all
+                              duration-300
+                              ${accent.icon}
+                            `}
                           >
-
-                            <span
-                              className={`
-                                flex
-                                h-5
-                                w-5
-                                shrink-0
-                                items-center
-                                justify-center
-                                rounded-full
-                                border
-                                border-white/[0.12]
-                                bg-white/[0.025]
-                                text-white/40
-                                transition-all
-                                duration-200
-                                ${accent.check}
-                              `}
-                            >
-                              <Check size={11} />
-                            </span>
-
-                            {item}
-
+                            <Icon
+                              size={19}
+                              strokeWidth={1.5}
+                            />
                           </div>
 
-                        ))}
+                        </div>
+
+                        <h2
+                          className="
+                            mt-6
+                            text-3xl
+                            font-semibold
+                            tracking-[-0.04em]
+                            text-white
+                            sm:text-4xl
+                          "
+                        >
+                          {service.title}
+                        </h2>
+
+                        <p
+                          className="
+                            mt-4
+                            max-w-xl
+                            text-sm
+                            font-normal
+                            leading-7
+                            text-blue-50/70
+                            transition-colors
+                            duration-300
+                            group-hover:text-blue-50/85
+                          "
+                        >
+                          {service.description}
+                        </p>
+
+                        {/* TECHNOLOGIES */}
+
+                        <div className="mt-7 flex flex-wrap gap-2">
+
+                          {(
+                            Array.isArray(
+                              service.technologies
+                            )
+                              ? service.technologies
+                              : []
+                          ).map(
+                            (
+                              technology,
+                              technologyIndex
+                            ) => (
+                              <span
+                                key={`${technology}-${technologyIndex}`}
+                                className={`
+                                  rounded-full
+                                  border
+                                  border-white/[0.12]
+                                  bg-white/[0.035]
+                                  px-3
+                                  py-1.5
+                                  text-[10px]
+                                  font-medium
+                                  text-blue-50/60
+                                  transition-all
+                                  duration-300
+                                  ${accent.tag}
+                                `}
+                              >
+                                {technology}
+                              </span>
+                            )
+                          )}
+
+                        </div>
+
+                      </div>
+
+                      {/* =====================================
+                          FEATURES
+                      ===================================== */}
+
+                      <div>
+
+                        <p
+                          className="
+                            mb-5
+                            text-[10px]
+                            font-semibold
+                            tracking-[0.2em]
+                            text-blue-100/45
+                          "
+                        >
+                          WHAT WE OFFER
+                        </p>
+
+                        <div className="space-y-3">
+
+                          {(
+                            Array.isArray(
+                              service.items
+                            )
+                              ? service.items
+                              : []
+                          ).map(
+                            (
+                              item,
+                              itemIndex
+                            ) => (
+                              <div
+                                key={`${item}-${itemIndex}`}
+                                className="
+                                  group/item
+                                  flex
+                                  items-center
+                                  gap-3
+                                  text-sm
+                                  font-normal
+                                  text-blue-50/65
+                                  transition-colors
+                                  duration-200
+                                  hover:text-white
+                                "
+                              >
+
+                                <span
+                                  className={`
+                                    flex
+                                    h-5
+                                    w-5
+                                    shrink-0
+                                    items-center
+                                    justify-center
+                                    rounded-full
+                                    border
+                                    border-white/[0.12]
+                                    bg-white/[0.025]
+                                    text-white/40
+                                    transition-all
+                                    duration-200
+                                    ${accent.check}
+                                  `}
+                                >
+                                  <Check
+                                    size={11}
+                                  />
+                                </span>
+
+                                {item}
+
+                              </div>
+                            )
+                          )}
+
+                        </div>
 
                       </div>
 
                     </div>
 
-                  </div>
+                    {/* =====================================
+                        ARROW
+                    ===================================== */}
 
-
-                  {/* Arrow */}
-
-                  <div
-                    className={`
-                      absolute
-                      right-7
-                      top-7
-                      flex
-                      h-9
-                      w-9
-                      items-center
-                      justify-center
-                      rounded-full
-                      border
-                      border-white/[0.10]
-                      bg-white/[0.035]
-                      text-white/35
-                      transition-all
-                      duration-300
-                      ${accent.arrow}
-                    `}
-                  >
-
-                    <ArrowUpRight
-                      size={15}
-                      className="
-                        transition-transform
+                    <div
+                      className={`
+                        absolute
+                        right-7
+                        top-7
+                        flex
+                        h-9
+                        w-9
+                        items-center
+                        justify-center
+                        rounded-full
+                        border
+                        border-white/[0.10]
+                        bg-white/[0.035]
+                        text-white/35
+                        transition-all
                         duration-300
-                        group-hover:rotate-45
-                      "
-                    />
+                        ${accent.arrow}
+                      `}
+                    >
+                      <ArrowUpRight
+                        size={15}
+                        className="
+                          transition-transform
+                          duration-300
+                          group-hover:rotate-45
+                        "
+                      />
+                    </div>
 
-                  </div>
-
-                </motion.article>
-
-              );
-
-            })}
+                  </motion.article>
+                );
+              }
+            )}
 
           </div>
-
         </div>
-
       </section>
 
-
-      {/* =====================================================
+      {/* =========================================
           CTA
-      ===================================================== */}
+      ========================================= */}
 
       <section
         className="
@@ -1063,7 +1319,7 @@ function Services() {
         "
       >
 
-        {/* CTA Background */}
+        {/* CTA IMAGE */}
 
         <div
           className="
@@ -1075,7 +1331,9 @@ function Services() {
         >
 
           <img
-            src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1800&q=90"
+            src={getImageByKey(
+              "services-cta"
+            )}
             alt=""
             className="
               h-full
@@ -1117,8 +1375,7 @@ function Services() {
 
         </div>
 
-
-        {/* Blue glow */}
+        {/* CTA BLUE GLOW */}
 
         <motion.div
           animate={{
@@ -1145,8 +1402,6 @@ function Services() {
           "
         />
 
-        {/* Cyan glow */}
-
         <motion.div
           animate={{
             scale: [1, 1.06, 1],
@@ -1172,8 +1427,6 @@ function Services() {
           "
         />
 
-        {/* Center glow */}
-
         <div
           className="
             pointer-events-none
@@ -1189,8 +1442,7 @@ function Services() {
           "
         />
 
-
-        {/* CTA Content */}
+        {/* CTA CONTENT */}
 
         <motion.div
           initial={{
@@ -1215,6 +1467,8 @@ function Services() {
           "
         >
 
+          {/* CTA EYEBROW */}
+
           <span
             className="
               text-[10px]
@@ -1223,9 +1477,10 @@ function Services() {
               text-cyan-200/90
             "
           >
-            READY TO BUILD?
+            {ctaEyebrow}
           </span>
 
+          {/* CTA HEADING */}
 
           <h2
             className="
@@ -1239,8 +1494,7 @@ function Services() {
               md:text-6xl
             "
           >
-
-            Let's create something
+            {ctaHeading}
 
             <span
               className="
@@ -1253,11 +1507,11 @@ function Services() {
                 text-transparent
               "
             >
-              worth building.
+              {ctaHighlightedHeading}
             </span>
-
           </h2>
 
+          {/* CTA DESCRIPTION */}
 
           <p
             className="
@@ -1269,13 +1523,13 @@ function Services() {
               text-blue-50/70
             "
           >
-            Have a project, idea or business challenge?
-            Let's talk about how technology can move it forward.
+            {ctaDescription}
           </p>
 
+          {/* CTA BUTTON */}
 
           <a
-            href="/contact"
+            href={ctaButtonLink}
             className="
               group
               mt-9
@@ -1299,8 +1553,7 @@ function Services() {
               hover:shadow-[0_20px_80px_rgba(34,211,238,0.30)]
             "
           >
-
-            Start a Project
+            {ctaButtonText}
 
             <span
               className="
@@ -1317,7 +1570,9 @@ function Services() {
                 group-hover:rotate-45
               "
             >
-              <ArrowUpRight size={13} />
+              <ArrowUpRight
+                size={13}
+              />
             </span>
 
           </a>

@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 import {
@@ -13,72 +14,395 @@ import {
   Globe2,
 } from "lucide-react";
 
+import api from "../services/api";
+
 function About() {
-  const features = [
-    {
-      icon: Layers3,
-      title: "Customized Solutions",
-      text: "Technology designed around your specific business requirements.",
-      accent: "blue",
+  const [websiteImages, setWebsiteImages] = useState([]);
+  const [aboutContent, setAboutContent] = useState(null);
+  const [contentLoading, setContentLoading] = useState(true);
+
+  /*
+  ============================================================
+  FALLBACK IMAGES
+  These will be used if admin has not uploaded an image yet.
+  ============================================================
+  */
+
+  const fallbackImages = {
+    "about-hero":
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=85",
+
+    "about-who-we-are":
+      "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1600&q=90",
+
+    "about-mission":
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=85",
+
+    "about-vision":
+      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=85",
+
+    "about-approach":
+      "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1400&q=85",
+
+    "about-cta":
+      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1800&q=85",
+  };
+
+  /*
+  ============================================================
+  FALLBACK ABOUT CONTENT
+  Used if CMS data is unavailable.
+  ============================================================
+  */
+
+  const fallbackContent = {
+    hero: {
+      badge: "ABOUT YOVI TECHNOLOGIES",
+      headingLine1: "Technology with",
+      headingLine2: "a reason behind it.",
+      description:
+        "YoVi Technologies is a technology and digital solutions company helping businesses build, improve and grow their digital presence.",
     },
-    {
-      icon: Zap,
-      title: "Modern Technology",
-      text: "Current tools and scalable architectures built for long-term growth.",
-      accent: "cyan",
+
+    positioning: [
+      {
+        title: "Technology",
+        subtitle: "Modern engineering",
+      },
+      {
+        title: "Innovation",
+        subtitle: "AI & automation",
+      },
+      {
+        title: "Growth",
+        subtitle: "Business focused",
+      },
+    ],
+
+    whoWeAre: {
+      eyebrow: "WHO WE ARE",
+      heading: "More than a",
+      highlightedHeading: "technology company.",
+
+      paragraphs: [
+        "YoVi Technologies helps businesses turn ideas, challenges and opportunities into practical digital solutions.",
+
+        "We specialize in modern websites, custom web applications, mobile applications, AI-powered solutions, ERP and CRM systems, UI/UX design and digital marketing.",
+
+        "Our approach combines technology, design, automation and digital growth to create solutions that are visually impressive, scalable, secure and focused on real business outcomes.",
+      ],
+
+      expertiseTags: [
+        "ENGINEERING",
+        "DESIGN",
+        "AI",
+        "GROWTH",
+      ],
+
+      stats: [
+        {
+          number: "01",
+          label: "BUSINESS FIRST",
+        },
+        {
+          number: "02",
+          label: "DIGITAL FIRST",
+        },
+      ],
+
+      overlayEyebrow: "DIGITAL PARTNERSHIP",
+      overlayTitle: "YOVI TECHNOLOGIES",
+      overlayDescription:
+        "Engineering meaningful digital experiences",
     },
-    {
-      icon: ShieldCheck,
-      title: "Secure Development",
-      text: "Security-conscious development practices across the product lifecycle.",
-      accent: "indigo",
+
+    mission: {
+      eyebrow: "OUR MISSION",
+      heading: "Simplify technology.",
+      highlightedHeading: "Accelerate growth.",
+      description:
+        "To help businesses use technology to simplify operations, strengthen their digital presence, reach more customers and achieve sustainable growth.",
     },
-    {
-      icon: Users,
-      title: "Business Focused",
-      text: "Every technical decision is connected to a meaningful business outcome.",
-      accent: "blue",
+
+    vision: {
+      eyebrow: "OUR VISION",
+      heading: "Build what's next.",
+      highlightedHeading: "Together.",
+      description:
+        "To become a trusted technology partner for businesses by delivering innovative, reliable, scalable and results-driven digital solutions.",
     },
-    {
-      icon: Globe2,
-      title: "Digital First",
-      text: "Responsive and accessible experiences built for today's users.",
-      accent: "cyan",
+
+    whyChoose: {
+      eyebrow: "WHY CHOOSE YOVI",
+      heading: "Built around your",
+      highlightedHeading: "business.",
+      description:
+        "We don't believe in one-size-fits-all technology. Every solution starts with your business, your users and your goals.",
+
+      features: [
+        {
+          title: "Customized Solutions",
+          description:
+            "Technology designed around your specific business requirements.",
+        },
+        {
+          title: "Modern Technology",
+          description:
+            "Current tools and scalable architectures built for long-term growth.",
+        },
+        {
+          title: "Secure Development",
+          description:
+            "Security-conscious development practices across the product lifecycle.",
+        },
+        {
+          title: "Business Focused",
+          description:
+            "Every technical decision is connected to a meaningful business outcome.",
+        },
+        {
+          title: "Digital First",
+          description:
+            "Responsive and accessible experiences built for today's users.",
+        },
+        {
+          title: "Post-Launch Support",
+          description:
+            "We stay connected after launch to help your digital product evolve.",
+        },
+      ],
     },
-    {
-      icon: Check,
-      title: "Post-Launch Support",
-      text: "We stay connected after launch to help your digital product evolve.",
-      accent: "indigo",
+
+    approach: {
+      eyebrow: "HOW WE THINK",
+      heading: "Technology should",
+      highlightedHeading: "solve real problems.",
+      description:
+        "We start by understanding the problem before choosing the technology. This helps us build solutions that are useful, maintainable and capable of growing with the business.",
+
+      steps: [
+        {
+          number: "01",
+          title: "Understand the business",
+        },
+        {
+          number: "02",
+          title: "Define the right strategy",
+        },
+        {
+          number: "03",
+          title: "Design meaningful experiences",
+        },
+        {
+          number: "04",
+          title: "Build scalable technology",
+        },
+        {
+          number: "05",
+          title: "Test and refine",
+        },
+        {
+          number: "06",
+          title: "Launch and support",
+        },
+      ],
     },
+
+    cta: {
+      eyebrow: "LET'S BUILD TOGETHER",
+      heading: "Your next digital idea",
+      highlightedHeading: "starts here.",
+      description:
+        "Let's turn your ideas into meaningful digital experiences that are built to grow.",
+      buttonText: "Start a Project",
+      buttonLink: "/contact",
+    },
+  };
+
+  /*
+  ============================================================
+  FETCH ABOUT CONTENT + IMAGES
+  ============================================================
+  */
+
+  useEffect(() => {
+    const fetchAboutContent = async () => {
+      try {
+        const response = await api.get("/content/about");
+
+        setAboutContent(response.data?.data || response.data);
+      } catch (error) {
+        console.error("About Content Error:", error);
+      } finally {
+        setContentLoading(false);
+      }
+    };
+
+    const fetchImages = async () => {
+      try {
+        const response = await api.get("/images");
+
+        setWebsiteImages(response.data?.data || []);
+      } catch (error) {
+        console.error("About Images Error:", error);
+      }
+    };
+
+    fetchAboutContent();
+    fetchImages();
+  }, []);
+
+  /*
+  ============================================================
+  IMAGE HELPER
+  Admin image -> use admin image
+  Otherwise -> use fallback image
+  ============================================================
+  */
+
+  const getImageByKey = (key) => {
+    const image = websiteImages.find(
+      (item) => item.key === key
+    );
+
+    return image?.url || fallbackImages[key];
+  };
+
+  /*
+  ============================================================
+  CONTENT HELPERS
+  CMS content -> fallback content
+  ============================================================
+  */
+
+  const content = aboutContent || fallbackContent;
+
+  const hero = {
+    ...fallbackContent.hero,
+    ...(content.hero || {}),
+  };
+
+  const aboutPositioning =
+    content.positioning?.length > 0
+      ? content.positioning
+      : fallbackContent.positioning;
+
+  const whoWeAre = {
+    ...fallbackContent.whoWeAre,
+    ...(content.whoWeAre || {}),
+  };
+
+  const mission = {
+    ...fallbackContent.mission,
+    ...(content.mission || {}),
+  };
+
+  const vision = {
+    ...fallbackContent.vision,
+    ...(content.vision || {}),
+  };
+
+  const whyChoose = {
+    ...fallbackContent.whyChoose,
+    ...(content.whyChoose || {}),
+  };
+
+  const approach = {
+    ...fallbackContent.approach,
+    ...(content.approach || {}),
+  };
+
+  const cta = {
+    ...fallbackContent.cta,
+    ...(content.cta || {}),
+  };
+
+  /*
+  ============================================================
+  FEATURE ICONS
+  Icons remain part of the UI.
+  Content comes from CMS.
+  ============================================================
+  */
+
+  const featureIcons = [
+    Layers3,
+    Zap,
+    ShieldCheck,
+    Users,
+    Globe2,
+    Check,
   ];
 
-  const positioning = [
+  const featureAccents = [
+    "blue",
+    "cyan",
+    "indigo",
+    "blue",
+    "cyan",
+    "indigo",
+  ];
+
+  /*
+  ============================================================
+  POSITIONING UI
+  Icons / colors remain hardcoded.
+  Text comes from CMS.
+  ============================================================
+  */
+
+  const positioningUI = [
     {
-      title: "Technology",
-      text: "Modern engineering",
       icon: Globe2,
       glow: "bg-blue-500/[0.12]",
       iconColor: "text-blue-200",
       borderColor: "border-blue-300/20",
     },
     {
-      title: "Innovation",
-      text: "AI & automation",
       icon: Zap,
       glow: "bg-cyan-400/[0.11]",
       iconColor: "text-cyan-200",
       borderColor: "border-cyan-300/20",
     },
     {
-      title: "Growth",
-      text: "Business focused",
       icon: Target,
       glow: "bg-indigo-500/[0.10]",
       iconColor: "text-indigo-200",
       borderColor: "border-indigo-300/20",
     },
   ];
+
+  /*
+  ============================================================
+  LOADING STATE
+  ============================================================
+  */
+
+  if (contentLoading && !aboutContent) {
+    return (
+      <main className="relative min-h-screen overflow-hidden bg-[#07152f] text-white">
+        <div className="flex min-h-screen items-center justify-center">
+          <div className="flex flex-col items-center gap-4">
+            <div
+              className="
+                h-10
+                w-10
+                animate-spin
+                rounded-full
+                border-2
+                border-blue-300/20
+                border-t-blue-300
+              "
+            />
+
+            <p className="text-xs tracking-[0.2em] text-blue-100/50">
+              LOADING ABOUT
+            </p>
+          </div>
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#07152f] text-white">
@@ -90,6 +414,7 @@ function About() {
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
 
         {/* Top blue glow */}
+
         <motion.div
           animate={{
             x: [0, 50, 0],
@@ -114,6 +439,7 @@ function About() {
         />
 
         {/* Cyan center glow */}
+
         <motion.div
           animate={{
             x: [0, -40, 0],
@@ -138,6 +464,7 @@ function About() {
         />
 
         {/* Right indigo glow */}
+
         <motion.div
           animate={{
             x: [0, -45, 0],
@@ -161,6 +488,7 @@ function About() {
         />
 
         {/* Bottom blue glow */}
+
         <motion.div
           animate={{
             x: [0, 35, 0],
@@ -184,6 +512,7 @@ function About() {
         />
 
         {/* Grid */}
+
         <div
           className="
             absolute
@@ -195,6 +524,7 @@ function About() {
         />
 
         {/* Soft overlay */}
+
         <div
           className="
             absolute
@@ -204,6 +534,7 @@ function About() {
         />
 
         {/* Bottom fade */}
+
         <div
           className="
             absolute
@@ -218,7 +549,6 @@ function About() {
 
       </div>
 
-
       {/* =====================================================
           HERO
       ===================================================== */}
@@ -226,11 +556,12 @@ function About() {
       <section className="relative overflow-hidden px-6 pb-28 pt-40 sm:px-8 lg:px-12">
 
         {/* Hero image */}
+
         <div className="pointer-events-none absolute inset-x-0 top-0 h-[620px] overflow-hidden">
 
           <img
-            src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=85"
-            alt=""
+            src={getImageByKey("about-hero")}
+            alt="Technology and digital innovation"
             className="
               absolute
               inset-0
@@ -263,7 +594,6 @@ function About() {
           />
 
         </div>
-
 
         <div className="relative mx-auto max-w-7xl">
 
@@ -314,11 +644,10 @@ function About() {
                   text-blue-200/80
                 "
               >
-                ABOUT YOVI TECHNOLOGIES
+                {hero.badge}
               </span>
 
             </div>
-
 
             {/* Heading */}
 
@@ -334,7 +663,7 @@ function About() {
                 lg:text-[88px]
               "
             >
-              Technology with
+              {hero.headingLine1}
 
               <span
                 className="
@@ -347,10 +676,9 @@ function About() {
                   text-transparent
                 "
               >
-                a reason behind it.
+                {hero.headingLine2}
               </span>
             </h1>
-
 
             <p
               className="
@@ -362,13 +690,10 @@ function About() {
                 sm:text-lg
               "
             >
-              YoVi Technologies is a technology and digital
-              solutions company helping businesses build,
-              improve and grow their digital presence.
+              {hero.description}
             </p>
 
           </motion.div>
-
 
           {/* POSITIONING CARDS */}
 
@@ -381,12 +706,16 @@ function About() {
             "
           >
 
-            {positioning.map((item, index) => {
-              const Icon = item.icon;
+            {aboutPositioning.map((item, index) => {
+
+              const ui =
+                positioningUI[index] || positioningUI[0];
+
+              const Icon = ui.icon;
 
               return (
                 <motion.div
-                  key={item.title}
+                  key={`${item.title}-${index}`}
                   initial={{
                     opacity: 0,
                     y: 20,
@@ -428,7 +757,7 @@ function About() {
                       h-44
                       w-44
                       rounded-full
-                      ${item.glow}
+                      ${ui.glow}
                       blur-[70px]
                       transition-all
                       duration-500
@@ -447,9 +776,9 @@ function About() {
                         justify-center
                         rounded-xl
                         border
-                        ${item.borderColor}
+                        ${ui.borderColor}
                         bg-white/[0.06]
-                        ${item.iconColor}
+                        ${ui.iconColor}
                       `}
                     >
                       <Icon size={18} strokeWidth={1.5} />
@@ -485,7 +814,7 @@ function About() {
                         text-blue-50/60
                       "
                     >
-                      {item.text}
+                      {item.subtitle || item.text}
                     </p>
 
                   </div>
@@ -499,7 +828,6 @@ function About() {
         </div>
 
       </section>
-
 
       {/* =====================================================
           WHO WE ARE
@@ -581,7 +909,7 @@ function About() {
             >
 
               <img
-                src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1600&q=90"
+                src={getImageByKey("about-who-we-are")}
                 alt="Technology team collaborating"
                 className="
                   h-full
@@ -630,7 +958,6 @@ function About() {
                 "
               />
 
-
               {/* Top badge */}
 
               <div
@@ -669,11 +996,10 @@ function About() {
                     text-white/75
                   "
                 >
-                  DIGITAL PARTNERSHIP
+                  {whoWeAre.overlayEyebrow}
                 </span>
 
               </div>
-
 
               {/* Bottom badge */}
 
@@ -698,7 +1024,7 @@ function About() {
                       text-blue-200/80
                     "
                   >
-                    YOVI TECHNOLOGIES
+                    {whoWeAre.overlayTitle}
                   </p>
 
                   <p
@@ -708,7 +1034,7 @@ function About() {
                       text-white/65
                     "
                   >
-                    Engineering meaningful digital experiences
+                    {whoWeAre.overlayDescription}
                   </p>
 
                 </div>
@@ -737,7 +1063,6 @@ function About() {
             </div>
 
           </motion.div>
-
 
           {/* CONTENT */}
 
@@ -768,7 +1093,7 @@ function About() {
                 text-blue-200/80
               "
             >
-              WHO WE ARE
+              {whoWeAre.eyebrow}
             </span>
 
             <h2
@@ -782,7 +1107,7 @@ function About() {
                 sm:text-5xl
               "
             >
-              More than a
+              {whoWeAre.heading}
 
               <span
                 className="
@@ -795,7 +1120,7 @@ function About() {
                   text-transparent
                 "
               >
-                technology company.
+                {whoWeAre.highlightedHeading}
               </span>
             </h2>
 
@@ -819,9 +1144,7 @@ function About() {
                   text-white/80
                 "
               >
-                YoVi Technologies helps businesses turn ideas,
-                challenges and opportunities into practical
-                digital solutions.
+                {whoWeAre.paragraphs?.[0]}
               </p>
 
               <p
@@ -831,10 +1154,7 @@ function About() {
                   text-blue-50/65
                 "
               >
-                We specialize in modern websites, custom web
-                applications, mobile applications, AI-powered
-                solutions, ERP and CRM systems, UI/UX design and
-                digital marketing.
+                {whoWeAre.paragraphs?.[1]}
               </p>
 
               <p
@@ -844,14 +1164,10 @@ function About() {
                   text-blue-50/65
                 "
               >
-                Our approach combines technology, design,
-                automation and digital growth to create solutions
-                that are visually impressive, scalable, secure
-                and focused on real business outcomes.
+                {whoWeAre.paragraphs?.[2]}
               </p>
 
             </div>
-
 
             {/* Expertise tags */}
 
@@ -864,12 +1180,7 @@ function About() {
               "
             >
 
-              {[
-                "ENGINEERING",
-                "DESIGN",
-                "AI",
-                "GROWTH",
-              ].map((item) => (
+              {(whoWeAre.expertiseTags || []).map((item) => (
                 <span
                   key={item}
                   className="
@@ -894,7 +1205,6 @@ function About() {
 
             </div>
 
-
             {/* Small stats */}
 
             <div
@@ -907,57 +1217,34 @@ function About() {
               "
             >
 
-              <div
-                className="
-                  rounded-2xl
-                  border
-                  border-white/[0.10]
-                  bg-white/[0.055]
-                  p-4
-                  backdrop-blur-xl
-                "
-              >
-                <p className="text-xl font-semibold text-white">
-                  01
-                </p>
-
-                <p
+              {(whoWeAre.stats || []).slice(0, 2).map((stat, index) => (
+                <div
+                  key={`${stat.label}-${index}`}
                   className="
-                    mt-1
-                    text-[9px]
-                    tracking-[0.18em]
-                    text-blue-100/45
+                    rounded-2xl
+                    border
+                    border-white/[0.10]
+                    bg-white/[0.055]
+                    p-4
+                    backdrop-blur-xl
                   "
                 >
-                  BUSINESS FIRST
-                </p>
-              </div>
+                  <p className="text-xl font-semibold text-white">
+                    {stat.number}
+                  </p>
 
-              <div
-                className="
-                  rounded-2xl
-                  border
-                  border-white/[0.10]
-                  bg-white/[0.055]
-                  p-4
-                  backdrop-blur-xl
-                "
-              >
-                <p className="text-xl font-semibold text-white">
-                  02
-                </p>
-
-                <p
-                  className="
-                    mt-1
-                    text-[9px]
-                    tracking-[0.18em]
-                    text-blue-100/45
-                  "
-                >
-                  DIGITAL FIRST
-                </p>
-              </div>
+                  <p
+                    className="
+                      mt-1
+                      text-[9px]
+                      tracking-[0.18em]
+                      text-blue-100/45
+                    "
+                  >
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
 
             </div>
 
@@ -966,7 +1253,6 @@ function About() {
         </div>
 
       </section>
-
 
       {/* =====================================================
           MISSION / VISION
@@ -1011,8 +1297,8 @@ function About() {
             >
 
               <img
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=85"
-                alt=""
+                src={getImageByKey("about-mission")}
+                alt="Business team collaboration"
                 className="
                   pointer-events-none
                   absolute
@@ -1085,7 +1371,7 @@ function About() {
                     text-blue-200/70
                   "
                 >
-                  OUR MISSION
+                  {mission.eyebrow}
                 </span>
 
                 <h3
@@ -1097,7 +1383,7 @@ function About() {
                     text-white
                   "
                 >
-                  Simplify technology.
+                  {mission.heading}
 
                   <span
                     className="
@@ -1109,7 +1395,7 @@ function About() {
                       text-transparent
                     "
                   >
-                    Accelerate growth.
+                    {mission.highlightedHeading}
                   </span>
                 </h3>
 
@@ -1121,16 +1407,12 @@ function About() {
                     text-blue-50/65
                   "
                 >
-                  To help businesses use technology to simplify
-                  operations, strengthen their digital presence,
-                  reach more customers and achieve sustainable
-                  growth.
+                  {mission.description}
                 </p>
 
               </div>
 
             </motion.div>
-
 
             {/* VISION */}
 
@@ -1156,8 +1438,8 @@ function About() {
             >
 
               <img
-                src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=85"
-                alt=""
+                src={getImageByKey("about-vision")}
+                alt="Global digital technology"
                 className="
                   pointer-events-none
                   absolute
@@ -1230,7 +1512,7 @@ function About() {
                     text-cyan-200/70
                   "
                 >
-                  OUR VISION
+                  {vision.eyebrow}
                 </span>
 
                 <h3
@@ -1242,7 +1524,7 @@ function About() {
                     text-white
                   "
                 >
-                  Build what's next.
+                  {vision.heading}
 
                   <span
                     className="
@@ -1254,7 +1536,7 @@ function About() {
                       text-transparent
                     "
                   >
-                    Together.
+                    {vision.highlightedHeading}
                   </span>
                 </h3>
 
@@ -1266,9 +1548,7 @@ function About() {
                     text-blue-50/65
                   "
                 >
-                  To become a trusted technology partner for
-                  businesses by delivering innovative, reliable,
-                  scalable and results-driven digital solutions.
+                  {vision.description}
                 </p>
 
               </div>
@@ -1280,7 +1560,6 @@ function About() {
         </div>
 
       </section>
-
 
       {/* =====================================================
           WHY YOVI
@@ -1309,7 +1588,7 @@ function About() {
                 text-blue-200/80
               "
             >
-              WHY CHOOSE YOVI
+              {whyChoose.eyebrow}
             </span>
 
             <h2
@@ -1323,7 +1602,7 @@ function About() {
                 md:text-6xl
               "
             >
-              Built around your
+              {whyChoose.heading}
 
               <span
                 className="
@@ -1335,7 +1614,8 @@ function About() {
                   text-transparent
                 "
               >
-                {" "}business.
+                {" "}
+                {whyChoose.highlightedHeading}
               </span>
             </h2>
 
@@ -1348,13 +1628,10 @@ function About() {
                 text-blue-50/65
               "
             >
-              We don't believe in one-size-fits-all
-              technology. Every solution starts with your
-              business, your users and your goals.
+              {whyChoose.description}
             </p>
 
           </div>
-
 
           {/* Features */}
 
@@ -1368,20 +1645,24 @@ function About() {
             "
           >
 
-            {features.map((item, index) => {
+            {(whyChoose.features || []).map((item, index) => {
 
-              const Icon = item.icon;
+              const Icon =
+                featureIcons[index] || Layers3;
+
+              const accentName =
+                featureAccents[index] || "blue";
 
               const accent =
-                item.accent === "blue"
+                accentName === "blue"
                   ? "text-blue-200 bg-blue-400/[0.09] border-blue-300/15 group-hover:border-blue-300/30"
-                  : item.accent === "cyan"
+                  : accentName === "cyan"
                   ? "text-cyan-200 bg-cyan-400/[0.08] border-cyan-300/15 group-hover:border-cyan-300/30"
                   : "text-indigo-200 bg-indigo-400/[0.08] border-indigo-300/15 group-hover:border-indigo-300/30";
 
               return (
                 <motion.div
-                  key={item.title}
+                  key={`${item.title}-${index}`}
                   initial={{
                     opacity: 0,
                     y: 20,
@@ -1475,7 +1756,7 @@ function About() {
                       text-blue-50/60
                     "
                   >
-                    {item.text}
+                    {item.description || item.text}
                   </p>
 
                 </motion.div>
@@ -1488,7 +1769,6 @@ function About() {
         </div>
 
       </section>
-
 
       {/* =====================================================
           APPROACH
@@ -1529,7 +1809,7 @@ function About() {
                 text-blue-200/80
               "
             >
-              HOW WE THINK
+              {approach.eyebrow}
             </span>
 
             <h2
@@ -1542,7 +1822,7 @@ function About() {
                 sm:text-5xl
               "
             >
-              Technology should
+              {approach.heading}
 
               <span
                 className="
@@ -1555,7 +1835,7 @@ function About() {
                   text-transparent
                 "
               >
-                solve real problems.
+                {approach.highlightedHeading}
               </span>
             </h2>
 
@@ -1568,14 +1848,10 @@ function About() {
                 text-blue-50/65
               "
             >
-              We start by understanding the problem before
-              choosing the technology. This helps us build
-              solutions that are useful, maintainable and
-              capable of growing with the business.
+              {approach.description}
             </p>
 
           </div>
-
 
           {/* APPROACH VISUAL */}
 
@@ -1614,8 +1890,8 @@ function About() {
           >
 
             <img
-              src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1400&q=85"
-              alt=""
+              src={getImageByKey("about-approach")}
+              alt="Digital business strategy"
               className="
                 absolute
                 inset-0
@@ -1659,17 +1935,10 @@ function About() {
 
             <div className="relative z-10 p-7">
 
-              {[
-                "Understand the business",
-                "Define the right strategy",
-                "Design meaningful experiences",
-                "Build scalable technology",
-                "Test and refine",
-                "Launch and support",
-              ].map((item, index) => (
+              {(approach.steps || []).map((item, index) => (
 
                 <div
-                  key={item}
+                  key={`${item.title}-${index}`}
                   className="
                     flex
                     items-center
@@ -1698,7 +1967,7 @@ function About() {
                       text-blue-200/70
                     "
                   >
-                    0{index + 1}
+                    {item.number || `0${index + 1}`}
                   </span>
 
                   <span
@@ -1710,7 +1979,7 @@ function About() {
                       group-hover:text-white/85
                     "
                   >
-                    {item}
+                    {item.title}
                   </span>
 
                 </div>
@@ -1724,7 +1993,6 @@ function About() {
         </div>
 
       </section>
-
 
       {/* =====================================================
           CTA
@@ -1748,8 +2016,8 @@ function About() {
         <div className="pointer-events-none absolute inset-0">
 
           <img
-            src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1800&q=85"
-            alt=""
+            src={getImageByKey("about-cta")}
+            alt="Digital technology workspace"
             className="
               h-full
               w-full
@@ -1776,7 +2044,6 @@ function About() {
           />
 
         </div>
-
 
         {/* Blue glow */}
 
@@ -1814,7 +2081,6 @@ function About() {
           "
         />
 
-
         <motion.div
           initial={{
             opacity: 0,
@@ -1846,7 +2112,7 @@ function About() {
               text-cyan-200/85
             "
           >
-            LET'S BUILD TOGETHER
+            {cta.eyebrow}
           </span>
 
           <h2
@@ -1860,7 +2126,7 @@ function About() {
               md:text-6xl
             "
           >
-            Your next digital idea
+            {cta.heading}
 
             <span
               className="
@@ -1873,7 +2139,7 @@ function About() {
                 text-transparent
               "
             >
-              starts here.
+              {cta.highlightedHeading}
             </span>
           </h2>
 
@@ -1887,12 +2153,11 @@ function About() {
               text-blue-50/70
             "
           >
-            Let's turn your ideas into meaningful digital
-            experiences that are built to grow.
+            {cta.description}
           </p>
 
           <a
-            href="/contact"
+            href={cta.buttonLink || "/contact"}
             className="
               group
               mt-9
@@ -1917,7 +2182,7 @@ function About() {
             "
           >
 
-            Start a Project
+            {cta.buttonText}
 
             <span
               className="

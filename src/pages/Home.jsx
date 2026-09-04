@@ -14,69 +14,389 @@ import {
 
 import SpotlightCard from "../components/SpotlightCard";
 import AnimatedBackground from "../components/AnimatedBackground";
+import api from "../services/api";
 
 /* =========================================================
-   HERO IMAGES
+   DEFAULT / FALLBACK HOME CONTENT
+   ---------------------------------------------------------
+   This content remains visible if:
+   1. API fails
+   2. API returns incomplete data
+   3. Admin has not changed anything
 ========================================================= */
 
-const heroImages = [
+const defaultHomeContent = {
+  hero: {
+    badge: "DIGITAL PRODUCTS • AI • ENGINEERING",
+
+    headingLine1: "We build digital",
+    headingLine2: "experiences that",
+    headingLine3: "move businesses.",
+
+    description:
+      "We combine technology, design and AI to create scalable digital products and intelligent business solutions built for growth.",
+
+    primaryButton: {
+      text: "Start a Project",
+      link: "/contact",
+    },
+
+    secondaryButton: {
+      text: "Explore Services",
+      link: "/services",
+    },
+
+    tags: ["WEB", "AI", "MOBILE", "ERP", "CRM"],
+  },
+
+  services: {
+    eyebrow: "WHAT WE BUILD",
+
+    heading: "Technology that turns",
+
+    highlightedHeading: "ideas into impact.",
+
+    viewAllText: "View all services",
+
+    viewAllLink: "/services",
+
+    cards: [
+      {
+        number: "01",
+        title: "Web Development",
+        description:
+          "High-performance websites and custom web applications designed for modern businesses.",
+        technologies: ["React", "Next.js", "Node.js"],
+      },
+
+      {
+        number: "02",
+        title: "AI Solutions",
+        description:
+          "Intelligent automation and AI integrations that help businesses work smarter.",
+        technologies: ["AI APIs", "Automation"],
+      },
+
+      {
+        number: "03",
+        title: "Mobile Apps",
+        description:
+          "Modern mobile experiences for Android, iOS and cross-platform ecosystems.",
+        technologies: ["Android", "iOS"],
+      },
+
+      {
+        number: "04",
+        title: "ERP & CRM",
+        description:
+          "Connected systems that simplify business operations and customer management.",
+        technologies: ["ERP", "CRM"],
+      },
+
+      {
+        number: "05",
+        title: "Digital Growth",
+        description:
+          "SEO, advertising and digital strategies focused on visibility and measurable growth.",
+        technologies: ["SEO", "Google Ads"],
+      },
+    ],
+  },
+
+  whyYovi: {
+    eyebrow: "WHY YOVI",
+
+    heading: "Not just developers.",
+
+    highlightedHeading: "Your technology partner.",
+
+    description:
+      "YoVi Technologies combines engineering, design, AI and digital growth to help businesses build stronger digital foundations and create meaningful customer experiences.",
+
+    buttonText: "Discover YoVi",
+
+    buttonLink: "/about",
+
+    approach: [
+      {
+        number: "01",
+        title: "Technology",
+        subtitle: "Modern engineering",
+      },
+
+      {
+        number: "02",
+        title: "Design",
+        subtitle: "Premium experiences",
+      },
+
+      {
+        number: "03",
+        title: "Intelligence",
+        subtitle: "AI & automation",
+      },
+
+      {
+        number: "04",
+        title: "Growth",
+        subtitle: "Business outcomes",
+      },
+    ],
+  },
+
+  cta: {
+    eyebrow: "LET'S BUILD SOMETHING",
+
+    heading: "Have an idea?",
+
+    highlightedHeading: "Let's turn it into reality.",
+
+    description:
+      "Tell us what you're building, what you're trying to improve, or where you want to go next.",
+
+    buttonText: "Start a Conversation",
+
+    buttonLink: "/contact",
+  },
+};
+
+/* =========================================================
+   FALLBACK IMAGES
+========================================================= */
+
+const fallbackImages = {
+  "hero-digital":
+    "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=95",
+
+  "hero-engineering":
+    "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1800&q=95",
+
+  "hero-ai":
+    "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1800&q=95",
+
+  "hero-mobile":
+    "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1800&q=95",
+
+  "hero-business":
+    "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1800&q=95",
+
+  "hero-growth":
+    "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1800&q=95",
+
+  "service-web":
+    "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1800&q=95",
+
+  "service-ai":
+    "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1800&q=95",
+
+  "service-mobile":
+    "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1800&q=95",
+
+  "service-erp":
+    "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1800&q=95",
+
+  "service-growth":
+    "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1800&q=95",
+
+  "why-yovi":
+    "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1800&q=95",
+};
+
+/* =========================================================
+   HERO IMAGE CONFIG
+========================================================= */
+
+const heroImageConfig = [
   {
-    src: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=95",
+    key: "hero-digital",
     label: "DIGITAL",
   },
   {
-    src: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1800&q=95",
+    key: "hero-engineering",
     label: "ENGINEERING",
   },
   {
-    src: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1800&q=95",
+    key: "hero-ai",
     label: "AI",
   },
   {
-    src: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1800&q=95",
+    key: "hero-mobile",
     label: "MOBILE",
   },
   {
-    src: "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1800&q=95",
+    key: "hero-business",
     label: "BUSINESS",
   },
   {
-    src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1800&q=95",
+    key: "hero-growth",
     label: "GROWTH",
   },
 ];
 
-const infiniteHeroImages = [...heroImages, ...heroImages];
+/* =========================================================
+   SERVICE ICON CONFIG
+========================================================= */
+
+const serviceIcons = [
+  Globe2,
+  BrainCircuit,
+  Smartphone,
+  Boxes,
+  Megaphone,
+];
+
+/* =========================================================
+   SERVICE STYLE CONFIG
+========================================================= */
+
+const serviceStyles = [
+  {
+    accent: "blue",
+    imageKey: "service-web",
+    className: "min-h-[360px] lg:col-span-2",
+  },
+  {
+    accent: "cyan",
+    imageKey: "service-ai",
+    className: "min-h-[360px]",
+  },
+  {
+    accent: "blue",
+    imageKey: "service-mobile",
+    className: "min-h-[330px]",
+  },
+  {
+    accent: "cyan",
+    imageKey: "service-erp",
+    className: "min-h-[330px]",
+  },
+  {
+    accent: "blue",
+    imageKey: "service-growth",
+    className: "min-h-[330px]",
+  },
+];
 
 /* =========================================================
    HERO IMAGE SLIDER
 ========================================================= */
 
-function HeroImageSlider() {
+function HeroImageSlider({ images }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
+  const [isResetting, setIsResetting] = useState(false);
 
-  const totalImages = heroImages.length;
+  const totalImages = images.length;
+
+  /*
+    TRUE INFINITE CAROUSEL
+
+    Original:
+    01 02 03 04 05 06
+
+    Render:
+    01 02 03 04 05 06 | 01 02 03 04 05 06
+  */
+
+  const infiniteImages =
+    totalImages > 1 ? [...images, ...images] : images;
+
+  /* =======================================================
+     AUTO PLAY
+  ======================================================= */
 
   useEffect(() => {
-    if (isDragging) return;
+    if (isDragging || isResetting || totalImages <= 1) {
+      return;
+    }
 
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % totalImages);
+    const timer = setTimeout(() => {
+      setCurrentIndex((prev) => prev + 1);
     }, 3500);
 
-    return () => clearInterval(timer);
-  }, [isDragging, totalImages]);
+    return () => clearTimeout(timer);
+  }, [
+    currentIndex,
+    isDragging,
+    isResetting,
+    totalImages,
+  ]);
+
+  /* =======================================================
+     RESET AFTER CLONED FIRST SET
+  ======================================================= */
+
+  useEffect(() => {
+    if (currentIndex !== totalImages) {
+      return;
+    }
+
+    const resetTimer = setTimeout(() => {
+      setIsResetting(true);
+      setCurrentIndex(0);
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setIsResetting(false);
+        });
+      });
+    }, 700);
+
+    return () => clearTimeout(resetTimer);
+  }, [currentIndex, totalImages]);
+
+  /* =======================================================
+     EMPTY STATE
+  ======================================================= */
+
+  if (totalImages === 0) {
+    return null;
+  }
+
+  /* =======================================================
+     NEXT
+  ======================================================= */
 
   const goNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % totalImages);
+    if (totalImages <= 1) return;
+
+    setCurrentIndex((prev) => {
+      if (prev >= totalImages) {
+        return 0;
+      }
+
+      return prev + 1;
+    });
   };
 
+  /* =======================================================
+     PREVIOUS
+  ======================================================= */
+
   const goPrevious = () => {
-    setCurrentIndex((prev) =>
-      prev === 0 ? totalImages - 1 : prev - 1
-    );
+    if (totalImages <= 1) return;
+
+    setCurrentIndex((prev) => {
+      if (prev === 0) {
+        return totalImages - 1;
+      }
+
+      if (prev > totalImages) {
+        return totalImages - 1;
+      }
+
+      return prev - 1;
+    });
   };
+
+  /* =======================================================
+     ACTIVE DOT
+  ======================================================= */
+
+  const activeIndex =
+    currentIndex >= totalImages
+      ? currentIndex - totalImages
+      : currentIndex;
 
   return (
     <div className="relative mt-8 w-full overflow-hidden sm:mt-10 lg:mt-12">
@@ -107,7 +427,7 @@ function HeroImageSlider() {
             x: `calc(-${currentIndex} * (min(72vw, 310px) + 12px))`,
           }}
           transition={{
-            duration: 0.85,
+            duration: isResetting ? 0 : 0.7,
             ease: [0.22, 1, 0.36, 1],
           }}
           drag="x"
@@ -116,7 +436,9 @@ function HeroImageSlider() {
             right: 0,
           }}
           dragElastic={0.08}
-          onDragStart={() => setIsDragging(true)}
+          onDragStart={() => {
+            setIsDragging(true);
+          }}
           onDragEnd={(_, info) => {
             setIsDragging(false);
 
@@ -129,126 +451,167 @@ function HeroImageSlider() {
             }
           }}
         >
-          {infiniteHeroImages.map((image, index) => (
-            <motion.div
-              key={`${image.label}-${index}`}
-              className="
-                relative
-                h-[170px]
-                w-[72vw]
-                max-w-[310px]
-                shrink-0
-                overflow-hidden
-                rounded-[22px]
-                border
-                border-blue-300/[0.14]
-                bg-blue-950/[0.15]
-                shadow-[0_20px_60px_rgba(0,0,0,0.30)]
-                sm:h-[190px]
-                sm:w-[48vw]
-                sm:max-w-[330px]
-                lg:h-[205px]
-              "
-              whileHover={{
-                y: -4,
-              }}
-              transition={{
-                duration: 0.3,
-              }}
-            >
-              {/* IMAGE */}
+          {infiniteImages.map((image, index) => {
+            const originalIndex = index % totalImages;
 
-              <img
-                src={image.src}
-                alt={image.label}
-                draggable="false"
-                loading={index > 2 ? "lazy" : "eager"}
+            return (
+              <motion.div
+                key={`${image.key}-${index}`}
                 className="
-                  absolute
-                  inset-0
-                  h-full
-                  w-full
-                  select-none
-                  object-cover
-                  object-center
-                  opacity-[0.92]
-                  saturate-[1.05]
-                  contrast-[1.04]
-                  transition-all
-                  duration-700
-                  hover:scale-105
+                  relative
+                  h-[170px]
+                  w-[72vw]
+                  max-w-[310px]
+                  shrink-0
+                  overflow-hidden
+                  rounded-[22px]
+                  border
+                  border-blue-300/[0.14]
+                  bg-blue-950/[0.15]
+                  shadow-[0_20px_60px_rgba(0,0,0,0.30)]
+                  sm:h-[190px]
+                  sm:w-[48vw]
+                  sm:max-w-[330px]
+                  lg:h-[205px]
                 "
-              />
-
-              {/* LIGHT DARK OVERLAY */}
-
-              <div className="absolute inset-0 bg-[#07152f]/[0.18]" />
-
-              {/* BLUE ATMOSPHERE */}
-
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(59,130,246,0.12),transparent_45%)]" />
-
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(34,211,238,0.06),transparent_40%)]" />
-
-              {/* BOTTOM GRADIENT */}
-
-              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#07152f]/90 via-[#07152f]/35 to-transparent" />
-
-              {/* CARD CONTENT */}
-
-              <div className="absolute inset-x-4 bottom-4 flex items-end justify-between">
-                <div>
-                  <span className="text-[8px] font-semibold tracking-[0.25em] text-cyan-200/80">
-                    0{(index % totalImages) + 1}
-                  </span>
-
-                  <p className="mt-1 text-xs font-semibold tracking-[0.08em] text-white">
-                    {image.label}
-                  </p>
-                </div>
-
-                <span
+                whileHover={{
+                  y: -4,
+                }}
+                transition={{
+                  duration: 0.3,
+                }}
+              >
+                <img
+                  src={image.src}
+                  alt={image.label}
+                  draggable="false"
+                  loading={index > 2 ? "lazy" : "eager"}
                   className="
+                    absolute
+                    inset-0
+                    h-full
+                    w-full
+                    select-none
+                    object-cover
+                    object-center
+                    opacity-[0.92]
+                    saturate-[1.05]
+                    contrast-[1.04]
+                    transition-all
+                    duration-700
+                    hover:scale-105
+                  "
+                />
+
+                <div className="absolute inset-0 bg-[#07152f]/[0.18]" />
+
+                <div
+                  className="
+                    absolute
+                    inset-0
+                    bg-[radial-gradient(circle_at_70%_30%,rgba(59,130,246,0.12),transparent_45%)]
+                  "
+                />
+
+                <div
+                  className="
+                    absolute
+                    inset-0
+                    bg-[radial-gradient(circle_at_20%_80%,rgba(34,211,238,0.06),transparent_40%)]
+                  "
+                />
+
+                <div
+                  className="
+                    absolute
+                    inset-x-0
+                    bottom-0
+                    h-28
+                    bg-gradient-to-t
+                    from-[#07152f]/90
+                    via-[#07152f]/35
+                    to-transparent
+                  "
+                />
+
+                <div
+                  className="
+                    absolute
+                    inset-x-4
+                    bottom-4
                     flex
-                    h-7
-                    w-7
-                    items-center
-                    justify-center
-                    rounded-full
-                    border
-                    border-white/20
-                    bg-[#07152f]/35
-                    text-white/80
-                    backdrop-blur-md
+                    items-end
+                    justify-between
                   "
                 >
-                  <ArrowUpRight size={12} />
-                </span>
-              </div>
-            </motion.div>
-          ))}
+                  <div>
+                    <span
+                      className="
+                        text-[8px]
+                        font-semibold
+                        tracking-[0.25em]
+                        text-cyan-200/80
+                      "
+                    >
+                      0{originalIndex + 1}
+                    </span>
+
+                    <p
+                      className="
+                        mt-1
+                        text-xs
+                        font-semibold
+                        tracking-[0.08em]
+                        text-white
+                      "
+                    >
+                      {image.label}
+                    </p>
+                  </div>
+
+                  <span
+                    className="
+                      flex
+                      h-7
+                      w-7
+                      items-center
+                      justify-center
+                      rounded-full
+                      border
+                      border-white/20
+                      bg-[#07152f]/35
+                      text-white/80
+                      backdrop-blur-md
+                    "
+                  >
+                    <ArrowUpRight size={12} />
+                  </span>
+                </div>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
 
-      {/* SLIDER CONTROLS */}
+      {/* CONTROLS */}
 
       <div className="mt-4 flex items-center justify-between">
-        {/* PROGRESS */}
-
         <div className="flex items-center gap-1.5">
-          {heroImages.map((_, index) => (
+          {images.map((_, index) => (
             <button
               key={index}
               type="button"
               aria-label={`Go to slide ${index + 1}`}
-              onClick={() => setCurrentIndex(index)}
+              onClick={() => {
+                setCurrentIndex(index);
+              }}
               className={`
                 h-[2px]
                 rounded-full
                 transition-all
                 duration-500
                 ${
-                  currentIndex === index
+                  activeIndex === index
                     ? "w-7 bg-cyan-300"
                     : "w-2 bg-white/25 hover:bg-white/45"
                 }
@@ -257,9 +620,14 @@ function HeroImageSlider() {
           ))}
         </div>
 
-        {/* DRAG HINT */}
-
-        <span className="text-[8px] font-medium tracking-[0.2em] text-white/30">
+        <span
+          className="
+            text-[8px]
+            font-medium
+            tracking-[0.2em]
+            text-white/30
+          "
+        >
           DRAG TO EXPLORE
         </span>
       </div>
@@ -272,6 +640,164 @@ function HeroImageSlider() {
 ========================================================= */
 
 function Home() {
+  const [websiteImages, setWebsiteImages] = useState([]);
+
+  const [homeContent, setHomeContent] = useState(
+    defaultHomeContent
+  );
+
+  /* =======================================================
+     FETCH ADMIN MANAGED HOME CONTENT
+     GET /api/content/home
+  ======================================================= */
+
+  useEffect(() => {
+    const fetchHomeContent = async () => {
+      try {
+        const response = await api.get("/content/home");
+
+        const data = response.data?.data;
+
+        if (!data) {
+          return;
+        }
+
+        /*
+          Deep merge ensures that if admin has only changed
+          one field, the remaining default content remains.
+        */
+
+        setHomeContent({
+          ...defaultHomeContent,
+
+          hero: {
+            ...defaultHomeContent.hero,
+            ...(data.hero || {}),
+
+            primaryButton: {
+              ...defaultHomeContent.hero.primaryButton,
+              ...(data.hero?.primaryButton || {}),
+            },
+
+            secondaryButton: {
+              ...defaultHomeContent.hero.secondaryButton,
+              ...(data.hero?.secondaryButton || {}),
+            },
+
+            tags:
+              Array.isArray(data.hero?.tags) &&
+              data.hero.tags.length > 0
+                ? data.hero.tags
+                : defaultHomeContent.hero.tags,
+          },
+
+          services: {
+            ...defaultHomeContent.services,
+            ...(data.services || {}),
+
+            cards:
+              Array.isArray(data.services?.cards) &&
+              data.services.cards.length > 0
+                ? data.services.cards
+                : defaultHomeContent.services.cards,
+          },
+
+          whyYovi: {
+            ...defaultHomeContent.whyYovi,
+            ...(data.whyYovi || {}),
+
+            approach:
+              Array.isArray(data.whyYovi?.approach) &&
+              data.whyYovi.approach.length > 0
+                ? data.whyYovi.approach
+                : defaultHomeContent.whyYovi.approach,
+          },
+
+          cta: {
+            ...defaultHomeContent.cta,
+            ...(data.cta || {}),
+          },
+        });
+      } catch (error) {
+        console.error(
+          "Home Content API Error ❌",
+          error.response?.data || error.message
+        );
+
+        /*
+          Keep existing default content if API fails.
+        */
+        setHomeContent(defaultHomeContent);
+      }
+    };
+
+    fetchHomeContent();
+  }, []);
+
+  /* =======================================================
+     FETCH ADMIN MANAGED IMAGES
+     GET /api/images
+  ======================================================= */
+
+  useEffect(() => {
+    const fetchWebsiteImages = async () => {
+      try {
+        const response = await api.get("/images");
+
+        const imageData = response.data?.data || [];
+
+        setWebsiteImages(imageData);
+      } catch (error) {
+        console.error(
+          "Home Images API Error ❌",
+          error.response?.data || error.message
+        );
+
+        setWebsiteImages([]);
+      }
+    };
+
+    fetchWebsiteImages();
+  }, []);
+
+  /* =======================================================
+     GET IMAGE BY KEY
+  ======================================================= */
+
+  const getImageByKey = (key) => {
+    const adminImage = websiteImages.find(
+      (image) => image.key === key
+    );
+
+    if (adminImage?.url) {
+      return adminImage.url;
+    }
+
+    return fallbackImages[key] || "";
+  };
+
+  /* =======================================================
+     HERO IMAGES
+  ======================================================= */
+
+  const dynamicHeroImages = heroImageConfig.map((item) => ({
+    key: item.key,
+    src: getImageByKey(item.key),
+    label: item.label,
+  }));
+
+  /* =======================================================
+     WHY YOVI IMAGE
+  ======================================================= */
+
+  const whyYoviImage = getImageByKey("why-yovi");
+
+  /* =======================================================
+     SERVICES
+  ======================================================= */
+
+  const serviceCards = homeContent.services.cards || [];
+
   return (
     <main
       className="
@@ -337,8 +863,6 @@ function Home() {
         <div className="hidden lg:block">
           <AnimatedBackground />
         </div>
-
-        {/* HERO BLUE AMBIENT GLOW */}
 
         <div
           className="
@@ -459,7 +983,7 @@ function Home() {
                     sm:tracking-[0.22em]
                   "
                 >
-                  DIGITAL PRODUCTS • AI • ENGINEERING
+                  {homeContent.hero.badge}
                 </span>
               </motion.div>
 
@@ -490,7 +1014,7 @@ function Home() {
                   xl:text-[88px]
                 "
               >
-                We build digital{" "}
+                {homeContent.hero.headingLine1}
 
                 <span
                   className="
@@ -503,7 +1027,7 @@ function Home() {
                     text-transparent
                   "
                 >
-                  experiences that
+                  {homeContent.hero.headingLine2}
                 </span>
 
                 <span
@@ -517,7 +1041,7 @@ function Home() {
                     text-transparent
                   "
                 >
-                  move businesses.
+                  {homeContent.hero.headingLine3}
                 </span>
               </motion.h1>
 
@@ -548,9 +1072,7 @@ function Home() {
                   sm:leading-8
                 "
               >
-                We combine technology, design and AI to create
-                scalable digital products and intelligent business
-                solutions built for growth.
+                {homeContent.hero.description}
               </motion.p>
 
               {/* CTA */}
@@ -577,10 +1099,10 @@ function Home() {
                   sm:mt-9
                 "
               >
-                {/* PRIMARY CTA */}
+                {/* PRIMARY */}
 
                 <a
-                  href="/contact"
+                  href={homeContent.hero.primaryButton.link}
                   className="
                     group
                     flex
@@ -604,7 +1126,7 @@ function Home() {
                     sm:px-6
                   "
                 >
-                  Start a Project
+                  {homeContent.hero.primaryButton.text}
 
                   <span
                     className="
@@ -625,10 +1147,10 @@ function Home() {
                   </span>
                 </a>
 
-                {/* SECONDARY CTA */}
+                {/* SECONDARY */}
 
                 <a
-                  href="/services"
+                  href={homeContent.hero.secondaryButton.link}
                   className="
                     flex
                     items-center
@@ -651,7 +1173,7 @@ function Home() {
                     sm:px-6
                   "
                 >
-                  Explore Services
+                  {homeContent.hero.secondaryButton.text}
                 </a>
               </motion.div>
 
@@ -686,14 +1208,14 @@ function Home() {
                   lg:mt-14
                 "
               >
-                <span>WEB</span>
-                <span>AI</span>
-                <span>MOBILE</span>
-                <span>ERP</span>
-                <span>CRM</span>
+                {homeContent.hero.tags.map((tag, index) => (
+                  <span key={`${tag}-${index}`}>
+                    {tag}
+                  </span>
+                ))}
               </motion.div>
 
-              {/* HERO IMAGE SLIDER */}
+              {/* HERO SLIDER */}
 
               <motion.div
                 initial={{
@@ -709,7 +1231,9 @@ function Home() {
                   delay: 0.85,
                 }}
               >
-                <HeroImageSlider />
+                <HeroImageSlider
+                  images={dynamicHeroImages}
+                />
               </motion.div>
             </div>
 
@@ -739,8 +1263,6 @@ function Home() {
                 lg:flex
               "
             >
-              {/* HERO IMAGE */}
-
               <div
                 className="
                   absolute
@@ -754,8 +1276,8 @@ function Home() {
                 "
               >
                 <img
-                  src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1800&q=95"
-                  alt=""
+                  src={getImageByKey("hero-digital")}
+                  alt="Digital technology and engineering"
                   className="
                     absolute
                     inset-0
@@ -770,17 +1292,7 @@ function Home() {
                   "
                 />
 
-                {/* LIGHTER OVERLAY */}
-
-                <div
-                  className="
-                    absolute
-                    inset-0
-                    bg-[#07152f]/[0.42]
-                  "
-                />
-
-                {/* BLUE GLOW */}
+                <div className="absolute inset-0 bg-[#07152f]/[0.42]" />
 
                 <div
                   className="
@@ -790,8 +1302,6 @@ function Home() {
                   "
                 />
 
-                {/* EDGE VIGNETTE */}
-
                 <div
                   className="
                     absolute
@@ -799,8 +1309,6 @@ function Home() {
                     bg-[radial-gradient(circle_at_center,transparent_25%,rgba(4,12,24,0.62)_90%)]
                   "
                 />
-
-                {/* GRID */}
 
                 <div
                   className="
@@ -1146,7 +1654,7 @@ function Home() {
                   text-blue-300
                 "
               >
-                WHAT WE BUILD
+                {homeContent.services.eyebrow}
               </span>
 
               <h2
@@ -1161,25 +1669,28 @@ function Home() {
                   md:text-6xl
                 "
               >
-                Technology that turns{" "}
+                {homeContent.services.heading}
 
-                <span
-                  className="
-                    bg-gradient-to-r
-                    from-blue-300
-                    via-white/70
-                    to-cyan-300
-                    bg-clip-text
-                    text-transparent
-                  "
-                >
-                  ideas into impact.
-                </span>
+                {homeContent.services.highlightedHeading && (
+                  <span
+                    className="
+                      bg-gradient-to-r
+                      from-blue-300
+                      via-white/70
+                      to-cyan-300
+                      bg-clip-text
+                      text-transparent
+                    "
+                  >
+                    {" "}
+                    {homeContent.services.highlightedHeading}
+                  </span>
+                )}
               </h2>
             </div>
 
             <a
-              href="/services"
+              href={homeContent.services.viewAllLink}
               className="
                 group
                 flex
@@ -1193,7 +1704,7 @@ function Home() {
                 hover:text-cyan-200
               "
             >
-              View all services
+              {homeContent.services.viewAllText}
 
               <span
                 className="
@@ -1217,76 +1728,34 @@ function Home() {
               lg:grid-cols-3
             "
           >
-            <SpotlightCard
-              number="01"
-              title="Web Development"
-              description="High-performance websites and custom web applications designed for modern businesses."
-              technologies={[
-                "React",
-                "Next.js",
-                "Node.js",
-              ]}
-              icon={Globe2}
-              accent="blue"
-              image="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1800&q=95"
-              className="min-h-[360px] lg:col-span-2"
-            />
+            {serviceCards
+              .slice(0, 5)
+              .map((service, index) => {
+                const Icon =
+                  serviceIcons[index] || Globe2;
 
-            <SpotlightCard
-              number="02"
-              title="AI Solutions"
-              description="Intelligent automation and AI integrations that help businesses work smarter."
-              technologies={[
-                "AI APIs",
-                "Automation",
-              ]}
-              icon={BrainCircuit}
-              accent="cyan"
-              image="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1800&q=95"
-              className="min-h-[360px]"
-            />
+                const style =
+                  serviceStyles[index] ||
+                  serviceStyles[0];
 
-            <SpotlightCard
-              number="03"
-              title="Mobile Apps"
-              description="Modern mobile experiences for Android, iOS and cross-platform ecosystems."
-              technologies={[
-                "Android",
-                "iOS",
-              ]}
-              icon={Smartphone}
-              accent="blue"
-              image="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1800&q=95"
-              className="min-h-[330px]"
-            />
-
-            <SpotlightCard
-              number="04"
-              title="ERP & CRM"
-              description="Connected systems that simplify business operations and customer management."
-              technologies={[
-                "ERP",
-                "CRM",
-              ]}
-              icon={Boxes}
-              accent="cyan"
-              image="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1800&q=95"
-              className="min-h-[330px]"
-            />
-
-            <SpotlightCard
-              number="05"
-              title="Digital Growth"
-              description="SEO, advertising and digital strategies focused on visibility and measurable growth."
-              technologies={[
-                "SEO",
-                "Google Ads",
-              ]}
-              icon={Megaphone}
-              accent="blue"
-              image="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1800&q=95"
-              className="min-h-[330px]"
-            />
+                return (
+                  <SpotlightCard
+                    key={`${service.number}-${service.title}-${index}`}
+                    number={service.number}
+                    title={service.title}
+                    description={service.description}
+                    technologies={
+                      service.technologies || []
+                    }
+                    icon={Icon}
+                    accent={style.accent}
+                    image={getImageByKey(
+                      style.imageKey
+                    )}
+                    className={style.className}
+                  />
+                );
+              })}
           </div>
 
           {/* BRAND LINE */}
@@ -1412,7 +1881,7 @@ function Home() {
                 text-blue-300
               "
             >
-              WHY YOVI
+              {homeContent.whyYovi.eyebrow}
             </span>
 
             <h2
@@ -1427,21 +1896,23 @@ function Home() {
                 md:text-6xl
               "
             >
-              Not just developers.
+              {homeContent.whyYovi.heading}
 
-              <span
-                className="
-                  block
-                  bg-gradient-to-r
-                  from-blue-200
-                  via-white/65
-                  to-cyan-300
-                  bg-clip-text
-                  text-transparent
-                "
-              >
-                Your technology partner.
-              </span>
+              {homeContent.whyYovi.highlightedHeading && (
+                <span
+                  className="
+                    block
+                    bg-gradient-to-r
+                    from-blue-200
+                    via-white/65
+                    to-cyan-300
+                    bg-clip-text
+                    text-transparent
+                  "
+                >
+                  {homeContent.whyYovi.highlightedHeading}
+                </span>
+              )}
             </h2>
 
             <p
@@ -1455,14 +1926,11 @@ function Home() {
                 sm:mt-7
               "
             >
-              YoVi Technologies combines engineering,
-              design, AI and digital growth to help businesses
-              build stronger digital foundations and create
-              meaningful customer experiences.
+              {homeContent.whyYovi.description}
             </p>
 
             <a
-              href="/about"
+              href={homeContent.whyYovi.buttonLink}
               className="
                 group
                 mt-8
@@ -1486,7 +1954,7 @@ function Home() {
                 hover:shadow-[0_10px_40px_rgba(59,130,246,0.14)]
               "
             >
-              Discover YoVi
+              {homeContent.whyYovi.buttonText}
 
               <ArrowUpRight
                 size={15}
@@ -1533,7 +2001,7 @@ function Home() {
                 sm:p-10
               "
             >
-              {/* ACTUAL IMAGE */}
+              {/* IMAGE */}
 
               <div
                 className="
@@ -1544,8 +2012,8 @@ function Home() {
                 "
               >
                 <img
-                  src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1800&q=95"
-                  alt=""
+                  src={whyYoviImage}
+                  alt="YoVi Technologies"
                   className="
                     absolute
                     inset-0
@@ -1560,8 +2028,6 @@ function Home() {
                   "
                 />
 
-                {/* LIGHT OVERLAY */}
-
                 <div
                   className="
                     absolute
@@ -1569,8 +2035,6 @@ function Home() {
                     bg-[#07152f]/[0.48]
                   "
                 />
-
-                {/* BLUE GLOW */}
 
                 <div
                   className="
@@ -1580,8 +2044,6 @@ function Home() {
                   "
                 />
 
-                {/* CYAN GLOW */}
-
                 <div
                   className="
                     absolute
@@ -1589,8 +2051,6 @@ function Home() {
                     bg-[radial-gradient(circle_at_20%_80%,rgba(34,211,238,0.08),transparent_35%)]
                   "
                 />
-
-                {/* VIGNETTE */}
 
                 <div
                   className="
@@ -1659,168 +2119,83 @@ function Home() {
                 </span>
 
                 <div className="mt-10 space-y-5 sm:mt-12 sm:space-y-6">
-                  {/* 01 */}
+                  {homeContent.whyYovi.approach
+                    .slice(0, 4)
+                    .map((item, index) => {
+                      const isFirst = index === 0;
+                      const isThird = index === 2;
 
-                  <div className="flex items-center gap-4">
-                    <span
-                      className="
-                        flex
-                        h-10
-                        w-10
-                        items-center
-                        justify-center
-                        rounded-xl
-                        border
-                        border-blue-300/25
-                        bg-blue-400/[0.10]
-                        text-sm
-                        font-medium
-                        text-blue-100
-                        shadow-[0_0_25px_rgba(59,130,246,0.14)]
-                      "
-                    >
-                      01
-                    </span>
+                      return (
+                        <div key={`${item.number}-${index}`}>
+                          <div className="flex items-center gap-4">
+                            <span
+                              className={`
+                                flex
+                                h-10
+                                w-10
+                                items-center
+                                justify-center
+                                rounded-xl
+                                border
+                                text-sm
+                                font-medium
+                                ${
+                                  isFirst
+                                    ? "border-blue-300/25 bg-blue-400/[0.10] text-blue-100 shadow-[0_0_25px_rgba(59,130,246,0.14)]"
+                                    : isThird
+                                      ? "border-cyan-300/20 bg-cyan-400/[0.06] text-cyan-100/80"
+                                      : "border-white/10 bg-white/[0.04] text-white/70"
+                                }
+                              `}
+                            >
+                              {item.number}
+                            </span>
 
-                    <div>
-                      <p className="text-sm font-semibold text-white">
-                        Technology
-                      </p>
+                            <div>
+                              <p className="text-sm font-semibold text-white">
+                                {item.title}
+                              </p>
 
-                      <p className="mt-1 text-xs text-blue-100/50">
-                        Modern engineering
-                      </p>
-                    </div>
-                  </div>
+                              <p
+                                className={`
+                                  mt-1 text-xs
+                                  ${
+                                    isFirst
+                                      ? "text-blue-100/50"
+                                      : "text-white/40"
+                                  }
+                                `}
+                              >
+                                {item.subtitle}
+                              </p>
+                            </div>
+                          </div>
 
-                  {/* CONNECTOR */}
-
-                  <div
-                    className="
-                      ml-5
-                      h-8
-                      w-px
-                      bg-gradient-to-b
-                      from-blue-400/35
-                      to-cyan-400/10
-                    "
-                  />
-
-                  {/* 02 */}
-
-                  <div className="flex items-center gap-4">
-                    <span
-                      className="
-                        flex
-                        h-10
-                        w-10
-                        items-center
-                        justify-center
-                        rounded-xl
-                        border
-                        border-white/10
-                        bg-white/[0.04]
-                        text-sm
-                        font-medium
-                        text-white/70
-                      "
-                    >
-                      02
-                    </span>
-
-                    <div>
-                      <p className="text-sm font-semibold text-white">
-                        Design
-                      </p>
-
-                      <p className="mt-1 text-xs text-white/40">
-                        Premium experiences
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* CONNECTOR */}
-
-                  <div className="ml-5 h-8 w-px bg-white/10" />
-
-                  {/* 03 */}
-
-                  <div className="flex items-center gap-4">
-                    <span
-                      className="
-                        flex
-                        h-10
-                        w-10
-                        items-center
-                        justify-center
-                        rounded-xl
-                        border
-                        border-cyan-300/20
-                        bg-cyan-400/[0.06]
-                        text-sm
-                        font-medium
-                        text-cyan-100/80
-                      "
-                    >
-                      03
-                    </span>
-
-                    <div>
-                      <p className="text-sm font-semibold text-white">
-                        Intelligence
-                      </p>
-
-                      <p className="mt-1 text-xs text-white/40">
-                        AI & automation
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* CONNECTOR */}
-
-                  <div
-                    className="
-                      ml-5
-                      h-8
-                      w-px
-                      bg-gradient-to-b
-                      from-cyan-300/20
-                      to-white/5
-                    "
-                  />
-
-                  {/* 04 */}
-
-                  <div className="flex items-center gap-4">
-                    <span
-                      className="
-                        flex
-                        h-10
-                        w-10
-                        items-center
-                        justify-center
-                        rounded-xl
-                        border
-                        border-white/10
-                        bg-white/[0.04]
-                        text-sm
-                        font-medium
-                        text-white/70
-                      "
-                    >
-                      04
-                    </span>
-
-                    <div>
-                      <p className="text-sm font-semibold text-white">
-                        Growth
-                      </p>
-
-                      <p className="mt-1 text-xs text-white/40">
-                        Business outcomes
-                      </p>
-                    </div>
-                  </div>
+                          {index <
+                            Math.min(
+                              homeContent.whyYovi.approach
+                                .length,
+                              4
+                            ) -
+                              1 && (
+                            <div
+                              className={`
+                                ml-5
+                                h-8
+                                w-px
+                                ${
+                                  isFirst
+                                    ? "bg-gradient-to-b from-blue-400/35 to-cyan-400/10"
+                                    : isThird
+                                      ? "bg-gradient-to-b from-cyan-300/20 to-white/5"
+                                      : "bg-white/10"
+                                }
+                              `}
+                            />
+                          )}
+                        </div>
+                      );
+                    })}
                 </div>
               </div>
             </div>
@@ -1847,7 +2222,7 @@ function Home() {
           lg:py-32
         "
       >
-        {/* MAIN CTA GLOW */}
+        {/* CTA GLOW */}
 
         <div
           className="
@@ -1917,7 +2292,7 @@ function Home() {
               text-blue-300
             "
           >
-            LET'S BUILD SOMETHING
+            {homeContent.cta.eyebrow}
           </span>
 
           <h2
@@ -1932,21 +2307,23 @@ function Home() {
               lg:text-7xl
             "
           >
-            Have an idea?
+            {homeContent.cta.heading}
 
-            <span
-              className="
-                block
-                bg-gradient-to-r
-                from-blue-200
-                via-white/70
-                to-cyan-300
-                bg-clip-text
-                text-transparent
-              "
-            >
-              Let's turn it into reality.
-            </span>
+            {homeContent.cta.highlightedHeading && (
+              <span
+                className="
+                  block
+                  bg-gradient-to-r
+                  from-blue-200
+                  via-white/70
+                  to-cyan-300
+                  bg-clip-text
+                  text-transparent
+                "
+              >
+                {homeContent.cta.highlightedHeading}
+              </span>
+            )}
           </h2>
 
           <p
@@ -1961,12 +2338,11 @@ function Home() {
               sm:mt-6
             "
           >
-            Tell us what you're building, what you're trying
-            to improve, or where you want to go next.
+            {homeContent.cta.description}
           </p>
 
           <a
-            href="/contact"
+            href={homeContent.cta.buttonLink}
             className="
               group
               mt-8
@@ -1990,7 +2366,7 @@ function Home() {
               hover:shadow-[0_20px_80px_rgba(37,99,235,0.38)]
             "
           >
-            Start a Conversation
+            {homeContent.cta.buttonText}
 
             <span
               className="
